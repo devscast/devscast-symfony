@@ -1,0 +1,33 @@
+{% extends "layout/auth.html.twig" %}
+
+{% block body %}
+    <div class="content content-auth-alt">
+        <div class="container d-flex justify-content-center ht-100p">
+            <div class="mx-wd-500 wd-sm-450 ht-100p d-flex flex-column align-items-center justify-content-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="tx-color-01 mg-b-5">Connexion Administration</h3>
+                        <p class="tx-color-03 tx-16">Bon retour parmi nous ! Veuillez vous connectez pour continuer.</p>
+                        {% if error %}
+                            <p class="text-danger tx-color-03 tx-16 mg-b-40">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </p>
+                        {% endif %}
+                        <form action="{{ path('login') }}" method="post">
+                            <div class="form-group">
+                                <label class="form-control-label" for="email">Email</label>
+                                <input class="form-control form-control-alternative" name="_username" id="email" type="text" value="{{ username }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="password">password</label>
+                                <input class="form-control form-control-alternative" name="_password" id="password" type="password">
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                            <button class="btn btn-brand-02 btn-block">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
