@@ -1,0 +1,27 @@
+{% extends "layout/auth.html.twig" %}
+
+{% block body %}
+    <div class="content content-auth-alt">
+        <div class="container d-flex justify-content-center ht-100p">
+            <div class="mx-wd-500 wd-sm-450 ht-100p d-flex flex-column align-items-center justify-content-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="tx-color-01 mg-b-5 mb-5">Registration</h3>
+                        {{ form_start(registrationForm) }}
+                            {{ form_row(registrationForm.name) }}
+                            {{ form_row(registrationForm.email) }}
+                            {{ form_row(registrationForm.plainPassword) }}
+                            {{ form_row(registrationForm.agreeTerms) }}
+
+                            <p class="tx-color-03 tx-14">
+                                Bon retour parmi nous ! Veuillez vous connectez pour continuer.
+                                <a href="">Terms of usage</a>
+                            </p>
+                            <button class="btn btn-block btn-primary">Register</button>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

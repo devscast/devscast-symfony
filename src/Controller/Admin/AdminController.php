@@ -16,7 +16,7 @@ class AdminController extends AbstractController
 {
 
     /**
-     * @Route(path="", name="admin.index", methods={"GET"})
+     * @Route(path="", name="admin_index", methods={"GET"})
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function index(): Response
