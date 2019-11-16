@@ -16,11 +16,11 @@ class AdminController extends AbstractController
 {
 
     /**
-     * @Route(path="/", name="admin.index", methods={"GET"})
+     * @Route(path="", name="admin.index", methods={"GET"})
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function index(): Response
     {
-        return new Response("Admin page");
+        return $this->render('admin/index.html.twig');
     }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,6 +16,7 @@
 
 {% block body %}{% endblock %}
 
+<script src="{{ asset('/assets/backend/lib/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>

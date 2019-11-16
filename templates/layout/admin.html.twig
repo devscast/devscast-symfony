@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -18,9 +18,14 @@
 {% include "admin/_sidebar.html.twig" %}
 <div class="content ht-100v pd-0">
     {% block navbar %}
-        <div class="content-header bg-dark">
+        <div class="content-header">
+            <div class="content-search">
+                <i class="fa fa-search"></i>
+                <input type="search" class="form-control" placeholder="Search...">
+            </div>
             <nav class="nav">
-                <a href="#" class="nav-link"><i data-feather="help-circle"></i></a>
+                <a href="#" class="nav-link"><i class="fa fa-question-circle"></i></a>
+                <a href="{{ path('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt text-danger"></i></a>
             </nav>
         </div>
     {% endblock %}
