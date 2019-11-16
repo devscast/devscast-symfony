@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Challenge
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Solutions", mappedBy="challenge", orphanRemoval=true)
+     */
+    private $solutions;
+
+    public function __construct()
+    {
+        $this->solutions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,37 @@ class Challenge
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Solutions[]
+     */
+    public function getSolutions(): Collection
+    {
+        return $this->solutions;
+    }
+
+    public function addSolution(Solutions $solution): self
+    {
+        if (!$this->solutions->contains($solution)) {
+            $this->solutions[] = $solution;
+            $solution->setChallenge($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSolution(Solutions $solution): self
+    {
+        if ($this->solutions->contains($solution)) {
+            $this->solutions->removeElement($solution);
+            // set the owning side to null (unless already changed)
+            if ($solution->getChallenge() === $this) {
+                $solution->setChallenge(null);
+            }
+        }
 
         return $this;
     }
