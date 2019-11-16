@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -66,6 +68,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $avatar;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="user")
+     */
+    private $blogs;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
+     */
+    private $posts;
+
+    public function __construct()
+    {
+        $this->blogs = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -211,6 +229,68 @@ class User implements UserInterface
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Blog[]
+     */
+    public function getBlogs(): Collection
+    {
+        return $this->blogs;
+    }
+
+    public function addBlog(Blog $blog): self
+    {
+        if (!$this->blogs->contains($blog)) {
+            $this->blogs[] = $blog;
+            $blog->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlog(Blog $blog): self
+    {
+        if ($this->blogs->contains($blog)) {
+            $this->blogs->removeElement($blog);
+            // set the owning side to null (unless already changed)
+            if ($blog->getUser() === $this) {
+                $blog->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts[] = $post;
+            $post->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): self
+    {
+        if ($this->posts->contains($post)) {
+            $this->posts->removeElement($post);
+            // set the owning side to null (unless already changed)
+            if ($post->getUser() === $this) {
+                $post->setUser(null);
+            }
+        }
 
         return $this;
     }
