@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+<div class="pl-lg-4">
+    <div class="row">
+        <div class="col-lg-6">{{ form_row(form.name) }}</div>
+        <div class="col-lg-6">{{ form_row(form.slug) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-12">{{ form_row(form.thumb_url) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">{{ form_row(form.category) }}</div>
+        <div class="col-lg-6"></div>
+    </div>
+    <div class="row">
+        <div class="col-12">{{ form_row(form.is_online) }}</div>
+        <div class="col-12">{{ form_row(form.content) }}</div>
+    </div>
+
+    <button class="btn btn-primary btn-block">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_end(form) }}
