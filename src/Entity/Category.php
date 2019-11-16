@@ -23,14 +23,13 @@ class Category
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="3", min="255")
-     *
+     * @Assert\Length(min="3", max="255")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=300, nullable=true)
-     * @Assert\Length(min="3", min="300")
+     * @Assert\Length(min="3", max="300")
      */
     private $description;
 
@@ -69,6 +68,7 @@ class Category
     {
         $this->posts = new ArrayCollection();
         $this->blogs = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int

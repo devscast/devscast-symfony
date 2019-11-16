@@ -1,0 +1,23 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('admin_category_index') }}">Category</a></li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1">New Category</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                {{ include('admin/category/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
