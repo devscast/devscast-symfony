@@ -41,6 +41,12 @@ class Challenge
      */
     private $is_solved = 0;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="challenges")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +108,18 @@ class Challenge
     public function setIsSolved(?bool $is_solved): self
     {
         $this->is_solved = $is_solved;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
