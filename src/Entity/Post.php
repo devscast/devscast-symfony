@@ -60,7 +60,7 @@ class Post
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_online;
+    private $is_online = 0;
 
     /**
      * @ORM\Column(type="integer")

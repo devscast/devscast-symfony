@@ -3,12 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ChallengeRepository")
  */
-class Blog
+class Challenge
 {
     /**
      * @ORM\Id()
@@ -19,31 +18,13 @@ class Blog
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="3", max="255")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(min="5")
      */
     private $content;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $thumb_url;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="blogs")
-     */
-    private $category;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="blogs")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
 
     /**
      * @ORM\Column(type="datetime")
@@ -58,7 +39,7 @@ class Blog
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_online = 0;
+    private $is_solved = 0;
 
     public function getId(): ?int
     {
@@ -89,42 +70,6 @@ class Blog
         return $this;
     }
 
-    public function getThumbUrl(): ?string
-    {
-        return $this->thumb_url;
-    }
-
-    public function setThumbUrl(?string $thumb_url): self
-    {
-        $this->thumb_url = $thumb_url;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -149,14 +94,14 @@ class Blog
         return $this;
     }
 
-    public function getIsOnline(): ?bool
+    public function getIsSolved(): ?bool
     {
-        return $this->is_online;
+        return $this->is_solved;
     }
 
-    public function setIsOnline(bool $is_online): self
+    public function setIsSolved(?bool $is_solved): self
     {
-        $this->is_online = $is_online;
+        $this->is_solved = $is_solved;
 
         return $this;
     }
