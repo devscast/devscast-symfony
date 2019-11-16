@@ -97,6 +97,7 @@ class User implements UserInterface
         $this->posts = new ArrayCollection();
         $this->challenges = new ArrayCollection();
         $this->solutions = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int

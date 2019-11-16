@@ -11,7 +11,6 @@
 
 namespace App\Controller;
 
-use DateTime;
 use Exception;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
@@ -47,8 +46,7 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user
                 ->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()))
-                ->setRoles(['ROLE_USER'])
-                ->setCreatedAt(new DateTime());
+                ->setRoles(['ROLE_USER']);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
