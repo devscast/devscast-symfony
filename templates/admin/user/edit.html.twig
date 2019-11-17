@@ -1,0 +1,35 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('admin_user_index') }}">User</a></li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1">Edit User</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('/assets/backend/lib/select2/css/select2.min.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('/assets/backend/lib/select2/js/select2.min.js') }}"></script>
+    <script>
+        $('#user_roles').select2({
+            maximumSelectionLength: 2
+        });
+    </script>
+{% endblock %}

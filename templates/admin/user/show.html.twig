@@ -1,0 +1,73 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('admin_user_index') }}">user</a></li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1">{{ user.name }}</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="mb-3">
+            <a class="btn btn-sm btn-primary" href="{{ path('admin_user_edit', {id: user.id}) }}">
+                <i class="fa fa-edit"></i>
+            </a>
+            {{ include('admin/user/_delete_form.html.twig') }}
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ user.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Roles</th>
+                        <td>{{ user.rolesAsString }}</td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td>{{ user.password }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ user.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last_login_at</th>
+                        <td>{{ user.lastLoginAt ? user.lastLoginAt|date('Y-m-d H:i:s') : '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last_login_ip</th>
+                        <td>{{ user.lastLoginIp }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created_at</th>
+                        <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Updated_at</th>
+                        <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Avatar</th>
+                        <td>{{ user.avatar }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

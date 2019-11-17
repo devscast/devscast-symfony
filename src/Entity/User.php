@@ -30,13 +30,15 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
      */
     private $roles;
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\Length(min="6")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="6", max="4096")
      */
     private $password;
 
@@ -136,6 +138,15 @@ class User implements UserInterface
         $roles = explode('|', $roles);
         $roles[] = 'ROLE_USER';
         return array_unique($roles);
+    }
+
+    /**
+     * @return string
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function getRolesAsString(): string
+    {
+        return $this->roles;
     }
 
     public function setRoles(array $roles): self
