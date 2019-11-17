@@ -1,62 +1,76 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/admin.html.twig' %}
 
-{% block title %}Post{% endblock %}
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('admin_post_index') }}">Post</a></li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1">{{ post.name }}</h1>
+    </div>
+{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ post.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ post.description }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ post.content }}</td>
-            </tr>
-            <tr>
-                <th>Thumb_url</th>
-                <td>{{ post.thumbUrl }}</td>
-            </tr>
-            <tr>
-                <th>Video_url</th>
-                <td>{{ post.videoUrl }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ post.updatedAt ? post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Is_online</th>
-                <td>{{ post.isOnline ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Duration</th>
-                <td>{{ post.duration }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ post.slug }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('post_index') }}">back to list</a>
-
-    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-
-    {{ include('post/_delete_form.html.twig') }}
+    <div class="container-fluid">
+        <div class="mb-3">
+            <a class="btn btn-sm btn-primary" href="{{ path('admin_post_edit', {id: post.id}) }}">
+                <i class="fa fa-edit"></i>
+            </a>
+            {{ include('admin/post/_delete_form.html.twig') }}
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ post.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ post.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ post.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Content</th>
+                        <td>{{ post.content }}</td>
+                    </tr>
+                    <tr>
+                        <th>Thumb_url</th>
+                        <td>{{ post.thumbUrl }}</td>
+                    </tr>
+                    <tr>
+                        <th>Video_url</th>
+                        <td>{{ post.videoUrl }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created_at</th>
+                        <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Updated_at</th>
+                        <td>{{ post.updatedAt ? post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Is_online</th>
+                        <td>{{ post.isOnline ? 'Yes' : 'No' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                        <td>{{ post.duration }}</td>
+                    </tr>
+                    <tr>
+                        <th>Slug</th>
+                        <td>{{ post.slug }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
