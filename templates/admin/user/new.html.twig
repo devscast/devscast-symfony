@@ -21,15 +21,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block stylesheet %}
-    <link rel="stylesheet" href="{{ asset('/assets/backend/lib/select2/css/select2.min.css') }}">
-{% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('/assets/backend/lib/select2/js/select2.min.js') }}"></script>
-    <script>
-        $('#user_roles').select2({
-            maximumSelectionLength: 2
-        });
-    </script>
-{% endblock %}

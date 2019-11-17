@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Blog;
 use App\Entity\Category;
+use App\Entity\Tag;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -28,6 +29,12 @@ class BlogType extends AbstractType
                 'class' => Category::class,
                 'required' => true,
                 'multiple' => false,
+                'choice_label' => 'name'
+            ])
+            ->add('tags', EntityType::class, [
+                'class' => Tag::class,
+                'required' => false,
+                'multiple' => true,
                 'choice_label' => 'name'
             ])
             ->add('content', TextareaType::class)

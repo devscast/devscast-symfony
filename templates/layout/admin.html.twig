@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     {% block meta %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('/assets/backend/lib/select2/css/select2.min.css') }}">
     <link href="{{ asset('/assets/backend/lib/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/backend/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/backend/css/dashforge.css') }}">
@@ -60,6 +61,10 @@
 <script src="{{ asset('/assets/backend/lib/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/js/dashforge.js') }}"></script>
+<script src="{{ asset('/assets/backend/lib/select2/js/select2.min.js') }}"></script>
+<script>
+    $('select').select2();
+</script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
