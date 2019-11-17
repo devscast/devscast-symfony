@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the DevsCast project
  *
@@ -13,6 +14,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,6 +79,7 @@ class CategoryController extends AbstractController
      * @param Request $request
      * @param Category $category
      * @return Response
+     * @throws \Exception
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -84,6 +87,7 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $category->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_category_index');

@@ -14,6 +14,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use DateTime;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,7 +55,6 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-
             return $this->redirectToRoute('admin_user_index');
         }
 
@@ -82,6 +82,7 @@ class UserController extends AbstractController
      * @param User $user
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
+     * @throws \Exception
      */
     public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
@@ -89,7 +90,9 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword($encoder->encodePassword($user, $form->get('password')->getData()));
+            $user
+                ->setPassword($encoder->encodePassword($user, $form->get('password')->getData()))
+                ->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_user_index');
@@ -109,7 +112,7 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();

@@ -14,6 +14,7 @@ namespace App\Controller\Admin;
 use App\Entity\Blog;
 use App\Form\BlogType;
 use App\Repository\BlogRepository;
+use DateTime;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -80,6 +81,7 @@ class BlogController extends AbstractController
      * @param Request $request
      * @param Blog $blog
      * @return Response
+     * @throws Exception
      */
     public function edit(Request $request, Blog $blog): Response
     {
@@ -87,6 +89,7 @@ class BlogController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $blog->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin_blog_index');
         }
@@ -105,7 +108,7 @@ class BlogController extends AbstractController
      */
     public function delete(Request $request, Blog $blog): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$blog->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $blog->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($blog);
             $entityManager->flush();

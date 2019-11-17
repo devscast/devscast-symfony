@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -61,22 +70,39 @@ class Challenge
      */
     private $slug;
 
+    /**
+     * Challenge constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->solutions = new ArrayCollection();
         $this->created_at = new \DateTime();
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -84,11 +110,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * @param string $content
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -96,11 +131,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
+    /**
+     * @param \DateTimeInterface $created_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -108,11 +152,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
     }
 
+    /**
+     * @param \DateTimeInterface|null $updated_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
@@ -120,11 +173,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsSolved(): ?bool
     {
         return $this->is_solved;
     }
 
+    /**
+     * @param bool|null $is_solved
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsSolved(?bool $is_solved): self
     {
         $this->is_solved = $is_solved;
@@ -132,11 +194,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return User|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
+    /**
+     * @param User|null $user
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -152,6 +223,11 @@ class Challenge
         return $this->solutions;
     }
 
+    /**
+     * @param Solutions $solution
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addSolution(Solutions $solution): self
     {
         if (!$this->solutions->contains($solution)) {
@@ -162,6 +238,11 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @param Solutions $solution
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeSolution(Solutions $solution): self
     {
         if ($this->solutions->contains($solution)) {
@@ -175,11 +256,20 @@ class Challenge
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getSlug(): ?string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string $slug
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;

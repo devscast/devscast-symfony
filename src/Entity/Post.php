@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -93,22 +102,39 @@ class Post
      */
     private $tags;
 
+    /**
+     * Post constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->created_at = new \DateTime();
         $this->tags = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -116,11 +142,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @param string|null $description
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -128,11 +163,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * @param string $content
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -140,11 +184,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getThumbUrl(): ?string
     {
         return $this->thumb_url;
     }
 
+    /**
+     * @param string|null $thumb_url
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setThumbUrl(?string $thumb_url): self
     {
         $this->thumb_url = $thumb_url;
@@ -152,11 +205,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getVideoUrl(): ?string
     {
         return $this->video_url;
     }
 
+    /**
+     * @param string $video_url
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setVideoUrl(string $video_url): self
     {
         $this->video_url = $video_url;
@@ -164,11 +226,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
+    /**
+     * @param \DateTimeInterface $created_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -176,11 +247,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
     }
 
+    /**
+     * @param \DateTimeInterface|null $updated_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
@@ -188,11 +268,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsOnline(): ?bool
     {
         return $this->is_online;
     }
 
+    /**
+     * @param bool $is_online
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsOnline(bool $is_online): self
     {
         $this->is_online = $is_online;
@@ -200,11 +289,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getDuration(): ?int
     {
         return $this->duration;
     }
 
+    /**
+     * @param int $duration
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setDuration(int $duration): self
     {
         $this->duration = $duration;
@@ -212,11 +310,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return Category|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getCategory(): ?Category
     {
         return $this->category;
     }
 
+    /**
+     * @param Category|null $category
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
@@ -224,11 +331,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return User|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
+    /**
+     * @param User|null $user
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -236,11 +352,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getSlug(): ?string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string $slug
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
@@ -256,6 +381,11 @@ class Post
         return $this->tags;
     }
 
+    /**
+     * @param Tag $tag
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addTag(Tag $tag): self
     {
         if (!$this->tags->contains($tag)) {
@@ -265,6 +395,11 @@ class Post
         return $this;
     }
 
+    /**
+     * @param Tag $tag
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeTag(Tag $tag): self
     {
         if ($this->tags->contains($tag)) {

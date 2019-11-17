@@ -1,13 +1,25 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
+ * @UniqueEntity("name")
  */
 class Tag
 {
@@ -20,6 +32,8 @@ class Tag
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3",max="50")
      */
     private $name;
 
@@ -33,22 +47,38 @@ class Tag
      */
     private $posts;
 
+    /**
+     * Tag constructor.
+     */
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
         $this->posts = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -64,6 +94,11 @@ class Tag
         return $this->blogs;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addBlog(Blog $blog): self
     {
         if (!$this->blogs->contains($blog)) {
@@ -74,6 +109,11 @@ class Tag
         return $this;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeBlog(Blog $blog): self
     {
         if ($this->blogs->contains($blog)) {
@@ -92,6 +132,11 @@ class Tag
         return $this->posts;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addPost(Post $post): self
     {
         if (!$this->posts->contains($post)) {
@@ -102,6 +147,11 @@ class Tag
         return $this;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removePost(Post $post): self
     {
         if ($this->posts->contains($post)) {

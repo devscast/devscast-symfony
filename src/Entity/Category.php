@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -64,6 +73,10 @@ class Category
      */
     private $slug;
 
+    /**
+     * Category constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -71,16 +84,29 @@ class Category
         $this->created_at = new \DateTime();
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -88,11 +114,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @param string|null $description
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -100,11 +135,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIconUrl(): ?string
     {
         return $this->icon_url;
     }
 
+    /**
+     * @param string|null $icon_url
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIconUrl(?string $icon_url): self
     {
         $this->icon_url = $icon_url;
@@ -112,11 +156,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
+    /**
+     * @param \DateTimeInterface $created_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -124,11 +177,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
     }
 
+    /**
+     * @param \DateTimeInterface|null $updated_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
@@ -144,6 +206,11 @@ class Category
         return $this->posts;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addPost(Post $post): self
     {
         if (!$this->posts->contains($post)) {
@@ -154,6 +221,11 @@ class Category
         return $this;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removePost(Post $post): self
     {
         if ($this->posts->contains($post)) {
@@ -175,6 +247,11 @@ class Category
         return $this->blogs;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addBlog(Blog $blog): self
     {
         if (!$this->blogs->contains($blog)) {
@@ -185,6 +262,11 @@ class Category
         return $this;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeBlog(Blog $blog): self
     {
         if ($this->blogs->contains($blog)) {
@@ -198,11 +280,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getSlug(): ?string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string $slug
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;

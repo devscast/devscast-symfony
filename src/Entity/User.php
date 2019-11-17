@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -93,6 +102,10 @@ class User implements UserInterface
      */
     private $solutions;
 
+    /**
+     * User constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
@@ -102,16 +115,29 @@ class User implements UserInterface
         $this->created_at = new \DateTime();
     }
 
+    /**
+     * @return int|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -149,6 +175,11 @@ class User implements UserInterface
         return $this->roles;
     }
 
+    /**
+     * @param array $roles
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = implode('|', $roles);
@@ -163,6 +194,11 @@ class User implements UserInterface
         return (string) $this->password;
     }
 
+    /**
+     * @param string $password
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -187,11 +223,20 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -199,11 +244,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getLastLoginAt(): ?\DateTimeInterface
     {
         return $this->last_login_at;
     }
 
+    /**
+     * @param \DateTimeInterface $last_login_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setLastLoginAt(\DateTimeInterface $last_login_at): self
     {
         $this->last_login_at = $last_login_at;
@@ -211,11 +265,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getLastLoginIp(): ?string
     {
         return $this->last_login_ip;
     }
 
+    /**
+     * @param string|null $last_login_ip
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setLastLoginIp(?string $last_login_ip): self
     {
         $this->last_login_ip = $last_login_ip;
@@ -223,11 +286,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
+    /**
+     * @param \DateTimeInterface $created_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -235,11 +307,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
     }
 
+    /**
+     * @param \DateTimeInterface $updated_at
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
@@ -247,11 +328,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getAvatar(): ?string
     {
         return $this->avatar;
     }
 
+    /**
+     * @param string|null $avatar
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
@@ -267,6 +357,11 @@ class User implements UserInterface
         return $this->blogs;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addBlog(Blog $blog): self
     {
         if (!$this->blogs->contains($blog)) {
@@ -277,6 +372,11 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @param Blog $blog
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeBlog(Blog $blog): self
     {
         if ($this->blogs->contains($blog)) {
@@ -298,6 +398,11 @@ class User implements UserInterface
         return $this->posts;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addPost(Post $post): self
     {
         if (!$this->posts->contains($post)) {
@@ -308,6 +413,11 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @param Post $post
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removePost(Post $post): self
     {
         if ($this->posts->contains($post)) {
@@ -329,6 +439,11 @@ class User implements UserInterface
         return $this->challenges;
     }
 
+    /**
+     * @param Challenge $challenge
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addChallenge(Challenge $challenge): self
     {
         if (!$this->challenges->contains($challenge)) {
@@ -339,6 +454,11 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @param Challenge $challenge
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeChallenge(Challenge $challenge): self
     {
         if ($this->challenges->contains($challenge)) {
@@ -360,6 +480,11 @@ class User implements UserInterface
         return $this->solutions;
     }
 
+    /**
+     * @param Solutions $solution
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function addSolution(Solutions $solution): self
     {
         if (!$this->solutions->contains($solution)) {
@@ -370,6 +495,11 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @param Solutions $solution
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function removeSolution(Solutions $solution): self
     {
         if ($this->solutions->contains($solution)) {

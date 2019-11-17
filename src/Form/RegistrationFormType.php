@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Form;
 
 use App\Entity\User;
@@ -13,8 +22,18 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class RegistrationFormType
+ * @package App\Form
+ * @author bernard-ng <ngandubernard@gmail.com>
+ */
 class RegistrationFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -37,6 +56,10 @@ class RegistrationFormType extends AbstractType
             ]);
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the DevsCast project
  *
@@ -59,7 +60,7 @@ class TagController extends AbstractController
             return $this->redirectToRoute("admin_tag_index");
         }
 
-        return $this->render("admin/tag/index.html.twig", [
+        return $this->render("admin/tag/new.html.twig", [
             'tag' => $tag,
             'form' => $form->createView()
         ]);
