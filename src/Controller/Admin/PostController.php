@@ -14,10 +14,12 @@ namespace App\Controller\Admin;
 use App\Entity\Post;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use DateTime;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Class PostController
@@ -82,6 +84,7 @@ class PostController extends AbstractController
      * @param Request $request
      * @param Post $post
      * @return Response
+     * @throws \Exception
      */
     public function edit(Request $request, Post $post): Response
     {
@@ -89,6 +92,7 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $post->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin_post_index');
         }

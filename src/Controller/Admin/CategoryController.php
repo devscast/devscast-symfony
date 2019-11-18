@@ -44,6 +44,7 @@ class CategoryController extends AbstractController
      * @Route("/new", name="admin_category_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+     * @throws \Exception
      */
     public function new(Request $request): Response
     {
