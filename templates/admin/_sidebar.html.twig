@@ -27,6 +27,8 @@
                     <i data-feather="chevron-down"></i>
                 </a>
                 <p class="tx-color-03 tx-12 mg-b-0">{{ app.user.email }}</p>
+                <p class="tx-color-03 tx-12 mg-b-0">last IP : {{ app.user.lastLoginIp }}</p>
+                <p class="tx-color-03 tx-12 mg-b-0">last Login : {{ app.user.lastLoginAt ? app.user.lastLoginAt|date('d-M-Y H:i:s') : '-'  }}</p>
             </div>
             <div class="collapse" id="loggedinMenu">
                 <ul class="nav nav-aside mg-b-0">

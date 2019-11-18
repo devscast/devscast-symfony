@@ -25,6 +25,9 @@ security:
             logout:
                 path: logout
                 target: home
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
 
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
