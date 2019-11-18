@@ -32,6 +32,19 @@ class ChallengeRepository extends ServiceEntityRepository
         parent::__construct($registry, Challenge::class);
     }
 
+    /**
+     * @param int $limit
+     * @return mixed
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function findLatest($limit = 10)
+    {
+        return $this->createQueryBuilder('c')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Challenge[] Returns an array of Challenge objects
     //  */
