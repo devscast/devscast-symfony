@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Form\PostType;
@@ -20,7 +20,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/admin/post")
+ * Class PostController
+ * @Route("/admin/post", schemes={"HTTP", "HTTPS"})
+ * @package App\Controller\Admin
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class PostController extends AbstractController
 {
@@ -40,6 +43,7 @@ class PostController extends AbstractController
      * @Route("/new", name="admin_post_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+     * @throws \Exception
      */
     public function new(Request $request): Response
     {

@@ -21,7 +21,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/category")
+ * Class CategoryController
+ * @Route("/admin/category", schemes={"HTTP", "HTTPS"})
+ * @package App\Controller\Admin
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class CategoryController extends AbstractController
 {

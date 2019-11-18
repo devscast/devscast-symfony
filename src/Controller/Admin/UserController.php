@@ -22,7 +22,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/admin/user")
+ * Class UserController
+ * @Route("/admin/user", schemes={"HTTP", "HTTPS"})
+ * @package App\Controller\Admin
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class UserController extends AbstractController
 {
@@ -43,6 +46,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
+     * @throws \Exception
      */
     public function new(Request $request, UserPasswordEncoderInterface $encoder): Response
     {

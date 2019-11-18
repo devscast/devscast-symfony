@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class AdminController
- * @Route(path="/admin")
+ * @Route(path="/admin", schemes={"HTTP", "HTTPS"})
  * @package App\Controller\Admin
  * @author bernard-ng <ngandubernard@gmail.com>
  */

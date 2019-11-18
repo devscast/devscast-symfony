@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class HomeController
+ * @Route(schemes={"HTTP", "HTTPS"})
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Challenge;
 use App\Form\ChallengeType;
@@ -21,7 +21,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/challenge")
+ * Class ChallengeController
+ * @Route("/admin/challenge", schemes={"HTTP", "HTTPS"})
+ * @package App\Controller\Admin
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class ChallengeController extends AbstractController
 {

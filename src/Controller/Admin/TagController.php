@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class TagController
- * @Route("/admin/tag")
+ * @Route("/admin/tag", schemes={"HTTP", "HTTPS"})
  * @package App\Controller\Admin
  * @author bernard-ng <ngandubernard@gmail.com>
  */

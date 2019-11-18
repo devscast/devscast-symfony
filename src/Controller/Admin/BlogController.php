@@ -22,7 +22,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/blog")
+ * Class BlogController
+ * @Route("/admin/blog", schemes={"HTTP", "HTTPS"})
+ * @package App\Controller\Admin
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class BlogController extends AbstractController
 {
