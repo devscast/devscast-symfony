@@ -10,43 +10,26 @@
     <link href="{{ asset('/assets/backend/lib/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/backend/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/backend/css/dashforge.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/backend/css/dashforge.filemgr.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/backend/css/skin.cool.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/backend/css/skin.charcoal.css') }}">
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
-
-{% include "admin/_sidebar.html.twig" %}
-<div class="content ht-100v pd-0">
-    {% block navbar %}
-        <div class="content-header">
-            <div class="content-search"></div>
-            <nav class="nav">
-                <a href="{{ path('home') }}" class="nav-link"><i class="fa fa-home"></i></a>
-                <a href="{{ path('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt text-danger"></i></a>
-            </nav>
-        </div>
-    {% endblock %}
-
-    <div class="content-body">
-        <div class="container pd-x-0">
-            <div class="mt-5 mb-5">
-                {% include "admin/_flash.html.twig" %}
-            </div>
-
-            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-                {% block breadcrumb %}
-                    <div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-                            </ol>
-                        </nav>
-                        <h1 class="mg-b-0 tx-spacing--1">Dashboard</h1>
-                    </div>
-                {% endblock %}
-            </div>
-            <div class="row row-xs">
+{% block navbar %}
+    <div class="content-header">
+        <nav class="nav">
+            <a href="#" class="nav-link"><i class="fa fa-question-circle"></i></a>
+            <a href="{{ path('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt text-danger"></i></a>
+        </nav>
+    </div>
+{% endblock %}
+<div class="">
+    {{ include('admin/_sidebar.html.twig') }}
+    <div class="filemgr-content">
+        <div class="filemgr-content-body">
+            <div class="pd-20 pd-lg-25 pd-xl-30">
+                {% block breadcrumb %}{% endblock %}
                 {% block body %}{% endblock %}
             </div>
         </div>
@@ -58,10 +41,6 @@
 <script src="{{ asset('/assets/backend/lib/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/js/dashforge.js') }}"></script>
-<script src="{{ asset('/assets/backend/lib/select2/js/select2.min.js') }}"></script>
-<script>
-    $('select').select2();
-</script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

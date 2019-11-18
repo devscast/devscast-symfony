@@ -1,6 +1,6 @@
 <aside class="aside aside-fixed">
     <div class="aside-header">
-        <a href="{{ path('home') }}" class="aside-logo">DEVSCAST</a>
+        <a href="{{ path('admin_index') }}" class="aside-logo">DEVSCAST</a>
         <a href="" class="aside-menu-link">
             <i data-feather="menu"></i>
             <i data-feather="x"></i>
@@ -26,11 +26,11 @@
                     <h6 class="tx-semibold mg-b-0">{{ app.user.name | upper }}</h6>
                     <i data-feather="chevron-down"></i>
                 </a>
+            </div>
+            <div class="collapse" id="loggedinMenu">
                 <p class="tx-color-03 tx-12 mg-b-0">{{ app.user.email }}</p>
                 <p class="tx-color-03 tx-12 mg-b-0">last IP : {{ app.user.lastLoginIp }}</p>
                 <p class="tx-color-03 tx-12 mg-b-0">last Login : {{ app.user.lastLoginAt ? app.user.lastLoginAt|date('d-M-Y H:i:s') : '-'  }}</p>
-            </div>
-            <div class="collapse" id="loggedinMenu">
                 <ul class="nav nav-aside mg-b-0">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -51,11 +51,9 @@
             <li class="nav-label">Dashboard</li>
             <li class="">
                 <a href="{{ path('admin_index') }}" class="nav-link">
-                    <i data-feather="home"></i> <span>Dashboard Overview</span>
+                    <i data-feather="home"></i> <span>Dashboard</span>
                 </a>
             </li>
-
-            <li class="nav-label mg-t-25">Modules</li>
             <li class="">
                 <a href="{{ path('admin_user_index') }}" class="nav-link">
                     <i data-feather="user"></i><span>User</span>
@@ -91,18 +89,10 @@
                     <i data-feather="layers"></i><span>Solutions</span>
                 </a>
             </li>
-
-            <li class="nav-label mg-t-25">Paramètres</li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ path('admin_files_index') }}" class="nav-link">
                     <i data-feather="layers"></i>
-                    <span>Supprimer le Cache</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i data-feather="layers"></i>
-                    <span>Gestion de fichier</span>
+                    <span>Filesystem</span>
                 </a>
             </li>
         </ul>
