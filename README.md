@@ -25,8 +25,7 @@ $ composer install
 #### screenshots
 
 ##### current frontend
-![frontend](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Frontend")
+![frontend](https://github.com/bernard-ng/devscast-symfony/blob/master/.github/screenshots/frontend.png "Frontend")
 
 ##### backend
-![backend](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Backend")
-
+![backend](https://github.com/bernard-ng/devscast-symfony/blob/master/.github/screenshots/backend.png "Backend")
