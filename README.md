@@ -21,3 +21,12 @@ $ git clone https://github.com/bernard-ng/devscast-symfony devscast
 $ cd devscast
 $ composer install
 ```
+
+#### screenshots
+
+##### current frontend
+![frontend](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Frontend")
+
+##### backend
+![backend](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Backend")
+
