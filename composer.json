@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.2",
+        "erusev/parsedown": "^1.7",
         "nelmio/cors-bundle": "^2.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.3.*",
@@ -28,6 +29,8 @@
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/yaml": "4.3.*",
+        "twig/extensions": "^1.5",
+        "twig/extra-bundle": "^3.0",
         "twig/markdown-extra": "^3.0",
         "vich/uploader-bundle": "^1.10"
     },

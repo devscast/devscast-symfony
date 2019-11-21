@@ -3,6 +3,7 @@
 /.env.local.php
 /.env.*.local
 /public/bundles/
+/public/images/
 /var/
 /vendor/
 /composer.lock
