@@ -11,13 +11,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @ApiResource()
+ * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
  * @UniqueEntity("name")
  */
@@ -41,6 +48,12 @@ class Blog
      * @Assert\Length(min="5")
      */
     private $content;
+
+    /**
+     * @Vich\UploadableField(mapping="blog_thumb", fileNameProperty="thumb_url")
+     * @var File|null
+     */
+    private $thumb_file;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -324,6 +337,30 @@ class Blog
             $this->tags->removeElement($tag);
         }
 
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function getThumbFile(): ?File
+    {
+        return $this->thumb_file;
+    }
+
+    /**
+     * @param File|null $thumb_file
+     * @return Blog
+     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function setThumbFile(?File $thumb_file): Blog
+    {
+        $this->thumb_file = $thumb_file;
+        if ($thumb_file instanceof UploadedFile) {
+            $this->setCreatedAt(new DateTime());
+        }
         return $this;
     }
 }

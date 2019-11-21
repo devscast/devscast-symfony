@@ -40,8 +40,7 @@ class BlogType extends AbstractType
         $builder
             ->add('name')
             ->add('slug')
-            ->add('thumb_url', FileType::class, [
-                'data_class' => null,
+            ->add('thumb_file', FileType::class, [
                 'required' => false,
                 'label' => 'thumb'
             ])

@@ -11,13 +11,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @ApiResource()
+ * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  * @UniqueEntity("name")
  */
@@ -46,6 +53,12 @@ class Category
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $icon_url;
+
+    /**
+     * @Vich\UploadableField(mapping="categoriy_icon", fileNameProperty="icon_url")
+     * @var File|null
+     */
+    private $icon_file;
 
     /**
      * @ORM\Column(type="datetime")
@@ -298,6 +311,30 @@ class Category
     {
         $this->slug = $slug;
 
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function getIconFile(): ?File
+    {
+        return $this->icon_file;
+    }
+
+    /**
+     * @param File|null $icon_file
+     * @return Category
+     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function setIconFile(?File $icon_file): Category
+    {
+        $this->icon_file = $icon_file;
+        if ($icon_file instanceof UploadedFile) {
+            $this->setCreatedAt(new DateTime());
+        }
         return $this;
     }
 }

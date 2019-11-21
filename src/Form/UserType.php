@@ -41,8 +41,7 @@ class UserType extends AbstractType
                 'multiple' => true,
                 'choices' => $this->getRolesChoices(),
             ])
-            ->add('avatar', FileType::class, [
-                'data_class' => null,
+            ->add('avatar_file', FileType::class, [
                 'required' => false
             ]);
     }

@@ -11,14 +11,21 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @ApiResource()
+ * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
@@ -81,6 +88,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $avatar;
+
+    /**
+     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatar")
+     * @var File|null
+     */
+    private $avatar_file;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="user")
@@ -510,6 +523,30 @@ class User implements UserInterface
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function getAvatarFile(): ?File
+    {
+        return $this->avatar_file;
+    }
+
+    /**
+     * @param File|null $avatar_file
+     * @return User
+     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function setAvatarFile(?File $avatar_file): User
+    {
+        $this->avatar_file = $avatar_file;
+        if ($avatar_file instanceof UploadedFile) {
+            $this->setCreatedAt(new DateTime());
+        }
         return $this;
     }
 }

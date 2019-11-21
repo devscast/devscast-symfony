@@ -35,8 +35,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('name')
             ->add('slug')
-            ->add('icon_url', FileType::class, [
-                'data_class' => null,
+            ->add('icon_file', FileType::class, [
                 'required' => false,
                 'label' => 'icon',
             ])
