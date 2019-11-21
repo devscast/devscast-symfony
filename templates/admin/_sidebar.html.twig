@@ -12,7 +12,7 @@
             <div class="d-flex align-items-center justify-content-start">
                 <div class="avatar">
                     <img
-                            src="{{ app.user.avatar ?: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/male_avatar_323b.svg" }}"
+                            src="{{ vich_uploader_asset(app.user, 'avatar_file') }}"
                             class="rounded-circle"
                             alt="profile picture"
                     >

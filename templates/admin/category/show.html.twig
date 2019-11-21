@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                         <th>Description</th>
-                        <td>{{ category.description }}</td>
+                        <td>{{ category.description | markdown_to_html }}</td>
                     </tr>
                     <tr>
                         <th>Created_at</th>

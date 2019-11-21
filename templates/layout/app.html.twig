@@ -26,11 +26,13 @@
 {% endblock %}
 <div class="">
     {{ include('admin/_sidebar.html.twig') }}
-    <div class="filemgr-content">
-        <div class="filemgr-content-body">
-            <div class="pd-20 pd-lg-25 pd-xl-30">
-                {% block breadcrumb %}{% endblock %}
-                {% block body %}{% endblock %}
+    <div class="content ht-100v pd-0">
+        <div class="content-body">
+            <div class="container">
+                <div class="">
+                    {% block breadcrumb %}{% endblock %}
+                    {% block body %}{% endblock %}
+                </div>
             </div>
         </div>
     </div>

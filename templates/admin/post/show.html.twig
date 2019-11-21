@@ -25,6 +25,34 @@
                 <table class="table">
                     <tbody>
                     <tr>
+                        <th>thumb</th>
+                        <td class="text-center">
+                            <img width="100%" height="auto" src="{{ vich_uploader_asset(post, 'thumb_file') }}"
+                                 alt="{{ post.name }}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Thumb_url</th>
+                        <td>{{ post.thumbUrl }}</td>
+                    </tr>
+                    <tr>
+                        <th>video_url</th>
+                        <td>{{ post.videoUrl }}</td>
+                    </tr>
+                    <tr>
+                        <th>Video</th>
+                        <td>
+                            <iframe
+                                    width="100%"
+                                    height="500px"
+                                    src="https://www.youtube-nocookie.com/embed/QWq5CU-5uxg"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>Id</th>
                         <td>{{ post.id }}</td>
                     </tr>
@@ -38,15 +66,7 @@
                     </tr>
                     <tr>
                         <th>Content</th>
-                        <td>{{ post.content }}</td>
-                    </tr>
-                    <tr>
-                        <th>Thumb_url</th>
-                        <td>{{ post.thumbUrl }}</td>
-                    </tr>
-                    <tr>
-                        <th>Video_url</th>
-                        <td>{{ post.videoUrl }}</td>
+                        <td>{{ post.content | markdown_to_html }}</td>
                     </tr>
                     <tr>
                         <th>Created_at</th>
