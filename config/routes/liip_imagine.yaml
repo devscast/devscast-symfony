@@ -1,2 +1,5 @@
 _liip_imagine:
+    schemes:
+        - HTTP
+        - HTTPS
     resource: "@LiipImagineBundle/Resources/config/routing.yaml"
