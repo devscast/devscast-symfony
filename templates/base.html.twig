@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        <script src="{{ asset('build/app.js') }}"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block meta %}
+        <title>devscast let's bring your dreams to reality | devs-cast.com</title>
+    {% endblock %}
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+</head>
+<body>
+{% include "app/includes/_nav.html.twig" %}
+<main>
+    {% block body %}{% endblock %}
+</main>
+
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('build/app.js') }}"></script>
+</body>
 </html>

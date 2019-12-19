@@ -8,13 +8,15 @@ html {
 }
 
 body {
-  // display: flex;
-  // min-height: 100vh;
-  // flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: color('grey', 'darken-4');
+  color: $text-color;
 }
 
 main {
-  // flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 button,
