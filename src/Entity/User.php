@@ -106,16 +106,6 @@ class User implements UserInterface
     private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Challenge", mappedBy="user")
-     */
-    private $challenges;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Solutions", mappedBy="user")
-     */
-    private $solutions;
-
-    /**
      * User constructor.
      * @throws \Exception
      */
@@ -123,8 +113,6 @@ class User implements UserInterface
     {
         $this->blogs = new ArrayCollection();
         $this->posts = new ArrayCollection();
-        $this->challenges = new ArrayCollection();
-        $this->solutions = new ArrayCollection();
         $this->created_at = new \DateTime();
     }
 
@@ -438,88 +426,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($post->getUser() === $this) {
                 $post->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Challenge[]
-     */
-    public function getChallenges(): Collection
-    {
-        return $this->challenges;
-    }
-
-    /**
-     * @param Challenge $challenge
-     * @return $this
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function addChallenge(Challenge $challenge): self
-    {
-        if (!$this->challenges->contains($challenge)) {
-            $this->challenges[] = $challenge;
-            $challenge->setUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Challenge $challenge
-     * @return $this
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function removeChallenge(Challenge $challenge): self
-    {
-        if ($this->challenges->contains($challenge)) {
-            $this->challenges->removeElement($challenge);
-            // set the owning side to null (unless already changed)
-            if ($challenge->getUser() === $this) {
-                $challenge->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Solutions[]
-     */
-    public function getSolutions(): Collection
-    {
-        return $this->solutions;
-    }
-
-    /**
-     * @param Solutions $solution
-     * @return $this
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function addSolution(Solutions $solution): self
-    {
-        if (!$this->solutions->contains($solution)) {
-            $this->solutions[] = $solution;
-            $solution->setUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Solutions $solution
-     * @return $this
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function removeSolution(Solutions $solution): self
-    {
-        if ($this->solutions->contains($solution)) {
-            $this->solutions->removeElement($solution);
-            // set the owning side to null (unless already changed)
-            if ($solution->getUser() === $this) {
-                $solution->setUser(null);
             }
         }
 

@@ -12,7 +12,7 @@
 namespace App\Controller\Admin;
 
 use App\Repository\BlogRepository;
-use App\Repository\ChallengeRepository;
+use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,22 +30,21 @@ class AdminController extends AbstractController
     /**
      * @Route(path="", name="admin_index", methods={"GET"})
      * @param BlogRepository $blogRepository
+     * @param PostRepository $postRepository
      * @param UserRepository $userRepository
-     * @param ChallengeRepository $challengeRepository
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function index(
         BlogRepository $blogRepository,
-        UserRepository $userRepository,
-        ChallengeRepository $challengeRepository
+        PostRepository $postRepository,
+        UserRepository $userRepository
     ): Response
     {
         return $this->render('admin/index.html.twig', [
             'blog_count' => $blogRepository->count([]),
+            'post_count' => $postRepository->count([]),
             'user_count' => $userRepository->count([]),
-            'challenge_count' => $challengeRepository->count([]),
-            'challenges' => $challengeRepository->findLatest(5)
         ]);
     }
 }

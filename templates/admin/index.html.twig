@@ -20,13 +20,13 @@
     <div class="col-4 mg-t-10 mg-sm-t-0">
         <div class="card card-body">
             <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-10">
-                Challenges
+                Posts
             </h6>
             <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                <h3 class="tx-normal tx-rubik mg-b-10 mg-r-5 lh-1">{{ challenge_count }}</h3>
+                <h3 class="tx-normal tx-rubik mg-b-10 mg-r-5 lh-1">{{ post_count }}</h3>
             </div>
             <div class="chart-three">
-                <a href="{{ path('admin_challenge_index') }}" class="small-box-footer">
+                <a href="{{ path('admin_post_index') }}" class="small-box-footer">
                     View More
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
@@ -48,46 +48,6 @@
                     View More
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
-            </div>
-        </div>
-    </div>
-
-    <h4 id="section1" class="mg-b-10 mt-5">Latest Challenges</h4>
-    <div class="card col-12">
-        <div class="card-body align-content-center">
-            <div data-label="Latest Profiles" class="">
-                <table id="datatable-challenge" class="table" style="width: 100%">
-                    <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>created_at</th>
-                        <th>is_solved</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for  challenge in challenges %}
-                        <tr>
-                            <td>{{ challenge.name }}</td>
-                            <td>{{ challenge.createdAt ? challenge.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                            <td>
-                                {{ challenge.isSolved ?
-                                '<span class="fa fa-check text-success"></span>' :
-                                '<span class="fa fa-times text-danger"></span>' }}
-                            </td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="{{ path('admin_challenge_show', {'id': challenge.id}) }}">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a class="btn btn-sm btn-primary" href="{{ path('admin_challenge_edit', {'id': challenge.id}) }}">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                {{ include('admin/challenge/_delete_form.html.twig') }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
