@@ -5,6 +5,7 @@
     "core-js": "^3.0.0",
     "regenerator-runtime": "^0.13.2",
     "sass-loader": "^7.3.1",
+    "url-loader": "^2.3.0",
     "webpack-notifier": "^1.6.0"
   },
   "license": "CC-BY-NC-SA-4.0",
@@ -17,6 +18,7 @@
   },
   "dependencies": {
     "@api-platform/admin": "^1.0.2",
+    "animate-sass": "^0.8.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "jquery.appear": "^1.0.1",

@@ -53,6 +53,10 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+    .configureUrlLoader({
+        fonts: {limit: 4096},
+        images: {limit: 4096}
+    })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

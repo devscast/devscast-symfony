@@ -30,6 +30,7 @@ $('.testimonials-slides').owlCarousel({
     ...defaultConfig,
     items: 1,
     animateOut: 'fadeOut',
+    responsive: {},
 });
 
 $('.team-slides').owlCarousel({

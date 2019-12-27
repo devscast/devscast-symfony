@@ -1,0 +1,114 @@
+.bg-black {
+  background-color: $black-color !important;
+}
+
+.navbar {
+  padding: {
+    left: 0;
+    right: 0;
+    top: 20px;
+    bottom: 20px;
+  }
+
+  &.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 28px 0 rgba(255, 255, 255, 0.06);
+    background: $black-color !important;
+    animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+    transition: $transition;
+  }
+}
+
+.navbar-light {
+  .navbar-nav {
+    margin-left: auto;
+
+    .nav-item {
+      .nav-link {
+        color: $white-color;
+        font: {
+          size: 15px;
+          weight: 500;
+        }
+        margin: {
+          left: 13px;
+          right: 13px;
+        }
+        padding: {
+          right: 0;
+          left: 0;
+        }
+
+        &:hover, &.active {
+          color: $main-color;
+        }
+      }
+
+      &:last-child {
+        .nav-link {
+          margin-right: 0;
+        }
+      }
+
+      &:first-child {
+        .nav-link {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Navbar light */
+.navbar-light.bg-light {
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: #565656;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: $main-color;
+      }
+    }
+  }
+
+  &.is-sticky {
+    background-color: $white-color !important;
+    box-shadow: 0 10px 30px #ddd;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-light {
+    .navbar-toggler {
+      padding: 3px 10px;
+      outline: 0;
+      border-color: $white-color;
+      border-radius: 0;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .navbar-light {
+    .navbar-toggler {
+      padding: 3px 10px;
+      outline: 0;
+      border-color: $white-color;
+      border-radius: 0;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  }
+}

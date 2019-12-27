@@ -1,3 +1,16 @@
+// vendor
+@import "~bootstrap/scss/bootstrap";
+@import "~animate-sass/_animate.scss";
+
+// owl carousel
+@import "~owl.carousel/src/scss/core";
+@import '~owl.carousel/src/scss/animate';
+@import "~owl.carousel/src/scss/autoheight";
+@import "~owl.carousel/src/scss/lazyload";
+
+// animation activation
+$use-fadeIn: true;
+$use-fadeOut: true;
 $font-family: 'Poppins', sans-serif;
 $font-size: 14px;
 $transition: .5s;
@@ -8,9 +21,11 @@ $black-color-two: #212529;
 $paragraph-color: #dfdfdf;
 $paragraph-color-two: #808080;
 
+// app components
 @import "components/default";
 @import "components/preloader";
 @import "components/banner";
+@import "components/navbar";
 @import "components/service";
 @import "components/about";
 @import "components/project";
@@ -23,3 +38,4 @@ $paragraph-color-two: #808080;
 @import "components/page";
 @import "components/sidebar";
 @import "components/footer";
+@import "responsive";

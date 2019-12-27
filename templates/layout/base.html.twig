@@ -3,13 +3,8 @@
 <head>
     {% include "app/includes/_meta.html.twig" %}
     {% block stylesheets %}
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
     {% endblock %}
     {{ encore_entry_link_tags('app') }}
     {% block meta %}
@@ -24,15 +19,7 @@
 {% block body %}{% endblock %}
 {% include "app/includes/_footer.html.twig" %}
 
-{% block javascripts %}
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
-{% endblock %}
+{% block javascripts %}{% endblock %}
 {{ encore_entry_script_tags('app') }}
 </body>
 </html>
