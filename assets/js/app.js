@@ -1,3 +1,5 @@
 import "../sass/app.scss";
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+import './modules/application'
+import './modules/progress'
+import './modules/sliders'

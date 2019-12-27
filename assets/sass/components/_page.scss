@@ -1,0 +1,32 @@
+.page-title-area {
+  text-align: center;
+  position: relative;
+  padding: {
+    top: 80px;
+    bottom: 140px;
+  }
+
+  h2 {
+    color: $white-color;
+    margin-bottom: 0;
+    line-height: 1.4;
+    font: {
+      size: 34px;
+      weight: 700;
+    }
+  }
+
+  .br-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+.page-title-area.bg-light {
+  h2 {
+    color: $black-color-two;
+  }
+}
