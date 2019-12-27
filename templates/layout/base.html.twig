@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "app/includes/_meta.html.twig" %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+    {% endblock %}
+    {{ encore_entry_link_tags('app') }}
+    {% block meta %}
+        <title>Let's Bring your dreams to reality | devs-cast.com</title>
+    {% endblock %}
+</head>
+
+<body id="{{ app.request.get("_route") }}" data-spy="scroll" data-offset="70">
+
+{% include "app/includes/_preloader.html.twig" %}
+{% include "app/includes/_nav.html.twig" %}
+{% block body %}{% endblock %}
+{% include "app/includes/_footer.html.twig" %}
+
+{% block javascripts %}
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+{% endblock %}
+{{ encore_entry_script_tags('app') }}
+</body>
+</html>

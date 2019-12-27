@@ -1,14 +1,697 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello HomeController!{% endblock %}
+{% extends "layout/base.html.twig" %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-           <div class="col">
-               <h1>Hello {{ controller_name }}! ✅</h1>
-               This friendly message is coming from:
-           </div>
+    <div class="main-banner bg-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="banner-content">
+                        <h5>Hello We're</h5>
+                        <h1>Devscast</h1>
+                        <span>programming & Web development</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
+                            facilisis.</p>
+
+                        <div class="social">
+                            <ul>
+                                <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                                <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="banner-image">
+                        <img src="assets/img/man.jpg" alt="image">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <section class="featured-services-area bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-featured-services-box">
+                        <div class="icon">
+                            <i class="flaticon-mail"></i>
+                        </div>
+                        <h3>Coding Challenge</h3>
+                        <div class="bar"></div>
+                        <p>Risus commodo maecenas accumsan lacus vel facilisis. Lorem ipsum dolor consectetur adipiscing
+                            elit.</p>
+                        <div class="shape-img">
+                            <img src="assets/img/shape1.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-featured-services-box">
+                        <div class="icon">
+                            <i class="flaticon-targeting"></i>
+                        </div>
+                        <h3>Tutorials & Screencast</h3>
+                        <div class="bar"></div>
+                        <p>Risus commodo maecenas accumsan lacus vel facilisis. Lorem ipsum dolor consectetur adipiscing
+                            elit.</p>
+                        <div class="shape-img">
+                            <img src="assets/img/shape1.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
+                    <div class="single-featured-services-box">
+                        <div class="icon">
+                            <i class="flaticon-research"></i>
+                        </div>
+                        <h3>Research & Bloging</h3>
+                        <div class="bar"></div>
+                        <p>Risus commodo maecenas accumsan lacus vel facilisis. Lorem ipsum dolor consectetur adipiscing
+                            elit.</p>
+                        <div class="shape-img">
+                            <img src="assets/img/shape1.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+
+    <section id="about" class="about-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>About Me</span>
+                <h2>Leading the way in Creative Digital Marketing</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="overview-box">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-content">
+                            <i class="flaticon-quality"></i>
+                            <h3>Skills</h3>
+                            <div class="bar"></div>
+                            <p>We provide marketing services to startups and small businesses to looking for a partner
+                                of their digital media, design & development, lead generation and communications
+                                requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <h4 class="skill-title">SEO, SEM & SMM</h4>
+
+                                    <div class="skill-percentage">
+                                        <div class="count-box"><span class="count-text" data-speed="2000"
+                                                                     data-stop="95">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="bar-inner">
+                                        <div class="bar progress-line" data-width="95"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <h4 class="skill-title">Content Writing</h4>
+
+                                    <div class="skill-percentage">
+                                        <div class="count-box"><span class="count-text" data-speed="2000"
+                                                                     data-stop="90">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="bar-inner">
+                                        <div class="bar progress-line" data-width="90"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <h4 class="skill-title">Affiliate Marketing</h4>
+
+                                    <div class="skill-percentage">
+                                        <div class="count-box"><span class="count-text" data-speed="2000"
+                                                                     data-stop="85">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="bar-inner">
+                                        <div class="bar progress-line" data-width="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <h4 class="skill-title">Keyword Research</h4>
+
+                                    <div class="skill-percentage">
+                                        <div class="count-box"><span class="count-text" data-speed="2000"
+                                                                     data-stop="90">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="bar-inner">
+                                        <div class="bar progress-line" data-width="90"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Area -->
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+    <!-- Start Services Area -->
+    <section id="services" class="services-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>What we do</span>
+                <h2>Our Services</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-puzzle"></i>
+                        </div>
+                        <h3><a href="single-services.html">Digital Branding</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="single-services.html" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-creative-idea"></i>
+                        </div>
+                        <h3><a href="single-services.html">Creative Solutions</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="single-services.html" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-promotion"></i>
+                        </div>
+                        <h3><a href="">Marketing Solutions</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-analytics"></i>
+                        </div>
+                        <h3><a href="">Business Analytics</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-ux-design"></i>
+                        </div>
+                        <h3><a href="">UX & UI Design</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box">
+                        <div class="icon">
+                            <i class="flaticon-camera"></i>
+                        </div>
+                        <h3><a href="">Photography</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <a href="" class="details-btn"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Services Area -->
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+    <!-- Start Projects Area -->
+    <section id="projects" class="projects-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Our completed projects</span>
+                <h2>Recent Projects</h2>
+                <div class="bar"></div>
+            </div>
+        </div>
+
+        <div class="projects-slides owl-carousel owl-theme">
+            <div class="single-projects-box">
+                <a href="index.html#"><img src="assets/img/projects/1.jpg" alt="img"></a>
+
+                <div class="projects-content">
+                    <h3><a href="">Development</a></h3>
+                    <span>Web / Mobile</span>
+                </div>
+            </div>
+
+            <div class="single-projects-box">
+                <a href="index.html#"><img src="assets/img/projects/2.jpg" alt="img"></a>
+
+                <div class="projects-content">
+                    <h3><a href="">Architecture</a></h3>
+                    <span>Home / Bridge</span>
+                </div>
+            </div>
+
+            <div class="single-projects-box">
+                <a href="index.html#"><img src="assets/img/projects/3.jpg" alt="img"></a>
+
+                <div class="projects-content">
+                    <h3><a href="">UX/UI Design</a></h3>
+                    <span>Web / Mobile</span>
+                </div>
+            </div>
+
+            <div class="single-projects-box">
+                <a href="index.html#"><img src="assets/img/projects/4.jpg" alt="img"></a>
+
+                <div class="projects-content">
+                    <h3><a href="">Marketing</a></h3>
+                    <span>Digital / Affiliate</span>
+                </div>
+            </div>
+
+            <div class="single-projects-box">
+                <a href="index.html#"><img src="assets/img/projects/5.jpg" alt="img"></a>
+
+                <div class="projects-content">
+                    <h3><a href="">Photography</a></h3>
+                    <span>Digital / Photo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Projects Area -->
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+    <!-- Start Testimonials Area -->
+    <section id="client" class="testimonials-area ptb-80 bg-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="testimonials-image">
+                        <img src="assets/img/woman-client.jpg" class="main-image" alt="image">
+
+                        <div class="shape-image">
+                            <img src="assets/img/shape/1.png" alt="image">
+                            <img src="assets/img/shape/2.png" alt="image">
+                            <img src="assets/img/shape/3.png" alt="image">
+                            <img src="assets/img/shape/4.png" alt="image">
+                            <img src="assets/img/shape/5.png" alt="image">
+                            <img src="assets/img/shape/6.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="section-title">
+                        <span>What client says about me</span>
+                        <h2>My Clients</h2>
+                        <div class="bar"></div>
+                    </div>
+
+                    <div class="testimonials-slides owl-carousel owl-theme">
+                        <div class="single-testimonials-item">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                viverra maecenas accumsan lacus vel facilisis.</p>
+
+                            <div class="client-info">
+                                <h3>Jason Statham</h3>
+                                <span>Founder at Envato</span>
+                            </div>
+                        </div>
+
+                        <div class="single-testimonials-item">
+                            <p>Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+
+                            <div class="client-info">
+                                <h3>James Anderson</h3>
+                                <span>Founder at EnvyTheme</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonials Area -->
+
+    <!-- Start Partner Area -->
+    <div class="partner-area bg-black">
+        <div class="container">
+            <div class="partner-slides owl-carousel owl-theme">
+                <div class="partner-item">
+                    <img src="assets/img/partner/1.png" alt="image">
+                </div>
+
+                <div class="partner-item">
+                    <img src="assets/img/partner/2.png" alt="image">
+                </div>
+
+                <div class="partner-item">
+                    <img src="assets/img/partner/3.png" alt="image">
+                </div>
+
+                <div class="partner-item">
+                    <img src="assets/img/partner/4.png" alt="image">
+                </div>
+
+                <div class="partner-item">
+                    <img src="assets/img/partner/5.png" alt="image">
+                </div>
+
+                <div class="partner-item">
+                    <img src="assets/img/partner/6.png" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Partner Area -->
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+    <!-- Start Team Area -->
+    <section id="team" class="team-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Meet Our Experts</span>
+                <h2>Our Team</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="team-slides owl-carousel owl-theme">
+                <div class="single-team-box">
+                    <div class="team-member-image">
+                        <img src="assets/img/team/1.png" alt="image">
+                    </div>
+
+                    <div class="team-member-content">
+                        <h3>Alex Perry</h3>
+                        <span>CEO & Manager</span>
+                        <ul class="social">
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single-team-box">
+                    <div class="team-member-image">
+                        <img src="assets/img/team/2.png" alt="image">
+                    </div>
+
+                    <div class="team-member-content">
+                        <h3>Josh Butler</h3>
+                        <span>Project Manager</span>
+                        <ul class="social">
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single-team-box">
+                    <div class="team-member-image">
+                        <img src="assets/img/team/3.png" alt="image">
+                    </div>
+
+                    <div class="team-member-content">
+                        <h3>Sarah Taylor</h3>
+                        <span>Web Developer</span>
+                        <ul class="social">
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single-team-box">
+                    <div class="team-member-image">
+                        <img src="assets/img/team/4.png" alt="image">
+                    </div>
+
+                    <div class="team-member-content">
+                        <h3>James King</h3>
+                        <span>Support</span>
+                        <ul class="social">
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single-team-box">
+                    <div class="team-member-image">
+                        <img src="assets/img/team/5.png" alt="image">
+                    </div>
+
+                    <div class="team-member-content">
+                        <h3>Steven Smith</h3>
+                        <span>Project Manager</span>
+                        <ul class="social">
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Team Area -->
+
+    <!-- Start Subscribe Area -->
+    <section class="subscribe-area ptb-80">
+        <div class="container">
+            <div class="subscribe-content">
+                <h2>Subscribe to our newsletter</h2>
+
+                <div class="newsletter-content">
+                    <form class="newsletter-form" data-toggle="validator">
+                        <input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL"
+                               required autocomplete="off">
+
+                        <button type="submit">Subscribe Now</button>
+                        <div id="validator-newsletter" class="form-result"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Subscribe Area -->
+
+    <!-- Start Blog Area -->
+    <section id="blog" class="blog-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Our Blog</span>
+                <h2>Latest News</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href=""><img src="assets/img/blog/1.jpg" alt="image"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <span class="date"><i class="far fa-calendar-alt"></i> 25 April</span>
+                            <h3><a href="">I Used The Web For A Day On A 50 MB Budget</a></h3>
+                            <a href="" class="read-more-btn">Read More <i
+                                        class="flaticon-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href=""><img src="assets/img/blog/2.jpg" alt="image"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <span class="date"><i class="far fa-calendar-alt"></i> 25 April</span>
+                            <h3><a href="">How To The Active Menu Based On URL In Next.JS?</a></h3>
+                            <a href="" class="read-more-btn">Read More <i
+                                        class="flaticon-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href=""><img src="assets/img/blog/3.jpg" alt="image"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <span class="date"><i class="far fa-calendar-alt"></i> 25 April</span>
+                            <h3><a href="">Instagram Feed Add To Your WordPress Site</a></h3>
+                            <a href="" class="read-more-btn">Read More <i
+                                        class="flaticon-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Blog Area -->
+
+    <div class="separate bg-black">
+        <div class="br-line"></div>
+    </div>
+
+    <!-- Start Contact Area -->
+    <section id="contact" class="contact-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Let's Talk</span>
+                <h2>Get in Touch</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12">
+                    <div class="contact-image">
+                        <img src="assets/img/contact.png" alt="image">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-12">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" id="name" class="form-control" required
+                                               data-error="Please enter your name" placeholder="Your Name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" class="form-control" required
+                                               data-error="Please enter your email" placeholder="Your Email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" name="msg_subject" id="msg_subject" class="form-control"
+                                               required data-error="Please enter your subject"
+                                               placeholder="Your Subject">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="6"
+                                                  required data-error="Write your message"
+                                                  placeholder="Your Message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <button type="submit">Send Message</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
