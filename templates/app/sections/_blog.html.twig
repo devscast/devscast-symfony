@@ -1,0 +1,17 @@
+<section id="blog" class="blog-area ptb-80 bg-black">
+    <div class="container">
+        <div class="section-title">
+            <span>Our Blog</span>
+            <h2>Latest News</h2>
+            <div class="bar"></div>
+        </div>
+
+        <div class="row">
+            {% for blog in blogs %}
+                <div class="col-lg-4 col-md-4">
+                    {% include 'app/blog/_card.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

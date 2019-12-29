@@ -1,0 +1,76 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/dracula.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="page-title-area bg-black">
+        <div class="container">
+            <h2>{{ blog.name }}</h2>
+        </div>
+        <div class="br-line"></div>
+    </div>
+
+    <section class="blog-details-area ptb-80 bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <article class="blog-details">
+                        <header class="article-image">
+                            <img src="{{ vich_uploader_asset(blog, 'thumb_file') }}" alt="{{ blog.name }}">
+                        </header>
+
+                        <main class="article-content">
+                            <div class="entry-meta">
+                                <ul>
+                                    <li>
+                                        <span>Posted On:</span>
+                                        <time>{{ blog.createdAt | date('M, d Y') }}</time>
+                                    </li>
+                                    <li>
+                                        <span>Posted By: Bernard Ngandu</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {{ blog.content | markdown_to_html }}
+                        </main>
+
+                        <footer class="article-footer">
+                            <div class="article-tags">
+                                <span><i class="fas fa-bookmark"></i></span>
+                                <a href="single-blog.html#">Fashion</a>,
+                                <a href="single-blog.html#">Games</a>,
+                                <a href="single-blog.html#">Travel</a>
+                            </div>
+
+                            <div class="article-share">
+                                <ul class="social">
+                                    <li>
+                                        <a id="share"
+                                           data-title="{{ blog.name }}"
+                                           data-url="{{ url('app_blog_show', {id: blog.id, slug: blog.slug}) }}"
+                                           href="#">
+                                            <i class="fa fa-share-alt"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </footer>
+                    </article>
+                    {% include "app/sections/_comments.html.twig" %}
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    {% include "app/blog/_sidebar.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

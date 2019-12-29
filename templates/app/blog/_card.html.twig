@@ -1,0 +1,19 @@
+<article class="single-blog-post">
+    <header class="post-image">
+        <a href="{{ path('app_blog_show', {id: blog.id, slug: blog.slug}) }}">
+            <img src="{{ vich_uploader_asset(blog, 'thumb_file') }}" alt="image">
+        </a>
+    </header>
+    <main class="post-content">
+        <time class="date"><i class="far fa-calendar-alt"></i> {{ blog.createdAt | date('d M Y') }}</time>
+        <h3>
+            <a href="{{ path('app_blog_show', {id: blog.id, slug: blog.slug}) }}">
+                {{ blog.name }}
+            </a>
+        </h3>
+        <a href="{{ path('app_blog_show', {id: blog.id, slug: blog.slug}) }}" class="read-more-btn">
+            Read More
+            <i class="flaticon-right-arrow"></i>
+        </a>
+    </main>
+</article>
