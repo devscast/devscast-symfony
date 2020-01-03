@@ -6,16 +6,14 @@
                 <p>Lorem ipsum dolor consectetur adipiscing elit, eiusmod tempor ut labore et dolore magna aliqua.</p>
 
                 <ul class="footer-contact-info">
-                    <li>Email: <a href="">info@axton.com</a></li>
-                    <li>Phone: <a href="">+44 478 857 7458</a></li>
+                    <li>Email: <a href="">contact@devscast.com</a></li>
+                    <li>Phone: <a href="">+243 892 530 482</a></li>
                 </ul>
 
                 <ul class="social">
-                    <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-facebook"></i></a></li>
                     <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                    <li><a href="" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                    <li><a href="" target="_blank"><i class="fab fa-behance"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -29,13 +27,12 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
-                <p><i class="far fa-copyright"></i> EnvyTheme. All Rights Reserved, 2019</p>
+                <p><i class="far fa-copyright"></i> Devscast. All Rights Reserved, {{ 'now' | date('Y') }}</p>
             </div>
-
             <div class="col-lg-6 col-md-6">
                 <ul>
-                    <li><a href="">Terms & Conditions</a></li>
-                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="{{ path('privacy') }}">Terms & Conditions</a></li>
+                    <li><a href="https://github.com/devscast/devscast-symfony">Source Code</a></li>
                 </ul>
             </div>
         </div>

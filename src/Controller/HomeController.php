@@ -11,8 +11,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class HomeController
@@ -30,5 +31,35 @@ class HomeController extends AbstractController
         return $this->render('index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
+    }
+
+    /**
+     * @Route("/about", name="about", methods={"GET"})
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function about()
+    {
+        return $this->render("app/statics/about.html.twig");
+    }
+
+    /**
+     * @Route("/privacy", name="privacy", methods={"GET"})
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function privacy()
+    {
+        return $this->render("app/statics/policy.html.twig");
+    }
+
+    /**
+     * @Route("/contact", name="contact", methods={"GET", "POST"})
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function contact()
+    {
+        return $this->render("app/statics/contact.html.twig");
     }
 }
