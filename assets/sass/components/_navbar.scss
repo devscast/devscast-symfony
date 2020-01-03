@@ -19,7 +19,7 @@
     box-shadow: 0 2px 28px 0 rgba(255, 255, 255, 0.06);
     background: $black-color !important;
     animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-    transition: $transition;
+    transition: position ease-in-out $transition;
   }
 }
 

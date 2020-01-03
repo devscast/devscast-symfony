@@ -1,6 +1,6 @@
 // vendor
 @import "~bootstrap/scss/bootstrap";
-@import "~animate-sass/_animate.scss";
+@import "animations";
 
 // owl carousel
 @import "~owl.carousel/src/scss/core";
@@ -8,9 +8,7 @@
 @import "~owl.carousel/src/scss/autoheight";
 @import "~owl.carousel/src/scss/lazyload";
 
-// animation activation
-$use-fadeIn: true;
-$use-fadeOut: true;
+// App variables
 $font-family: 'Poppins', sans-serif;
 $font-size: 14px;
 $transition: .5s;

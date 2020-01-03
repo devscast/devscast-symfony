@@ -1,37 +1,15 @@
-import $ from "jquery";
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    const isSticky = navbar.classList.contains("is-sticky");
 
-$(document).on('ready', function () {
-    $('.navbar-light .navbar-nav li a').on('click', function (e) {
-        let anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top - 50
-        }, 1500);
-        e.preventDefault();
-    });
-    $('.navbar .navbar-nav li a').on('click', function () {
-        $('.navbar-collapse').collapse('hide');
-    });
-
-    $(window).on('scroll', function () {
-        if ($(this).scrollTop() > 120) {
-            $('.navbar').addClass("is-sticky");
-        } else {
-            $('.navbar').removeClass("is-sticky");
-        }
-    });
-});
-
-$(window).on('load', () => {
-    if ($(".wow").length) {
-        const wow = new WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 20,
-            mobile: true,
-            live: true,
-        });
-        wow.init();
+    if (window.scrollY > 100) {
+        if (!isSticky) navbar.classList.add("is-sticky");
+    } else {
+        if (isSticky) navbar.classList.remove("is-sticky");
     }
 });
 
-$(window).on('load', () => $('.preloader').addClass('preloader-deactivate'));
+document.addEventListener("DOMContentLoaded", () => {
+    let preloader = document.querySelector(".preloader");
+    preloader.classList.add("preloader-deactivate");
+});

@@ -19,14 +19,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item"><a title="project" class="nav-link" href="">Projects</a></li>
-                <li class="nav-item"><a title="screencast" href="" class="nav-link">ScreenCast</a></li>
-                <li class="nav-item {{ _route == "app_blog_index" ? 'active' : '' }}">
-                    <a title="blog" class="nav-link" href="{{ path('app_blog_index') }}">
+                <li class="nav-item">
+                    <a title="screencast"
+                       href=""
+                       class="nav-link">
+                        ScreenCast
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a title="blog"
+                       class="nav-link {{ _route == "app_blog_index" ? 'active' : '' }}"
+                       href="{{ path('app_blog_index') }}">
                         Blog
                     </a>
                 </li>
-                <li class="nav-item"><a title="about" class="nav-link" href="">About</a></li>
-                <li class="nav-item"><a title="contact" class="nav-link" href="">Contact</a></li>
+                <li class="nav-item">
+                    <a title="about"
+                       class="nav-link {{ _route == "about" ? 'active' : '' }}"
+                       href="{{ path('about') }}">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a title="contact"
+                       class="nav-link {{ _route == "contact" ? 'active' : '' }}"
+                       href="{{ path('contact') }}">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
