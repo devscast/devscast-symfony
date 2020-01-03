@@ -1,3 +1,5 @@
+import particlesConfig from "../config/particles"
+
 window.addEventListener("scroll", () => {
     const navbar = document.querySelector(".navbar");
     const isSticky = navbar.classList.contains("is-sticky");
@@ -12,4 +14,12 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", () => {
     let preloader = document.querySelector(".preloader");
     preloader.classList.add("preloader-deactivate");
+
+    if (typeof particlesJS !== "undefined") {
+        try {
+            window.particlesJS("js-particles", particlesConfig);
+        } catch (e) {
+            console.log({e})
+        }
+    }
 });

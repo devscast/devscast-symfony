@@ -6,18 +6,17 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-content">
-                        <h5>Hello We're</h5>
-                        <h1>Devscast</h1>
-                        <span>programming & Web development</span>
+                        <h1>DEVSCAST</h1>
+                        <span>We bring your dreams to reality</span>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
                             facilisis.</p>
 
                         <div class="social">
                             <ul>
-                                <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="" target="_blank"><i class="fab fa-github-square"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -25,7 +24,7 @@
 
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-image">
-                        <img src="assets/img/man.jpg" alt="image">
+                        <img src="{{ asset('assets/img/bernard.png') }}" alt="image">
                     </div>
                 </div>
             </div>
@@ -40,10 +39,11 @@
     {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_projects.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
-    {% include 'app/sections/_client.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
-    {% include 'app/sections/_team.html.twig' %}
     {% include 'app/sections/_subscribe.html.twig' %}
+    {% include 'app/sections/_team.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
-    {% include 'app/sections/_contact.html.twig' %}
+
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    {% endblock %}
 {% endblock %}

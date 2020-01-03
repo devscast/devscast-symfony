@@ -23,6 +23,53 @@
   }
 }
 
+.navbar-search {
+  form {
+    position: relative;
+
+    label {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    .screen-reader-text {
+      display: none;
+    }
+
+    .search-field {
+      background-color: transparent;
+      padding: 6px 15px;
+      border: 1px solid #2b2b2b;
+      color: $white-color;
+      width: 100%;
+      display: block;
+      outline: 0;
+      transition: $transition;
+
+      &:focus {
+        border-color: $main-color;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      outline: 0;
+      bottom: 0;
+      height: 35px;
+      width: 50px;
+      border: none;
+      color: $white-color;
+      background-color: transparent;
+      transition: $transition;
+
+      &:hover {
+        background-color: $main-color;
+      }
+    }
+  }
+}
+
 .navbar-light {
   .navbar-nav {
     margin-left: auto;
