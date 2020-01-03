@@ -1,16 +1,19 @@
 {% extends "layout/base.html.twig" %}
 
 {% block body %}
-    <div class="main-banner bg-black">
-        <div class="container">
+    <div class="main-banner bg-black" id="js-particles">
+        <div class="container" style="z-index: 1000">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-content">
                         <h1>DEVSCAST</h1>
                         <span>We bring your dreams to reality</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
-                            facilisis.</p>
+                        <p>
+                            Nous sommes une communautés de développeurs
+                            ayant pour but d'apporter des solutions aux problèmes
+                            de notre entourage grâce à l'opensource
+                            et apporter la solution numérique qui vous manque.
+                        </p>
 
                         <div class="social">
                             <ul>
@@ -31,7 +34,6 @@
         </div>
     </div>
 
-    {% include 'app/sections/_featured.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_about.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
@@ -42,8 +44,4 @@
     {% include 'app/sections/_subscribe.html.twig' %}
     {% include 'app/sections/_team.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
-
-    {% block javascripts %}
-        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    {% endblock %}
 {% endblock %}
