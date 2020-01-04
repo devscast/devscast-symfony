@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "data": [
+    {
+      "name": "Lushitrap",
+      "logo": "/assets/img/clients/lushitrap.png",
+      "link": "https://lushitrap.com"
+    },
+    {
+      "name": "ITOT Africa",
+      "logo": "/assets/img/clients/itotafrica.png",
+      "link": "https://itot.africa"
+    },
+    {
+      "name": "Mag Business",
+      "logo": "/assets/img/clients/magbusiness.png",
+      "link": "https://magbusiness.net"
+    },
+    {
+      "name": "C.S Imani / Mgr Nsolotshy",
+      "logo": "/assets/img/clients/imani.png",
+      "link": "https://fman.org"
+    }
+  ]
+}

@@ -1,94 +1,27 @@
-<section id="services" class="services-area ptb-80 bg-black">
-    <div class="container">
-        <div class="section-title">
-            <span>Ce que nous faisons</span>
-            <h2>Nos services</h2>
-            <div class="bar"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3><a href="">Intégration</a></h3>
-                    <p>
-                        Intégration des maquettes html à un backend (PHP) existant ,
-                        intégration d'une api à un backend,
-                        intégration d'un service tier à votre application existante
-                    </p>
-                </div>
+{% if services is defined %}
+    <section id="services" class="services-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Ce que nous faisons</span>
+                <h2>Nos services</h2>
+                <div class="bar"></div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
+            <div class="row">
+                {% for service in services.data %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="{{ service.icon }}"></i>
+                            </div>
+                            <h3>{{ service.name }}</h3>
+                            <p>
+                                {{ service.description | nl2br }}
+                            </p>
+                        </div>
                     </div>
-                    <h3><a href="">Test de performance</a></h3>
-                    <p>
-                        Nous testons les performances des applications PHP et nodejs et
-                        identifions les problèmes en vu de les corriger et ainsi
-                        les améliorer
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3><a href="">Développement</a></h3>
-                    <p>
-                        nous developpons des sites web, applications web et API rest.
-                        sur mes mesures
-                        selon votre cahier de charge et attentes.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3><a href="">Code review</a></h3>
-                    <p>
-                        Nous faisons de la revu de code sur des projets existant
-                        afin de corriger les erreurs
-                        de conceptions avant la mise en production
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3><a href="">Mise en Production</a></h3>
-                    <p>
-                        Nous vous accompagnons dans le processus
-                        de la mise en ligne de votre application,
-                        nous gérons le versioning et la configuration du serveur
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3><a href="">Formations</a></h3>
-                    <p>
-                        Nous formons et aidons les développeur web à devenir meilleurs
-                        en utilisant les technologies à la pointe et standards recommandés
-                    </p>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endif %}

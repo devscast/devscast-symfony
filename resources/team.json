@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "data": [
+    {
+      "name": "Bernard Ng",
+      "role": "CEO & Manager",
+      "avatar": "/assets/img/team/1.png",
+      "social": [
+        {
+          "name": "github",
+          "link": "https://github.com/bernard-ng",
+          "icon": "fab fa-github-square"
+        },
+        {
+          "name": "twitter",
+          "link": "https://twitter.com/BernardNgandu",
+          "icon": "fab fa-twitter"
+        },
+        {
+          "name": "instagram",
+          "link": "https://instagram/_bernard.ng_",
+          "icon": "fab fa-instagram"
+        }
+      ]
+    },
+    {
+      "name": "Divine Beloti",
+      "role": "Developer",
+      "avatar": "/assets/img/team/2.png",
+      "social": [
+        {
+          "name": "github",
+          "link": "https://github.com/bernard-ng",
+          "icon": "fab fa-github-square"
+        },
+        {
+          "name": "twitter",
+          "link": "https://twitter.com/BernardNgandu",
+          "icon": "fab fa-twitter"
+        },
+        {
+          "name": "instagram",
+          "link": "https://instagram/_bernard.ng_",
+          "icon": "fab fa-instagram"
+        }
+      ]
+    },
+    {
+      "name": "Jonathan Yombo",
+      "role": "Developer",
+      "avatar": "/assets/img/team/3.png",
+      "social": [
+        {
+          "name": "github",
+          "link": "https://github.com/bernard-ng",
+          "icon": "fab fa-github-square"
+        },
+        {
+          "name": "twitter",
+          "link": "https://twitter.com/BernardNgandu",
+          "icon": "fab fa-twitter"
+        },
+        {
+          "name": "instagram",
+          "link": "https://instagram/_bernard.ng_",
+          "icon": "fab fa-instagram"
+        }
+      ]
+    },
+    {
+      "name": "Joseph Kabamba",
+      "role": "Developer",
+      "avatar": "/assets/img/team/4.png",
+      "social": [
+        {
+          "name": "github",
+          "link": "https://github.com/bernard-ng",
+          "icon": "fab fa-github-square"
+        },
+        {
+          "name": "twitter",
+          "link": "https://twitter.com/BernardNgandu",
+          "icon": "fab fa-twitter"
+        },
+        {
+          "name": "instagram",
+          "link": "https://instagram/_bernard.ng_",
+          "icon": "fab fa-instagram"
+        }
+      ]
+    }
+  ]
+}

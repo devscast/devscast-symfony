@@ -1,101 +1,34 @@
-<section id="team" class="team-area ptb-80 bg-black">
-    <div class="container">
-        <div class="section-title">
-            <span>Meet Our Experts</span>
-            <h2>Our Team</h2>
-            <div class="bar"></div>
-        </div>
-
-        <div class="team-slides owl-carousel owl-theme">
-            <div class="single-team-box">
-                <div class="team-member-image">
-                    <img src="assets/img/team/1.png" alt="image">
-                </div>
-
-                <div class="team-member-content">
-                    <h3>Alex Perry</h3>
-                    <span>CEO & Manager</span>
-                    <ul class="social">
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
-                    </ul>
-                </div>
+{% if team is defined %}
+    <section id="team" class="team-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Meet Our Experts</span>
+                <h2>Our Team</h2>
+                <div class="bar"></div>
             </div>
 
-            <div class="single-team-box">
-                <div class="team-member-image">
-                    <img src="assets/img/team/2.png" alt="image">
-                </div>
-
-                <div class="team-member-content">
-                    <h3>Josh Butler</h3>
-                    <span>Project Manager</span>
-                    <ul class="social">
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="single-team-box">
-                <div class="team-member-image">
-                    <img src="assets/img/team/3.png" alt="image">
-                </div>
-
-                <div class="team-member-content">
-                    <h3>Sarah Taylor</h3>
-                    <span>Web Developer</span>
-                    <ul class="social">
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="single-team-box">
-                <div class="team-member-image">
-                    <img src="assets/img/team/4.png" alt="image">
-                </div>
-
-                <div class="team-member-content">
-                    <h3>James King</h3>
-                    <span>Support</span>
-                    <ul class="social">
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="single-team-box">
-                <div class="team-member-image">
-                    <img src="assets/img/team/5.png" alt="image">
-                </div>
-
-                <div class="team-member-content">
-                    <h3>Steven Smith</h3>
-                    <span>Project Manager</span>
-                    <ul class="social">
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="index.html#" target="_blank"><i class="fab fa-behance"></i></a></li>
-                    </ul>
-                </div>
+            <div class="team-slides owl-carousel owl-theme">
+                {% for user in team.data %}
+                    <div class="single-team-box">
+                        <div class="team-member-image">
+                            <img src="{{ asset(user.avatar) }}" title="{{ user.name }}" alt="{{ user.name }}">
+                        </div>
+                        <div class="team-member-content">
+                            <h3>{{ user.name }}</h3>
+                            <span>{{ user.role }}</span>
+                            <ul class="social">
+                                {% for social in user.social %}
+                                    <li>
+                                        <a href="{{ social.link }}" title="{{ social.name }}" target="_blank">
+                                            <i class="{{ social.icon }}"></i>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endif %}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "data": [
+    {
+      "name": "Ngpictures",
+      "role": "Backend & Frontend",
+      "type": "personal",
+      "client": {
+        "name": "larytech",
+        "logo": "/assets/img/clients/larytech.jpg",
+        "link": "https://larytech.com"
+      },
+      "description": "",
+      "challenge": "",
+      "link": "https://larytech.com",
+      "screenshots": [
+        "/assets/img/projects/ngpictures/01.png",
+        "/assets/img/projects/ngpictures/02.png",
+        "/assets/img/projects/ngpictures/03.png"
+      ]
+    },
+    {
+      "name": "MagBusiness",
+      "role": "Backend & Frontend",
+      "type": "freelance",
+      "client": {
+        "name": "Junior Smith",
+        "logo": "/assets/img/clients/magbusiness.jpg",
+        "link": "https://magbusiness.net"
+      },
+      "description": "",
+      "challenge": "",
+      "link": "https://magbusiness.net",
+      "screenshots": [
+        "/assets/img/projects/magbusiness/01.png",
+        "/assets/img/projects/magbusiness/02.png",
+        "/assets/img/projects/magbusiness/03.png"
+      ]
+    }
+  ]
+}

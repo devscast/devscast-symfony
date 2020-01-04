@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="logo">
-                <a href="/{{ path('admin') }}">
+                <a href="{{ path('admin') }}">
                     <img src="{{ asset('/assets/img/logo-white.png') }}" width="20%" alt="image">
                 </a>
                 <ul class="footer-contact-info">
@@ -26,7 +26,10 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
-                <p><i class="far fa-copyright"></i> Devscast. All Rights Reserved, {{ 'now' | date('Y') }}</p>
+                <p>
+                    <i class="far fa-copyright"></i>
+                    Devscast. All Rights Reserved, {{ 'now' | date('Y') }}
+                </p>
             </div>
             <div class="col-lg-6 col-md-6">
                 <ul>

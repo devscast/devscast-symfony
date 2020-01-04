@@ -38,7 +38,7 @@ class FilesystemController extends AbstractController
      */
     public function __construct()
     {
-        $this->root = dirname(__DIR__, 3);
+        $this->root = $this->getParameter('kernel.project_dir');
         $this->webRoot = $this->root . '/public';
     }
 

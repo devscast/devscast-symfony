@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "data": [
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Intégration",
+      "description": "Intégration des maquettes html à un backend (PHP) existant , intégration d'une api à un backend, intégration d'un service tier à votre application."
+    },
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Test de performance",
+      "description": "Nous testons les performances des applications PHP et nodejs et identifions les problèmes en vu de les corriger et ainsi les améliorer."
+    },
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Mise en Production",
+      "description": "Nous vous accompagnons dans le processus de la mise en ligne de votre application, nous gérons le versioning et la configuration du serveur."
+    },
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Développement",
+      "description": "Nous developpons des sites web, applications web et API rest. sur mes mesures selon votre cahier de charge et attentes. \n"
+    },
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Formations",
+      "description": "Nous formons et aidons les développeur web à devenir meilleurs en utilisant les technologies à la pointe et standards."
+    },
+    {
+      "icon": "flaticon-creative-idea",
+      "name": "Code review",
+      "description": "Nous faisons de la revu de code sur des projets existant afin de corriger les erreurs de conceptions avant la mise en production. \n"
+    }
+  ]
+}

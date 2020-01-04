@@ -1,31 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include "app/includes/_copyright.html.twig" %}
 <head>
+    <title>API ADMIN | devs-cast.com</title>
     {% include "app/includes/_meta.html.twig" %}
-    {% block meta %}
-        <title>devscast let's bring your dreams to reality | devs-cast.com</title>
-    {% endblock %}
     {% block stylesheets %}{% endblock %}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {{ encore_entry_link_tags('app') }}
 </head>
 <body>
-{% include "app/includes/_nav.html.twig" %}
-<main>
-    {% block body %}{% endblock %}
-</main>
-{% include "app/includes/_footer.html.twig" %}
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.appear.min.js"></script>
-<script src="assets/js/tilt.jquery.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/main.js"></script>
+{% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
-{{ encore_entry_script_tags('app') }}
 </body>
 </html>
