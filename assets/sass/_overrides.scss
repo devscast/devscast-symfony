@@ -1,0 +1,12 @@
+#github-calendar {
+  .calendar {
+    border: none;
+    border-radius: 0;
+
+    .position-relative {
+      .border {
+        border: 1px solid #2b2b2b !important;
+      }
+    }
+  }
+}

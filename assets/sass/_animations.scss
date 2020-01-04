@@ -9,6 +9,7 @@ $use-slideInRight: true;
 body {
   position: relative;
   z-index: 100;
+  overflow-x: hidden;
 }
 
 .particles-js-canvas-el {

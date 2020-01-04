@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     {% include "app/includes/_meta.html.twig" %}
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
-    {% endblock %}
+    <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
+    {% block stylesheets %}{% endblock %}
     {{ encore_entry_link_tags('app') }}
     {% block meta %}
         <title>Let's Bring your dreams to reality | devs-cast.com</title>
@@ -23,7 +22,6 @@
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 {% block javascripts %}{% endblock %}
 {{ encore_entry_script_tags('app') }}
 </body>

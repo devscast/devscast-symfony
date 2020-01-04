@@ -1,0 +1,26 @@
+{% extends "layout/base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
+{% endblock %}
+
+
+{% block body %}
+    <section id="github-calendar" class="about-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Open source</span>
+                <h2>Notre activités sur Github</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="calendar" style="text-align: center">Chargement de l'activité...</div>
+        </div>
+    </section>
+    {% include 'app/includes/_divider.html.twig' %}
+    {% include 'app/sections/_projects.html.twig' %}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+{% endblock %}

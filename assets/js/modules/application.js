@@ -22,4 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log({e})
         }
     }
+
+    if (typeof GitHubCalendar !== "undefined") {
+        try {
+            GitHubCalendar(".calendar", "bernard-ng", {
+                responsive: true,
+                global_stats: false
+            });
+        } catch (e) {
+            console.error({e})
+        }
+    }
 });
