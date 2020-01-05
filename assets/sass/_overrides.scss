@@ -10,3 +10,8 @@
     }
   }
 }
+
+::selection {
+  background-color: $main-color;
+  color: #ffffff;
+}

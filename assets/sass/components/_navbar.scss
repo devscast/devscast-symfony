@@ -3,6 +3,7 @@
 }
 
 .navbar {
+  z-index: 999;
   padding: {
     left: 0;
     right: 0;
@@ -15,7 +16,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
     box-shadow: 0 2px 28px 0 rgba(255, 255, 255, 0.06);
     background: $black-color !important;
     animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;

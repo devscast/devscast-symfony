@@ -15,7 +15,7 @@
 
 {% block body %}
     <div class="main-banner bg-black">
-        <div class="container" style="z-index: 1000" id="js-particles">
+        <div class="container" style="z-index: 1000">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-content">
@@ -47,9 +47,4 @@
     {% include 'app/sections/_subscribe.html.twig' %}
     {% include 'app/sections/_team.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
-
-    {% block javascripts %}
-        {{ parent() }}
-        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    {% endblock %}
 {% endblock %}
