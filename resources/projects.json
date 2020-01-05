@@ -2,39 +2,60 @@
   "version": 1,
   "data": [
     {
-      "name": "Ngpictures",
-      "role": "Backend & Frontend",
-      "type": "personal",
-      "client": {
-        "name": "larytech",
-        "logo": "/assets/img/clients/larytech.jpg",
-        "link": "https://larytech.com"
-      },
-      "description": "",
-      "challenge": "",
-      "link": "https://larytech.com",
-      "screenshots": [
-        "/assets/img/projects/ngpictures/01.png",
-        "/assets/img/projects/ngpictures/02.png",
-        "/assets/img/projects/ngpictures/03.png"
-      ]
-    },
-    {
       "name": "MagBusiness",
       "role": "Backend & Frontend",
       "type": "freelance",
+      "status": "Terminé",
       "client": {
         "name": "Junior Smith",
         "logo": "/assets/img/clients/magbusiness.jpg",
         "link": "https://magbusiness.net"
       },
-      "description": "",
-      "challenge": "",
+      "description": "Plateforme E-commerce",
+      "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
       "link": "https://magbusiness.net",
       "screenshots": [
-        "/assets/img/projects/magbusiness/01.png",
-        "/assets/img/projects/magbusiness/02.png",
-        "/assets/img/projects/magbusiness/03.png"
+        "/assets/img/projects/2.jpg",
+        "/assets/img/projects/3.jpg",
+        "/assets/img/projects/1.jpg"
+      ]
+    },
+    {
+      "name": "Lushitrap",
+      "role": "Frontend Redesign (2019)",
+      "type": "freelance",
+      "status": "Maintenance",
+      "client": {
+        "name": "lushitrap",
+        "logo": "/assets/img/clients/lushitrap.jpg",
+        "link": "https://lushitrap.net"
+      },
+      "description": "Plateforme de Streaming Musical",
+      "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
+      "link": "https://lushitrap.com",
+      "screenshots": [
+        "/assets/img/projects/3.jpg",
+        "/assets/img/projects/3.jpg",
+        "/assets/img/projects/1.jpg"
+      ]
+    },
+    {
+      "name": "Ngpictures",
+      "role": "Backend & Frontend",
+      "type": "personal",
+      "status": "Version 3 en cours",
+      "client": {
+        "name": "larytech",
+        "logo": "/assets/img/clients/larytech.jpg",
+        "link": "https://larytech.com"
+      },
+      "description": "Plateforme Cloud Photos",
+      "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
+      "link": "https://larytech.com",
+      "screenshots": [
+        "/assets/img/projects/1.jpg",
+        "/assets/img/projects/2.jpg",
+        "/assets/img/projects/3.jpg"
       ]
     }
   ]

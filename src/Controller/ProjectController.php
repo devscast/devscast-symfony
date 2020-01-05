@@ -11,9 +11,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class ProjectController
@@ -23,6 +24,23 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProjectController extends AbstractController
 {
+
+    /** @var mixed */
+    private $projects;
+
+    /**
+     * @return mixed
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    private function getProjects()
+    {
+        $projectDir = $this->getParameter("kernel.project_dir");
+        if (is_null($this->projects)) {
+            $this->projects = json_decode(file_get_contents($projectDir . "/resources/projects.json"));
+        }
+        return $this->projects;
+    }
+
     /**
      * @Route(path="", name="app_project_index", methods={"GET"})
      * @return Response
@@ -30,8 +48,37 @@ class ProjectController extends AbstractController
      */
     public function index()
     {
-        $projects = []; // coming from json file
-        return $this->render("app/projects/index.html.twig", compact("projects"));
+        return $this->render("app/projects/index.html.twig", [
+            'projects' => $this->getProjects()
+        ]);
+    }
+
+    /**
+     * @Route(
+     *     path="/{name}",
+     *     name="app_project_show",
+     *     methods={"GET"},
+     *     requirements={"name":"[\w]+"}
+     * )
+     * @param string $name
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function show(string $name)
+    {
+        $projects = $this->getProjects()->data;
+        $project = array_reduce($projects, function ($acc, $project) use ($name) {
+            if (mb_strtolower($project->name) == strtolower($name)) {
+                $acc = $project;
+            }
+            return $acc;
+        }, null);
+
+        if ($project) {
+            return $this->render("app/projects/show.html.twig", compact("project"));
+        }
+
+        throw new NotFoundHttpException();
     }
 }
 

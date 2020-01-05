@@ -1,33 +1,38 @@
 {% extends "layout/base.html.twig" %}
 
+{% block meta %}
+    <title>Devscast, Numeric Builders | devs-cast.com</title>
+    <meta property="og:title" content="Devscast, Numeric Builders | devs-cast.com">
+    <meta property="og:description" content=" Nous sommes une communautés de développeurs
+                            dont l'objectif est d'apporter des solutions aux problèmes
+                            de notre entourage grâce à l'opensource
+                            et construire la solution numérique qui vous manque.">
+    <meta name="description" content=" Nous sommes une communautés de développeurs
+                            dont l'objectif est d'apporter des solutions aux problèmes
+                            de notre entourage grâce à l'opensource
+                            et construire la solution numérique qui vous manque.">
+{% endblock %}
+
 {% block body %}
     <div class="main-banner bg-black">
-        <div class="container" style="z-index: 1000">
+        <div class="container" style="z-index: 1000" id="js-particles">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-content">
                         <h1>DEVSCAST</h1>
-                        <span>We bring your dreams to reality</span>
+                        <span>Numeric Builders</span>
                         <p>
                             Nous sommes une communautés de développeurs
-                            ayant pour but d'apporter des solutions aux problèmes
+                            dont l'objectif est d'apporter des solutions aux problèmes
                             de notre entourage grâce à l'opensource
-                            et apporter la solution numérique qui vous manque.
+                            et construire la solution numérique qui vous manque.
                         </p>
-
-                        <div class="social">
-                            <ul>
-                                <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12">
-                    <div class="banner-image">
-                        <img src="{{ asset('assets/img/bernard.png') }}" alt="image">
+                    <div class="banner-image animated fadeIn">
+                        <img src="{{ asset('/assets/img/hero.svg') }}" alt="image">
                     </div>
                 </div>
             </div>

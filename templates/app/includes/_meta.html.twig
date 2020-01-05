@@ -3,50 +3,47 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=11.0000">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="content-language" content="{{ meta.lang | default("fr") }}">
+<meta http-equiv="content-language" content="{{ meta().lang | default("fr") }}">
 
-<meta name="language" content="{{ meta.lang | default("fr") }}">
-<meta name="copyright" content="{{ meta.copyright | default("https://devs-cast.com") }}">
+<meta name="language" content="{{ meta().lang | default("fr") }}">
+<meta name="copyright" content="{{ meta().copyright | default("https://devs-cast.com") }}">
 <meta name="author" content="{{ meat.author | default("bernard-ng, ngandubernard@gmail.com") }}">
-<meta name="identifier-url" content="{{ meta.url | default("https://devs-cast.com") }}">
+<meta name="identifier-url" content="{{ meta().url | default("https://devs-cast.com") }}">
+<meta name="keywords" content="{{ meta().keywords | default("DRC") }}" lang="{{ meta().lang | default('fr') }}">
 
 <meta name="robots" content="index,follow"/>
-<meta name="classification" content="Education">
+<meta name="classification" content="{{ meta().classification | default("Blog") }}">
 <meta name="designer" content="https://devs-cast.com">
-<meta name="reply-to" content="{{ meta.email | default("contact@devs-cast.com") }}">
-<meta name="owner" content="DevsCast ltd.">
-<meta name="category" content="Education">
+<meta name="reply-to" content="{{ meta().email | default("contact@devs-cast.com") }}">
+<meta name="owner" content="Devscast ltd.">
+<meta name="category" content="Blog">
 <meta name="coverage" content="Worldwide">
 <meta name="distribution" content="Global">
 <meta name="rating" content="General">
 <meta name="revisit-after" content="7 days">
 
-<meta name="keywords" content="{{ meta.keywords | default("") }}" lang="{{ meta.lang | default('fr') }}">
-<meta name="description" content="{{ meta.description | default("") }}">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="{{ meta.sitename | default("devs-cast.com") }}"/>
-<meta name="twitter:creator" content="{{ meta.author | default("@BernardNgandu") }}"/>
-<meta property="og:language" content="{{ meta.lang | default("fr") }}">
-<meta property="og:site_name" content="{{ meta.sitename | default("devs-cast.com") }}">
-<meta property="og:title" content="">
-<meta property="og:description" content="{{ meta.description | default("") }}">
-<meta property="og:image" content="{{ meta.image | default("") }}">
-<meta property="og:url" content="{{ meta.url | default("https://devs-cast.com") }}">
+<meta name="twitter:site" content="{{ meta().sitename | default("devs-cast.com") }}"/>
+<meta name="twitter:creator" content="{{ meta().author | default("@BernardNgandu") }}"/>
+<meta property="og:language" content="{{ meta().lang | default("fr") }}">
+<meta property="og:site_name" content="{{ meta().sitename | default("devs-cast.com") }}">
+<meta property="og:image" content="{{ meta().image | default("/assets/img/logo-main.png") }}">
+<meta property="og:url" content="{{ app.request.requestUri }}">
 
-<meta name="fb:page_id" content="{{ meta.fb_id  | default("") }}"/>
-<meta name="og:email" content="{{ meta.email | default("") }}"/>
-<meta name="og:phone_number" content="{{ meta.phone | default("") }}"/>
-<meta name="og:latitude" content="{{ meta.latitude | default("") }}"/>
-<meta name="og:longitude" content="{{ meta.longitude | default("") }}"/>
-<meta name="og:street-address" content="{{ meta.street | default("") }}"/>
-<meta name="og:locality" content="{{ meta.locality | default("") }}"/>
-<meta name="og:region" content="{{ meta.region | default("") }}"/>
-<meta name="og:country-name" content="{{ meta.country | default("") }}"/>
+<meta name="fb:page_id" content="{{ meta().fb_id  | default("") }}"/>
+<meta name="og:email" content="{{ meta().email | default("") }}"/>
+<meta name="og:phone_number" content="{{ meta().phone | default("") }}"/>
+<meta name="og:latitude" content="{{ meta().latitude | default("") }}"/>
+<meta name="og:longitude" content="{{ meta().longitude | default("") }}"/>
+<meta name="og:street-address" content="{{ meta().street | default("") }}"/>
+<meta name="og:locality" content="{{ meta().locality | default("") }}"/>
+<meta name="og:region" content="{{ meta().region | default("") }}"/>
+<meta name="og:country-name" content="{{ meta().country | default("") }}"/>
 
-<meta name="theme-color" content="{{ meta.themeColor | default("#15db95") }}">
-<meta name="msapplication-TileColor" content="{{ meta.themeColor | default("#15db95") }}">
-<meta name="msapplication-navbutton-color" content="{{ meta.themeColor | default("#15db95") }}">
-<meta name="apple-mobile-web-app-status-bar-style" content="{{ meta.themeColor | default("#15db95") }}">
+<meta name="theme-color" content="{{ meta().themeColor | default("#15db95") }}">
+<meta name="msapplication-TileColor" content="{{ meta().themeColor | default("#15db95") }}">
+<meta name="msapplication-navbutton-color" content="{{ meta().themeColor | default("#15db95") }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ meta().themeColor | default("#15db95") }}">
 
 <meta name="msapplication-TileImage" content="{{ asset('/favicon/ms-icon-144x144.png') }}">
 <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('/favicon/apple-icon-57x57.png') }}">
@@ -62,5 +59,4 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('/favicon/favicon-96x96.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png') }}">
-
 <link rel="manifest" href="{{ asset('/manifest.json') }}">

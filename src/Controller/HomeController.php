@@ -35,16 +35,6 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/about", name="about", methods={"GET"})
-     * @return Response
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function about()
-    {
-        return $this->render("app/statics/about.html.twig");
-    }
-
-    /**
      * @Route("/privacy", name="privacy", methods={"GET"})
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>

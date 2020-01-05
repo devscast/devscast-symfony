@@ -1,0 +1,57 @@
+{% extends "layout/base.html.twig" %}
+
+{% block body %}
+    <div class="page-title-area bg-black">
+        <div class="container">
+            <h2>{{ project.name }}</h2>
+        </div>
+        <div class="br-line"></div>
+    </div>
+
+    <section class="projects-details-area ptb-80 bg-black">
+        <div class="container">
+            <div class="projects-details">
+                <div class="projects-image-slides owl-carousel owl-theme">
+                    {% for screenshot in project.screenshots %}
+                        <div class="single-image">
+                            <img src="{{ asset(screenshot) }}"
+                                 title="{{ project.name }} screenshot"
+                                 alt="{{ project.name }}">
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="projects-details-desc">
+                    <h3>{{ project.description }}</h3>
+                    {{ project.challenge | markdown_to_html }}
+
+                    <div class="project-details-info">
+                        <div class="single-info-box">
+                            <h4>Client</h4>
+                            <span>{{ project.client.name }}</span>
+                        </div>
+
+                        <div class="single-info-box">
+                            <h4>Rôle</h4>
+                            <span>{{ project.role }}</span>
+                        </div>
+
+                        <div class="single-info-box">
+                            <h4>Type</h4>
+                            <span>
+                                {{ project.type }}
+                            </span>
+                        </div>
+                        <div class="single-info-box">
+                            <h4>Développement</h4>
+                            <span>
+                                {{ project.status | default("Terminé") }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
