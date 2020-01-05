@@ -26,22 +26,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class FilesystemController extends AbstractController
 {
-
-    /** @var string */
-    private $root;
-
-    /** @var string */
-    private $webRoot;
-
-    /**
-     * FilesystemController constructor.
-     */
-    public function __construct()
-    {
-        $this->root = $this->getParameter('kernel.project_dir');
-        $this->webRoot = $this->root . '/public';
-    }
-
     /**
      * @Route(path="", name="admin_files_index", methods={"GET"})
      * @return Response
@@ -50,7 +34,8 @@ class FilesystemController extends AbstractController
     public function index()
     {
         try {
-            $files = new DirectoryIterator($this->root . '/public/images');
+            $projectDir = $this->getParameter('kernel.project_dir');
+            $files = new DirectoryIterator($projectDir . '/public/images');
         } finally {
             return $this->render("admin/files/index.html.twig", [
                 'files' => $files ?? null
@@ -106,7 +91,8 @@ class FilesystemController extends AbstractController
     private function getPreview(?SplFileInfo $file): ?string
     {
         if ($file && in_array(strtolower($file->getExtension()), ['jpg', 'jpeg', 'png'])) {
-            return str_ireplace($this->webRoot, '', $file->getRealPath());
+            $projectDir = $this->getParameter('kernel.project_dir');
+            return str_ireplace($projectDir . "/public", '', $file->getRealPath());
         }
         return null;
     }
