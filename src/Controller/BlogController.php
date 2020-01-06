@@ -46,7 +46,8 @@ class BlogController extends AbstractController
     {
         return $this->render(
             'app/blog/index.html.twig', [
-                'blogs' => $this->repository->findAll()
+                'blogs' => $this->repository->findAll(),
+                'data_type' => 'blog'
             ]
         );
     }
@@ -71,6 +72,9 @@ class BlogController extends AbstractController
                 'slug' => $blog->getSlug()
             ], Response::HTTP_MOVED_PERMANENTLY);
         }
-        return $this->render('app/blog/show.html.twig', compact('blog'));
+        return $this->render('app/blog/show.html.twig', [
+            'blog' => $blog,
+            'data_type' => 'blog'
+        ]);
     }
 }

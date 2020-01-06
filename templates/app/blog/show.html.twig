@@ -1,4 +1,5 @@
 {% extends 'layout/base.html.twig' %}
+{% set _data = blog ?? post %}
 
 {% block stylesheet %}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/dracula.min.css">
@@ -7,7 +8,7 @@
 {% block body %}
     <div class="page-title-area bg-black">
         <div class="container">
-            <h2>{{ blog.name }}</h2>
+            <h2>{{ _data.name }}</h2>
         </div>
         <div class="br-line"></div>
     </div>
@@ -18,7 +19,18 @@
                 <div class="col-lg-8 col-md-12">
                     <article class="blog-details">
                         <header class="article-image">
-                            <img src="{{ vich_uploader_asset(blog, 'thumb_file') }}" alt="{{ blog.name }}">
+                            {% if data_type == "post" %}
+                                <iframe
+                                        width="100%"
+                                        height="500px"
+                                        src="https://www.youtube-nocookie.com/embed/{{ _data.videoUrl }}"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                            {% else %}
+                                <img src="{{ vich_uploader_asset(_data, 'thumb_file') }}" alt="{{ _data.name }}">
+                            {% endif %}
                         </header>
 
                         <main class="article-content">
@@ -26,7 +38,7 @@
                                 <ul>
                                     <li>
                                         <span>Posted On:</span>
-                                        <time>{{ blog.createdAt | date('M, d Y') }}</time>
+                                        <time>{{ _data.createdAt | date('M, d Y') }}</time>
                                     </li>
                                     <li>
                                         <span>Posted By: Bernard Ngandu</span>
@@ -34,23 +46,23 @@
                                 </ul>
                             </div>
 
-                            {{ blog.content | markdown_to_html }}
+                            {{ _data.content | markdown_to_html }}
                         </main>
 
                         <footer class="article-footer">
                             <div class="article-tags">
-                                <span><i class="fas fa-bookmark"></i></span>
-                                <a href="single-blog.html#">Fashion</a>,
-                                <a href="single-blog.html#">Games</a>,
-                                <a href="single-blog.html#">Travel</a>
+                                <a href="{{ path("app_" ~ data_type ~ "_index", {category: _data.category.slug}) }}"
+                                   title="{{ _data.category.name }}">
+                                    {{ _data.category.name }}
+                                </a>
                             </div>
 
                             <div class="article-share">
                                 <ul class="social">
                                     <li>
                                         <a id="share"
-                                           data-title="{{ blog.name }}"
-                                           data-url="{{ url('app_blog_show', {id: blog.id, slug: blog.slug}) }}"
+                                           data-title="{{ _data.name }}"
+                                           data-url="{{ url('app_blog_show', {id: _data.id, slug: _data.slug}) }}"
                                            href="#">
                                             <i class="fa fa-share-alt"></i>
                                         </a>
@@ -59,7 +71,7 @@
                             </div>
                         </footer>
                     </article>
-                    {% include "app/sections/_comments.html.twig" %}
+                    {#{% include "app/sections/_comments.html.twig" %}#}
                 </div>
 
                 <div class="col-lg-4 col-md-12">

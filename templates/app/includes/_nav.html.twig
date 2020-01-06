@@ -32,10 +32,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a title="screencast"
-                       href=""
-                       class="nav-link{{ _route == "app_screencast_index" or _route == "app_screencast_show" ? "active" : "" }}">
-                        ScreenCast
+                    <a title="Videos"
+                       href="{{ path('app_post_index') }}"
+                       class="nav-link {{ _route == "app_post_index" or _route == "app_post_show" ? "active" : "" }}">
+                        Videos
                     </a>
                 </li>
                 <li class="nav-item">
