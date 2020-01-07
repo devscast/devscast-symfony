@@ -4,7 +4,7 @@
     {
       "name": "Bernard Ng",
       "role": "CEO & Manager",
-      "avatar": "/assets/img/team/1.png",
+      "avatar": "https://avatars3.githubusercontent.com/u/31113941?s=460&v=4",
       "social": [
         {
           "name": "github",
@@ -18,7 +18,7 @@
         },
         {
           "name": "instagram",
-          "link": "https://instagram/_bernard.ng_",
+          "link": "https://instagram.com/_bernard.ng_",
           "icon": "fab fa-instagram"
         }
       ]
@@ -26,66 +26,51 @@
     {
       "name": "Divine Beloti",
       "role": "Developer",
-      "avatar": "/assets/img/team/2.png",
+      "avatar": "https://avatars2.githubusercontent.com/u/36290995?s=460&v=4",
       "social": [
         {
           "name": "github",
-          "link": "https://github.com/bernard-ng",
+          "link": "https://github.com/belotiKZ",
           "icon": "fab fa-github-square"
         },
         {
           "name": "twitter",
-          "link": "https://twitter.com/BernardNgandu",
+          "link": "https://twitter.com/belotiKZ",
           "icon": "fab fa-twitter"
-        },
-        {
-          "name": "instagram",
-          "link": "https://instagram/_bernard.ng_",
-          "icon": "fab fa-instagram"
         }
       ]
     },
     {
       "name": "Jonathan Yombo",
       "role": "Developer",
-      "avatar": "/assets/img/team/3.png",
+      "avatar": "https://avatars1.githubusercontent.com/u/17916412?s=460&v=4",
       "social": [
         {
           "name": "github",
-          "link": "https://github.com/bernard-ng",
+          "link": "https://github.com/ljoboy",
           "icon": "fab fa-github-square"
         },
         {
           "name": "twitter",
-          "link": "https://twitter.com/BernardNgandu",
+          "link": "https://twitter.com/ljoboy1322",
           "icon": "fab fa-twitter"
-        },
-        {
-          "name": "instagram",
-          "link": "https://instagram/_bernard.ng_",
-          "icon": "fab fa-instagram"
         }
       ]
     },
     {
-      "name": "Joseph Kabamba",
+      "name": "Elvis Kankola",
       "role": "Developer",
-      "avatar": "/assets/img/team/4.png",
+      "avatar": "https://avatars3.githubusercontent.com/u/36431029?s=460&v=4",
       "social": [
         {
           "name": "github",
-          "link": "https://github.com/bernard-ng",
+          "link": "https://github.com/elviskankola1",
           "icon": "fab fa-github-square"
         },
         {
           "name": "twitter",
-          "link": "https://twitter.com/BernardNgandu",
+          "link": "https://twitter.com/KankolaElvis",
           "icon": "fab fa-twitter"
-        },
-        {
-          "name": "instagram",
-          "link": "https://instagram/_bernard.ng_",
-          "icon": "fab fa-instagram"
         }
       ]
     }

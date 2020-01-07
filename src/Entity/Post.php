@@ -68,7 +68,6 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=300)
-     * @Assert\Url()
      */
     private $video_url;
 

@@ -1,13 +1,12 @@
-<aside class="widget-area" id="secondary">
-    {% if sidebar_posts() %}
+<aside class="widget-area" id="sidebar">
+    {% if posts %}
         <section class="widget widget_axton_posts_thumb">
             <h3 class="widget-title">Autres contenu</h3>
-            {% for post in sidebar_posts() %}
+            {% for post in posts %}
                 <article class="item">
                     <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}"
                        class="thumb">
-                        <span style="background-image: url({{ vich_uploader_asset(post, 'thumb_file') }})"
-                              class="fullimage cover bg1" role="img"></span>
+                        <span class="fullimage cover bg1" role="img"></span>
                     </a>
                     <div class="info">
                         <time datetime="{{ post.createdAt | date("Y-m-d") }}">
@@ -29,7 +28,7 @@
     <section class="widget widget_categories">
         <h3 class="widget-title">Catégories</h3>
         <ul>
-            {% for category in sidebar_categories() %}
+            {% for category in categories %}
                 <li>
                     <a title="{{ category.name }}"
                        href="{{ path("app_category_show", {slug: category.slug, id: category.id}) }}">
@@ -43,7 +42,7 @@
     <section class="widget widget_tag_cloud">
         <h3 class="widget-title">Tags</h3>
         <div class="tagcloud">
-            {% for tag in sidebar_tags() %}
+            {% for tag in tags %}
                 <a title="{{ tag.name }}"
                    href="{{ path("app_tag_show", {id: tag.id}) }}">
                     {{ tag.name }}

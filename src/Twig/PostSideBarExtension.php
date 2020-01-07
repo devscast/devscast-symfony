@@ -11,14 +11,17 @@
 
 namespace App\Twig;
 
-use App\Entity\Tag;
-use App\Entity\Post;
+use Twig\Environment;
 use Twig\TwigFunction;
-use App\Entity\Category;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use App\Repository\TagRepository;
 use App\Repository\PostRepository;
 use Twig\Extension\AbstractExtension;
 use App\Repository\CategoryRepository;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 
 /**
  * Class PostSideBarExtension
@@ -37,22 +40,33 @@ class PostSideBarExtension extends AbstractExtension
     /** @var PostRepository */
     private $postRepository;
 
+    /** @var TagAwareAdapterInterface */
+    private $cache;
+
+    /** @var Environment */
+    private $twig;
+
     /**
      * PostSideBarExtension constructor.
+     * @param Environment $twig
+     * @param TagAwareAdapterInterface $cache
      * @param TagRepository $tagRepository
      * @param CategoryRepository $categoryRepository
      * @param PostRepository $postRepository
      */
     public function __construct(
+        Environment $twig,
+        TagAwareAdapterInterface $cache,
         TagRepository $tagRepository,
         CategoryRepository $categoryRepository,
         PostRepository $postRepository
     )
     {
-
         $this->tagRepository = $tagRepository;
         $this->categoryRepository = $categoryRepository;
         $this->postRepository = $postRepository;
+        $this->cache = $cache;
+        $this->twig = $twig;
     }
 
     /**
@@ -62,36 +76,34 @@ class PostSideBarExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('sidebar_tags', [$this, 'tags']),
-            new TwigFunction('sidebar_categories', [$this, 'categories']),
-            new TwigFunction('sidebar_posts', [$this, 'posts'])
+            new TwigFunction('sidebar', [$this, 'sidebar'], ['is_safe' => ['html']]),
         ];
     }
 
     /**
-     * @return Tag[]|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function tags(): ?array
+    public function sidebar(): string
     {
-        return $this->tagRepository->findAll();
+        return $this->cache->get('sidebar', function (ItemInterface $item) {
+            $item->tag(['tags', 'categories', 'posts']);
+            return $this->renderSidebar();
+        });
     }
 
     /**
-     * @return Category[]|null
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function categories(): ?array
+    private function renderSidebar(): string
     {
-        return $this->categoryRepository->findAll();
-    }
-
-    /**
-     * @return Post[]|null
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function posts(): ?array
-    {
-        return null;
+        return $this->twig->render("app/blog/_sidebar.html.twig", [
+            'tags' => $this->tagRepository->findAll(),
+            'categories' => $this->categoryRepository->findAll(),
+            'posts' => $this->postRepository->findAll()
+        ]);
     }
 }

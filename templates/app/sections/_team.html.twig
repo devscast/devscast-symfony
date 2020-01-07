@@ -11,7 +11,7 @@
                 {% for user in team.data %}
                     <div class="single-team-box">
                         <div class="team-member-image">
-                            <img src="{{ asset(user.avatar) }}" title="{{ user.name }}" alt="{{ user.name }}">
+                            <img src="{{ user.avatar }}" title="{{ user.name }}" alt="{{ user.name }}">
                         </div>
                         <div class="team-member-content">
                             <h3>{{ user.name }}</h3>
