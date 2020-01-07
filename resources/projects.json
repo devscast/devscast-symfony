@@ -15,9 +15,14 @@
       "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
       "link": "https://magbusiness.net",
       "screenshots": [
-        "/assets/img/projects/2.jpg",
-        "/assets/img/projects/3.jpg",
-        "/assets/img/projects/1.jpg"
+        "/assets/img/projects/magbusiness/1.png",
+        "/assets/img/projects/magbusiness/2.png",
+        "/assets/img/projects/magbusiness/3.png",
+        "/assets/img/projects/magbusiness/4.png",
+        "/assets/img/projects/magbusiness/5.png",
+        "/assets/img/projects/magbusiness/6.png",
+        "/assets/img/projects/magbusiness/7.png",
+        "/assets/img/projects/magbusiness/8.png"
       ]
     },
     {
@@ -31,12 +36,15 @@
         "link": "https://lushitrap.net"
       },
       "description": "Plateforme de Streaming Musical",
-      "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
+      "challenge": "Lushitrap est un site web disponible pour tout celui ou celle qui voudrait avoir une visibilité sur le net , en l'occurence tout talentueux musicien qui partage sa musique à ses proches via les réseaux sociaux ou ailleurs. Lushitrap vous ouvre les horizons pour vous rendre visible au grand public.",
       "link": "https://lushitrap.com",
       "screenshots": [
-        "/assets/img/projects/3.jpg",
-        "/assets/img/projects/3.jpg",
-        "/assets/img/projects/1.jpg"
+        "/assets/img/projects/lushitrap/1.png",
+        "/assets/img/projects/lushitrap/2.png",
+        "/assets/img/projects/lushitrap/3.png",
+        "/assets/img/projects/lushitrap/4.png",
+        "/assets/img/projects/lushitrap/5.png",
+        "/assets/img/projects/lushitrap/6.png"
       ]
     },
     {
@@ -53,9 +61,14 @@
       "challenge": "Lorem ipsum dolor sit amet, conse cte tuer adipiscing elit, sed diam no nu m nibhie eui smod. Facil isis atve eros et accumsan etiu sto odi dignis sim qui blandit praesen lup ta de er. At molestiae appellantur pro. Vis wisi oportere per ic ula ad, ei latine prop riae na, mea cu purto debitis. Primis nost rud no eos, no impedit dissenti as mea, ea vide labor amus neglegentur vix. Ancillae intellegat vix et. Sit causae laoreet nolu ise.",
       "link": "https://larytech.com",
       "screenshots": [
-        "/assets/img/projects/1.jpg",
-        "/assets/img/projects/2.jpg",
-        "/assets/img/projects/3.jpg"
+        "/assets/img/projects/ngpictures/1.png",
+        "/assets/img/projects/ngpictures/2.png",
+        "/assets/img/projects/ngpictures/3.png",
+        "/assets/img/projects/ngpictures/4.png",
+        "/assets/img/projects/ngpictures/5.png",
+        "/assets/img/projects/ngpictures/6.png",
+        "/assets/img/projects/ngpictures/7.png",
+        "/assets/img/projects/ngpictures/8.png"
       ]
     }
   ]
