@@ -43,14 +43,4 @@ class HomeController extends AbstractController
     {
         return $this->render("app/statics/policy.html.twig");
     }
-
-    /**
-     * @Route("/contact", name="contact", methods={"GET", "POST"})
-     * @return Response
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function contact()
-    {
-        return $this->render("app/statics/contact.html.twig");
-    }
 }
