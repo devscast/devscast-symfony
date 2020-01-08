@@ -33,7 +33,7 @@ class ContactData
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Length(max="255")
+     * @Assert\Length(min="3", max="255")
      */
     public $subject;
 
