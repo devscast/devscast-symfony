@@ -15,3 +15,9 @@
   background-color: $main-color;
   color: #ffffff;
 }
+
+.alert {
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 250;
+}

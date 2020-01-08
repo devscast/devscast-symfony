@@ -13,6 +13,7 @@
 
 <body data-route="{{ app.request.get("_route") }}">
 
+{{ global_message() }}
 {% include "app/includes/_preloader.html.twig" %}
 {% include "app/includes/_nav.html.twig" %}
 <div id="js-particles"></div>

@@ -30,7 +30,8 @@
             <div class="collapse" id="loggedinMenu">
                 <p class="tx-color-03 tx-12 mg-b-0">{{ app.user.email }}</p>
                 <p class="tx-color-03 tx-12 mg-b-0">last IP : {{ app.user.lastLoginIp }}</p>
-                <p class="tx-color-03 tx-12 mg-b-0">last Login : {{ app.user.lastLoginAt ? app.user.lastLoginAt|date('d-M-Y H:i:s') : '-'  }}</p>
+                <p class="tx-color-03 tx-12 mg-b-0">last Login
+                    : {{ app.user.lastLoginAt ? app.user.lastLoginAt|date('d-M-Y H:i:s') : '-' }}</p>
                 <ul class="nav nav-aside mg-b-0">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -77,6 +78,11 @@
             <li class="">
                 <a href="{{ path('admin_tag_index') }}" class="nav-link">
                     <i data-feather="layers"></i><span>Tags</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ path('admin_message_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Global Message</span>
                 </a>
             </li>
             <li class="nav-item">
