@@ -12,6 +12,7 @@
 namespace App\EventSubscriber;
 
 
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Exception;
 use App\Entity\Tag;
 use App\Entity\Post;
@@ -54,17 +55,41 @@ class ContentCacheSubscriber implements EventSubscriber
     public function getSubscribedEvents()
     {
         return [
-            'onFlush'
+            'preUpdate',
+            'preRemove',
+            'prePersist'
         ];
+    }
+
+    /**
+     * @param PreUpdateEventArgs $args
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function preUpdate(PreUpdateEventArgs $args)
+    {
+        $this->invalidate($args->getEntity());
     }
 
     /**
      * @param LifecycleEventArgs $args
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function onFlush(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args)
     {
-        $entity = $args->getEntity();
+        $this->invalidate($args->getEntity());
+    }
+
+    /**
+     * @param LifecycleEventArgs $args
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        $this->invalidate($args->getEntity());
+    }
+
+    private function invalidate($entity)
+    {
         try {
             switch ($entity) {
                 case $entity instanceof GlobalMessage :
