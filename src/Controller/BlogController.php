@@ -11,8 +11,11 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Blog;
+use App\Form\SearchType;
 use App\Repository\BlogRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,16 +43,18 @@ class BlogController extends AbstractController
 
     /**
      * @Route(path="", name="app_blog_index", methods={"GET"})
+     * @param Request $request
+     * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->render(
-            'app/blog/index.html.twig', [
-                'blogs' => $this->repository->findAll(),
-                'data_type' => 'blog'
-            ]
-        );
+        return $this->render("app/blog/index.html.twig", [
+            'blogs' => $this->repository->findPaginated(
+                $request->query->getInt('page', 1)
+            ),
+            'data_type' => 'blog'
+        ]);
     }
 
     /**

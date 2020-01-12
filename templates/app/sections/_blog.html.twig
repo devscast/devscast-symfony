@@ -22,4 +22,9 @@
             {% endif %}
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="m-auto">
+            {{ knp_pagination_render(blogs ?? posts) }}
+        </div>
+    </div>
 </section>

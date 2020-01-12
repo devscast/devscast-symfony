@@ -30,3 +30,43 @@
     color: $black-color-two;
   }
 }
+
+.page-item {
+  &.active .page-link {
+    z-index: 3;
+    color: $main-color;
+    border-color: $main-color;
+  }
+
+  &.disabled .page-link {
+    z-index: 2;
+    color: #6c757d;
+    pointer-events: none;
+    cursor: not-allowed;
+    border-color: #2b2b2b;
+  }
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.7rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: inherit;
+  background-color: transparent !important;
+  border: 1px solid #2b2b2b;
+
+  &:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:hover {
+    z-index: 2;
+    color: $main-color;
+    text-decoration: none;
+    border-color: $main-color;
+  }
+}

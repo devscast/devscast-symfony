@@ -13,6 +13,7 @@ namespace App\Controller;
 use App\Entity\Post;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -27,15 +28,18 @@ class PostController extends AbstractController
 
     /**
      * @Route(path="", name="app_post_index", methods={"GET"})
+     * @param Request $request
      * @param PostRepository $postRepository
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index(PostRepository $postRepository): Response
+    public function index(Request $request, PostRepository $postRepository): Response
     {
         return $this->render("app/blog/index.html.twig", [
-            'posts' => $postRepository->findAll(),
-            'data_type' => 'post'
+            'blogs' => $postRepository->findPaginated(
+                $request->query->getInt('page', 1)
+            ),
+            'data_type' => 'blog'
         ]);
     }
 

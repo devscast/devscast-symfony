@@ -52,15 +52,17 @@
                         Contact
                     </a>
                 </li>
-                <li class="nav-item ml-lg-5">
-                    <div class="navbar-search">
-                        <form action="/search" method="get" class="search-form">
-                            <label for="q" class="screen-reader-text">Search for:</label>
-                            <input type="search" id="q" name="q" class="search-field" placeholder="search...">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                </li>
+                {% if _route == "app_blog_index" or _route == "app_post_index" %}
+                    <li class="nav-item ml-lg-5">
+                        <div class="navbar-search">
+                            <form action="" method="get" class="search-form">
+                                <label for="q" class="screen-reader-text">Search for:</label>
+                                <input type="search" id="q" name="q" class="search-field" placeholder="search...">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
