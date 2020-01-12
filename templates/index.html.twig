@@ -3,14 +3,8 @@
 {% block meta %}
     <title>Devscast, Numeric Builders | devs-cast.com</title>
     <meta property="og:title" content="Devscast, Numeric Builders | devs-cast.com">
-    <meta property="og:description" content=" Nous sommes une communautés de développeurs
-                            dont l'objectif est d'apporter des solutions aux problèmes
-                            de notre entourage grâce à l'opensource
-                            et construire la solution numérique qui vous manque.">
-    <meta name="description" content=" Nous sommes une communautés de développeurs
-                            dont l'objectif est d'apporter des solutions aux problèmes
-                            de notre entourage grâce à l'opensource
-                            et construire la solution numérique qui vous manque.">
+    <meta property="og:description" content="{{ meta().description }}">
+    <meta name="description" content="{{ meta().description }}">
 {% endblock %}
 
 {% block body %}

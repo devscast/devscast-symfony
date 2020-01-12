@@ -9,5 +9,6 @@
   "latitude": "",
   "longitude": "",
   "sitename": "Devscast",
-  "image": "/assets/img/logo-main.png"
+  "image": "/assets/img/logo-main.png",
+  "description": "Nous sommes une communautés de développeurs dont l'objectif est d'apporter des solutions aux problèmes de notre entourage grâce à l'opensource et construire la solution numérique qui vous manque."
 }

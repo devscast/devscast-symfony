@@ -29,6 +29,6 @@ services:
         class: Symfony\Component\Cache\Adapter\TagAwareAdapter
         arguments: ['@cache.app']
 
-    App\EventSubscriber\GlobalMessageCacheSubscriber:
+    App\EventSubscriber\ContentCacheSubscriber:
         tags: ['doctrine.event_subscriber']
 
