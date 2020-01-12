@@ -97,6 +97,11 @@ class Blog
     private $tags;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_archived = 0;
+
+    /**
      * Blog constructor.
      * @throws \Exception
      */
@@ -361,6 +366,18 @@ class Blog
         if ($thumb_file instanceof UploadedFile) {
             $this->setCreatedAt(new DateTime());
         }
+        return $this;
+    }
+
+    public function getIsArchived(): ?bool
+    {
+        return $this->is_archived;
+    }
+
+    public function setIsArchived(bool $is_archived): self
+    {
+        $this->is_archived = $is_archived;
+
         return $this;
     }
 }

@@ -48,6 +48,11 @@ class Tag
     private $posts;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_archived = 0;
+
+    /**
      * Tag constructor.
      */
     public function __construct()
@@ -158,6 +163,18 @@ class Tag
             $this->posts->removeElement($post);
             $post->removeTag($this);
         }
+
+        return $this;
+    }
+
+    public function getIsArchived(): ?bool
+    {
+        return $this->is_archived;
+    }
+
+    public function setIsArchived(bool $is_archived): self
+    {
+        $this->is_archived = $is_archived;
 
         return $this;
     }
