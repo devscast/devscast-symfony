@@ -50,12 +50,14 @@
                         </main>
 
                         <footer class="article-footer">
-                            <div class="article-tags">
-                                <a href="{{ path("app_" ~ data_type ~ "_index", {category: _data.category.slug}) }}"
-                                   title="{{ _data.category.name }}">
-                                    {{ _data.category.name }}
-                                </a>
-                            </div>
+                            {% if _data.category %}
+                                <div class="article-tags">
+                                    <a href="{{ path("app_" ~ data_type ~ "_index", {category: _data.category.slug}) }}"
+                                       title="{{ _data.category.name }}">
+                                        {{ _data.category.name }}
+                                    </a>
+                                </div>
+                            {% endif %}
 
                             <div class="article-share">
                                 <ul class="social">
