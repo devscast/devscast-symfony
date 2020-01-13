@@ -100,7 +100,8 @@ class TagController extends AbstractController
     {
         if ($this->isCsrfTokenValid("delete" . $tag->getId(), $request->request->get("_token"))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($tag);
+            $tag->setIsArchived(1);
+            $entityManager->persist($tag);
             $entityManager->flush();
         }
 

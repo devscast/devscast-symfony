@@ -113,7 +113,8 @@ class BlogController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $blog->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($blog);
+            $blog->setIsArchived(1);
+            $entityManager->persist($blog);
             $entityManager->flush();
         }
 

@@ -113,7 +113,8 @@ class PostController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $post->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($post);
+            $post->setIsArchived(1);
+            $entityManager->persist($post);
             $entityManager->flush();
         }
 

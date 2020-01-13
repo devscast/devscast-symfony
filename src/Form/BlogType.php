@@ -56,11 +56,13 @@ class BlogType extends AbstractType
                 'multiple' => true,
                 'choice_label' => 'name'
             ])
+            ->add('description', TextareaType::class, [
+                'required' => false
+            ])
             ->add('content', TextareaType::class)
             ->add('is_online', CheckboxType::class, [
                 'required' => false
-            ])
-        ;
+            ]);
     }
 
     /**

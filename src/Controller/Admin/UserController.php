@@ -118,7 +118,8 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
+            $user->setIsArchived(1);
+            $entityManager->persist($user);
             $entityManager->flush();
         }
 

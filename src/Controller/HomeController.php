@@ -35,12 +35,21 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/privacy", name="privacy", methods={"GET"})
+     * @Route("/contributing", name="contributing", methods={"GET"})
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function privacy()
+    public function contributing()
     {
-        return $this->render("app/statics/policy.html.twig");
+        return $this->render("app/statics/contributing.html.twig");
+    }
+
+    /**
+     * @Route("/code-of-conduct", name="conduct", methods={"GET"})
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function conduct()
+    {
+        return $this->render("app/statics/conduct.html.twig");
     }
 }

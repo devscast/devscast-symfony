@@ -102,6 +102,11 @@ class Blog
     private $is_archived = 0;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description;
+
+    /**
      * Blog constructor.
      * @throws \Exception
      */
@@ -377,6 +382,18 @@ class Blog
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
