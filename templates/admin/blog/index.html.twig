@@ -27,7 +27,8 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Created_at</th>
-                        <th>Is_online</th>
+                        <th>online</th>
+                        <th>archived</th>
                         <th>actions</th>
                     </tr>
                     </thead>
@@ -38,6 +39,10 @@
                             <td>{{ blog.name }}</td>
                             <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                             <td>{{ blog.isOnline ?
+                                '<i class="fa fa-check text-success"></i>' :
+                                '<i class="fa fa-times text-danger"></i>' }}
+                            </td>
+                            <td>{{ blog.isArchived ?
                                 '<i class="fa fa-check text-success"></i>' :
                                 '<i class="fa fa-times text-danger"></i>' }}
                             </td>

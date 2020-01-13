@@ -1,5 +1,12 @@
 {% extends "layout/base.html.twig" %}
 
+{% block meta %}
+    <title>Contact | devs-cast.com</title>
+    <meta property="og:title" content="Contact | devs-cast.com">
+    <meta property="og:description" content="{{ meta().contactDescription }}">
+    <meta name="description" content="{{ meta().contactDescription }}">
+{% endblock %}
+
 {% block body %}
     {% include 'app/sections/_contact.html.twig' %}
 {% endblock %}

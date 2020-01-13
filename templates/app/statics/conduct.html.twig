@@ -1,8 +1,8 @@
 {% extends "layout/base.html.twig" %}
 
 {% block meta %}
-    <title>Contribuer | devs-cast.com</title>
-    <meta property="og:title" content="contribuer | devs-cast.com">
+    <title>Code de Conduite | devs-cast.com</title>
+    <meta property="og:title" content="Code de Conduite | devs-cast.com">
     <meta property="og:description" content="{{ meta().description }}">
     <meta name="description" content="{{ meta().description }}">
 {% endblock %}
@@ -10,7 +10,7 @@
 {% block body %}
     <section class="blog-area ptb-80 bg-black">
         <div class="container">
-            {{ include('app/documents/contributing.md.twig') | markdown_to_html }}
+            {{ include('app/documents/conduct.md.twig') | markdown_to_html }}
         </div>
     </section>
 {% endblock %}

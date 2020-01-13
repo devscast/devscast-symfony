@@ -6,10 +6,26 @@
     <meta property="og:title" content="{{ _data.name }} | devs-cast.com">
     <meta property="og:description" content="{{ _data.description }}">
     <meta name="description" content="{{ _data.description }}">
+
+    {% if data_type == 'blog' %}
+        <meta property="og:type" content="article"/>
+        <meta property="og:article:published_time" content="{{ _data.createdAt | date("Y-m-d") }}"/>
+        <meta property="og:article:modified_time" content="{{ _data.updatedAt | date("Y-m-d") }}"/>
+        <meta property="og:article:author" content="{{ _data.user.name }}"/>
+        <meta property="og:article:section" content="Technology"/>
+    {% else %}
+        <meta property="og:type" content="video.other"/>
+        <meta property="og:video:actor" content="{{ _data.user.name }}"/>
+        <meta property="og:video:writer" content="{{ _data.user.name }}"/>
+        <meta property="og:video:duration" content="{{ _data.duration * 60 }}"/>
+        <meta property="og:video:release_date" content="{{ _data.createdAt | date("Y-m-d") }}"/>
+    {% endif %}
 {% endblock %}
 
 {% block stylesheet %}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/dracula.min.css">
+    <script defer src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script defer>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
 
 {% block body %}
@@ -89,9 +105,4 @@
             </div>
         </div>
     </section>
-{% endblock %}
-
-{% block javascripts %}
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

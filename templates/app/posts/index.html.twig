@@ -1,10 +1,10 @@
 {% extends 'layout/base.html.twig' %}
 
 {% block meta %}
-    <title>Vidéos | devs-cast.com</title>
-    <meta property="og:title" content="Vidéos | devs-cast.com">
-    <meta property="og:description" content="...">
-    <meta name="description" content="...">
+    <title>Toutes les Vidéos | devs-cast.com</title>
+    <meta property="og:title" content="Toutes les Vidéos | devs-cast.com">
+    <meta property="og:description" content="{{ meta().postDescription }}">
+    <meta name="description" content="{{ meta().postDescription }}">
 {% endblock %}
 
 {% block body %}

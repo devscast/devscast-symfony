@@ -26,6 +26,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Archived</th>
                         <th>actions</th>
                     </tr>
                     </thead>
@@ -34,6 +35,10 @@
                         <tr>
                             <td>{{ tag.id }}</td>
                             <td>{{ tag.name }}</td>
+                            <td>{{ tag.isArchived ?
+                                '<i class="fa fa-check text-success"></i>' :
+                                '<i class="fa fa-times text-danger"></i>' }}
+                            </td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ path('admin_tag_edit', {'id': tag.id}) }}">
                                     <i class="fa fa-edit"></i>

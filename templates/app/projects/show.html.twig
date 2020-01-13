@@ -1,5 +1,12 @@
 {% extends "layout/base.html.twig" %}
 
+{% block meta %}
+    <title>Projet {{ project.name }} | devs-cast.com</title>
+    <meta property="og:title" content="Projet {{ project.name }} | devs-cast.com">
+    <meta property="og:description" content="{{ project.description }}">
+    <meta name="description" content="{{ project.description }}">
+{% endblock %}
+
 {% block body %}
     <div class="page-title-area bg-black">
         <div class="container">
