@@ -7,13 +7,13 @@
         </div>
 
         <div class="row align-items-center">
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-5 col-md-12 animated slideInLeft">
                 <div class="contact-image">
-                    <img src="assets/img/contact.png" alt="image">
+                    <img src="{{ asset('assets/img/contact.png') }}" alt="image">
                 </div>
             </div>
 
-            <div class="col-lg-7 col-md-12">
+            <div class="col-lg-7 col-md-12 animated slideInRight">
                 <div class="contact-form">
                     {{ form_start(contactForm) }}
                     <div class="row">

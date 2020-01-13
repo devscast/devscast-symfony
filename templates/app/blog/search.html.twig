@@ -9,7 +9,9 @@
         <div class="container">
             <div class="section-title">
                 <span>Résultat de Recherches</span>
-                <h2>{{ posts ? "Vidéos Correspondant" : "Aucun résultat Correspondant" }}</h2>
+                <h2>
+                    {{ posts.count ? posts.totalItemCount ~ " Vidéos Correspondant" : "Aucun résultat Correspondant" }}
+                </h2>
             </div>
 
             <div class="row">

@@ -12,9 +12,6 @@ window.addEventListener("scroll", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    let preloader = document.querySelector(".preloader");
-    preloader.classList.add("preloader-deactivate");
-
     if (typeof particlesJS !== "undefined") {
         try {
             window.particlesJS("js-particles", particlesConfig);
