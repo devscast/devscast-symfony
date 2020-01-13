@@ -1,0 +1,33 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block meta %}
+    <title>Résultat de Recherches | devs-cast.com</title>
+{% endblock %}
+
+{% block body %}
+    <section id="post" class="blog-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Résultat de Recherches</span>
+                <h2>{{ posts ? "Vidéos Correspondant" : "Aucun résultat Correspondant" }}</h2>
+            </div>
+
+            <div class="row">
+                {% if posts is defined %}
+                    {% for post in posts %}
+                        <div class="col-lg-4 col-md-4">
+                            {% include 'app/blog/_card.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="m-auto">
+                {{ knp_pagination_render(posts) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

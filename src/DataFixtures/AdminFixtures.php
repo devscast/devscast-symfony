@@ -43,6 +43,7 @@ class AdminFixtures extends Fixture
                 ->setEmail('admin@devs-cast.com')
                 ->setPassword($this->encoder->encodePassword($user, $_ENV['APP_DEFAULT_PASSWORD']))
                 ->setCreatedAt(new \DateTime('now'))
+                ->setIsArchived(0)
                 ->setRoles(['ROLE_ADMIN']);
             $manager->persist($user);
             $manager->flush();

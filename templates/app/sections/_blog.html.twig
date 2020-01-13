@@ -1,8 +1,8 @@
 <section id="{{ data_type }}" class="blog-area ptb-80 bg-black">
     <div class="container">
         <div class="section-title">
-            <span>{{ data_type == "blog" ? "Notre Blog" : "Nos Videos" }}</span>
-            <h2>{{ data_type == "blog" ? "Articles récents" : "Videos récentes" }}</h2>
+            <span>Notre Blog</span>
+            <h2>Articles récents</h2>
             <div class="bar"></div>
         </div>
 
@@ -13,18 +13,12 @@
                         {% include 'app/blog/_card.html.twig' %}
                     </div>
                 {% endfor %}
-            {% elseif posts is defined %}
-                {% for post in posts %}
-                    <div class="col-lg-4 col-md-4">
-                        {% include 'app/blog/_card.html.twig' %}
-                    </div>
-                {% endfor %}
             {% endif %}
         </div>
     </div>
     <div class="row mt-5">
         <div class="m-auto">
-            {{ knp_pagination_render(blogs ?? posts) }}
+            {{ knp_pagination_render(blogs) }}
         </div>
     </div>
 </section>

@@ -32,7 +32,7 @@ class TagFixtures extends Fixture
 
         foreach ($tags as $tag) {
             $manager->persist(
-                (new Tag())->setName($tag)
+                (new Tag())->setName($tag)->setIsArchived(0)
             );
         }
 

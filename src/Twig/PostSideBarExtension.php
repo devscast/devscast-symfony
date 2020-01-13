@@ -103,7 +103,7 @@ class PostSideBarExtension extends AbstractExtension
         return $this->twig->render("app/blog/_sidebar.html.twig", [
             'tags' => $this->tagRepository->findAll(),
             'categories' => $this->categoryRepository->findAll(),
-            'posts' => $this->postRepository->findAll()
+            'posts' => $this->postRepository->findForSidebar()
         ]);
     }
 }

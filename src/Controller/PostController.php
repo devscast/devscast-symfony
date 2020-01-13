@@ -11,11 +11,13 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Data\SearchData;
+use App\Form\SearchType;
 use App\Repository\PostRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class PostController
@@ -26,20 +28,31 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostController extends AbstractController
 {
 
+    /** @var PostRepository */
+    private $postRepository;
+
+    /**
+     * PostController constructor.
+     * @param PostRepository $postRepository
+     */
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
     /**
      * @Route(path="", name="app_post_index", methods={"GET"})
      * @param Request $request
-     * @param PostRepository $postRepository
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index(Request $request, PostRepository $postRepository): Response
+    public function index(Request $request): Response
     {
-        return $this->render("app/blog/index.html.twig", [
-            'blogs' => $postRepository->findPaginated(
+        return $this->render("app/posts/index.html.twig", [
+            'posts' => $this->postRepository->findPaginated(
                 $request->query->getInt('page', 1)
             ),
-            'data_type' => 'blog'
+            'data_type' => 'post'
         ]);
     }
 
@@ -67,5 +80,26 @@ class PostController extends AbstractController
             'post' => $post,
             'data_type' => 'post'
         ]);
+    }
+
+    /**
+     * @Route(path="/search", name="app_post_search", methods={"GET"})
+     * @param Request $request
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function search(Request $request): Response
+    {
+        $data = new SearchData();
+        $searchForm = $this->createForm(SearchType::class, $data);
+        $searchForm->handleRequest($request);
+
+        if (!is_null($data->q)) {
+            return $this->render("app/blog/search.html.twig", [
+                'posts' => $this->postRepository->findSearch($data),
+                'data_type' => 'post'
+            ]);
+        }
+        return $this->redirectToRoute('app_post_index');
     }
 }

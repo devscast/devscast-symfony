@@ -1,10 +1,13 @@
 {% extends 'layout/base.html.twig' %}
 
+{% set _page = (data_type == 'blog') ? "Blog" : "Vidéos" %}
+{% set _description = "" %}
+
 {% block meta %}
-    <title>Blog | devs-cast.com</title>
-    <meta property="og:title" content="Blog | devs-cast.com">
-    <meta property="og:description" content="Blog des Createurs">
-    <meta name="description" content="Blog des Createurs">
+    <title>{{ _page }} | devs-cast.com</title>
+    <meta property="og:title" content="{{ _page }} | devs-cast.com">
+    <meta property="og:description" content="{{ _description }}">
+    <meta name="description" content="{{ _description }}">
 {% endblock %}
 
 {% block body %}

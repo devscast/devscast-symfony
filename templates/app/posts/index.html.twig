@@ -1,0 +1,35 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block meta %}
+    <title>Vidéos | devs-cast.com</title>
+    <meta property="og:title" content="Vidéos | devs-cast.com">
+    <meta property="og:description" content="...">
+    <meta name="description" content="...">
+{% endblock %}
+
+{% block body %}
+    <section id="{{ data_type }}" class="blog-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Nos Videos</span>
+                <h2>Videos récentes</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row">
+                {% if posts is defined %}
+                    {% for post in posts %}
+                        <div class="col-lg-4 col-md-4">
+                            {% include 'app/blog/_card.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="m-auto">
+                {{ knp_pagination_render(posts) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

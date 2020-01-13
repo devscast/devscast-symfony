@@ -6,7 +6,9 @@
                 <article class="item">
                     <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}"
                        class="thumb">
-                        <span class="fullimage cover bg1" role="img"></span>
+                        <span class="fullimage cover bg1"
+                              role="img"
+                              style="background-image: url({{ vich_uploader_asset(post, 'thumb_file') }})"></span>
                     </a>
                     <div class="info">
                         <time datetime="{{ post.createdAt | date("Y-m-d") }}">
