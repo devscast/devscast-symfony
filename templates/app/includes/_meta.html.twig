@@ -3,18 +3,18 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=11.0000">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="content-language" content="{{ meta().lang | default("fr") }}">
+<meta http-equiv="content-language" content="{{ meta().lang }}">
 
-<meta name="language" content="{{ meta().lang | default("fr") }}">
-<meta name="copyright" content="{{ meta().copyright | default("https://devs-cast.com") }}">
-<meta name="author" content="{{ meta().author | default("bernard-ng, ngandubernard@gmail.com") }}">
-<meta name="identifier-url" content="{{ meta().url | default("https://devs-cast.com") }}">
-<meta name="keywords" content="{{ meta().keywords | default("DRC") }}" lang="{{ meta().lang | default('fr') }}">
+<meta name="language" content="{{ meta().lang }}">
+<meta name="copyright" content="{{ meta().copyright }}">
+<meta name="author" content="{{ meta().author }}">
+<meta name="identifier-url" content="{{ meta().url }}">
+<meta name="keywords" content="{{ meta().keywords }}" lang="{{ meta().lang }}">
 
 <meta name="robots" content="index,follow"/>
-<meta name="classification" content="{{ meta().classification | default("Blog") }}">
-<meta name="designer" content="https://devs-cast.com">
-<meta name="reply-to" content="{{ meta().email | default("contact@devs-cast.com") }}">
+<meta name="classification" content="{{ meta().classification }}">
+<meta name="designer" content="{{ meta().url }}">
+<meta name="reply-to" content="{{ meta().email }}">
 <meta name="owner" content="Devscast ltd.">
 <meta name="category" content="Blog">
 <meta name="coverage" content="Worldwide">
@@ -23,40 +23,39 @@
 <meta name="revisit-after" content="7 days">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="{{ meta().sitename | default("devs-cast.com") }}"/>
-<meta name="twitter:creator" content="{{ meta().author | default("@BernardNgandu") }}"/>
-<meta property="og:language" content="{{ meta().lang | default("fr") }}">
-<meta property="og:site_name" content="{{ meta().sitename | default("devs-cast.com") }}">
-<meta property="og:image" content="{{ meta().image | default("/assets/img/logo-main.png") }}">
-<meta property="og:url" content="{{ app.request.requestUri }}">
+<meta name="twitter:site" content="{{ meta().sitename }}"/>
+<meta name="twitter:creator" content="{{ meta().author }}"/>
+<meta property="og:language" content="{{ meta().lang }}">
+<meta property="og:site_name" content="{{ meta().sitename }}">
+<meta property="og:image" content="{{ absolute_url(meta().image) }}">
+<meta property="og:url" content="{{ absolute_url(app.request.requestUri) }}">
 
-<meta name="fb:page_id" content="{{ meta().fb_id  | default("") }}"/>
-<meta name="og:email" content="{{ meta().email | default("") }}"/>
-<meta name="og:phone_number" content="{{ meta().phone | default("") }}"/>
-<meta name="og:latitude" content="{{ meta().latitude | default("") }}"/>
-<meta name="og:longitude" content="{{ meta().longitude | default("") }}"/>
-<meta name="og:street-address" content="{{ meta().street | default("") }}"/>
-<meta name="og:locality" content="{{ meta().locality | default("") }}"/>
-<meta name="og:region" content="{{ meta().region | default("") }}"/>
-<meta name="og:country-name" content="{{ meta().country | default("") }}"/>
+<meta name="og:email" content="{{ meta().email }}"/>
+<meta name="og:phone_number" content="{{ meta().phone }}"/>
+<meta name="og:latitude" content="{{ meta().latitude }}"/>
+<meta name="og:longitude" content="{{ meta().longitude }}"/>
+<meta name="og:street-address" content="{{ meta().street }}"/>
+<meta name="og:locality" content="{{ meta().locality }}"/>
+<meta name="og:region" content="{{ meta().region }}"/>
+<meta name="og:country-name" content="{{ meta().country }}"/>
 
-<meta name="theme-color" content="{{ meta().themeColor | default("#15db95") }}">
-<meta name="msapplication-TileColor" content="{{ meta().themeColor | default("#15db95") }}">
-<meta name="msapplication-navbutton-color" content="{{ meta().themeColor | default("#15db95") }}">
-<meta name="apple-mobile-web-app-status-bar-style" content="{{ meta().themeColor | default("#15db95") }}">
+<meta name="theme-color" content="{{ meta().themeColor }}">
+<meta name="msapplication-TileColor" content="{{ meta().themeColor }}">
+<meta name="msapplication-navbutton-color" content="{{ meta().themeColor }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ meta().themeColor }}">
 
-<meta name="msapplication-TileImage" content="{{ asset('/favicon/ms-icon-144x144.png') }}">
-<link rel="apple-touch-icon" sizes="57x57" href="{{ asset('/favicon/apple-icon-57x57.png') }}">
-<link rel="apple-touch-icon" sizes="60x60" href={{ asset('/favicon/apple-icon-60x60.png') }}"">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('/favicon/apple-icon-72x72.png') }}">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/favicon/apple-icon-76x76.png') }}">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('/favicon/apple-icon-114x114.png') }}">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('/favicon/apple-icon-120x120.png') }}">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('/favicon/apple-icon-144x144.png') }}">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('/favicon/apple-icon-152x152.png') }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-icon-180x180.png') }}">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ asset('/favicon/android-icon-192x192.png') }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
-<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('/favicon/favicon-96x96.png') }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png') }}">
-<link rel="manifest" href="{{ asset('/manifest.json') }}">
+<meta name="msapplication-TileImage" content="{{ absolute_url('/favicon/ms-icon-144x144.png') }}">
+<link rel="apple-touch-icon" sizes="57x57" href="{{ absolute_url('/favicon/apple-icon-57x57.png') }}">
+<link rel="apple-touch-icon" sizes="60x60" href={{ absolute_url('/favicon/apple-icon-60x60.png') }}"">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ absolute_url('/favicon/apple-icon-72x72.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ absolute_url('/favicon/apple-icon-76x76.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ absolute_url('/favicon/apple-icon-114x114.png') }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ absolute_url('/favicon/apple-icon-120x120.png') }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ absolute_url('/favicon/apple-icon-144x144.png') }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ absolute_url('/favicon/apple-icon-152x152.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ absolute_url('/favicon/apple-icon-180x180.png') }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ absolute_url('/favicon/android-icon-192x192.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ absolute_url('/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ absolute_url('/favicon/favicon-96x96.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ absolute_url('/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ absolute_url('/manifest.json') }}">

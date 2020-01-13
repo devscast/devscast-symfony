@@ -46,7 +46,7 @@
         <div class="tagcloud">
             {% for tag in tags %}
                 <a title="{{ tag.name }}"
-                   href="{{ path("app_tag_show", {id: tag.id}) }}">
+                   href="{{ path("app_tag_show", {name: tag.name}) }}">
                     {{ tag.name }}
                 </a>
             {% endfor %}

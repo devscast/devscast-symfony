@@ -27,7 +27,7 @@ class TagController extends AbstractController
 
     /**
      * @Route(
-     *     path="/{id}",
+     *     path="/{name}",
      *     name="app_tag_show",
      *     methods={"GET"},
      *     requirements={"slug":"[a-z0-9-]+", "id":"[\d]+"}

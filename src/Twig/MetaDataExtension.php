@@ -2,10 +2,9 @@
 
 namespace App\Twig;
 
-use Symfony\Component\HttpKernel\KernelInterface;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
 use Twig\TwigFunction;
+use Twig\Extension\AbstractExtension;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class MetaDataExtension
@@ -42,7 +41,6 @@ class MetaDataExtension extends AbstractExtension
 
     /**
      * @return mixed
-     * @todo use absolute path for meta.json
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function getMetaData()
