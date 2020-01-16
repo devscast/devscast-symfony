@@ -16,5 +16,9 @@
   "longitude": "",
   "sitename": "Devscast",
   "image": "/assets/img/logo-main.png",
-  "description": "Nous sommes une communautés de développeurs dont l'objectif est d'apporter des solutions aux problèmes de notre entourage grâce à l'opensource et construire la solution numérique qui vous manque."
+  "description": "Nous sommes une communautés de développeurs dont l'objectif est d'apporter des solutions aux problèmes de notre entourage grâce à l'opensource et construire la solution numérique qui vous manque.",
+  "projectDescription": "Nous travaillons sur plusieurs projets opensource pour donner des solutions à notre entourage et plusieurs projets en freelance.",
+  "postDescription": "Tutoriel vidéos sur le développent web, algorithmie et programmation en général.",
+  "blogDescription": "Articles, Astuces, découverte et partage sur les technologies du web.",
+  "contactDescription": "Envie d'en savoir plus sur nous, nous confier votre projet ? contactez nous."
 }

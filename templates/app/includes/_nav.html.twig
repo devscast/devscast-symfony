@@ -28,14 +28,14 @@
                     <a title="projects"
                        class="nav-link {{ _route == "app_project_index" or _route == "app_project_show" ? "active" : "" }}"
                        href="{{ path("app_project_index") }}">
-                        Projects
+                        Projets
                     </a>
                 </li>
                 <li class="nav-item">
                     <a title="Videos"
                        href="{{ path('app_post_index') }}"
                        class="nav-link {{ _route == "app_post_index" or _route == "app_post_show" ? "active" : "" }}">
-                        Videos
+                        Vidéos
                     </a>
                 </li>
                 <li class="nav-item">
@@ -55,7 +55,7 @@
                 <li class="nav-item ml-lg-5">
                     <div class="navbar-search">
                         <form action="{{ path("app_post_search") }}" method="get" class="search-form">
-                            <label for="q" class="screen-reader-text">Search for:</label>
+                            <label for="q" class="screen-reader-text">Rechercher :</label>
                             <input type="search" id="q" name="q" class="search-field" placeholder="search...">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>

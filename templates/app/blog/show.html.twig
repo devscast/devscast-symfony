@@ -1,9 +1,10 @@
 {% extends 'layout/base.html.twig' %}
 {% set _data = blog ?? post %}
+{% set _prefix = (data_type == 'blog') ? "Article " : "Vidéo " %}
 
 {% block meta %}
-    <title>{{ _data.name }} | devs-cast.com</title>
-    <meta property="og:title" content="{{ _data.name }} | devs-cast.com">
+    <title>{{ _prefix }}{{ _data.name }} | devs-cast.com</title>
+    <meta property="og:title" content="{{ _prefix }}{{ _data.name }} | devs-cast.com">
     <meta property="og:description" content="{{ _data.description }}">
     <meta name="description" content="{{ _data.description }}">
 
@@ -68,7 +69,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                             {{ _data.content | markdown_to_html }}
                         </main>
 

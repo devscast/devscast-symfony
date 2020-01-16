@@ -1,42 +1,49 @@
-<!doctype html>
-{% include "app/includes/_copyright.html.twig" %}
-<html lang="{{ meta().lang | default('fr') }}">
-<head>
-    {% include "app/includes/_meta.html.twig" %}
-    <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
-    {% block stylesheets %}{% endblock %}
-    {{ encore_entry_link_tags('app') }}
-    {% block meta %}{% endblock %}
-</head>
+{% spaceless %}
+    <!doctype html>
+    {% include "app/includes/_copyright.html.twig" %}
+    <html lang="{{ meta().lang | default('fr') }}">
+    <head>
+        {% include "app/includes/_meta.html.twig" %}
+        <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
+        {% block stylesheets %}{% endblock %}
+        {{ encore_entry_link_tags('app') }}
+        {% block meta %}
+            <title>Numberic Builders | devs-cast.com</title>
+            <meta property="og:title" content="Numeric Builders | devs-cast.com"/>
+            <meta property="og:description" content="{{ meta().description }}"/>
+            <meta name="description" content="{{ meta().description }}"/>
+        {% endblock %}
+    </head>
 
-<body data-route="{{ app.request.get("_route") }}">
+    <body data-route="{{ app.request.get("_route") }}">
 
-{{ global_message() }}
-{% include "app/includes/_nav.html.twig" %}
-<div id="js-particles"></div>
-{% block body %}{% endblock %}
-{% include "app/includes/_footer.html.twig" %}
+    {{ global_message() }}
+    {% include "app/includes/_nav.html.twig" %}
+    <div id="js-particles"></div>
+    {% block body %}{% endblock %}
+    {% include "app/includes/_footer.html.twig" %}
 
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Website",
-        "url": "https://devs-cast.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://devs-cast.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Website",
+            "url": "https://devs-cast.com",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://devs-cast.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
         }
-    }
-</script>
+    </script>
 
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-{% block javascripts %}{% endblock %}
-{{ encore_entry_script_tags('app') }}
-</body>
-</html>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    {% block javascripts %}{% endblock %}
+    {{ encore_entry_script_tags('app') }}
+    </body>
+    </html>
+{% endspaceless %}
