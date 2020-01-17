@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class CategoryController
- * @Route("/categories")
+ * @Route("/categories", schemes={"HTTP", "HTTPS"})
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */

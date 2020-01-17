@@ -14,28 +14,38 @@ namespace App\Controller;
 use App\Data\ContactData;
 use App\Form\ContactType;
 use App\Notification\ContactNotification;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Class ContactController
- * @Route("/contact", schemes={"HTTP", "HTTPS"})
+ * Class PageController
+ * @Route(schemes={"HTTP", "HTTPS"})
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class ContactController extends AbstractController
+class PageController extends AbstractController
 {
+    /**
+     * @Route("/", name="home", methods={"GET"})
+     */
+    public function index()
+    {
+        $projectDir = $this->getParameter('kernel.project_dir');
+        $services = json_decode(file_get_contents($projectDir . "/resources/services.json"));
+        $team = json_decode(file_get_contents($projectDir . "/resources/team.json"));
+        return $this->render('index.html.twig', compact("services", "team"));
+    }
 
     /**
-     * @Route("", name="contact", methods={"GET", "POST"})
+     * @Route("/contact", name="contact", methods={"GET", "POST"})
      * @param Request $request
      * @param ContactNotification $contactNotification
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index(Request $request, ContactNotification $contactNotification)
+    public function contact(Request $request, ContactNotification $contactNotification)
     {
         $contact = new ContactData();
         $contactForm = $this->createForm(ContactType::class, $contact);
@@ -50,5 +60,24 @@ class ContactController extends AbstractController
         return $this->render("app/statics/contact.html.twig", [
             'contactForm' => $contactForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/contributing", name="contributing", methods={"GET"})
+     * @return Response
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function contributing()
+    {
+        return $this->render("app/statics/contributing.html.twig");
+    }
+
+    /**
+     * @Route("/code-of-conduct", name="conduct", methods={"GET"})
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function conduct()
+    {
+        return $this->render("app/statics/conduct.html.twig");
     }
 }
