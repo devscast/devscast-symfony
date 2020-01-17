@@ -6,7 +6,6 @@
 /public/images/
 /var/
 /vendor/
-/composer.lock
 
 .phpunit
 .phpunit.result.cache
