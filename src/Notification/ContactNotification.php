@@ -48,26 +48,26 @@ class ContactNotification
     public function notify(ContactData $contact)
     {
         try {
-        $message = (new \Swift_Message())
-            ->setFrom("noreply@devs-cast.com", "Devscast")
-            ->setDate(new \DateTime('now'))
-            ->setSubject($contact->subject)
-            ->setReplyTo($contact->email, $contact->name)
-            ->setCc($contact->email, $contact->name)
-            ->setTo("contact@devs-cast.com")
-            ->setBody(
-                $this->twig->render("mail/contact.html.twig", [
-                    'name' => $contact->name,
-                    'email' => $contact->email,
-                    'subject' => $contact->subject,
-                    'message' => $contact->message,
-                ]),
-                'text/html'
-            );
+            $message = (new \Swift_Message())
+                ->setFrom("noreply@devs-cast.com", "Devscast")
+                ->setDate(new \DateTime('now'))
+                ->setSubject($contact->subject)
+                ->setReplyTo($contact->email, $contact->name)
+                ->setCc($contact->email, $contact->name)
+                ->setTo("contact@devs-cast.com")
+                ->setBody(
+                    $this->twig->render("mail/contact.html.twig", [
+                        'name' => $contact->name,
+                        'email' => $contact->email,
+                        'subject' => $contact->subject,
+                        'message' => $contact->message,
+                    ]),
+                    'text/html'
+                );
 
             return $this->mailer->send($message);
         } catch (\Exception $e) {
-            $this->logger->error($e->getMessage(), $e->getTrace())
+            $this->logger->error($e->getMessage(), $e->getTrace());
             return 0;
         }
     }
