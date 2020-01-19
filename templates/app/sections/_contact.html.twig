@@ -15,6 +15,26 @@
 
             <div class="col-lg-7 col-md-12 animated slideInRight">
                 <div class="contact-form">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <p>
+                                Ce formulaire utilise
+                                <a title="recaptcha" href="https://www.google.com/recaptcha/intro/android.html">
+                                    reCAPTCHA
+                                </a>
+                                afin de lutter contre le SPAM.
+                                L'utilisation de cette fonctionnalité est soumise aux
+                                <a href="https://www.google.com/intl/fr/policies/privacy/">
+                                    Règles de confidentialité
+                                </a> et aux
+                                <a href="https://www.google.com/intl/fr/policies/terms/"
+                                   title="Conditions d'utilisation">
+                                    Conditions d'utilisation
+                                </a> de Google.
+                            </p>
+                        </div>
+                    </div>
+
                     {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
@@ -44,7 +64,7 @@
                         </div>
 
                         <div class="col-lg-12 col-md-12">
-                            <button type="submit">Send Message</button>
+                            {{ form_row(contactForm.captcha) }}
                             <div class="clearfix"></div>
                         </div>
                     </div>

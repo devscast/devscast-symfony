@@ -30,8 +30,17 @@
             "src/Entity/.gitignore"
         ]
     },
-    "behat/transliterator": {
-        "version": "v1.2.0"
+    "beelab/recaptcha2-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "246da6d0e345e9ab6773dd2f46c8a138e2527ef6"
+        },
+        "files": [
+            "config/packages/beelab_recaptcha2.yaml"
+        ]
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -151,6 +160,18 @@
     "fzaninotto/faker": {
         "version": "v1.8.0"
     },
+    "google/recaptcha": {
+        "version": "1.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.1",
+            "ref": "d087df3e087f50da3955f2def05079380da5894b"
+        },
+        "files": [
+            "config/packages/google_recaptcha.yaml"
+        ]
+    },
     "imagine/imagine": {
         "version": "1.2.2"
     },
@@ -165,6 +186,9 @@
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.0.0"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.1"
     },
     "liip/imagine-bundle": {
         "version": "1.8",
@@ -433,11 +457,17 @@
             "tests/.gitignore"
         ]
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.13.1"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.12.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.12.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.13.1"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.12.0"
@@ -509,6 +539,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.3.7"
+    },
+    "symfony/string": {
+        "version": "v5.0.2"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
@@ -662,6 +695,9 @@
         "files": [
             "config/packages/vich_uploader.yaml"
         ]
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.5.0"

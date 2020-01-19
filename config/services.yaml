@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     container.dumper.inline_factories: true
+    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
 
 services:
     # default configuration for services in *this* file
@@ -32,3 +33,7 @@ services:
 
     App\EventSubscriber\ContentCacheSubscriber:
         tags: ['doctrine.event_subscriber']
+
+    Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType:
+        arguments: ['%env(APP_RECAPTCHA_SITE_KEY)%']
+        tags: ['form.type']

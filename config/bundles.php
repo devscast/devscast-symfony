@@ -22,4 +22,5 @@ return [
     ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
+    Beelab\Recaptcha2Bundle\BeelabRecaptcha2Bundle::class => ['all' => true],
 ];
