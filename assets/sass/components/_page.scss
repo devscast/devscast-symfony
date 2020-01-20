@@ -43,7 +43,7 @@
     color: #6c757d;
     pointer-events: none;
     cursor: not-allowed;
-    border-color: #2b2b2b;
+    border-color: $white-color-two;
   }
 }
 
@@ -55,7 +55,7 @@
   line-height: 1.25;
   color: inherit;
   background-color: transparent !important;
-  border: 1px solid #2b2b2b;
+  border: 1px solid $white-color-two;
 
   &:focus {
     z-index: 3;

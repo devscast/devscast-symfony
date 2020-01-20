@@ -44,7 +44,6 @@
   .navbar {
     padding-top: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #1f1f1f;
   }
 
   .navbar-expand-lg > {
@@ -56,7 +55,7 @@
 
   .navbar-light .navbar-nav {
     padding: 15px 20px;
-    border: 1px solid #2b2a2a;
+    border: 1px solid $white-color-two;
     margin-top: 10px;
     text-align: center;
 
@@ -67,8 +66,6 @@
   }
 
   .main-banner {
-    padding-top: 50px;
-    padding-bottom: 5px;
 
     &.main-banner-two {
       padding-top: 100px;
@@ -89,11 +86,11 @@
     }
 
     h1 {
-      font-size: 25px;
+      font-size: 50px;
     }
 
     span {
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .social {
@@ -699,7 +696,7 @@
     }
 
     .navbar-nav {
-      border: 1px solid #ececec;
+      border: 1px solid $white-color-two;
     }
   }
 }
@@ -746,22 +743,6 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .navbar {
-    border-bottom: 1px solid #1f1f1f;
-  }
-
-  .navbar-light.bg-light {
-    border: 1px solid #f1f1f1;
-
-    .navbar-toggler {
-      background-color: #2b2a2a;
-    }
-
-    .navbar-nav {
-      border: 1px solid #ececec;
-    }
-  }
-
   .section-title h2 {
     font-size: 30px;
   }
@@ -780,7 +761,7 @@
 
   .navbar-light .navbar-nav {
     padding: 15px 20px;
-    border: 1px solid #2b2a2a;
+    border: 1px solid $white-color-two;
     margin-top: 10px;
 
     .nav-item .nav-link {

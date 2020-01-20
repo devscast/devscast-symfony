@@ -1,25 +1,24 @@
 {% extends "layout/base.html.twig" %}
 
 {% block meta %}
-    <title>Devscast, Numeric Builders | devs-cast.com</title>
+    <title>Devscast Bâtisseurs Numériques | devs-cast.com</title>
     <meta property="og:title" content="Devscast, Numeric Builders | devs-cast.com">
     <meta property="og:description" content="{{ meta().description }}">
     <meta name="description" content="{{ meta().description }}">
 {% endblock %}
 
 {% block body %}
-    <div class="main-banner bg-black">
+    <div class="main-banner bg-black-secondary">
         <div class="container" style="z-index: 1000">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="banner-content">
-                        <h1>DEVSCAST</h1>
-                        <span>Numeric Builders</span>
+                        <h1>Bâtisseurs Numériques</h1>
+                        <span>Nous développons des solutions web.</span>
                         <p>
-                            Nous sommes une communautés de développeurs
-                            dont l'objectif est d'apporter des solutions aux problèmes
-                            de notre entourage grâce à l'opensource
-                            et construire la solution numérique qui vous manque.
+                            Nous sommes des développeurs freelance basés en RDC et RSA,
+                            spécialisés dans la création (et parfois la modélisation)
+                            de sites Web et d'applications de qualité exceptionnelle.
                         </p>
                     </div>
                 </div>
@@ -34,9 +33,9 @@
     </div>
 
     {% include 'app/includes/_divider.html.twig' %}
-    {% include 'app/sections/_about.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_services.html.twig' %}
+    {% include 'app/includes/_divider.html.twig' %}
+    {% include 'app/sections/_about.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_team.html.twig' %}
     {% include 'app/includes/_divider.html.twig' %}

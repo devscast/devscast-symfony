@@ -308,8 +308,8 @@
       bottom: 15px;
     }
     border: {
-      top: 1px solid #2b2b2b;
-      bottom: 1px solid #2b2b2b;
+      top: 1px solid $white-color-two;
+      bottom: 1px solid $white-color-two;
     }
     margin: {
       top: 30px;
@@ -521,7 +521,7 @@ blockquote, .blockquote {
   }
 
   .comment-body {
-    border-bottom: 1px solid #2b2b2b;
+    border-bottom: 1px solid $white-color-two;
     padding-left: 65px;
     color: $black-color;
     font-size: 14px;
@@ -532,7 +532,7 @@ blockquote, .blockquote {
       margin-top: 15px;
 
       a {
-        border: 1px solid #2b2b2b;
+        border: 1px solid $white-color-two;
         display: inline-block;
         padding: 5px 20px;
         border-radius: 30px;

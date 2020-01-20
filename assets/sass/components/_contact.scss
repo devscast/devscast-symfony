@@ -11,6 +11,20 @@
     margin-bottom: 20px;
   }
 
+  .form-control {
+    background-color: transparent;
+    border: 1px solid $white-color-two;
+    color: $white-color;
+
+    &:focus {
+      border-color: $main-color;
+    }
+
+    &::placeholder {
+      color: $white-color-two;
+    }
+  }
+
   .row {
     margin: {
       left: -10px;

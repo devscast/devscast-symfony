@@ -7,7 +7,7 @@
     }
 
     .widget-title {
-      border-bottom: 1px solid #2b2b2b;
+      border-bottom: 1px solid $white-color-two;
       padding-bottom: 10px;
       margin-bottom: 20px;
       text-transform: capitalize;
@@ -51,7 +51,7 @@
         background-color: transparent;
         height: 50px;
         padding: 6px 15px;
-        border: 1px solid #2b2b2b;
+        border: 1px solid $white-color-two;
         color: $white-color;
         width: 100%;
         display: block;
@@ -404,7 +404,7 @@
         size: 11.5px !important;
       }
       padding: 6px 13px;
-      border: 1px dashed #2b2b2b;
+      border: 1px dashed $white-color-two;
       color: $paragraph-color;
       margin: {
         top: 8px;
