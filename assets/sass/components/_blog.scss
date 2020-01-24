@@ -18,10 +18,6 @@
     padding: 25px;
     z-index: 1;
     background-color: $black-color;
-    margin: {
-      right: 15px;
-      top: -80px;
-    }
 
     span {
       &.date {
@@ -66,18 +62,6 @@
         weight: 600;
       }
     }
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 0;
-      transition: $transition;
-      z-index: -1;
-      background-color: $main-color;
-      left: 0;
-      bottom: 0;
-    }
   }
 
   &:hover {
@@ -86,22 +70,6 @@
         img {
           filter: unset;
         }
-      }
-    }
-
-    .post-content {
-      &::before {
-        height: 100%;
-      }
-
-      span {
-        &.date {
-          color: $white-color;
-        }
-      }
-
-      .read-more-btn {
-        color: $white-color;
       }
     }
   }

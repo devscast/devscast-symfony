@@ -5,6 +5,7 @@
 .single-projects-box {
   margin-bottom: 30px;
   position: relative;
+  border: 1px solid $white-color-two;
 
   img {
     transition: $transition;
@@ -12,16 +13,13 @@
   }
 
   .projects-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     background-color: $black-color;
     padding: 30px;
     transition: $transition;
     height: auto;
-    max-width: 300px;
     z-index: 1;
     width: 100%;
+    border-top-color: transparent;
 
     h3 {
       margin-bottom: 0;

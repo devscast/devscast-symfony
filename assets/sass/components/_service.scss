@@ -4,7 +4,7 @@
 
 .single-featured-services-box {
   margin-bottom: 30px;
-  background-color: #111111;
+  border: 1px solid $white-color-two;
   padding: 35px 30px;
   text-align: center;
   transition: $transition;
@@ -17,7 +17,6 @@
     width: 60px;
     height: 60px;
     line-height: 60px;
-    background-color: #111111;
     border-radius: 50%;
     margin: {
       bottom: 15px;
@@ -92,7 +91,6 @@
 
     .icon {
       color: $main-color;
-      background-color: $white-color;
 
       i {
         &::before {
@@ -135,7 +133,7 @@
 }
 
 .single-services-box {
-  background-color: #111111;
+  border: 1px solid $white-color-two;
   padding: 70px 30px 30px;
   text-align: center;
   transition: $transition;
@@ -154,7 +152,7 @@
     height: 80px;
     line-height: 78px;
     color: $white-color;
-    border: 3px solid #111111;
+    border: 1px solid $white-color-two;
     border-radius: 100%;
     background-color: $black-color;
     font-size: 30px;
