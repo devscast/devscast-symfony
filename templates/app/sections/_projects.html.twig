@@ -8,24 +8,29 @@
             </div>
         </div>
 
-        <div class="row projects-slides owl-carousel owl-theme">
-            {% for project in projects.data %}
-                <div class="single-projects-box">
-                    <a href="{{ path('app_project_show', {name: project.name | lower}) }}" title="{{ project.name }}">
-                        <img src="{{ asset(project.screenshots[0]) }}" alt="{{ project.name }}">
-                    </a>
-                    <div class="projects-content">
-                        <h3>
-                            <a href="{{ project.link }}"
-                               title="{{ project.name }}"
-                               target="_blank">
-                                {{ project.name }}
+        <div class="container">
+            <div class="row">
+                {% for project in projects.data %}
+                    <div class="col-md-4 col-sm-12">
+                        <div class="single-projects-box">
+                            <a href="{{ path('app_project_show', {name: project.name | lower}) }}"
+                               title="{{ project.name }}">
+                                <img src="{{ asset(project.screenshots[0]) }}" alt="{{ project.name }}">
                             </a>
-                        </h3>
-                        <span>{{ project.role }}</span>
+                            <div class="projects-content">
+                                <h3>
+                                    <a href="{{ project.link }}"
+                                       title="{{ project.name }}"
+                                       target="_blank">
+                                        {{ project.name }}
+                                    </a>
+                                </h3>
+                                <span>{{ project.role }}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </section>
 {% endif %}
