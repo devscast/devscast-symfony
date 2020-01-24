@@ -20,6 +20,13 @@ const defaultConfig = {
     ],
 };
 
+$('.team-slides').owlCarousel({
+    ...defaultConfig,
+    autoplayHoverPause: true,
+    mouseDrag: true,
+    margin: 30,
+});
+
 $('.projects-image-slides').owlCarousel({
     ...defaultConfig,
     autoplayHoverPause: true,
