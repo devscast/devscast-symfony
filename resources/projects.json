@@ -3,7 +3,7 @@
   "data": [
     {
       "name": "MagBusiness",
-      "role": "Backend & Frontend",
+      "role": "Symfony - bootstrap 4 - Ajax",
       "type": "freelance",
       "status": "Terminé",
       "client": {
@@ -27,7 +27,7 @@
     },
     {
       "name": "Lushitrap",
-      "role": "Frontend Redesign (2019)",
+      "role": "Design - Webpack - bootstrap 4",
       "type": "freelance",
       "status": "Maintenance",
       "client": {
@@ -49,7 +49,7 @@
     },
     {
       "name": "Ngpictures",
-      "role": "Backend & Frontend",
+      "role": "PHP - Material Design - PWA",
       "type": "personal",
       "status": "Version 3 en cours",
       "client": {
