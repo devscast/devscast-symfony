@@ -1,7 +1,7 @@
 {% extends "layout/base.html.twig" %}
 
 {% block meta %}
-    <title>Projet {{ project.name }} | devs-cast.com</title>
+    <title>Projet : {{ project.name }} | devs-cast.com</title>
     <meta property="og:title" content="Projet {{ project.name }} | devs-cast.com">
     <meta property="og:description" content="{{ project.description }}">
     <meta name="description" content="{{ project.description }}">
@@ -10,7 +10,7 @@
 {% block body %}
     <div class="page-title-area bg-black">
         <div class="container">
-            <h2>{{ project.name }}</h2>
+            <h1>Projet : {{ project.name }}</h1>
         </div>
         <div class="br-line"></div>
     </div>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="single-info-box">
-                            <h4>Rôle</h4>
+                            <h4>Technologies</h4>
                             <span>{{ project.role }}</span>
                         </div>
 
