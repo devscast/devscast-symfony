@@ -11,9 +11,7 @@
 
 namespace App\Controller;
 
-use App\Data\SearchData;
 use App\Entity\Blog;
-use App\Form\SearchType;
 use App\Repository\BlogRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

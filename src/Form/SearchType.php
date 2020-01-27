@@ -37,6 +37,10 @@ class SearchType extends AbstractType
                 'attr' => [
                     'placeholder' => 'recherche...',
                 ]
+            ])
+            ->add('page', TextType::class, [
+                'required' => false,
+                'label' => false
             ]);
     }
 
