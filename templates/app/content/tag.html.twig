@@ -1,0 +1,58 @@
+{% extends "layout/base.html.twig" %}
+{% set _showUrl = data_type == 'blog' ? 'app_blog_show' : 'app_post_show' %}
+
+{% block meta %}
+    <title>Vidéos par Tag : {{ tag.name }} | devs-cast.com</title>
+    <meta property="og:title" content="Tag {{ tag.name }} | devs-cast.com">
+    <meta property="og:description" content="{{ meta().tagDescription }} {{ tag.name }}">
+    <meta name="description" content="{{ meta().tagDescription }} {{ tag.name }}">
+{% endblock %}
+
+{% block body %}
+    <section id="tag" class="blog-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Vidéos Par Tag</span>
+                <h1>{{ posts.count > 0 ? "Vidéos récentes" : "Aucune Vidéo disponible" }}</h1>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row">
+                {% for _data in posts %}
+                    <div class="col-lg-4 col-md-4">
+                        <article class="single-blog-post">
+                            <header class="post-image">
+                                <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}"
+                                   title="{{ _data.name }}">
+                                    <img src="{{ vich_uploader_asset(_data, 'thumb_file') }}" alt="{{ _data.name }}">
+                                </a>
+                            </header>
+                            <main class="post-content">
+                                <time class="date" data-time="{{ _data.createdAt | date('Y-m-d H:i:s') }}">
+                                    {% if data_type == "post" %}
+                                        <i class="far fa-clock"></i>
+                                        {{ _data.duration ~ " mins" }}
+                                    {% else %}
+                                        <i class="far fa-calendar-alt"></i>
+                                        {{ _data.createdAt | date('d M Y') }}
+                                    {% endif %}
+                                </time>
+                                <h3>
+                                    <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}"
+                                       title="{{ _data.name }}">
+                                        {{ _data.name }}
+                                    </a>
+                                </h3>
+                                <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="voir plus"
+                                   class="read-more-btn">
+                                    Voir Plus
+                                    <i class="flaticon-right-arrow"></i>
+                                </a>
+                            </main>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

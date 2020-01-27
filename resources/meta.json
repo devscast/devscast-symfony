@@ -21,5 +21,6 @@
   "postDescription": "Tutoriels vidéos sur le développent web, algorithmie et programmation en général.",
   "blogDescription": "Articles, Astuces, découvertes et partages sur les technologies du web.",
   "contactDescription": "Envie d'en savoir plus sur nous, nous confier votre projet ? contactez-nous.",
-  "searchDescription": "Parcourez l'ensemble des vidéos disponibles, entrez un mot clé pour commencer."
+  "searchDescription": "Parcourez l'ensemble des vidéos disponibles, entrez un mot clé pour commencer.",
+  "tagDescription": "Parcourez l'ensemble des vidéos portant le tag :"
 }

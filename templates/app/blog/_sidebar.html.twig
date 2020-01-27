@@ -32,8 +32,7 @@
         <ul>
             {% for category in categories %}
                 <li>
-                    <a title="{{ category.name }}"
-                       href="{{ path("app_category_show", {slug: category.slug, id: category.id}) }}">
+                    <a title="{{ category.name }}" href="{{ path("app_category_show", {slug: category.slug}) }}">
                         {{ category.name }}
                     </a>
                 </li>
@@ -45,8 +44,7 @@
         <h3 class="widget-title">Tags</h3>
         <div class="tagcloud">
             {% for tag in tags %}
-                <a title="{{ tag.name }}"
-                   href="{{ path("app_tag_show", {name: tag.name}) }}">
+                <a title="{{ tag.name }}" href="{{ path("app_tag_show", {name: tag.name}) }}">
                     {{ tag.name }}
                 </a>
             {% endfor %}

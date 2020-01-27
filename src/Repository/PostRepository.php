@@ -63,7 +63,7 @@ class PostRepository extends ServiceEntityRepository
                 ->where('p.created_at <= :now')
                 ->andWhere('p.is_archived = 0')
                 ->orderBy('p.created_at', 'DESC')
-                ->setMaxResults(5)
+                ->setMaxResults(3)
                 ->setParameter('now', new \DateTime('now'))
                 ->getQuery()
                 ->getResult();
