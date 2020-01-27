@@ -10,15 +10,16 @@
   "locality": "Haut-Katanga",
   "region": "Haut-katanga",
   "country": "République Démocratique du Congo",
-  "keywords": "1,2,3,4",
+  "keywords": "Freelance congo, opensource congo, devscast, technologie congo, PHP congo, numérique congo, développement web congo, lubumbashi développeur",
   "themeColor": "#15db95",
   "latitude": "",
   "longitude": "",
   "sitename": "Devscast",
   "image": "/assets/img/logo-main.png",
-  "description": "Nous sommes une communautés de développeurs dont l'objectif est d'apporter des solutions aux problèmes de notre entourage grâce à l'opensource et construire la solution numérique qui vous manque.",
+  "description": "Nous sommes des développeurs freelance basés en RDC et RSA, spécialisés dans la création (et parfois la modélisation) de sites Web et d'applications de qualité exceptionnelle.",
   "projectDescription": "Nous travaillons sur plusieurs projets opensource pour donner des solutions à notre entourage et plusieurs projets en freelance.",
-  "postDescription": "Tutoriel vidéos sur le développent web, algorithmie et programmation en général.",
-  "blogDescription": "Articles, Astuces, découverte et partage sur les technologies du web.",
-  "contactDescription": "Envie d'en savoir plus sur nous, nous confier votre projet ? contactez nous."
+  "postDescription": "Tutoriels vidéos sur le développent web, algorithmie et programmation en général.",
+  "blogDescription": "Articles, Astuces, découvertes et partages sur les technologies du web.",
+  "contactDescription": "Envie d'en savoir plus sur nous, nous confier votre projet ? contactez-nous.",
+  "searchDescription": "Parcourez l'ensemble des vidéos disponibles, entrez un mot clé pour commencer."
 }
