@@ -76,7 +76,7 @@
                         <footer class="article-footer">
                             {% if _data.category %}
                                 <div class="article-tags">
-                                    <a href="{{ path("app_" ~ data_type ~ "_index", {category: _data.category.slug}) }}"
+                                    <a href="{{ path("app_category_show", {slug: _data.category.slug}) }}"
                                        title="{{ _data.category.name }}">
                                         {{ _data.category.name }}
                                     </a>

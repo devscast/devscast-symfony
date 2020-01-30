@@ -11,6 +11,7 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -39,11 +40,13 @@ class Tag
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Blog", mappedBy="tags")
+     * @OrderBy({"created_at" = "DESC"})
      */
     private $blogs;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Post", mappedBy="tags")
+     * @OrderBy({"created_at" = "DESC"})
      */
     private $posts;
 
