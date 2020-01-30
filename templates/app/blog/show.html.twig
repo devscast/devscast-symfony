@@ -7,6 +7,8 @@
     <meta property="og:title" content="{{ _prefix }}{{ _data.name }} | devs-cast.com">
     <meta property="og:description" content="{{ _data.description }}">
     <meta name="description" content="{{ _data.description }}">
+    <meta property="og:image" content="{{ vich_uploader_asset(_data, 'thumb_file') }}">
+    <meta property="og:image:secure_url" content="{{ vich_uploader_asset(_data, 'thumb_file') }}"/>
 
     {% if data_type == 'blog' %}
         <meta property="og:type" content="article"/>
@@ -23,7 +25,8 @@
     {% endif %}
 {% endblock %}
 
-{% block stylesheet %}
+{% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/dracula.min.css">
     <script defer src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
     <script defer>hljs.initHighlightingOnLoad();</script>
