@@ -130,6 +130,7 @@ class PostRepository extends ServiceEntityRepository
             ->select('p', 'c', 't')
             ->leftJoin('p.category', 'c')
             ->leftJoin('p.tags', 't')
-            ->where('p.is_archived = 0');
+            ->where('p.is_archived = 0')
+            ->orderBy('p.created_at', 'DESC');
     }
 }

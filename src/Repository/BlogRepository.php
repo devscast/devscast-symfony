@@ -103,6 +103,7 @@ class BlogRepository extends ServiceEntityRepository
             ->select('b', 'c', 't')
             ->leftJoin('b.category', 'c')
             ->leftJoin('b.tags', 't')
-            ->where('b.is_archived = 0');
+            ->where('b.is_archived = 0')
+            ->orderBy('b.created_at', 'DESC');
     }
 }
