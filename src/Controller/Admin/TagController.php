@@ -47,7 +47,7 @@ class TagController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function new(Request $request)
+    public function new(Request $request): Response
     {
         $tag = new Tag();
         $form = $this->createForm(TagType::class, $tag);
@@ -73,7 +73,7 @@ class TagController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function edit(Request $request, Tag $tag)
+    public function edit(Request $request, Tag $tag): Response
     {
         $form = $this->createForm(TagType::class, $tag);
         $form->handleRequest($request);
@@ -96,7 +96,7 @@ class TagController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function delete(Request $request, Tag $tag)
+    public function delete(Request $request, Tag $tag): Response
     {
         if ($this->isCsrfTokenValid("delete" . $tag->getId(), $request->request->get("_token"))) {
             $entityManager = $this->getDoctrine()->getManager();

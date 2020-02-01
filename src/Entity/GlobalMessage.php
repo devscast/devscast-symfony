@@ -11,11 +11,16 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * Class GlobalMessage
  * @ORM\Entity(repositoryClass="App\Repository\GlobalMessageRepository")
+ * @package App\Entity
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class GlobalMessage
 {
@@ -24,34 +29,38 @@ class GlobalMessage
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=500)
      * @Assert\NotBlank()
      */
-    private $content;
+    private ?string $content = null;
 
     /**
      * @ORM\Column(type="string", length=15)
      * @Assert\Choice({"danger", "info", "warning", "success"})
      */
-    private $type;
+    private string $type = 'info';
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private DateTimeInterface $created_at;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $state;
+    private int $state = 0;
 
 
+    /**
+     * GlobalMessage constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
-        $this->created_at = new \DateTime("now");
+        $this->created_at = new DateTime("now");
     }
 
     /**
@@ -106,20 +115,20 @@ class GlobalMessage
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 

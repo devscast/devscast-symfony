@@ -13,13 +13,18 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * Class AdminFixtures
+ * @package App\DataFixtures
+ * @author bernard-ng <ngandubernard@gmail.com>
+ */
 class AdminFixtures extends Fixture
 {
-    /** @var UserPasswordEncoderInterface */
-    private $encoder;
+
+    private UserPasswordEncoderInterface $encoder;
 
     /**
      * UserFixtures constructor.
@@ -30,6 +35,11 @@ class AdminFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function load(ObjectManager $manager)
     {
         $defaultUser = $manager

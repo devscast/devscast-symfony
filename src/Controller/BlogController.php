@@ -27,8 +27,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BlogController extends AbstractController
 {
 
-    /** @var BlogRepository */
-    private $repository;
+    private BlogRepository $repository;
 
     /**
      * BlogController constructor.
@@ -45,7 +44,7 @@ class BlogController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         return $this->render("app/blog/index.html.twig", [
             'blogs' => $this->repository->findPaginated(
@@ -67,7 +66,7 @@ class BlogController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function show(Blog $blog, string $slug)
+    public function show(Blog $blog, string $slug): Response
     {
         if ($blog->getSlug() !== $slug) {
             return $this->redirectToRoute("app_blog_show", [

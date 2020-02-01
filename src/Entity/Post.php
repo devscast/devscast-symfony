@@ -12,6 +12,7 @@
 namespace App\Entity;
 
 use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -23,10 +24,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * Class Post
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity("name")
  * @Vich\Uploadable()
+ * @package App\Entity
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class Post
 {
@@ -35,78 +39,77 @@ class Post
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="5", max="255")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(min="5", max="255")
      */
-    private $description;
+    private ?string $description = null;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\Length(min="5")
      */
-    private $content;
+    private ?string $content = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $thumb_url;
+    private ?string $thumb_url = null;
 
     /**
      * @Vich\UploadableField(mapping="post_thumb", fileNameProperty="thumb_url")
-     * @var File|null
      */
-    private $thumb_file;
+    private ?File $thumb_file = null;
 
     /**
      * @ORM\Column(type="string", length=300)
      */
-    private $video_url;
+    private ?string $video_url = null;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private ?DateTimeInterface $created_at = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Assert\DateTime()
      */
-    private $updated_at;
+    private ?DateTimeInterface $updated_at = null;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_online = 0;
+    private int $is_online = 0;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $duration;
+    private int $duration = 1;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
      */
-    private $category;
+    private ?Category $category = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private User $user;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug = null;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="posts")
@@ -116,7 +119,7 @@ class Post
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_archived = 0;
+    private int $is_archived = 0;
 
     /**
      * Post constructor.
@@ -124,7 +127,7 @@ class Post
      */
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+        $this->created_at = new DateTime();
         $this->tags = new ArrayCollection();
     }
 
@@ -243,20 +246,20 @@ class Post
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -264,20 +267,20 @@ class Post
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updated_at;
     }
 
     /**
-     * @param \DateTimeInterface|null $updated_at
+     * @param DateTimeInterface|null $updated_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(?DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
 
@@ -449,11 +452,20 @@ class Post
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsArchived(): ?bool
     {
         return $this->is_archived;
     }
 
+    /**
+     * @param bool $is_archived
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;

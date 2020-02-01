@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the DevsCast project
  *
@@ -28,8 +29,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PostController extends AbstractController
 {
 
-    /** @var PostRepository */
-    private $postRepository;
+    private PostRepository $postRepository;
 
     /**
      * PostController constructor.

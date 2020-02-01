@@ -13,6 +13,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,10 +24,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * Class Blog
  * @ApiResource()
  * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
  * @UniqueEntity("name")
+ * @package App\Entity
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class Blog
 {
@@ -35,61 +39,60 @@ class Blog
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="3", max="255")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\Length(min="5")
      */
-    private $content;
+    private ?string $content = null;
 
     /**
      * @Vich\UploadableField(mapping="blog_thumb", fileNameProperty="thumb_url")
-     * @var File|null
      */
-    private $thumb_file;
+    private ?File $thumb_file = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $thumb_url;
+    private ?string $thumb_url = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="blogs")
      */
-    private $category;
+    private ?Category $category = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="blogs")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private User $user;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private ?DateTimeInterface $created_at = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $updated_at;
+    private ?DateTimeInterface $updated_at = null;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_online = 0;
+    private int $is_online = 0;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug = null;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="blogs")
@@ -99,12 +102,12 @@ class Blog
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_archived = 0;
+    private int $is_archived = 0;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private ?string $description = null;
 
     /**
      * Blog constructor.
@@ -112,7 +115,7 @@ class Blog
      */
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+        $this->created_at = new DateTime();
         $this->tags = new ArrayCollection();
     }
 
@@ -231,20 +234,20 @@ class Blog
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -252,20 +255,20 @@ class Blog
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updated_at;
     }
 
     /**
-     * @param \DateTimeInterface|null $updated_at
+     * @param DateTimeInterface|null $updated_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(?DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
 

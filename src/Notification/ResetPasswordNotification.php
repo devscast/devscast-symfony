@@ -9,17 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Data;
+namespace App\Notification;
 
 /**
- * Class SearchData
- * @package App\Data
+ * Class ResetPasswordNotification
+ * @package App\Notification
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class SearchData
+class ResetPasswordNotification
 {
-
-    public string $q = '';
-
-    public ?int $page = 1;
+    
 }
+

@@ -31,20 +31,15 @@ use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 class PostSideBarExtension extends AbstractExtension
 {
 
-    /** @var TagRepository */
-    private $tagRepository;
+    private TagRepository $tagRepository;
 
-    /** @var CategoryRepository */
-    private $categoryRepository;
+    private CategoryRepository $categoryRepository;
 
-    /** @var PostRepository */
-    private $postRepository;
+    private PostRepository $postRepository;
 
-    /** @var TagAwareAdapterInterface */
-    private $cache;
+    private TagAwareAdapterInterface $cache;
 
-    /** @var Environment */
-    private $twig;
+    private Environment $twig;
 
     /**
      * PostSideBarExtension constructor.

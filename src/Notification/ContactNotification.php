@@ -16,22 +16,25 @@ use Psr\Log\LoggerInterface;
 use Swift_Mailer;
 use Twig\Environment;
 
+/**
+ * Class ContactNotification
+ * @package App\Notification
+ * @author bernard-ng <ngandubernard@gmail.com>
+ */
 class ContactNotification
 {
 
-    /** @var Swift_Mailer */
-    private $mailer;
+    private Swift_Mailer $mailer;
 
-    /** @var Environment */
-    private $twig;
+    private Environment $twig;
 
-    /** @var LoggerInterface */
-    private $logger;
+    private LoggerInterface $logger;
 
     /**
      * ContactNotification constructor.
      * @param Swift_Mailer $mailer
      * @param Environment $twig
+     * @param LoggerInterface $logger
      */
     public function __construct(Swift_Mailer $mailer, Environment $twig, LoggerInterface $logger)
     {
@@ -42,10 +45,10 @@ class ContactNotification
 
     /**
      * @param ContactData $contact
-     * @return int
+     * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function notify(ContactData $contact)
+    public function notify(ContactData $contact): bool
     {
         try {
             $message = (new \Swift_Message())

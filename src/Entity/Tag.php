@@ -29,14 +29,14 @@ class Tag
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      * @Assert\Length(min="3",max="50")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Blog", mappedBy="tags")
@@ -53,7 +53,7 @@ class Tag
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_archived = 0;
+    private int $is_archived = 0;
 
     /**
      * Tag constructor.
@@ -170,11 +170,20 @@ class Tag
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsArchived(): ?bool
     {
         return $this->is_archived;
     }
 
+    /**
+     * @param bool $is_archived
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;

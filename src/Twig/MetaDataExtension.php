@@ -2,6 +2,7 @@
 
 namespace App\Twig;
 
+use stdClass;
 use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -14,10 +15,9 @@ use Symfony\Component\HttpKernel\KernelInterface;
 class MetaDataExtension extends AbstractExtension
 {
 
-    private $meta;
+    private ?stdClass $meta = null;
 
-    /** @var string */
-    private $projectDir;
+    private string $projectDir;
 
     /**
      * MetaDataExtension constructor.

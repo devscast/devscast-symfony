@@ -14,7 +14,6 @@ use App\Entity\GlobalMessage;
 use App\Form\GlobalMessageType;
 use App\Repository\GlobalMessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

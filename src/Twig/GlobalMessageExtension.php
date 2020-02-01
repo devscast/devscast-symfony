@@ -21,14 +21,11 @@ use Twig\Extension\AbstractExtension;
 class GlobalMessageExtension extends AbstractExtension
 {
 
-    /** @var GlobalMessageRepository */
-    private $messageRepository;
+    private GlobalMessageRepository $messageRepository;
 
-    /** @var Environment */
-    private $twig;
+    private Environment $twig;
 
-    /** @var TagAwareAdapterInterface */
-    private $cache;
+    private TagAwareAdapterInterface $cache;
 
     /**
      * GlobalMessageExtension constructor.
@@ -58,6 +55,7 @@ class GlobalMessageExtension extends AbstractExtension
     }
 
     /**
+     * @return mixed
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function message()

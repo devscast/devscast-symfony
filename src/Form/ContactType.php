@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the DevsCast project
  *
@@ -9,7 +10,6 @@
  */
 
 namespace App\Form;
-
 
 use App\Data\ContactData;
 use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType;

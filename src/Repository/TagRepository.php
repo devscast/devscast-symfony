@@ -16,9 +16,12 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
+ * Class TagRepository
  * @method Tag|null find($id, $lockMode = null, $lockVersion = null)
  * @method Tag|null findOneBy(array $criteria, array $orderBy = null)
  * @method Tag[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @package App\Repository
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class TagRepository extends ServiceEntityRepository
 {

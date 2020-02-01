@@ -20,19 +20,18 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
+ * Class BlogRepository
  * @method Blog|null find($id, $lockMode = null, $lockVersion = null)
  * @method Blog|null findOneBy(array $criteria, array $orderBy = null)
  * @method Blog[]    findAll()
  * @method Blog[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @package App\Repository
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class BlogRepository extends ServiceEntityRepository
 {
 
-    /** @var ManagerRegistry */
-    private $registry;
-
-    /** @var PaginatorInterface */
-    private $paginator;
+    private PaginatorInterface $paginator;
 
     /**
      * BlogRepository constructor.
@@ -42,7 +41,6 @@ class BlogRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Blog::class);
-        $this->registry = $registry;
         $this->paginator = $paginator;
     }
 

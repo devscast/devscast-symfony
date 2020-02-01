@@ -14,34 +14,16 @@ namespace App\Data;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class ContactData
+ * Class ResetPasswordData
  * @package App\Data
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class ContactData
+class ResetPasswordData
 {
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="3", max="180")
-     */
-    public ?string $name = null;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Email()
      */
     public ?string $email = null;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="3", max="255")
-     */
-    public ?string $subject = null;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="10")
-     */
-    public ?string $message = null;
 }

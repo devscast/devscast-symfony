@@ -39,23 +39,17 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
-    /** @var UrlGeneratorInterface */
-    private $urlGenerator;
+    private UrlGeneratorInterface $urlGenerator;
 
-    /** @var CsrfTokenManagerInterface */
-    private $csrfTokenManager;
+    private CsrfTokenManagerInterface $csrfTokenManager;
 
-    /** @var UserPasswordEncoderInterface */
-    private $passwordEncoder;
+    private UserPasswordEncoderInterface $passwordEncoder;
 
-    /** @var ManagerRegistry */
-    private $managerRegistry;
+    private ManagerRegistry $managerRegistry;
 
-    /** @var UserProviderInterface */
-    private $userProvider;
+    private UserProviderInterface $userProvider;
 
     /**
      * LoginFormAuthenticator constructor.

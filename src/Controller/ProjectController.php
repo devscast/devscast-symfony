@@ -46,7 +46,7 @@ class ProjectController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function index()
+    public function index(): Response
     {
         return $this->render("app/projects/index.html.twig", [
             'projects' => $this->getProjects()
@@ -64,7 +64,7 @@ class ProjectController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function show(string $name)
+    public function show(string $name): Response
     {
         $projects = $this->getProjects()->data;
         $project = array_reduce($projects, function ($acc, $project) use ($name) {

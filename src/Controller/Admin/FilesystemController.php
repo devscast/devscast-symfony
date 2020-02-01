@@ -49,7 +49,7 @@ class FilesystemController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function show(Request $request)
+    public function show(Request $request): Response
     {
         try {
             $filename = $request->query->get('file');
@@ -70,7 +70,7 @@ class FilesystemController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function delete(Request $request)
+    public function delete(Request $request): Response
     {
         $key = $request->request->get('_key');
         if ($this->isCsrfTokenValid('delete' . $key, $request->request->get('_token'))) {

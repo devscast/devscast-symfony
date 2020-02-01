@@ -13,6 +13,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,10 +25,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * Class Category
  * @ApiResource()
  * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  * @UniqueEntity("name")
+ * @package App\Entity
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class Category
 {
@@ -36,41 +40,40 @@ class Category
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="3", max="255")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=300, nullable=true)
      * @Assert\Length(min="3", max="300")
      */
-    private $description;
+    private ?string $description = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $icon_url;
+    private ?string $icon_url = null;
 
     /**
      * @Vich\UploadableField(mapping="categoriy_icon", fileNameProperty="icon_url")
-     * @var File|null
      */
-    private $icon_file;
+    private ?File $icon_file = null;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private ?DateTimeInterface $created_at = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Assert\DateTime()
      */
-    private $updated_at;
+    private ?DateTimeInterface $updated_at = null;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
@@ -87,12 +90,12 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug = null;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_archived = 0;
+    private int $is_archived = 0;
 
     /**
      * Category constructor.
@@ -178,20 +181,20 @@ class Category
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -199,20 +202,20 @@ class Category
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updated_at;
     }
 
     /**
-     * @param \DateTimeInterface|null $updated_at
+     * @param DateTimeInterface|null $updated_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(?DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
 
@@ -346,11 +349,20 @@ class Category
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsArchived(): ?bool
     {
         return $this->is_archived;
     }
 
+    /**
+     * @param bool $is_archived
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Form;
+namespace App\Form\Security;
 
-use App\Data\SearchData;
+use App\Data\ResetPasswordData;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
- * Class SearchType
- * @package App\Form
+ * Class ResetPasswordType
+ * @package App\Form\Security
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class SearchType extends AbstractType
+class ResetPasswordType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -32,17 +32,7 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('q', TextType::class, [
-                'label' => false,
-                'required' => false,
-                'attr' => [
-                    'placeholder' => 'recherche...',
-                ]
-            ])
-            ->add('page', TextType::class, [
-                'required' => false,
-                'label' => false
-            ]);
+            ->add('email', EmailType::class);
     }
 
     /**
@@ -52,18 +42,7 @@ class SearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SearchData::class,
-            'method' => 'GET',
-            'csrf_protection' => false,
+            'data_class' => ResetPasswordData::class
         ]);
-    }
-
-    /**
-     * @return string
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function getBlockPrefix()
-    {
-        return '';
     }
 }

@@ -13,6 +13,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -36,19 +37,19 @@ class User implements UserInterface
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\Email()
      */
-    private $email;
+    private ?string $email = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      */
-    private $roles;
+    private ?string $roles = 'ROLE_USER';
 
     /**
      * @var string The hashed password
@@ -56,44 +57,43 @@ class User implements UserInterface
      * @Assert\NotBlank()
      * @Assert\Length(min="6", max="4096")
      */
-    private $password;
+    private ?string $password = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="3", max="55")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $last_login_at;
+    private ?DateTimeInterface $last_login_at = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $last_login_ip;
+    private ?string $last_login_ip = null;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private ?DateTimeInterface $created_at = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $updated_at;
+    private ?DateTimeInterface $updated_at = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $avatar;
+    private ?string $avatar = null;
 
     /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatar")
-     * @var File|null
      */
-    private $avatar_file;
+    private ?File $avatar_file = null;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="user")
@@ -108,7 +108,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_archived = 0;
+    private int $is_archived = 0;
 
     /**
      * User constructor.
@@ -158,7 +158,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -197,7 +197,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     /**
@@ -251,20 +251,20 @@ class User implements UserInterface
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getLastLoginAt(): ?\DateTimeInterface
+    public function getLastLoginAt(): ?DateTimeInterface
     {
         return $this->last_login_at;
     }
 
     /**
-     * @param \DateTimeInterface $last_login_at
+     * @param DateTimeInterface $last_login_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setLastLoginAt(\DateTimeInterface $last_login_at): self
+    public function setLastLoginAt(DateTimeInterface $last_login_at): self
     {
         $this->last_login_at = $last_login_at;
 
@@ -293,20 +293,20 @@ class User implements UserInterface
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTimeInterface $created_at
+     * @param DateTimeInterface $created_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
@@ -314,20 +314,20 @@ class User implements UserInterface
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updated_at;
     }
 
     /**
-     * @param \DateTimeInterface $updated_at
+     * @param DateTimeInterface $updated_at
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
 
@@ -461,11 +461,20 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsArchived(): ?bool
     {
         return $this->is_archived;
     }
 
+    /**
+     * @param bool $is_archived
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;

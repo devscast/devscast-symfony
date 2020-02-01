@@ -30,7 +30,7 @@ class PageController extends AbstractController
     /**
      * @Route("/", name="home", methods={"GET"})
      */
-    public function index()
+    public function index(): Response
     {
         $projectDir = $this->getParameter('kernel.project_dir');
         $services = json_decode(file_get_contents($projectDir . "/resources/services.json"));
@@ -45,7 +45,7 @@ class PageController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function contact(Request $request, ContactNotification $contactNotification)
+    public function contact(Request $request, ContactNotification $contactNotification): Response
     {
         $contact = new ContactData();
         $contactForm = $this->createForm(ContactType::class, $contact);
@@ -67,7 +67,7 @@ class PageController extends AbstractController
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function contributing()
+    public function contributing(): Response
     {
         return $this->render("app/statics/contributing.html.twig");
     }
@@ -76,7 +76,7 @@ class PageController extends AbstractController
      * @Route("/code-of-conduct", name="conduct", methods={"GET"})
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function conduct()
+    public function conduct(): Response
     {
         return $this->render("app/statics/conduct.html.twig");
     }

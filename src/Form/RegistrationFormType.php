@@ -12,10 +12,10 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -39,20 +39,20 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('agree', CheckboxType::class, [
                 'mapped' => false,
+                'label' => "D'accord",
                 'constraints' => [new IsTrue(['message' => 'You should agree to our terms.'])],
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('password', PasswordType::class, [
                 'mapped' => false,
                 'constraints' => [
-                    new NotBlank(['message' => 'Please enter a password']),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        'max' => 4096,
-                    ]),
+                    new NotBlank(),
+                    new Length(['min' => 6, 'max' => 4096]),
                 ],
+            ])
+            ->add('captcha', RecaptchaSubmitType::class, [
+                'label' => 'Envoyer'
             ]);
     }
 

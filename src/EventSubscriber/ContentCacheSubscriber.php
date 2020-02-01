@@ -11,7 +11,6 @@
 
 namespace App\EventSubscriber;
 
-
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Exception;
 use App\Entity\Tag;
@@ -32,11 +31,9 @@ use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 class ContentCacheSubscriber implements EventSubscriber
 {
 
-    /** @var TagAwareAdapterInterface */
-    private $cache;
+    private TagAwareAdapterInterface $cache;
 
-    /** @var LoggerInterface */
-    private $logger;
+    private LoggerInterface $logger;
 
     /**
      * ContentCacheSubscriber constructor.
@@ -52,7 +49,7 @@ class ContentCacheSubscriber implements EventSubscriber
     /**
      * @inheritDoc
      */
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
         return [
             'preUpdate',
@@ -65,7 +62,7 @@ class ContentCacheSubscriber implements EventSubscriber
      * @param PreUpdateEventArgs $args
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function preUpdate(PreUpdateEventArgs $args)
+    public function preUpdate(PreUpdateEventArgs $args): void
     {
         $this->invalidate($args->getEntity());
     }
@@ -74,7 +71,7 @@ class ContentCacheSubscriber implements EventSubscriber
      * @param LifecycleEventArgs $args
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function prePersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args): void
     {
         $this->invalidate($args->getEntity());
     }
@@ -83,12 +80,16 @@ class ContentCacheSubscriber implements EventSubscriber
      * @param LifecycleEventArgs $args
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function preRemove(LifecycleEventArgs $args)
+    public function preRemove(LifecycleEventArgs $args): void
     {
         $this->invalidate($args->getEntity());
     }
 
-    private function invalidate($entity)
+    /**
+     * @param $entity
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    private function invalidate($entity): void
     {
         try {
             switch ($entity) {

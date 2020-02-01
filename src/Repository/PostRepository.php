@@ -21,20 +21,20 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
+ * Class PostRepository
  * @method Post|null find($id, $lockMode = null, $lockVersion = null)
  * @method Post|null findOneBy(array $criteria, array $orderBy = null)
  * @method Post[]    findAll()
  * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @package App\Repository
+ * @author bernard-ng <ngandubernard@gmail.com>
  */
 class PostRepository extends ServiceEntityRepository
 {
 
-    /** @var PaginationInterface */
-    private $paginator;
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    private PaginatorInterface $paginator;
+
+    private LoggerInterface $logger;
 
     /**
      * PostRepository constructor.
@@ -85,7 +85,7 @@ class PostRepository extends ServiceEntityRepository
         $query = $query->getQuery()->getResult();
         return $this->paginator->paginate(
             $query,
-            $searchData->page,
+            $searchData->page ?? 1,
             12
         );
     }
