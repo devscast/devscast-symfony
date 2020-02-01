@@ -22,5 +22,7 @@
   "blogDescription": "Articles, Astuces, découvertes et partages sur les technologies du web.",
   "contactDescription": "Envie d'en savoir plus sur nous, nous confier votre projet ? contactez-nous.",
   "searchDescription": "Parcourez l'ensemble des vidéos disponibles, entrez un mot clé pour commencer.",
-  "tagDescription": "Parcourez l'ensemble des vidéos portant le tag :"
+  "tagDescription": "Parcourez l'ensemble des vidéos portant le tag :",
+  "registerDescription": "Rejoignez la communauté devscast et participer à la création des solutions numériques pour la communauté.",
+  "loginDescription": "Bon retour parmi nous !"
 }

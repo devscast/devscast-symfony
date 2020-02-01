@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.contact-form {
+.contact-form, .auth-form {
   padding: {
     left: 40px;
   }
@@ -83,6 +83,13 @@
       margin-top: 15px;
     }
   }
+}
+
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid $white-color-two;
+  padding: 24px;
 }
 
 .contact-form.light {
