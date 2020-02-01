@@ -1,0 +1,15 @@
+{% macro modal(label, id, content) %}
+    <a href="#modal-{{ id }}" data-toggle="modal" class="btn btn-primary">
+        {{ label }}
+    </a>
+    <div class="modal fade" id="modal-{{ id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {{ content }}
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

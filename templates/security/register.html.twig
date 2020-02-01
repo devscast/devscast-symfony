@@ -1,27 +1,77 @@
 {% extends "layout/auth.html.twig" %}
 
-{% block body %}
-    <div class="content content-auth-alt">
-        <div class="container d-flex justify-content-center ht-100p">
-            <div class="mx-wd-500 wd-sm-450 ht-100p d-flex flex-column align-items-center justify-content-center">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="tx-color-01 mg-b-5 mb-5">Registration</h3>
-                        {{ form_start(registrationForm) }}
-                            {{ form_row(registrationForm.name) }}
-                            {{ form_row(registrationForm.email) }}
-                            {{ form_row(registrationForm.plainPassword) }}
-                            {{ form_row(registrationForm.agreeTerms) }}
+{% block meta %}
+    <title>Inscription | devs-cast.com</title>
+    <meta property="og:title" content="Inscription | devs-cast.com"/>
+    <meta property="og:description" content="{{ meta().registerDescription }}"/>
+    <meta name="description" content="{{ meta().registerDescription }}"/>
+{% endblock %}
 
-                            <p class="tx-color-03 tx-14">
-                                Bon retour parmi nous ! Veuillez vous connectez pour continuer.
-                                <a href="">Terms of usage</a>
-                            </p>
-                            <button class="btn btn-block btn-primary">Register</button>
+{% block body %}
+    <section id="contact" class="contact-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>Rejoignez la communauté</span>
+                <h1>Inscription</h1>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-12 animated slideInUp">
+                    <div class="auth-form">
+
+                        {{ form_start(registrationForm) }}
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form_row(registrationForm.name, {attr: {
+                                    placeholder: "votre nom..."
+                                }}) }}
+                            </div>
+
+                            <div class="col-12">
+                                {{ form_row(registrationForm.email, {attr: {
+                                    placeholder: "votre email..."
+                                }}) }}
+                            </div>
+
+                            <div class="col-12">
+                                {{ form_row(registrationForm.password, {attr: {
+                                    placeholder: "mot de passe..."
+                                }}) }}
+                            </div>
+
+                            <div class="col-12">
+                                <p>
+                                    En vous inscrivant sur devscast, vous affirmez avoir lu et acceptez notre
+                                    <a href="{{ path('conduct') }}">code de conduite</a>
+                                </p>
+                                {{ form_row(registrationForm.agree) }}
+                            </div>
+
+                            <div class="col-12">
+                                {{ form_row(registrationForm.captcha) }}
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
                         {{ form_end(registrationForm) }}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}"></script>
+    <script>
+        function recaptchaCallback(token) {
+            var elem = document.querySelector(".g-recaptcha");
+            while ((elem = elem.parentElement) !== null) {
+                if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'FORM') {
+                    elem.submit();
+                    break;
+                }
+            }
+        }
+    </script>
 {% endblock %}

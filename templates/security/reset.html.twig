@@ -1,0 +1,31 @@
+{% extends "layout/auth.html.twig" %}
+
+{% block meta %}
+    <title>Mot de passe oublié | devs-cast.com</title>
+    <meta property="og:title" content="Mot de passe oublié | devs-cast.com"/>
+    <meta property="og:description" content="Mot de passe oublié"/>
+    <meta name="description" content="Mot de passe oublié"/>
+{% endblock %}
+
+{% block body %}
+    <section id="contact" class="contact-area ptb-80 bg-black">
+        <div class="container">
+            <div class="section-title">
+                <span>récupérez votre compte</span>
+                <h1>Mot de passe oublié</h1>
+                <div class="bar"></div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="auth-form">
+                        {{ form_start(resetForm) }}
+                        {{ form_row(resetForm.email, {attr: {placeholder: 'votre email...'}}) }}
+                        <button class="btn btn-primary">Envoyer</button>
+                        {{ form_end(resetForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
