@@ -24,14 +24,14 @@
       ]
     },
     {
-      "name": "Agnès Kilume",
-      "role": "Marketing",
-      "avatar": "https://avatars3.githubusercontent.com/u/31113941?s=460&v=4",
+      "name": "Trésor Scott",
+      "role": "Developer",
+      "avatar": "https://avatars1.githubusercontent.com/u/34010260?s=460&v=4",
       "social": [
         {
-          "name": "instagram",
-          "link": "https://instagram.com/angerie",
-          "icon": "fab fa-instagram"
+          "name": "github",
+          "link": "https://github.com/Scott-Tresor",
+          "icon": "fab fa-github-square"
         }
       ]
     },
