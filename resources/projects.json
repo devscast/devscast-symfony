@@ -2,6 +2,29 @@
   "version": 1,
   "data": [
     {
+      "name": "OpenfireClient",
+      "role": "Angular - RestApi - SPA",
+      "type": "freelance",
+      "status": "Terminé",
+      "client": {
+        "name": "GoodBytes",
+        "logo": "",
+        "link": "http://goodbytes.im"
+      },
+      "description": "Application client d'openfire",
+      "challenge": "Un tableau de bord permettant aux clients de gérer leur environnement XMPP basé sur Openfire.",
+      "link": "http://goodbytes.im",
+      "screenshots": [
+        "/assets/img/projects/openfire-angular-client/1.png",
+        "/assets/img/projects/openfire-angular-client/2.png",
+        "/assets/img/projects/openfire-angular-client/3.png",
+        "/assets/img/projects/openfire-angular-client/4.png",
+        "/assets/img/projects/openfire-angular-client/5.png",
+        "/assets/img/projects/openfire-angular-client/6.png",
+        "/assets/img/projects/openfire-angular-client/7.png"
+      ]
+    },
+    {
       "name": "MagBusiness",
       "role": "Symfony - bootstrap 4 - Ajax",
       "type": "freelance",
