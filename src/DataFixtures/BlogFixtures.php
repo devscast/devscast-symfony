@@ -45,6 +45,7 @@ class BlogFixtures extends Fixture
                     $blog = new Blog();
                     $blog
                         ->setName($faker->words(4, true))
+                        ->setDescription($faker->sentences(1, true))
                         ->setContent($faker->sentences(3, true))
                         ->setCreatedAt(new \DateTime("now"))
                         ->setIsOnline(true)
