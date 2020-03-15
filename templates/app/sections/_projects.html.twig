@@ -1,3 +1,5 @@
+{% set _route = app.request.get('_route') %}
+
 {% if projects is defined %}
     <section id="projects" class="projects-area ptb-80 bg-black">
         <div class="container">
@@ -9,9 +11,9 @@
         </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row {{ _route == 'home' ? 'projects-slides owl-carousel owl-theme' : '' }}">
                 {% for project in projects.data %}
-                    <div class="col-md-4 col-sm-12">
+                    <article class="{{ _route == 'app_project_index' ? 'col-md-4 col-sm-12' : '' }}">
                         <div class="single-projects-box">
                             <a href="{{ path('app_project_show', {name: project.name | lower}) }}"
                                title="{{ project.name }}">
@@ -28,7 +30,7 @@
                                 <span>{{ project.role }}</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 {% endfor %}
             </div>
         </div>

@@ -22,19 +22,22 @@ const defaultConfig = {
 
 $('.team-slides').owlCarousel({
     ...defaultConfig,
+    nav: false,
+    dots: true,
+    navText: [],
     autoplayHoverPause: true,
     mouseDrag: true,
     margin: 30,
 });
 
-$('.projects-image-slides').owlCarousel({
+$('.projects-slides').owlCarousel({
     ...defaultConfig,
     autoplayHoverPause: true,
     mouseDrag: true,
     margin: 30,
     responsive: {
         0: {items: 1},
-        768: {items: 2},
-        1200: {items: 2},
+        768: {items: 3},
+        1200: {items: 3},
     }
 });
