@@ -14,6 +14,18 @@ migrate: vendor/autoload.php ## Migre la base de donnée
 seed: vendor/autoload.php ## Remplie la base de données
 	php bin/console doctrine:fixtures:load
 
+.PHONY: tests
+tests: vendor/autoload.php ## execute les tests
+	php bin/phpunit
+
+.PHONY: lint
+lint: vendor/autoload.php ## Lint le code
+	php vendor/bin/phpcs -s
+
+.PHONY: lint-fix
+lint-fix: vendor/autoload.php ## corrige les erreurs du linting
+	php vendor/bin/phpcbf
+
 .PHONY: serve
 serve: vendor/autoload.php ## lance, le serve de development
 	php -S localhost:8000 -t public

@@ -2,7 +2,8 @@
 <html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     {% block meta %}{% endblock %}
@@ -58,6 +59,7 @@
 <script src="{{ asset('/assets/backend/lib/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('/assets/backend/js/dashforge.js') }}"></script>
+<script src="{{ asset('/assets/backend/js/dashforge.aside.js') }}"></script>
 <script src="{{ asset('/assets/backend/lib/select2/js/select2.min.js') }}"></script>
 <script>
     $('select').select2();

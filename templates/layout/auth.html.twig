@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
     <!doctype html>
     {% include "app/includes/_copyright.html.twig" %}
     <html lang="{{ meta().lang | default('fr') }}">
@@ -59,4 +59,4 @@
     {{ encore_entry_script_tags('app') }}
     </body>
     </html>
-{% endspaceless %}
+{%  endapply %}
