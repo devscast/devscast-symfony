@@ -1,0 +1,12 @@
+langage: php
+php:
+    - '7.4'
+install:
+    - composer install
+cache:
+    directories:
+        - ./vendor
+script:
+    - make lint
+    - php bin/console lint:yaml config
+    - php bin/console lint:twig templates
