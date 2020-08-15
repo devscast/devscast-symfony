@@ -24,7 +24,7 @@
     "owl.carousel": "^2.3.4",
     "particles.js": "^2.0.0",
     "popper.js": "^1.16.0",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "turbolinks": "^5.2.0"
   }
