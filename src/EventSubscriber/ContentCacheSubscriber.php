@@ -93,25 +93,26 @@ class ContentCacheSubscriber implements EventSubscriber
     {
         try {
             switch ($entity) {
-                case $entity instanceof GlobalMessage :
+                case $entity instanceof GlobalMessage:
                     $this->cache->invalidateTags(['message']);
                     break;
 
-                case $entity instanceof Post :
+                case $entity instanceof Post:
                     $this->cache->invalidateTags(['posts']);
                     break;
 
-                case $entity instanceof Tag :
+                case $entity instanceof Tag:
                     $this->cache->invalidateTags(['tags']);
                     break;
 
-                case $entity instanceof Category :
+                case $entity instanceof Category:
                     $this->cache->invalidateTags(['categories']);
                     break;
             }
         } catch (Exception | InvalidArgumentException $e) {
             $this->logger->error(
-                sprintf("[%s] : %s ", __CLASS__, $e->getMessage()), $e->getTrace()
+                sprintf("[%s] : %s ", __CLASS__, $e->getMessage()),
+                $e->getTrace()
             );
         }
     }

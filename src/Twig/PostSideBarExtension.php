@@ -55,8 +55,7 @@ class PostSideBarExtension extends AbstractExtension
         TagRepository $tagRepository,
         CategoryRepository $categoryRepository,
         PostRepository $postRepository
-    )
-    {
+    ) {
         $this->tagRepository = $tagRepository;
         $this->categoryRepository = $categoryRepository;
         $this->postRepository = $postRepository;
