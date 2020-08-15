@@ -1,5 +1,5 @@
 # devs-cast.com
-[![Build Status](https://travis-ci.com/devscast/velocom-pwa.svg?branch=master)](https://travis-ci.com/devscast/devs-cast.com)
+[![Build Status](https://travis-ci.com/devscast/devs-cast.com.svg?branch=master)](https://travis-ci.com/devscast/devs-cast.com)
 
 
 Numeric Builders - We develop web solutions.
