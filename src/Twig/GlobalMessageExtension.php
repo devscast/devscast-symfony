@@ -36,8 +36,8 @@ class GlobalMessageExtension extends AbstractExtension
     public function __construct(
         TagAwareAdapterInterface $cache,
         GlobalMessageRepository $messageRepository,
-        Environment $twig)
-    {
+        Environment $twig
+    ) {
         $this->messageRepository = $messageRepository;
         $this->twig = $twig;
         $this->cache = $cache;

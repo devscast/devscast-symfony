@@ -39,8 +39,7 @@ class AdminController extends AbstractController
         BlogRepository $blogRepository,
         PostRepository $postRepository,
         UserRepository $userRepository
-    ): Response
-    {
+    ): Response {
         return $this->render('admin/index.html.twig', [
             'blog_count' => $blogRepository->count([]),
             'post_count' => $postRepository->count([]),

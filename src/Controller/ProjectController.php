@@ -81,4 +81,3 @@ class ProjectController extends AbstractController
         throw new NotFoundHttpException();
     }
 }
-

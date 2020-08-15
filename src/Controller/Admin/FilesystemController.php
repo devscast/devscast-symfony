@@ -97,4 +97,3 @@ class FilesystemController extends AbstractController
         return null;
     }
 }
-
