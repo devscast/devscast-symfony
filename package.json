@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-react": "^7.10.4",
     "@symfony/webpack-encore": "^0.28.2",
     "core-js": "^3.6.5",
     "regenerator-runtime": "^0.13.7",
