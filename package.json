@@ -17,7 +17,7 @@
     "build": "encore production --progress"
   },
   "dependencies": {
-    "@api-platform/admin": "^1.0.2",
+    "@api-platform/admin": "^2.2.3",
     "animate-sass": "^0.8.2",
     "bootstrap": "^4.4.1",
     "jquery.appear": "^1.0.1",
