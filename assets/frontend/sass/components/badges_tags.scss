@@ -1,0 +1,63 @@
+// badges
+.badge{
+    @apply font-medium text-center py-2 px-8 rounded-full;
+} 
+
+.badge-square{
+
+    @apply h-10 w-10 flex items-center justify-center font-semibold rounded-md;
+}
+
+.badge-circle{
+
+    @apply  h-10 w-10 flex items-center justify-center font-semibold rounded-full;
+
+}
+
+@each $color in $colors {
+
+    // badge background colors
+    .badge-#{$color}{
+                
+        @if ($color != 'black') and ($color != 'white') {
+            @apply bg-#{$color}-200 text-#{$color}-600;
+        }
+        
+    }
+    
+}
+
+// tags
+.tag{
+    @apply font-medium text-center py-1 px-3 rounded border;
+
+    &:focus {
+        @apply outline-none ;
+    }
+
+} 
+
+@each $color in $colors {
+
+    @if ($color != 'black') and ($color != 'white') {
+        // tags background colors
+        .tag-#{$color}{
+                
+            @apply bg-transparent text-gray-700;
+
+            &:hover{
+                @apply text-#{$color}-500 border-#{$color}-500 ;
+            }
+        }
+
+        // active tags
+        .tag-#{$color}-active{
+            @apply bg-#{$color}-500 text-white border-2 border-#{$color}-400;
+        
+            &:hover{
+                @apply bg-transparent text-#{$color}-500 border border-#{$color}-500 ;
+            }
+        }
+
+    }
+}
