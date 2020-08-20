@@ -1,0 +1,42 @@
+.df-logo {
+    font-weight: $font-weight-bold;
+    font-size: 22px;
+    letter-spacing: -1px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: darken($color-brand-02, 10%);
+    margin-top: -4px;
+    @include media-breakpoint-up(sm) {
+        font-size: 22px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 24px;
+    }
+    @include hover-focus {
+        color: darken($color-brand-02, 5%);
+    }
+    span {
+        display: inline-block;
+        font-weight: $font-weight-base;
+        color: $color-brand-01;
+    }
+}
+
+.df-logo-initial {
+    width: 40px;
+    height: 40px;
+    border: 2px solid $color-brand-01;
+    color: $color-brand-01;
+    @include border-radius(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: -2px;
+        margin-bottom: 0;
+    }
+}

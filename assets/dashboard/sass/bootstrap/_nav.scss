@@ -1,0 +1,28 @@
+.nav-link {
+    color: $gray-700;
+    @include hover-focus {
+        color: $color-brand-01;
+    }
+    &.active {
+        color: $color-brand-01;
+    }
+}
+
+.nav-pills {
+    .nav-link {
+        @include transition($transition-base);
+        &:not(.active) {
+            @include hover-focus {
+                background-color: darken($gray-100, 2%);
+                color: $body-color;
+            }
+        }
+    }
+    // Adding a little space between them
+    &:not(.flex-column) {
+        .nav-item+.nav-item,
+        >.nav-link+.nav-link {
+            margin-left: 2px;
+        }
+    }
+}

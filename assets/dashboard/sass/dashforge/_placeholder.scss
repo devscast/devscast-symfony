@@ -1,0 +1,132 @@
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+.placeholder-paragraph {
+    .line {
+        position: relative;
+        width: 87%;
+        margin: 20px 0;
+        &,
+        &::before,
+        &::after {
+            animation-duration: .8s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: shimmer;
+            animation-timing-function: linear;
+            background: $gray-100;
+            background: linear-gradient(to right, $gray-200 8%, $gray-300 18%, $gray-200 33%);
+            background-size: 800px 10px;
+            height: 8px;
+        }
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+        &::before {
+            top: -20px;
+            width: 84%;
+        }
+        &::after {
+            bottom: -20px;
+            width: 64%;
+        }
+        +.line {
+            margin-top: 52px;
+            width: 93%;
+            &::before {
+                width: 88%;
+            }
+            &::after {
+                width: 36%;
+            }
+        }
+    }
+    // align centered paragraph
+    &.aligned-centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .line {
+            &::before {
+                margin-left: 50%;
+                left: -42%;
+            }
+            &::after {
+                margin-left: 50%;
+                left: -32%;
+            }
+            +.line {
+                margin-top: 32px;
+                &::before {
+                    left: -44%;
+                }
+                &::after {
+                    left: -18%;
+                }
+            }
+        }
+    }
+    &.aligned-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .line {
+            &::before,
+            &::after {
+                left: auto;
+                right: 0;
+            }
+            +.line {
+                margin-top: 32px;
+            }
+        }
+    }
+}
+
+.placeholder-media {
+    .line {
+        position: relative;
+        margin-top: 8px;
+        margin-bottom: 25px;
+        margin-left: 70px;
+        height: 16px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -11px;
+            left: -70px;
+            width: 55px;
+            height: 55px;
+            @include border-radius(100%);
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 65%;
+            height: 8px;
+        }
+        &,
+        &::before,
+        &::after {
+            animation-duration: .8s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: shimmer;
+            animation-timing-function: linear;
+            background: $gray-200;
+            background: linear-gradient(to right, $gray-200 8%, $gray-300 18%, $gray-200 33%);
+            background-size: 800px 10px;
+        }
+    }
+}

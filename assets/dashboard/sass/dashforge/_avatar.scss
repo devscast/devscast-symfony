@@ -1,0 +1,137 @@
+.avatar {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.avatar-initial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-ui-04;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: $font-family-system;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-offline,
+.avatar-online {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 2px;
+        width: 8px;
+        height: 8px;
+        @include border-radius(100%);
+        box-shadow: 0 0 0 2px #fff;
+    }
+}
+
+.avatar-offline::after {
+    background-color: $color-ui-03;
+}
+
+.avatar-online::after {
+    background-color: $green;
+}
+
+.avatar-xs {
+    width: 26px;
+    height: 26px;
+    .avatar-initial {
+        font-size: 10px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    .avatar-initial {
+        font-size: 13px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 7px;
+        height: 7px;
+    }
+}
+
+.avatar-md {
+    width: 48px;
+    height: 48px;
+    .avatar-initial {
+        font-size: 18px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 9px;
+        height: 9px;
+        right: 2px;
+        bottom: 2px;
+    }
+}
+
+.avatar-lg {
+    width: 64px;
+    height: 64px;
+    .avatar-initial {
+        font-size: 24px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 10px;
+        height: 10px;
+        bottom: 3px;
+        right: 4px;
+    }
+}
+
+.avatar-xl {
+    width: 72px;
+    height: 72px;
+    .avatar-initial {
+        font-size: 30px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 11px;
+        height: 11px;
+        bottom: 4px;
+        right: 5px;
+        box-shadow: 0 0 0 2.5px #fff;
+    }
+}
+
+.avatar-xxl {
+    width: 100px;
+    height: 100px;
+    .avatar-initial {
+        font-size: 45px;
+    }
+    &.avatar-offline::after,
+    &.avatar-online::after {
+        width: 13px;
+        height: 13px;
+        bottom: 6px;
+        right: 7px;
+        box-shadow: 0 0 0 3px #fff;
+    }
+}

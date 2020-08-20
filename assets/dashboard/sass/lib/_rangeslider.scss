@@ -1,0 +1,108 @@
+.irs--flat {
+    .irs-min,
+    .irs-max {
+        color: $color-text-03;
+        background-color: $color-ui-02;
+        @include border-radius;
+    }
+    .irs-from,
+    .irs-to,
+    .irs-single {
+        background-color: $color-brand-01;
+        @include border-radius;
+        &::before {
+            border-top-color: $color-brand-01;
+        }
+    }
+    .irs-line {
+        background-color: $border-color;
+        @include border-radius;
+    }
+    .irs-bar {
+        background-color: $color-brand-01;
+    }
+    .irs-bar--single {
+        @include border-left-radius($border-radius);
+    }
+    .irs-handle {
+        >i:first-child {
+            background-color: darken($color-brand-01, 5%);
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            cursor: w-resize;
+            >i:first-child {
+                background-color: darken($color-brand-01, 7%);
+            }
+        }
+        &.state_hover {
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                >i:first-child {
+                    background-color: darken($color-brand-01, 7%);
+                }
+            }
+        }
+    }
+    .irs-grid-text {
+        color: $color-text-03;
+    }
+    .irs-grid-pol {
+        background-color: $border-color;
+    }
+}
+
+// round skin
+.irs--round {
+    .irs-min,
+    .irs-max,
+    .irs-from,
+    .irs-to {
+        font-size: 10px;
+        @include border-radius;
+    }
+    .irs-min,
+    .irs-max {
+        background-color: $color-ui-02;
+        color: $color-text-03;
+    }
+    .irs-grid-text {
+        font-size: 10px;
+        color: $color-text-03;
+    }
+    .irs-grid-pol {
+        background-color: $border-color;
+    }
+}
+
+// square skin
+.irs--square {
+    .irs-line,
+    .irs-grid-pol {
+        background-color: $color-ui-02;
+    }
+    .irs-min,
+    .irs-max {
+        background-color: $color-ui-02;
+        font-size: 10px;
+        color: $color-text-03;
+    }
+    .irs-grid-text {
+        font-size: 10px;
+        color: $color-text-03;
+    }
+    .irs-from,
+    .irs-to {
+        background-color: $color-inverse-02;
+        font-size: 10px;
+    }
+    .irs-handle {
+        border-color: $color-inverse-02;
+    }
+    .irs-bar {
+        background-color: $color-inverse-02;
+    }
+}

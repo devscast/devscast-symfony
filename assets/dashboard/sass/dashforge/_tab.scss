@@ -1,0 +1,107 @@
+.nav-tabs {
+    border-color: $border-color;
+    .nav-item {
+        margin-bottom: 0;
+        +.nav-item {
+            margin-left: 5px;
+        }
+    }
+    .nav-link {
+        background-color: $border-color;
+        border-color: $border-color;
+        color: $gray-700;
+        border-bottom-width: 0;
+        position: relative;
+        margin-bottom: -1px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $height-base;
+        @include transition(background-color 0.2s);
+        @include hover-focus {
+            background-color: lighten($border-color, 5%);
+            color: $gray-900;
+        }
+        &.active {
+            background-color: #fff;
+            z-index: 5;
+            color: $color-brand-01;
+        }
+        &.disabled {
+            background-color: transparent;
+            color: $gray-400;
+        }
+    }
+    &.flex-column {
+        border-bottom: 0;
+        border-right: 1px solid $border-color;
+        justify-content: flex-start;
+        .nav-item {
+            +.nav-item {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            .nav-link {
+                border: 1px solid $border-color;
+                border-right-width: 0;
+                margin-bottom: 0;
+                margin-right: -1px;
+                @include border-right-radius(0);
+                @include border-left-radius($border-radius);
+            }
+        }
+    }
+}
+
+.nav-line {
+    border-bottom: 2px solid $border-color;
+    .nav-item {
+        +.nav-item {
+            margin-left: 25px;
+        }
+    }
+    >.nav-link+.nav-link {
+        margin-left: 25px;
+    }
+    .nav-link {
+        padding: 8px 0;
+        &.active {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: $color-brand-01;
+            }
+        }
+    }
+    &.flex-column {
+        border-bottom: 0;
+        border-right: 2px solid $border-color;
+        .nav-item {
+            +.nav-item {
+                margin-left: 0;
+                margin-top: 25px;
+            }
+        }
+        >.nav-link+.nav-link {
+            margin-top: 25px;
+            margin-left: 0;
+        }
+        .nav-link {
+            padding: 0 15px 0 25px;
+            &.active::after {
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                height: auto;
+                left: auto;
+                right: -2px;
+            }
+        }
+    }
+}

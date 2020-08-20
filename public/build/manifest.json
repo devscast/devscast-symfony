@@ -1,9 +1,16 @@
 {
-  "build/0.5625c2e3.js": "/build/0.5625c2e3.js",
-  "build/1.e9f6b166.js": "/build/1.e9f6b166.js",
-  "build/2.7b3e20a7.js": "/build/2.7b3e20a7.js",
-  "build/admin.js": "/build/admin.1262e57a.js",
-  "build/app.css": "/build/app.7b6c0746.css",
-  "build/app.js": "/build/app.9744e4a7.js",
-  "build/runtime.js": "/build/runtime.6ac923ed.js"
+  "build/0.js": "/build/0.js",
+  "build/1.js": "/build/1.js",
+  "build/2.js": "/build/2.js",
+  "build/3.js": "/build/3.js",
+  "build/dashboard/app.css": "/build/dashboard/app.css",
+  "build/dashboard/app.js": "/build/dashboard/app.js",
+  "build/dashboard/pages/filesystem.css": "/build/dashboard/pages/filesystem.css",
+  "build/frontend/app.css": "/build/frontend/app.css",
+  "build/frontend/app.js": "/build/frontend/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors~dashboard/app.css": "/build/vendors~dashboard/app.css",
+  "build/vendors~dashboard/app.js": "/build/vendors~dashboard/app.js",
+  "build/vendors~dashboard/app~frontend/app.js": "/build/vendors~dashboard/app~frontend/app.js",
+  "build/vendors~frontend/app.js": "/build/vendors~frontend/app.js"
 }

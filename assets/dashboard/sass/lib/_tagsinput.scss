@@ -1,0 +1,38 @@
+.bootstrap-tagsinput {
+    display: block;
+    padding: 5px;
+    box-shadow: none;
+    border-color: $input-border-color;
+    @include border-radius;
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        background-color: $color-brand-01;
+        color: #fff;
+        padding: 2px 7px;
+        @include border-radius(1px);
+        [data-role="remove"] {
+            display: inline-block;
+            height: 16px;
+            width: 10px;
+            position: relative;
+            opacity: .5;
+            &::after {
+                content: '\f406';
+                font-family: 'Ionicons';
+                font-size: 18px;
+                position: absolute;
+                top: calc(50% + .5px);
+                line-height: 0;
+            }
+            @include hover-focus {
+                opacity: 1;
+                box-shadow: none;
+            }
+        }
+    }
+    .tt-menu {
+        margin-top: 7px;
+        margin-left: -10px;
+    }
+}

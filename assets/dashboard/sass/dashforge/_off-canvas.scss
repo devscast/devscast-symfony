@@ -1,0 +1,281 @@
+.off-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    height: 100%;
+    width: $width-sidebar;
+    background-color: #fff;
+    transform: translate(-100%, 0);
+    @include transition(all 0.4s);
+    &.show {
+        transform: translate(0, 0);
+        border-right: 1px solid rgba($gray-900, 0.1);
+        box-shadow: 0 0 18px rgba($gray-900, 0.06);
+    }
+    >.close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        @include border-radius(100%);
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $gray-600;
+        @include transition($transition-base);
+        .feather {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5px;
+        }
+    }
+}
+
+.off-canvas-overlay {
+    &.show {
+        border-right-width: 0;
+        ~.off-canvas-pusher {
+            overflow: hidden;
+        }
+        ~.backdrop {
+            opacity: 1;
+            visibility: visible;
+            z-index: 60;
+        }
+    }
+}
+
+.off-canvas-right {
+    left: auto;
+    right: 0;
+    transform: translate(100%, 0);
+    &.show {
+        border-right: 0;
+        border-left: 1px solid rgba($gray-900, 0.1);
+    }
+    &.off-canvas-overlay {
+        &.show {
+            border-left-width: 0;
+        }
+    }
+}
+
+.off-canvas-header {
+    height: $height-header-mobile;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 25px;
+    border-bottom: 1px solid rgba($border-color, 0.5);
+    @include media-breakpoint-up(lg) {
+        height: $height-header;
+    }
+    .close {
+        color: $gray-600;
+        .feather {
+            stroke-width: 2.5px;
+            width: 20px;
+        }
+    }
+}
+
+.off-canvas-body {
+    position: relative;
+    overflow-y: auto;
+    height: calc(100vh - #{$height-header});
+}
+
+// Background Variant
+.off-canvas-dark {
+    background-color: $gray-900;
+    color: #fff;
+    .close {
+        color: inherit;
+    }
+    .off-canvas-header {
+        border-bottom-color: rgba(#fff, 0.05);
+    }
+    .df-logo {
+        &,
+        &:hover,
+        &:focus {
+            color: inherit;
+            span {
+                color: inherit;
+            }
+        }
+    }
+    .sidebar-nav {
+        .nav-link {
+            color: rgba(#fff, 0.8);
+            font-weight: $font-weight-medium;
+            .feather {
+                color: rgba(#fff, 0.4);
+            }
+        }
+        .nav {
+            border-color: rgba(#fff, 0.05);
+            a {
+                color: rgba(#fff, 0.6);
+                font-weight: $font-weight-base;
+            }
+        }
+    }
+    &.bg-primary,
+    &.bg-secondary {
+        .df-logo {
+            color: inherit;
+            &::before {
+                background-color: rgba(#fff, 0.2);
+                color: inherit;
+            }
+        }
+        .sidebar-nav {
+            .nav-label {
+                color: rgba(#fff, 0.5);
+            }
+            .nav-link {
+                color: rgba(#fff, 0.7);
+                @include hover-focus {
+                    color: #fff;
+                }
+                .feather {
+                    color: inherit;
+                }
+                &.active {
+                    color: #fff;
+                    &::before {
+                        background-color: #fff;
+                    }
+                    .feather {
+                        color: inherit;
+                    }
+                }
+            }
+            .nav {
+                border-color: rgba(#fff, 0.16);
+                a {
+                    color: rgba(#fff, 0.5);
+                    @include hover-focus {
+                        color: rgba(#fff, 0.8);
+                    }
+                    &.active {
+                        color: #fff;
+                        &::before {
+                            border-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.bg-secondary {
+        background-color: $gray-700 !important;
+    }
+}
+
+// Transition Pusher
+.off-canvas-pusher {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 20;
+    @include transition(none);
+    .navbar-header,
+    .sidebar,
+    .section-nav,
+    .content {
+        @include transition(all 0.4s);
+    }
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: #fff;
+        z-index: -1;
+        pointer-events: none;
+        @include transition(all 0.4s);
+    }
+}
+
+// Transition Effect
+.off-canvas-reveal {
+    transform: translate(0, 0);
+    @include transition(none);
+    z-index: 10;
+    &.show {
+        box-shadow: none;
+        ~.off-canvas-pusher {
+            overflow: hidden;
+            pointer-events: none;
+            &::before,
+            .navbar-header,
+            .section-nav,
+            .content {
+                transform: translateX($width-sidebar);
+            }
+            .sidebar {
+                display: none;
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                    transform: translateX($width-sidebar);
+                }
+            }
+        }
+        ~.backdrop {
+            transform: translateX($width-sidebar);
+        }
+    }
+    &.off-canvas-right {
+        left: auto;
+        right: 0;
+        &.show {
+            ~.off-canvas-pusher {
+                &::before,
+                .navbar-header,
+                .sidebar,
+                .section-nav,
+                .content {
+                    transform: translateX(-$width-sidebar);
+                }
+            }
+        }
+    }
+}
+
+.off-canvas-push {
+    &.show {
+        ~.off-canvas-pusher {
+            overflow: hidden;
+            pointer-events: none;
+            &::before,
+            .navbar-header,
+            .sidebar,
+            .section-nav,
+            .content {
+                transform: translateX($width-sidebar);
+            }
+        }
+    }
+    &.off-canvas-right {
+        &.show {
+            ~.off-canvas-pusher {
+                &::before,
+                .navbar-header,
+                .sidebar,
+                .section-nav,
+                .content {
+                    transform: translateX(-$width-sidebar);
+                }
+            }
+        }
+    }
+}

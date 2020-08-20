@@ -1,0 +1,17 @@
+@import "../variables";
+@import "../bootstrap/variables";
+
+@import "../mixins";
+@import "../bootstrap/mixins";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+body {
+    background-color: $color-ui-01;
+}
+
+.card {
+    box-shadow: 0 0 10px rgba($gray-900, 0.05);
+}

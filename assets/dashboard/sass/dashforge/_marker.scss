@@ -1,0 +1,122 @@
+.marker {
+    background-color: lighten($color-ui-02, 4%);
+    color: $body-color;
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: $font-family-system;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.marker-icon {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -70%;
+        left: -70%;
+        width: 140%;
+        height: 140%;
+        background-color: lighten($color-ui-02, 4%);
+        transform: rotate(45deg);
+    }
+    svg {
+        width: $marker-icon-size;
+        height: $marker-icon-size;
+        margin-top: calc(30% - #{$marker-icon-size / 2});
+        margin-left: calc(30% - #{$marker-icon-size / 2});
+        position: relative;
+        z-index: 1;
+    }
+    &.marker-top-right {
+        &::before {
+            left: auto;
+            right: -70%;
+        }
+        svg {
+            margin-left: auto;
+            margin-right: calc(30% - #{$marker-icon-size / 2});
+        }
+    }
+    &.marker-bottom-left {
+        &::before {
+            top: auto;
+            bottom: -70%;
+        }
+        svg {
+            margin-top: auto;
+            margin-bottom: calc(30% - #{$marker-icon-size / 2});
+        }
+    }
+    &.marker-bottom-right {
+        &::before {
+            top: auto;
+            bottom: -70%;
+            left: auto;
+            right: -70%;
+        }
+        svg {
+            margin-top: auto;
+            margin-left: auto;
+            margin-bottom: calc(30% - #{$marker-icon-size / 2});
+            margin-right: calc(30% - #{$marker-icon-size / 2});
+        }
+    }
+}
+
+.marker-ribbon {
+    margin-left: -10px;
+    box-shadow: 1px 1px 1px rgba($gray-900, 0.16);
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        border-bottom: 7px solid $gray-400;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        transform: rotate(45deg);
+    }
+    &.marker-top-right {
+        margin-left: 0;
+        margin-right: -10px;
+        &::after {
+            left: auto;
+            right: 0;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.marker-primary {
+    @include marker-variant($blue);
+}
+
+.marker-secondary {
+    @include marker-variant($gray-500);
+}
+
+.marker-success {
+    @include marker-variant($green);
+}
+
+.marker-danger {
+    @include marker-variant($red);
+}
+
+.marker-warning {
+    @include marker-variant($yellow);
+}
+
+.marker-info {
+    @include marker-variant($cyan);
+}
+
+.marker-dark {
+    @include marker-variant($gray-900);
+}

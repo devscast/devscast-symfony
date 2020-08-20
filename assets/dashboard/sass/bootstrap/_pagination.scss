@@ -1,0 +1,121 @@
+.pagination {
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+}
+
+.page-item {
+    &.disabled {
+        font-weight: $font-weight-base;
+        .page-link {
+            color: $gray-500;
+        }
+    }
+    &.active {
+        .page-link {
+            background-color: $color-brand-01;
+        }
+    }
+}
+
+.page-link {
+    min-width: 36px;
+    height: 100%;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-brand-01;
+    @include transition($transition-base);
+    @include hover-focus {
+        z-index: auto;
+        background-color: darken($gray-100, 1%);
+    }
+    .feather {
+        width: 18px;
+        height: 18px;
+        stroke-width: 2.5px;
+    }
+}
+
+.page-link-icon {
+    padding: 9px 8px;
+}
+
+// Pagination with spacing between item
+.pagination-space {
+    .page-item {
+        +.page-item {
+            margin-left: 5px;
+        }
+    }
+    .page-link {
+        margin-left: 0;
+        @include border-radius;
+    }
+}
+
+.pagination-outline {
+    .page-item {
+        +.page-item {
+            margin-left: 5px;
+        }
+        &:first-child,
+        &:last-child {
+            .page-link {
+                @include border-radius(3px);
+            }
+        }
+    }
+    .page-link {
+        padding: 8px 7px;
+        margin-left: 0;
+        border-width: 2px;
+        border-color: $color-brand-01;
+        @include border-radius(3px);
+    }
+}
+
+.pagination-filled {
+    .page-item {
+        +.page-item {
+            margin-left: 5px;
+        }
+        &.disabled {
+            .page-link {
+                background-color: lighten($gray-200, 2%);
+                color: $gray-400;
+            }
+        }
+    }
+    .page-link {
+        min-width: 34px;
+        padding: 9px 6px;
+        border-width: 0;
+        background-color: $gray-400;
+        color: $gray-700;
+        @include border-radius;
+        @include hover-focus {
+            background-color: $gray-500;
+        }
+    }
+}
+
+.pagination-circle {
+    .page-item {
+        +.page-item {
+            margin-left: 5px;
+        }
+        &:first-child,
+        &:last-child {
+            .page-link {
+                @include border-radius(100%);
+            }
+        }
+    }
+    .page-link {
+        margin-left: 0;
+        width: 36px;
+        height: 36px;
+        @include border-radius(100%);
+    }
+}

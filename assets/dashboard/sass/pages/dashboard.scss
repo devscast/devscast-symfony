@@ -1,0 +1,495 @@
+@import "../variables";
+@import "../bootstrap/variables";
+
+@import "../mixins";
+@import "../bootstrap/mixins";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.bg-df-1 {
+    background-color: #0168fa;
+}
+
+.bg-df-2 {
+    background-color: #69b2f8;
+}
+
+.bg-df-3 {
+    background-color: #d1e6fa;
+}
+
+.bg-litecoin {
+    background-color: #325a98;
+}
+
+// Custom svg utilities
+.stroke-wd-3 {
+    stroke-width: 3px;
+}
+
+// Custom size utilities
+.wd-12 {
+    width: 12px;
+}
+
+.ht-12 {
+    height: 12px;
+}
+
+.chart-one {
+    position: relative;
+    overflow: hidden;
+    margin: 0 15px 15px;
+    padding-top: 80px;
+    @include border-bottom-radius($border-radius);
+    @include media-breakpoint-up(sm) {
+        margin: 0 20px 15px;
+        padding-top: 0;
+        overflow: visible;
+    }
+    .flot-x-axis {
+        display: none;
+        @include media-breakpoint-up(sm) {
+            display: block;
+        }
+        .flot-tick-label {
+            transform: translateY(2px);
+            text-transform: uppercase;
+            font-size: 9px;
+            font-weight: $font-weight-medium;
+            font-family: $font-family-system;
+            letter-spacing: .5px;
+            color: $color-text-03;
+        }
+    }
+    .flot-chart {
+        margin-left: -12px;
+        margin-right: -10px;
+        height: 350px;
+    }
+}
+
+.chart-two {
+    .flot-x-axis>div {
+        transform: translateY(3px);
+        text-transform: uppercase;
+        font-size: 9px;
+        font-weight: $font-weight-medium;
+        font-family: $font-family-system;
+        letter-spacing: .5px;
+        color: $color-text-03;
+        &:first-child {
+            margin-left: 15px;
+        }
+    }
+    .flot-chart {
+        height: 150px;
+        margin-left: -15px;
+        margin-right: -13px;
+        @include media-breakpoint-up(sm) {
+            height: 210px;
+        }
+        @include media-breakpoint-only(lg) {
+            height: 155px;
+        }
+    }
+}
+
+.chart-three {
+    .flot-chart {
+        margin-left: -7px;
+        margin-right: -8px;
+        margin-bottom: -5px;
+    }
+}
+
+.chart-four {
+    .flot-chart {
+        margin-right: -8px;
+        margin-bottom: -5px;
+    }
+}
+
+.chart-five>div {
+    position: relative;
+    margin-left: -10px;
+    height: 225px;
+}
+
+.table-dashboard {
+    font-size: 13px;
+    thead th,
+    tbody td {
+        border-color: $color-ui-02;
+        white-space: nowrap;
+        &:first-child {
+            padding-left: 20px;
+        }
+        &:last-child {
+            padding-right: 20px;
+        }
+    }
+    thead th {
+        font-family: $font-family-system;
+        font-size: 10px;
+        font-weight: $font-weight-medium;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        color: $color-text-03;
+    }
+}
+
+.table-dashboard-one {
+    tbody td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+
+// dkashboard-two.html 
+
+.chart-six {
+    margin-left: -5px;
+    height: 150px;
+    @include media-breakpoint-up(sm) {
+        height: 200px;
+    }
+    @include media-breakpoint-up(md) {
+        height: 250px;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 300px;
+    }
+}
+
+.chart-seven {
+    height: 150px;
+    @include media-breakpoint-up(lg) {
+        height: 205px;
+    }
+    @include media-breakpoint-up(xl) {
+        height: 188px;
+    }
+}
+
+.chart-eight {
+    .flot-chart {
+        margin-left: -26px;
+        margin-right: -26px;
+        margin-bottom: -26px;
+        height: 126px;
+        @include media-breakpoint-up(md) {
+            height: 167px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-bottom: -30px;
+            height: 126px;
+        }
+    }
+}
+
+.chart-nine {
+    .flot-chart {
+        height: 142px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    .flot-y-axis,
+    .flot-x-axis {
+        .flot-tick-label {
+            font-size: 9px;
+            font-family: $font-family-system;
+            font-weight: $font-weight-medium;
+            color: $color-text-03;
+        }
+    }
+    .flot-y-axis {
+        .flot-tick-label {
+            margin-left: -10px;
+            &:first-child {
+                display: none;
+            }
+        }
+    }
+    .flot-x-axis {
+        .flot-tick-label {
+            transform: translateY(3px);
+            &:last-child {
+                margin-left: -5px;
+            }
+        }
+    }
+}
+
+.chart-ten {
+    .flot-chart {
+        height: 95px;
+        margin-left: -8px;
+        margin-right: -12px;
+    }
+}
+
+.card-dashboard-table {
+    .table {
+        th,
+        td {
+            border-color: $border-color;
+            padding: 10px 15px;
+            font-size: 13px;
+            text-align: right;
+            white-space: nowrap;
+        }
+        thead {
+            tr th:first-child {
+                border-left-width: 0;
+            }
+            tr th:last-child {
+                border-right-width: 0;
+            }
+            tr:first-child th {
+                border-top-width: 0;
+                font-size: 13px;
+                background-color: $color-ui-01;
+                text-align: left;
+            }
+            tr:last-child th {
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                padding: 8px 15px;
+                color: $color-text-03;
+            }
+        }
+        thead tr th:first-child,
+        tbody tr td:first-child {
+            text-align: left;
+        }
+        strong {
+            font-family: $font-family-system;
+            font-weight: $font-weight-medium;
+        }
+    }
+}
+
+
+// dashboard-three.html
+
+.card-crypto {
+    .nav-line {
+        border-bottom-width: 0;
+        text-transform: uppercase;
+        font-weight: $font-weight-medium;
+        font-size: 10px;
+        letter-spacing: .5px;
+        .nav-link+.nav-link {
+            margin-left: 10px;
+        }
+        .nav-link.active::after {
+            height: 3px;
+            bottom: -10px;
+            @include border-radius;
+            display: none;
+            @include media-breakpoint-up(sm) {
+                display: block;
+            }
+        }
+    }
+}
+
+.chart-eleven {
+    .flot-chart {
+        height: 160px;
+        @include media-breakpoint-up(sm) {
+            height: 220px;
+        }
+        @include media-breakpoint-up(md) {
+            height: 250px;
+        }
+        @include media-breakpoint-up(lg) {
+            height: 284px;
+        }
+    }
+    .flot-x-axis,
+    .flot-y-axis {
+        >div {
+            &:first-child {
+                display: none;
+            }
+        }
+    }
+}
+
+.crypto {
+    position: relative;
+    padding: 20px;
+}
+
+.crypto-icon {
+    width: 42px;
+    height: 42px;
+    @include border-radius(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.crypto-icon-sm {
+    height: 35px;
+    width: 35px;
+    font-size: 16px;
+}
+
+.crypto-bitcoin-cash {
+    line-height: 0;
+    transform: rotate(-40deg);
+}
+
+.chart-twelve {
+    .flot-chart {
+        height: 80px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
+.list-label {
+    padding: 6px 20px;
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    font-size: 10px;
+    font-family: $font-family-system;
+    background-color: $color-ui-01;
+    color: $color-text-03;
+    letter-spacing: 1px;
+    border-top: 1px solid $color-ui-02;
+    &:first-of-type {
+        border-top-width: 0;
+    }
+}
+
+.list-item {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $color-ui-02;
+}
+
+.chart-thirteen {
+    height: 220px;
+    @include media-breakpoint-only(md) {
+        height: 143px;
+    }
+    @include media-breakpoint-only(lg) {
+        height: 160px;
+    }
+}
+
+.chart-fourteen {
+    position: relative;
+    overflow: hidden;
+    .flot-chart {
+        height: 200px;
+        margin-top: -10px;
+        margin-left: -30px;
+        margin-right: -28px;
+    }
+    .flot-x-axis {
+        .flot-tick-label {
+            font-size: 9px;
+            font-weight: $font-weight-medium;
+            font-family: $font-family-system;
+            color: $color-text-03;
+            text-transform: uppercase;
+            letter-spacing: -.2px;
+        }
+    }
+}
+
+.chart-fifteen {
+    overflow: hidden;
+    .flot-chart {
+        height: 200px;
+        margin-right: -18px;
+    }
+    .flot-y-axis,
+    .flot-x-axis {
+        .flot-tick-label {
+            font-size: 9px;
+            font-family: $font-family-system;
+            font-weight: 500;
+            color: darken($color-text-03, 10%);
+        }
+    }
+    .flot-y-axis .flot-tick-label:first-child {
+        display: none;
+    }
+    .flot-x-axis .flot-tick-label {
+        text-transform: uppercase;
+        font-size: 8px;
+        font-weight: $font-weight-semibold;
+    }
+}
+
+.chart-sixteen {
+    overflow: hidden;
+    .flot-chart {
+        height: 180px;
+        margin-left: -8px;
+        margin-right: -8px;
+        margin-bottom: -8px;
+        @include media-breakpoint-only(md) {
+            height: 274px;
+        }
+        @include media-breakpoint-up(xl) {
+            height: 186px;
+        }
+    }
+    .flot-x-axis .flot-tick-label {
+        font-size: 9px;
+        font-weight: 600;
+        font-family: $font-family-system;
+        margin-top: -25px;
+        margin-left: -25px;
+        &:first-child {
+            display: none;
+        }
+    }
+}
+
+.chart-seventeen {
+    height: 260px;
+}
+
+.table-dashboard-two {
+    width: 100%;
+    font-size: 13px;
+    tr+tr td {
+        border-top: 1px solid $color-ui-02;
+    }
+    td {
+        vertical-align: top;
+        line-height: 1;
+        padding: 8px 0;
+        &:first-child {
+            padding-left: 0;
+            div {
+                opacity: .7;
+            }
+        }
+        &:nth-child(3),
+        &:last-child {
+            font-family: $font-family-rubik;
+        }
+        &:last-child {
+            color: $color-text-03;
+        }
+    }
+}

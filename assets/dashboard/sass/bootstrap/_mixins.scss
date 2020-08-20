@@ -1,0 +1,80 @@
+@mixin alert-outline-variant($text-color, $border-color) {
+    border-color: $border-color;
+    color: $text-color;
+}
+
+// Popover Header Variant
+@mixin popover-header-variant($color) {
+    &.bs-popover-bottom {
+        .arrow::before,
+        .arrow::after {
+            border-bottom-color: $color;
+        }
+    }
+    .popover-header {
+        background-color: $color;
+    }
+}
+
+// Popover Full Background Color Variant
+@mixin popover-full-variant($color) {
+    background-color: $color;
+    &.bs-popover-top .arrow::after {
+        border-top-color: $color;
+    }
+    &.bs-popover-bottom .arrow::after {
+        border-bottom-color: $color;
+    }
+    &.bs-popover-right .arrow::after {
+        border-right-color: $color;
+    }
+    &.bs-popover-left .arrow::after {
+        border-left-color: $color;
+    }
+}
+
+// Tooltip color variant
+@mixin tooltip-variant($color) {
+    .tooltip-inner {
+        background-color: $color;
+    }
+    &.bs-tooltip-top,
+    &.bs-tooltip-auto[x-placement^="top"] {
+        .arrow::before {
+            border-top-color: $color;
+        }
+    }
+    &.bs-tooltip-bottom,
+    &.bs-tooltip-auto[x-placement^="bottom"] {
+        .arrow::before {
+            border-bottom-color: $color;
+        }
+    }
+    &.bs-tooltip-left,
+    &.bs-tooltip-auto[x-placement^="left"] {
+        .arrow::before {
+            border-left-color: $color;
+        }
+    }
+    &.bs-tooltip-right,
+    &.bs-tooltip-auto[x-placement^="right"] {
+        .arrow::before {
+            border-right-color: $color;
+        }
+    }
+}
+
+@mixin table-variant($thead-bg, $tbody-bg) {
+    thead {
+        background-color: $thead-bg;
+    }
+    tbody tr {
+        background-color: $tbody-bg;
+    }
+    &.table-striped tbody tr:nth-of-type(2n+1) {
+        background-color: darken($tbody-bg, 3%);
+    }
+    &.table-hover tbody tr:hover {
+        background-color: darken($tbody-bg, 6%);
+    }
+}

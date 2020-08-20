@@ -1,0 +1,110 @@
+// Accordion Variant
+@mixin accordion-variant($color, $lighten-color) {
+    .ui-accordion-header.ui-state-active {
+        color: $color;
+    }
+    &.accordion-style1 {
+        .ui-accordion-header.ui-state-active {
+            border-color: $color;
+            background-color: $lighten-color;
+        }
+        .ui-accordion-content.ui-accordion-content-active {
+            border-color: $color;
+            background-color: $lighten-color;
+        }
+    }
+    &.accordion-style2 {
+        .ui-accordion-header {
+            background-color: $color;
+            @include hover {
+                background-color: darken($color, 2%);
+            }
+            &.ui-state-active {
+                background-color: $lighten-color;
+                color: $color;
+                border-color: $color;
+            }
+        }
+        .ui-accordion-content {
+            background-color: $lighten-color;
+            border-color: $color;
+        }
+    }
+}
+
+// Marker Variations
+@mixin marker-variant($color) {
+    color: #fff;
+    &.marker-icon {
+        &::before {
+            background-color: $color;
+        }
+    }
+    &.marker-ribbon {
+        background-color: $color;
+        &::after {
+            border-bottom-color: darken($color, 15%);
+        }
+    }
+}
+
+// $name = class name
+// $perc = donut percentage value
+// $size = size of donut
+// $width = width of chart
+// $base = thickness of donut
+// $center = background color of the percentage
+// $color = background color of donut hole
+// $textColor = color of text in center and the percentage
+// $textSize = size of text
+@mixin donut-chart($name, $perc, $size, $width, $base, $center, $color, $textColor: $color, $textSize: 40px) {
+    $color2: $color;
+    $base2: $base;
+    $deg: $perc / 100 * 360 + deg;
+    $deg1: 90deg;
+    $deg2: $deg;
+    // If percentage is less than 50%
+    @if $perc < 50 {
+        $base: $color;
+        $color: $base2;
+        $color2: $base2;
+        $deg1: $perc / 100 * 360 + 90 + deg;
+        $deg2: 0deg;
+    }
+    .az-donut-chart {
+        &#{$name} {
+            width: $size;
+            height: $size;
+            background: $base;
+            .slice {
+                &.one {
+                    clip: rect(0 $size ($size / 2) 0);
+                    -webkit-transform: rotate($deg1);
+                    transform: rotate($deg1);
+                    background: $color;
+                }
+                &.two {
+                    clip: rect(0 ($size / 2) $size 0);
+                    -webkit-transform: rotate($deg2);
+                    transform: rotate($deg2);
+                    background: $color2;
+                }
+            }
+            .chart-center {
+                top: $width;
+                left: $width;
+                width: $size - $width * 2;
+                height: $size - $width * 2;
+                background: $center;
+                span {
+                    font-size: $textSize;
+                    line-height: $size - $width * 2;
+                    color: $textColor;
+                    &:after {
+                        content: "#{$perc}%";
+                    }
+                }
+            }
+        }
+    }
+}

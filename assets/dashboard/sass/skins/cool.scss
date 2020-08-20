@@ -1,0 +1,77 @@
+@import "../variables";
+@import "../bootstrap/variables";
+
+@import "../mixins";
+@import "../bootstrap/mixins";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$skin-ui-01: desaturate($blue, 20%);
+
+body {
+    background-color: rgba($skin-ui-01, 0.03);
+}
+
+.navbar-header {
+    border-bottom-color: lighten($skin-ui-01, 45%);
+    box-shadow: 0 0 25px rgba($skin-ui-01, 0.1);
+    .navbar-right {
+        .dropdown-menu {
+            border-color: lighten($skin-ui-01, 45%);
+            border-top-color: transparent;
+            box-shadow: 0 15px 15px rgba($skin-ui-01, 0.1);
+        }
+        .dropdown-notification,
+        .dropdown-message {
+            .dropdown-menu {
+                margin-top: 18.5px;
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+.dropdown-profile .dropdown-menu {
+    margin-top: 13.5px;
+    &::before {
+        opacity: 0;
+    }
+}
+
+.navbar-menu-sub {
+    @include media-breakpoint-up(lg) {
+        padding-top: 10px;
+        border-color: lighten($skin-ui-01, 45%);
+        border-top-color: transparent;
+        box-shadow: 0 15px 15px rgba($skin-ui-01, 0.1);
+    }
+    &::before {
+        opacity: 0;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 0;
+    }
+}
+
+.card {
+    border-color: transparent;
+    box-shadow: 0 0 25px rgba($skin-ui-01, 0.1);
+}
+
+.card-header,
+.card-footer,
+.list-group-item,
+.table tr th,
+.table tr td,
+.bd {
+    border-color: lighten($skin-ui-01, 46%);
+}
+
+.footer {
+    border-top-color: transparent;
+    box-shadow: 0 0 25px rgba($skin-ui-01, 0.1);
+}

@@ -1,0 +1,26 @@
+.link-01 {
+    color: $color-text-01;
+    @include hover-focus {
+        color: $color-brand-01;
+    }
+}
+
+.link-02 {
+    color: $color-text-02;
+    @include hover-focus {
+        color: $color-text-01;
+    }
+}
+
+.link-03 {
+    color: $color-text-03;
+    @include hover-focus {
+        color: $color-text-02;
+    }
+}
+
+.hover-primary {
+    @include hover-focus {
+        color: $color-brand-01;
+    }
+}

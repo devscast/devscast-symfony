@@ -1,0 +1,206 @@
+.nav-social {
+    align-items: center;
+    .nav-link {
+        padding: 0;
+        color: $color-text-02;
+        @include hover-focus {
+            color: $color-brand-01;
+        }
+        +.nav-link {
+            margin-left: 8px;
+        }
+        svg {
+            width: 18px;
+        }
+    }
+}
+
+// for vertical nav only
+.nav-sidebar {
+    flex-direction: column;
+    .nav-link {
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        color: $color-text-02;
+        @include border-radius;
+        @include hover-focus {
+            background-color: $color-ui-01;
+        }
+        svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.3px;
+            margin-right: 12px;
+            color: darken($color-text-03, 18%);
+            fill: rgba($color-text-02, 0.06);
+        }
+        .badge {
+            margin-left: auto;
+            color: $color-text-04;
+            font-weight: $font-weight-base;
+            font-size: 11px;
+        }
+        &.active {
+            font-weight: $font-weight-medium;
+            color: $color-brand-01;
+            background-color: darken($color-ui-01, 2%);
+            svg {
+                color: $color-brand-01;
+                fill: rgba($color-brand-01, 0.2);
+            }
+        }
+        +.nav-link {
+            margin-top: 2px;
+        }
+    }
+}
+
+// nav classic basic style
+.nav-classic {
+    flex-direction: column;
+    .nav-link {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        color: $color-text-02;
+        @include hover-focus {
+            color: $color-brand-01;
+            svg {
+                color: $color-brand-01;
+                fill: rgba($color-brand-01, 0.2);
+            }
+        }
+        svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.3px;
+            margin-right: 12px;
+            color: darken($color-text-03, 18%);
+            fill: rgba($color-text-02, 0.06);
+        }
+        span:not(.badge) {
+            display: block;
+            transform: translateY(1px);
+        }
+        .badge {
+            margin-left: auto;
+            color: $color-text-04;
+            font-weight: $font-weight-base;
+            font-size: 11px;
+        }
+        &.active {
+            font-weight: $font-weight-medium;
+            color: $color-brand-01;
+            background-color: transparent;
+            svg {
+                color: $color-brand-01;
+            }
+        }
+        +.nav-link {
+            margin-top: 10px;
+        }
+    }
+}
+
+.nav-row {
+    .nav-link {
+        padding: 0;
+        +.nav-link {
+            margin-left: 15px;
+        }
+    }
+}
+
+// nav icon horizontal
+.nav-icon-only {
+    align-items: center;
+    .nav-link {
+        padding: 0;
+        color: $color-text-03;
+        @include hover-focus {
+            color: $color-text-02;
+        }
+        +.nav-link {
+            margin-left: 10px;
+        }
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    .nav-divider {
+        width: 1px;
+        background-color: $color-ui-02;
+        margin: 0 15px;
+    }
+    &.nav-lg {
+        .nav-link {
+            +.nav-link {
+                margin-left: 15px;
+            }
+            svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}
+
+// nav horizontal with icon
+.nav-with-icon {
+    .nav-link {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        +.nav-link {
+            margin-left: 15px;
+            @include media-breakpoint-up(sm) {
+                margin-left: 25px;
+            }
+        }
+    }
+    svg {
+        width: 16px;
+        height: 16px;
+        stroke-width: 2.5px;
+        margin-right: 7px;
+        position: relative;
+        top: -1px;
+    }
+}
+
+.nav-row-xs {
+    font-size: 11px;
+    .nav-link {
+        padding: 0;
+        font-weight: $font-weight-medium;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        color: $color-text-03;
+        &.active {
+            font-weight: 600;
+            color: $color-brand-01;
+        }
+        +.nav-link {
+            margin-left: 10px;
+        }
+    }
+}
+
+.nav-wrapper {
+    overflow: hidden;
+    height: 40px;
+    >div {
+        height: 60px;
+        overflow-x: auto;
+        padding-right: 20px;
+        @include media-breakpoint-up(lg) {
+            padding-right: 0;
+        }
+    }
+    .nav {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+}

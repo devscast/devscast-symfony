@@ -1,0 +1,351 @@
+.steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+}
+
+.step-item {
+    display: inline-block;
+    position: relative;
+    +.step-item {
+        margin-left: 5px;
+        @media (min-width: 480px) {
+            margin-left: 10px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-left: 36px;
+        }
+        &::before {
+            content: '\f287';
+            font-family: 'Ionicons';
+            font-size: 16px;
+            font-weight: $font-weight-base;
+            color: $color-text-04;
+            position: absolute;
+            top: 50%;
+            left: -26px;
+            line-height: 0;
+            display: none;
+            @include media-breakpoint-up(md) {
+                display: block;
+            }
+        }
+    }
+    &.active {
+        .step-link {
+            color: $color-brand-01;
+        }
+        .step-number,
+        .step-icon {
+            background-color: $color-brand-01;
+            border-color: $color-brand-01;
+            color: #fff;
+        }
+        ul li {
+            &.complete a {
+                color: $color-brand-01;
+                text-decoration: line-through;
+            }
+            &.active a {
+                color: $color-brand-01;
+            }
+            &.disabled a {
+                color: $gray-500;
+            }
+        }
+    }
+    &.disabled {
+        .step-link {
+            color: $color-text-03;
+            cursor: default;
+        }
+        .step-number,
+        .step-icon {
+            border-color: $color-text-03;
+            color: $color-text-03;
+        }
+        .step-desc {
+            color: $color-text-03;
+        }
+        ul a {
+            color: $color-text-03;
+        }
+    }
+    &.complete {
+        .step-link {
+            color: $green;
+        }
+        .step-number,
+        .step-icon {
+            background-color: $green;
+            border-color: $green;
+            color: #fff;
+        }
+        ul li {
+            &.complete a {
+                color: $green;
+                text-decoration: line-through;
+            }
+        }
+    }
+    ul {
+        position: relative;
+        margin: 5px 0 -15px 12px;
+        padding: 0;
+        list-style: none;
+        border-left: 1px solid $border-color;
+        padding-left: 26px;
+        @include media-breakpoint-up(sm) {
+            margin-left: 16px;
+        }
+        a {
+            color: $color-text-03;
+            display: block;
+        }
+    }
+    &:last-child ul {
+        margin-bottom: 0;
+    }
+}
+
+.step-link {
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-medium;
+    font-size: 12px;
+    color: $color-text-02;
+    @include media-breakpoint-up(sm) {
+        font-size: 13px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 14px;
+    }
+    @include hover-focus {
+        color: $color-text-02;
+    }
+    >div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 12px;
+        span {
+            display: block;
+        }
+        .step-title {
+            margin-left: 0;
+        }
+    }
+}
+
+.step-number {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: $font-family-system;
+    color: $color-text-03;
+    border: 2px solid $color-text-03;
+    @include border-radius(100%);
+    @include media-breakpoint-up(md) {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.step-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid $color-ui-04;
+    color: $color-ui-04;
+    @include border-radius(100%);
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.step-title {
+    margin-left: 5px;
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @media (min-width: 375px) {
+        width: 60px;
+    }
+    @media (min-width: 480px) {
+        width: 100px;
+    }
+    @include media-breakpoint-up(sm) {
+        margin-left: 10px;
+        width: auto;
+        white-space: normal;
+    }
+    @include media-breakpoint-up(md) {
+        width: auto;
+        overflow: visible;
+        text-overflow: inherit;
+    }
+}
+
+.step-desc {
+    display: block;
+    font-size: 11px;
+    font-weight: $font-weight-base;
+    color: $color-text-03;
+}
+
+.steps-sm {
+    .step-item {
+        +.step-item::before {
+            font-size: 12px;
+        }
+    }
+    .step-link {
+        font-size: 11px;
+        font-weight: 600;
+        font-family: $font-family-system;
+        text-transform: uppercase;
+        letter-spacing: .2px;
+    }
+    .step-number {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.steps-lg {
+    .step-link {
+        font-size: 12px;
+        @include media-breakpoint-up(sm) {
+            font-size: 14px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 16px;
+        }
+    }
+    .step-number {
+        width: 32px;
+        height: 32px;
+        @include media-breakpoint-up(sm) {
+            width: 38px;
+            height: 38px;
+        }
+        @include media-breakpoint-up(lg) {
+            width: 42px;
+            height: 42px;
+        }
+    }
+    .step-title {
+        display: flex;
+        flex-direction: column;
+        span {
+            display: block;
+            line-height: 1.2;
+        }
+    }
+}
+
+.steps-justified {
+    display: flex;
+    align-items: center;
+    .step-item {
+        flex: 1;
+        +.step-item {
+            &::before {
+                display: none;
+            }
+        }
+    }
+    .step-link {
+        width: 100%;
+    }
+}
+
+.steps-tab {
+    .step-item {
+        +.step-item {
+            margin-left: 1px;
+            &::before {
+                display: none;
+            }
+        }
+        &.active {
+            .step-link {
+                background-color: $color-brand-01;
+                color: #fff;
+            }
+            .step-number {
+                border-color: #fff;
+            }
+        }
+        &.complete {
+            .step-link {
+                background-color: $green;
+                color: #fff;
+            }
+            .step-number {
+                border-color: #fff;
+            }
+        }
+        &.disabled {
+            .step-number {
+                border-color: $gray-200;
+            }
+        }
+    }
+    .step-link {
+        background-color: lighten($gray-200, 4%);
+        padding: 5px 7px;
+        @include media-breakpoint-up(sm) {
+            padding: 8px 15px;
+        }
+    }
+}
+
+.steps-vertical {
+    display: flex;
+    flex-direction: column;
+    .step-item {
+        +.step-item {
+            margin-left: 0;
+            margin-top: 25px;
+            &::before {
+                content: '';
+                position: absolute;
+                top: -20px;
+                left: 12px;
+                height: 15px;
+                width: 1px;
+                background-color: $gray-300;
+                display: block;
+                @include media-breakpoint-up(sm) {
+                    left: 16px;
+                }
+            }
+        }
+    }
+    .step-title {
+        width: auto;
+        white-space: normal;
+    }
+    &.steps-tab {
+        .step-item+.step-item {
+            margin-top: 1px;
+        }
+    }
+    &.steps-sm {
+        .step-item+.step-item::before {
+            left: 12px;
+        }
+    }
+}

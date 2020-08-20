@@ -1,0 +1,44 @@
+
+// Brand Colors
+$color-brand-01:                  #0168fa;
+$color-brand-02:                  #042893;
+$color-brand-03:                  #1ce1ac;
+
+// Inverse Colors
+$color-inverse-01:                #001737;
+$color-inverse-02:                #1b2e4b;;
+
+// Text Colors
+$color-text-01:                   $color-inverse-01;
+$color-text-02:                   $color-inverse-02;
+$color-text-03:                   #8392a5;
+$color-text-04:                   #c0ccda;
+
+// UI Colors
+$color-ui-01:                     #f5f6fa;
+$color-ui-02:                     #e5e9f2;
+$color-ui-03:                     #c0ccda;
+$color-ui-04:                     #8392a5;
+
+// Height
+$height-base:                     38px;
+$height-header:                   60px;
+$height-header-mobile:            55px;
+$height-footer:                   46px;
+
+// Width
+$width-sidebar:                   240px;
+
+// Marker
+$marker-icon-size:                16px;
+
+// Fonts
+$font-family-roboto:              "Roboto", sans-serif;
+$font-family-interui:             "Inter UI", sans-serif;
+$font-family-lato:                "Lato", sans-serif;
+$font-family-rubik:               "Rubik", sans-serif;
+$font-family-system:              -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+
+$font-weight-medium:              500;
+$font-weight-semibold:            600;
+$font-weight-bold:                700;

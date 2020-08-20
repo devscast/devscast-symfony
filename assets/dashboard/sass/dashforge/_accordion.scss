@@ -1,0 +1,122 @@
+.accordion {
+    @include border-radius;
+}
+
+.ui-accordion-header {
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    color: $color-text-02;
+    margin-bottom: 0;
+    border: 1px solid $border-color;
+    background-color: $color-ui-01;
+    padding: 12px 15px 12px 35px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    @include transition($transition-base);
+    ~.ui-accordion-header {
+        margin-top: -1px;
+    }
+    &:first-of-type {
+        @include border-top-radius($border-radius);
+    }
+    &:last-of-type:not(.ui-state-active) {
+        @include border-bottom-radius($border-radius);
+    }
+    @include hover {
+        color: $color-text-01;
+        background-color: darken($color-ui-01, 2%);
+    }
+    .ui-accordion-header-icon {
+        position: absolute;
+        left: 15px;
+        top: 12px; //calc(50% - 8px);
+        display: inline-block;
+        margin-right: 10px;
+        &::before {
+            content: '\f273';
+            font-family: 'Ionicons';
+            font-size: 14px;
+            display: inline-block;
+        }
+    }
+    &.ui-state-active {
+        background-color: #fff;
+        border-bottom-width: 0;
+        color: $color-brand-01;
+        .ui-accordion-header-icon::before {
+            content: '\f368';
+        }
+    }
+}
+
+.ui-accordion-content {
+    border: 1px solid $border-color;
+    border-top-width: 0;
+    padding: 0 20px 20px 35px;
+    position: relative;
+    &:last-of-type {
+        @include border-bottom-radius($border-radius);
+    }
+}
+
+// Custom style
+.accordion-style1 {
+    .ui-accordion-header.ui-state-active {
+        border-color: $color-brand-01;
+        @include border-top-radius($border-radius);
+        background-color: lighten($color-brand-01, 48%);
+    }
+    .ui-accordion-content.ui-accordion-content-active {
+        z-index: 5;
+        border-color: $color-brand-01;
+        @include border-bottom-radius($border-radius);
+        background-color: lighten($color-brand-01, 48%);
+    }
+}
+
+.accordion-style2 {
+    box-shadow: none;
+    .ui-accordion-header {
+        border-width: 0;
+        background-color: $color-brand-01;
+        color: #fff;
+        border-width: 2px;
+        border-bottom-width: 0;
+        border-color: transparent;
+        @include border-radius;
+        ~.ui-accordion-header {
+            margin-top: 5px;
+        }
+        &.ui-state-active {
+            @include border-bottom-radius(0);
+            @include border-top-radius(3px);
+            background-color: lighten($color-brand-01, 48%);
+            color: $color-brand-01;
+            border-color: $color-brand-01;
+        }
+    }
+    .ui-accordion-content {
+        background-color: lighten($color-brand-01, 48%);
+        border-width: 2px;
+        border-top-width: 0;
+        border-color: $color-brand-01;
+        &.ui-accordion-content-active {
+            @include border-top-radius(0);
+            @include border-bottom-radius(3px);
+        }
+    }
+}
+
+// Colored Variant
+.accordion-pink {
+    @include accordion-variant($pink, lighten($pink, 52%));
+}
+
+.accordion-teal {
+    @include accordion-variant($teal, lighten($teal, 56%));
+}
+
+.accordion-dark {
+    @include accordion-variant($gray-700, $gray-200);
+}

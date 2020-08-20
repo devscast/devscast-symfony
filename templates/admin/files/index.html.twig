@@ -1,5 +1,9 @@
 {% extends "layout/app.html.twig" %}
 
+{% block stylesheet %}
+    {{ encore_entry_link_tags('dashboard/pages/filesystem') }}
+{% endblock %}
+
 {% block breadcrumb %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-style1 mg-b-10">
@@ -54,11 +58,11 @@
             {% if file %}
                 <div class="col-12">
                     {% if preview %}
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img src="{{ preview }}" alt="preview" width="50%" height="auto">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img src="{{ preview }}" alt="preview" width="50%" height="auto">
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                     <div class="card mt-3">
                         <div class="card-body">

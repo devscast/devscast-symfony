@@ -1,0 +1,127 @@
+.popover {
+    border-color: rgba($gray-900, 0.12);
+    box-shadow: 0 0 8px rgba($gray-900, 0.08);
+    @include border-radius;
+    font-size: 13px;
+    font-family: $font-family-system;
+}
+
+.popover-body {
+    padding: 10px 15px 15px;
+}
+
+.popover-header {
+    background-color: darken($gray-100, 1%);
+    @include border-top-radius($border-radius);
+    font-size: 14px;
+    color: $gray-900;
+    border-bottom-color: $gray-200;
+    padding: 10px 15px;
+}
+
+.popover-header-primary,
+.popover-header-secondary,
+.popover-header-success,
+.popover-header-danger,
+.popover-header-warning,
+.popover-header-info {
+    .popover-header {
+        color: #fff;
+        border-bottom-width: 0;
+        position: relative;
+        margin-top: -1px;
+        margin-left: -1px;
+        margin-right: -1px;
+    }
+    &.bs-popover-bottom {
+        .popover-header::before {
+            display: none;
+        }
+    }
+}
+
+.popover-header-warning .popover-header {
+    color: $body-color;
+}
+
+.popover-header-primary {
+    @include popover-header-variant($blue);
+}
+
+.popover-header-secondary {
+    @include popover-header-variant($gray-600);
+}
+
+.popover-header-success {
+    @include popover-header-variant($green);
+}
+
+.popover-header-danger {
+    @include popover-header-variant($red);
+}
+
+.popover-header-warning {
+    @include popover-header-variant($yellow);
+}
+
+.popover-header-info {
+    @include popover-header-variant($cyan);
+}
+
+// Full Background Variant
+.popover-primary,
+.popover-secondary,
+.popover-success,
+.popover-warning,
+.popover-danger,
+.popover-info {
+    border-width: 0;
+    .popover-header {
+        background-color: transparent;
+        border-bottom-color: rgba(#fff, 0.08);
+        color: #fff;
+        &::before {
+            display: none;
+        }
+    }
+    .popover-body {
+        color: rgba(#fff, 0.7);
+    }
+    .arrow::before {
+        display: none;
+    }
+}
+
+.popover-primary {
+    @include popover-full-variant($blue);
+}
+
+.popover-secondary {
+    @include popover-full-variant($gray-600);
+}
+
+.popover-success {
+    @include popover-full-variant($green);
+}
+
+.popover-warning {
+    @include popover-full-variant($yellow);
+}
+
+.popover-danger {
+    @include popover-full-variant($red);
+}
+
+.popover-info {
+    @include popover-full-variant($cyan);
+}
+
+.popover-warning {
+    .popover-header {
+        color: $body-color;
+        border-bottom-color: rgba($body-color, 0.05);
+    }
+    .popover-body {
+        color: rgba($body-color, 0.8);
+    }
+}

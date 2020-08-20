@@ -1,0 +1,68 @@
+.custom-control {
+    min-height: inherit;
+}
+
+// Custom Checkbox and Radios
+.custom-checkbox,
+.custom-radio,
+.custom-switch {
+    .custom-control-input:disabled:checked {
+        ~.custom-control-label::before {
+            border-color: rgba($blue, 0.2);
+        }
+    }
+}
+
+.custom-checkbox,
+.custom-radio,
+.custom-switch {
+    .custom-control-label {
+        &::before,
+        &::after {
+            top: 44%;
+            transform: translateY(-50%);
+        }
+        &:empty {
+            height: 20px;
+            &::before,
+            &::after {
+                left: -16px;
+            }
+        }
+    }
+}
+
+// Custom Switch
+.custom-switch {
+    .custom-control-input:checked {
+        ~.custom-control-label::after {
+            transform: translate(0.75rem, -50%);
+        }
+    }
+}
+
+// Custom Select
+.custom-select {
+    border-color: $input-border-color;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:invalid {
+        color: $gray-500;
+    }
+    option {
+        color: $body-color;
+    }
+}
+
+// Custom File Browser
+.custom-file-label {
+    &,
+    &::after {
+        display: flex;
+        align-items: center;
+    }
+    &::after {
+        background-color: $color-ui-01;
+    }
+}

@@ -1,0 +1,118 @@
+.ql-snow {
+    &.ql-toolbar,
+    &.ql-container {
+        border-color: $border-color;
+    }
+    &.ql-toolbar {
+        @include border-top-radius($border-radius);
+        button {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            color: $gray-700;
+            @include border-radius(1px);
+            @include hover-focus {
+                background-color: lighten($gray-200, 3%);
+            }
+            &.ql-active {
+                background-color: lighten($gray-200, 3%);
+            }
+            +button {
+                margin-left: 1px;
+            }
+        }
+        .ql-picker {
+            font-size: 13px;
+            height: 28px;
+            color: $gray-700;
+            @include hover-focus {
+                .ql-picker-label {
+                    color: $gray-900;
+                    background-color: lighten($gray-200, 3%);
+                }
+            }
+            &.ql-expanded {
+                .ql-picker-label {
+                    background-color: lighten($gray-200, 3%);
+                    border-color: $border-color;
+                    color: $gray-900;
+                    outline: none;
+                    @include border-radius(2px);
+                }
+                .ql-picker-options {
+                    border-color: $border-color;
+                    box-shadow: none;
+                    @include border-bottom-radius(2px);
+                }
+            }
+            &:not(.ql-color-picker):not(.ql-icon-picker) {
+                .ql-picker-label .ql-stroke {
+                    stroke: $gray-500;
+                    stroke-width: 1.5;
+                    stroke-linecap: square;
+                    stroke-linejoin: miter;
+                }
+            }
+        }
+        .ql-picker-label {
+            display: flex;
+            align-items: center;
+            @include border-radius;
+            &.ql-active {
+                background-color: lighten($gray-200, 3%);
+                color: $color-brand-01;
+            }
+        }
+        .ql-formats {
+            display: inline-flex;
+            .ql-picker {
+                float: none;
+                ~.ql-picker {
+                    margin-left: 1px;
+                }
+            }
+        }
+    }
+    &.ql-container {
+        @include border-bottom-radius($border-radius);
+    }
+}
+
+.ql-container {
+    font-size: 1rem;
+}
+
+.ql-editor {
+    padding: 20px;
+    color: $body-color;
+    &.ql-blank::before {
+        color: $color-text-04;
+        font-style: normal;
+    }
+}
+
+.ql-bubble {
+    .ql-tooltip {
+        background-color: $gray-900;
+        @include border-radius;
+        &:not(.ql-flip) .ql-tooltip-arrow {
+            border-bottom-color: $gray-900;
+        }
+    }
+    .ql-toolbar {
+        button {
+            height: 28px;
+            padding: 5px;
+            @include border-radius(1px);
+            &.ql-active {
+                background-color: $color-brand-01;
+            }
+            +button {
+                margin-left: 1px;
+            }
+        }
+    }
+}

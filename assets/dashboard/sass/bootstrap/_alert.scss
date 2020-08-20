@@ -1,0 +1,92 @@
+.alert {
+    padding: 12px 15px;
+}
+
+.alert-secondary {
+    background-color: $gray-200;
+    border-color: $gray-300;
+}
+
+.alert-light {
+    background-color: darken($gray-100, 2%);
+    border-color: $gray-200;
+}
+
+.alert-dark {
+    background-color: $gray-500;
+    border-color: darken($gray-500, 3%);
+}
+
+.alert-dismissible .close {
+    padding: 0;
+    top: 9px;
+    right: 15px;
+    font-weight: $font-weight-medium;
+}
+
+// Outline style
+.alert-outline {
+    background-color: transparent;
+    border-width: 2px;
+    font-weight: $font-weight-medium;
+    padding: 11px 15px;
+    @include border-radius(3px);
+    // alert-outline-variant($text-color, $border-color);
+    &.alert-primary {
+        @include alert-outline-variant($blue, $blue);
+    }
+    &.alert-secondary {
+        @include alert-outline-variant($gray-600, $gray-500);
+    }
+    &.alert-success {
+        @include alert-outline-variant($green, $green);
+    }
+    &.alert-danger {
+        @include alert-outline-variant($red, $red);
+    }
+    &.alert-warning {
+        @include alert-outline-variant(darken($yellow, 5%), darken($yellow, 5%));
+    }
+    &.alert-info {
+        @include alert-outline-variant($cyan, $cyan);
+    }
+    &.alert-light {
+        @include alert-outline-variant($gray-500, $gray-300);
+    }
+    &.alert-dark {
+        @include alert-outline-variant($gray-700, $gray-600);
+    }
+}
+
+// Solid style
+.alert-solid {
+    border-width: 0;
+    &:not(.alert-secondary),
+    &:not(.alert-light) {
+        color: #fff;
+    }
+    &.alert-primary {
+        background-color: $blue;
+    }
+    &.alert-secondary {
+        background-color: $gray-600;
+    }
+    &.alert-success {
+        background-color: $green;
+    }
+    &.alert-danger {
+        background-color: $red;
+    }
+    &.alert-warning {
+        background-color: $yellow;
+    }
+    &.alert-info {
+        background-color: $cyan;
+    }
+    &.alert-light {
+        background-color: $gray-400;
+    }
+    &.alert-dark {
+        background-color: $gray-700;
+    }
+}

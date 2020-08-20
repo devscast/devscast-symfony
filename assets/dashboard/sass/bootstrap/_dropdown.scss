@@ -1,0 +1,26 @@
+.dropdown-menu {
+    border-color: rgba($color-ui-04, 0.27);
+    box-shadow: 0 0 8px 2px rgba($gray-900, 0.04);
+    padding: 5px;
+}
+
+.dropdown-item {
+    padding: 6px 15px;
+    @include border-radius;
+    @include transition($transition-base);
+    @include hover-focus {
+        background-color: $color-ui-02;
+    }
+    &.active {
+        background-color: $color-brand-01;
+    }
+}
+
+.dropdown-header {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dropdown-divider {
+    margin: 2px 15px;
+}

@@ -1,0 +1,17 @@
+.legendColorBox {
+    >div {
+        border: 0 !important;
+        padding: 0 !important;
+        @include border-radius(100%);
+        overflow: hidden;
+    }
+}
+
+.legendLabel {
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    color: $color-text-03;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    padding-left: 5px;
+}

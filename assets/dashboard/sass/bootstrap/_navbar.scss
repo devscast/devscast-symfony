@@ -1,0 +1,33 @@
+.navbar-toggler {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-width: 0;
+    color: $gray-600;
+    @include hover-focus {
+        color: $gray-900;
+    }
+    .feather {
+        stroke-width: 2.5px;
+    }
+}
+
+.navbar-light {
+    .navbar-toggler {
+        color: $gray-600;
+        @include hover-focus {
+            color: $gray-900;
+        }
+    }
+}
+
+.navbar-dark {
+    .navbar-toggler {
+        color: rgba(#fff, 0.5);
+        @include hover-focus {
+            color: #fff;
+        }
+    }
+}

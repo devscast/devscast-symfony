@@ -1,0 +1,230 @@
+.dropdown-message,
+.dropdown-notification {
+    .dropdown-link {
+        position: relative;
+        color: $color-text-03;
+        svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 3px;
+            @include media-breakpoint-up(sm) {
+                width: 20px;
+                height: 20px;
+                stroke-width: 2.25px;
+            }
+        }
+        &.new-indicator {
+            color: $color-text-02;
+            span {
+                display: flex;
+                width: 15px;
+                height: 15px;
+                justify-content: center;
+                position: absolute;
+                top: -8px;
+                right: -2px;
+                background-color: $red;
+                color: #fff;
+                font-size: 8px;
+                font-weight: $font-weight-base;
+                font-family: sans-serif;
+                line-height: 2;
+                @include border-radius(100%);
+            }
+        }
+        @include hover-focus {
+            color: $color-text-01;
+        }
+    }
+    .dropdown-menu {
+        width: 300px;
+        padding: 0;
+        margin-right: -20px;
+        box-shadow: none;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 25px;
+            border-bottom: 10px solid $border-color;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: -8.5px;
+            left: 26px;
+            border-bottom: 9px solid #fff;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+        }
+        &.dropdown-menu-right {
+            margin-right: -20px;
+            &::before {
+                left: auto;
+                right: 20px;
+            }
+            &::after {
+                left: auto;
+                right: 21px;
+            }
+        }
+    }
+    .dropdown-header {
+        padding: 12px 15px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: $font-weight-semibold;
+        letter-spacing: .5px;
+        color: $color-text-02;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 5px;
+    }
+    .dropdown-item {
+        @include transition(none);
+        @include border-radius;
+        white-space: normal;
+        padding: 8px 10px;
+        margin: 0 5px;
+        width: auto;
+        @include hover-focus {
+            background-color: rgba($color-ui-02, 0.5);
+            .avatar-online::after,
+            .avatar-offline::after {
+                box-shadow: 0 0 0 2px #f2f4f8;
+            }
+        }
+    }
+    .avatar {
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .media-body {
+        font-size: 13px;
+        color: rgba($color-text-02, 0.85);
+        p {
+            margin-bottom: 2px;
+        }
+        span {
+            color: $color-text-03;
+            font-size: 11px;
+            font-family: $font-family-system;
+        }
+        strong {
+            font-weight: $font-weight-medium;
+            color: $color-text-02;
+        }
+    }
+    .dropdown-footer {
+        margin-top: 5px;
+        border-top: 1px solid $border-color;
+        padding: 10px;
+        text-align: center;
+        font-size: 10px;
+        font-weight: 500;
+        font-family: $font-family-system;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        a {
+            color: $color-text-03;
+            @include transition($transition-base);
+            @include hover-focus {
+                color: $color-text-02;
+            }
+        }
+    }
+}
+
+.dropdown-profile {
+    .dropdown-link {
+        display: flex;
+        align-items: center;
+        @include hover-focus {
+            .avatar img {
+                transform: scale(1.23, 1.23);
+                padding: 3px;
+                background-color: $color-ui-01;
+            }
+        }
+    }
+    .dropdown-menu {
+        border-color: $border-color;
+        width: 230px;
+        padding: 25px;
+        margin-top: 14.5px;
+        box-shadow: none;
+        @include border-bottom-radius($border-radius);
+        &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 25px;
+            border-bottom: 10px solid $border-color;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: -8.5px;
+            left: 26px;
+            border-bottom: 9px solid #fff;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+        }
+        &.dropdown-menu-right {
+            margin-right: -10px;
+            &::before {
+                left: auto;
+                right: 15px;
+            }
+            &::after {
+                left: auto;
+                right: 16px;
+            }
+        }
+    }
+    .dropdown-divider {
+        margin: 15px 0;
+    }
+    .dropdown-item {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        color: $color-text-02;
+        +.dropdown-item {
+            margin-top: 10px;
+        }
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 15px;
+        }
+        @include hover-focus {
+            background-color: transparent;
+            color: $color-brand-01;
+        }
+    }
+}
+
+.dropdown-icon {
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+        span {
+            display: block;
+            position: relative;
+            top: 1.5px;
+        }
+    }
+    .dropdown-divider {
+        margin: 10px 15px;
+    }
+}

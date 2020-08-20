@@ -4,35 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "626347a5a6f3926b1568fd90ca8d7fc0",
+    "content-hash": "66200861144022481ff60217bf28ac64",
     "packages": [
-        {
-            "name": "api-platform/admin-pack",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/api-platform/admin-pack.git",
-                "reference": "3a1b11c466a47e01f8ced079ea894468590bdcb2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/admin-pack/zipball/3a1b11c466a47e01f8ced079ea894468590bdcb2",
-                "reference": "3a1b11c466a47e01f8ced079ea894468590bdcb2",
-                "shasum": ""
-            },
-            "require": {
-                "api-platform/api-pack": "^1.0",
-                "php": "^7.0",
-                "symfony/webpack-encore-bundle": "^1.0"
-            },
-            "type": "symfony-pack",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A pack for API Platform Admin",
-            "time": "2018-12-08T21:57:49+00:00"
-        },
         {
             "name": "api-platform/api-pack",
             "version": "v1.2.2",
@@ -2554,16 +2527,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.2.0",
+            "version": "5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "3170448f5769fe19f456173d833734e0ff1b84df"
+                "reference": "d870572532cd70bc3fab58f2e23ad423c8404c44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/3170448f5769fe19f456173d833734e0ff1b84df",
-                "reference": "3170448f5769fe19f456173d833734e0ff1b84df",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/d870572532cd70bc3fab58f2e23ad423c8404c44",
+                "reference": "d870572532cd70bc3fab58f2e23ad423c8404c44",
                 "shasum": ""
             },
             "require": {
@@ -2602,7 +2575,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-07-20T20:05:34+00:00"
+            "time": "2020-08-15T11:14:08+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",

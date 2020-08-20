@@ -1,0 +1,14 @@
+.toast {
+    background-color: rgba(#fff, 0.95);
+    border-color: $border-color;
+    box-shadow: 0 2px 3px rgba($gray-900, 0.06);
+    @include border-radius;
+}
+
+.toast-header {
+    border-bottom-color: rgba($gray-300, 0.4);
+    .close {
+        font-weight: $font-weight-light;
+        color: $gray-500;
+    }
+}

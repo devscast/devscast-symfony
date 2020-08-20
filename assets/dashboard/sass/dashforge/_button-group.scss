@@ -1,0 +1,14 @@
+.button-group {
+    display: flex;
+    align-items: stretch;
+    height: $height-base;
+    .btn {
+        display: flex;
+        align-items: center;
+        font-size: inherit;
+        font-weight: inherit;
+        +.btn {
+            margin-left: 5px;
+        }
+    }
+}

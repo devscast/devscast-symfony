@@ -1,0 +1,24 @@
+.img-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .img {
+        position: relative;
+        background-color: #fff;
+        padding: 2px;
+        @include media-breakpoint-up(sm) {
+            padding: 3px;
+        }
+        +.img {
+            margin-left: -15px;
+            @include media-breakpoint-up(sm) {
+                margin-left: -25px;
+            }
+        }
+    }
+    &.img-group-sm {
+        .img+.img {
+            margin-left: -15px;
+        }
+    }
+}

@@ -1,0 +1,532 @@
+@import "../variables";
+@import "../bootstrap/variables";
+
+@import "../mixins";
+@import "../bootstrap/mixins";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.app-chat {
+    &.chat-content-show {
+        @include media-breakpoint-down(md) {
+            .chat-navleft,
+            .chat-sidebar {
+                visibility: hidden;
+                transform: translateX(-($height-header + 250px));
+            }
+            .chat-content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: 479px) {
+            .chat-navleft,
+            .chat-sidebar {
+                transform: translateX(-100vw);
+            }
+        }
+    }
+    &.show-sidebar-right {
+        .chat-content-body {
+            @include media-breakpoint-up(md) {
+                margin-right: 230px;
+            }
+        }
+        .chat-sidebar-right {
+            display: block;
+        }
+    }
+}
+
+.chat-wrapper {
+    background-color: lighten($color-ui-01, 1%);
+    position: fixed;
+    top: $height-header-mobile;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include media-breakpoint-up(lg) {
+        top: $height-header;
+    }
+}
+
+// template/classic-plus/app-chat.html
+.chat-wrapper-two {
+    @include media-breakpoint-up(lg) {
+        position: static;
+        height: 100%;
+    }
+    .chat-sidebar {
+        left: 0;
+    }
+    .chat-content {
+        @include media-breakpoint-up(lg) {
+            left: 250px;
+        }
+    }
+}
+
+.chat-navleft {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-right: 1px solid $border-color;
+    width: $height-header;
+    padding: 15px 10px;
+    @include transition(all 0.3s);
+    .nav-link {
+        padding: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-text-02;
+        @include border-radius;
+        @include transition($transition-base);
+        @include hover-focus {
+            color: $color-text-02;
+        }
+        &.active {
+            color: $color-brand-01;
+            svg {
+                fill: rgba($color-brand-01, 0.2);
+            }
+        }
+        +.nav-link {
+            margin-top: 10px;
+        }
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: rgba($color-text-02, 0.1);
+    }
+}
+
+.chat-sidebar {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: $height-header;
+    right: 0;
+    @include transition(all 0.3s);
+    @media (min-width: 480px) {
+        width: 250px;
+        border-right: 1px solid $border-color;
+    }
+}
+
+.chat-sidebar-header {
+    border-bottom: 1px solid $border-color;
+    height: 60px;
+    .dropdown-link {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 15px;
+        position: relative;
+        z-index: 5;
+        >span {
+            color: $color-text-03;
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        @include hover-focus {
+            >span {
+                color: $color-text-02;
+            }
+        }
+    }
+    .dropdown-menu {
+        box-shadow: none;
+        width: 100%;
+        max-width: 255px;
+        border-width: 0 0 1px 1px;
+        border-color: $border-color;
+        padding: 10px;
+        margin: $height-header -5px 0 -1px;
+        @include border-radius(0);
+        transform: none !important;
+        @media (min-width: 480px) {
+            border-width: 0 0 1px;
+            width: 100%;
+            max-width: none;
+            margin: $height-header 0 0;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            border-bottom: 10px solid rgba($color-ui-03, 0.53);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: -8.5px;
+            right: 16px;
+            border-bottom: 9px solid #fff;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+        }
+    }
+    .dropdown-divider {
+        margin: 5px 10px;
+    }
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 4px 10px;
+        svg {
+            width: 16px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.chat-menu {
+    padding: 5px 6px;
+    color: $color-text-02;
+    @include border-radius;
+    @include transition($transition-base);
+    @include hover-focus {
+        color: $color-text-02;
+        background-color: $color-ui-01;
+    }
+    svg {
+        stroke-width: 2.5px;
+    }
+}
+
+.chat-btn-add {
+    color: $color-text-03;
+    @include hover-focus {
+        color: $color-text-02;
+    }
+    svg {
+        width: 14px;
+        stroke-width: 2px;
+    }
+}
+
+.nav-chat {
+    .nav-link {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 5px 10px;
+        font-weight: $font-weight-medium;
+        color: $color-text-02;
+        @include border-radius;
+        @include hover-focus {
+            background-color: $color-ui-01;
+        }
+        &.active {
+            @include media-breakpoint-up(lg) {
+                color: $color-brand-01;
+                background-color: darken($color-ui-01, 2%);
+            }
+        }
+        +.nav-link {
+            margin-top: 2px;
+        }
+    }
+    .badge {
+        margin-left: auto;
+        @include border-radius(100%);
+    }
+}
+
+.chat-sidebar-body {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-msg-list {
+    .media {
+        padding: 8px 10px;
+        color: $color-text-02;
+        @include border-radius;
+        @include hover-focus {
+            background-color: $color-ui-01;
+            .avatar-online::after,
+            .avatar-offline::after {
+                box-shadow: 0 0 0 2px $color-ui-01;
+            }
+        }
+        &.active {
+            background-color: $color-ui-02;
+            .avatar-online::after,
+            .avatar-offline::after {
+                box-shadow: 0 0 0 2px $color-ui-02;
+            }
+        }
+        +.media {
+            margin-top: 2px;
+        }
+        .badge {
+            @include border-radius(100%);
+            align-self: center;
+        }
+    }
+}
+
+.chat-sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-top: 1px solid $border-color;
+    padding-left: 20px;
+    padding-right: 15px;
+    a {
+        padding: 3px 6px;
+        color: $color-text-03;
+        @include border-radius;
+        @include hover-focus {
+            color: $color-text-02;
+        }
+    }
+    svg {
+        width: 18px;
+    }
+}
+
+.chat-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100vw);
+    @include transition(all 0.3s);
+    @include media-breakpoint-up(sm) {
+        transform: translateX($height-header + 250px);
+    }
+    @include media-breakpoint-up(lg) {
+        opacity: 1;
+        left: 250px + $height-header;
+        transform: none;
+        visibility: visible;
+    }
+}
+
+.chat-content-header {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid $border-color;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 20px;
+    nav {
+        display: flex;
+        align-items: center;
+        a {
+            color: $color-text-03;
+            padding: 2px;
+            @include border-radius;
+            @include hover-focus {
+                color: darken($color-text-03, 20%);
+            }
+            @include media-breakpoint-up(sm) {
+                padding: 2px 5px;
+            }
+            +a {
+                margin-left: 2px;
+            }
+            &.active {
+                color: $color-text-02;
+            }
+        }
+    }
+    svg {
+        width: 20px;
+    }
+    .search-form {
+        height: 34px;
+        .form-control {
+            font-size: inherit;
+            width: 150px;
+            min-height: 0;
+            height: auto;
+            background-color: transparent;
+        }
+        .btn {
+            min-height: 0;
+            padding: 0 10px;
+        }
+    }
+}
+
+.chat-content-body {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+}
+
+.chat-group {
+    min-height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .media {
+        +.media {
+            margin-top: 20px;
+        }
+    }
+    .media-body {
+        margin-left: 20px;
+        h6 {
+            font-size: 14px;
+            font-weight: $font-weight-semibold;
+            small {
+                color: $color-text-03;
+            }
+        }
+        p {
+            margin-bottom: 5px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.chat-group-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: $color-text-03;
+    font-size: 10px;
+    font-family: $font-family-system;
+    font-weight: 500;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    &:first-child {
+        margin-top: 0;
+    }
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        flex: 1;
+        height: 1px;
+        background-color: $color-ui-02;
+    }
+    &::before {
+        margin-right: 10px;
+    }
+    &::after {
+        margin-left: 10px;
+    }
+}
+
+.chat-content-footer {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid $border-color;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    .chat-plus {
+        width: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-text-03;
+        border-right: 1px solid $border-color;
+        @include hover-focus {
+            color: $color-text-02;
+        }
+    }
+    .form-control {
+        font-size: inherit;
+        border: 0;
+        box-shadow: none !important;
+        background-color: transparent;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        border-left: 1px solid $border-color;
+        padding: 10px 20px;
+        a {
+            color: $color-text-03;
+            padding: 2px 5px;
+            @include border-radius;
+            @include hover-focus {
+                color: darken($color-text-03, 20%);
+            }
+            +a {
+                margin-left: 2px;
+            }
+            &.active {
+                color: $color-text-02;
+            }
+        }
+        svg {
+            width: 20px;
+        }
+    }
+}
+
+.chat-sidebar-right {
+    background-color: #fff;
+    width: 230px;
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    right: 0;
+    border-left: 1px solid $border-color;
+    display: none;
+}
+
+.chat-member-list {
+    margin-top: 10px;
+    .media {
+        padding: 6px 10px;
+        align-items: center;
+        color: $color-text-02;
+        @include border-radius;
+        @include hover-focus {
+            background-color: $color-ui-01;
+        }
+        +.media {
+            margin-top: 2px;
+        }
+    }
+}

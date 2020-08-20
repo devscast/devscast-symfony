@@ -1,0 +1,36 @@
+.tooltip-inner {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.tooltip-primary {
+    @include tooltip-variant($blue);
+}
+
+.tooltip-secondary {
+    @include tooltip-variant($gray-600);
+}
+
+.tooltip-success {
+    @include tooltip-variant($green);
+}
+
+.tooltip-danger {
+    @include tooltip-variant($red);
+}
+
+.tooltip-warning {
+    @include tooltip-variant($yellow);
+}
+
+.tooltip-info {
+    @include tooltip-variant($cyan);
+}
+
+.tooltip-light {
+    @include tooltip-variant($gray-400);
+}
+
+.tooltip-dark {
+    @include tooltip-variant($gray-800);
+}

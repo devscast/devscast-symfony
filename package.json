@@ -1,11 +1,11 @@
 {
   "devDependencies": {
-    "@babel/preset-react": "^7.7.4",
-    "@symfony/webpack-encore": "^0.28.2",
+    "@symfony/webpack-encore": "^0.30.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "core-js": "^3.6.5",
     "regenerator-runtime": "^0.13.7",
-    "sass-loader": "^9.0.3",
-    "url-loader": "^4.1.0",
+    "sass-loader": "^8.0.0",
+    "url-loader": "^2.0.1",
     "webpack-notifier": "^1.6.0"
   },
   "license": "CC-BY-NC-SA-4.0",
@@ -17,15 +17,20 @@
     "build": "encore production --progress"
   },
   "dependencies": {
-    "@api-platform/admin": "^1.0.2",
     "animate-sass": "^0.8.2",
-    "bootstrap": "^4.4.1",
     "jquery.appear": "^1.0.1",
     "owl.carousel": "^2.3.4",
     "particles.js": "^2.0.0",
-    "popper.js": "^1.16.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.12.0",
-    "turbolinks": "^5.2.0"
+    "bootstrap": "^4.5.0",
+    "datatables.net": "^1.10.21",
+    "datatables.net-dt": "^1.10.21",
+    "datatables.net-responsive": "^2.2.4",
+    "datatables.net-responsive-dt": "^2.2.4",
+    "feather-icons": "^4.28.0",
+    "flatpickr": "^4.6.6",
+    "perfect-scrollbar": "^1.5.0",
+    "popper.js": "^1.16.1",
+    "select2": "^4.0.13",
+    "axios": "^0.19"
   }
 }

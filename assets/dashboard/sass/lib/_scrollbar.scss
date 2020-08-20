@@ -1,0 +1,65 @@
+/* ###### 4.9 Perfect Scrollbar ###### */
+
+.ps {
+    overflow: hidden;
+    >.ps__rail-y {
+        width: 3px;
+        background-color: rgba(darken($gray-100, 60%), 0.06);
+        z-index: 10;
+        position: absolute;
+        left: auto !important;
+        right: 0;
+        opacity: 0;
+        margin: 1px;
+        @include transition(opacity 0.2s);
+        >.ps__thumb-y {
+            position: absolute;
+            @include border-radius(0);
+            width: 3px;
+            left: 0;
+            background-color: $gray-500;
+        }
+    }
+    &.ps--active-y {
+        &:hover,
+        &:focus {
+            >.ps__rail-y {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.scrollbar-sm {
+    >.ps__rail-y {
+        width: 1px;
+        >.ps__thumb-y {
+            width: 1px;
+        }
+    }
+}
+
+.scrollbar-lg {
+    >.ps__rail-y {
+        width: 6px;
+        >.ps__thumb-y {
+            width: 6px;
+        }
+    }
+}
+
+.scrollbar-primary {
+    >.ps__rail-y {
+        >.ps__thumb-y {
+            background-color: $blue;
+        }
+    }
+}
+
+.scrollbar-dark {
+    >.ps__rail-y {
+        >.ps__thumb-y {
+            background-color: $gray-900;
+        }
+    }
+}

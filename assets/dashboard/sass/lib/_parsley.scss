@@ -1,0 +1,104 @@
+/* ###### 4.6 Parsley ###### */
+
+input.parsley-error,
+textarea.parsley-error {
+    &,
+    &:focus {
+        box-shadow: none !important;
+        border-color: $red;
+    }
+}
+
+input.parsley-success,
+textarea.parsley-success {
+    &,
+    &:focus {
+        box-shadow: none !important;
+        border-color: $green;
+    }
+}
+
+.parsley-checkbox {
+    &.parsley-error,
+    &.parsley-success {
+        display: inline-block;
+        padding: 10px;
+        @include border-radius;
+    }
+    &.parsley-error {
+        border: 1px solid $red;
+    }
+    &.parsley-success {
+        border: 1px solid $green;
+    }
+}
+
+.custom-select {
+    &.parsley-error,
+    &.parsley-success {
+        box-shadow: none !important;
+    }
+    &.parsley-error {
+        border-color: $red;
+    }
+    &.parsley-success {
+        border-color: $green;
+    }
+}
+
+.parsley-errors-list {
+    color: $red;
+    list-style: none;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: 0;
+    li {
+        margin: 5px 0 0;
+    }
+}
+
+// CUSTOM STYLED ERROR MESSAGE
+.parsley-style-1 {
+    .parsley-input {
+        &.parsley-error {
+            .form-control {
+                background-color: lighten($red, 45%);
+                border-color: $red;
+                border-bottom-width: 0;
+                @include border-bottom-radius(0);
+            }
+        }
+        &.parsley-success {
+            .form-control {
+                border-color: $green;
+            }
+        }
+    }
+    .parsley-checkbox {
+        &.parsley-error {
+            padding-bottom: 35px;
+            border: 1px solid $red;
+            background-color: lighten($red, 45%);
+            @include border-top-radius(2px);
+        }
+        .parsley-errors-list.filled {
+            @include border-bottom-radius(1px);
+        }
+    }
+    .custom-select {
+        &.parsley-error {
+            border-bottom-width: 0;
+            @include border-bottom-radius(0);
+        }
+    }
+    .parsley-errors-list.filled {
+        background-color: $red;
+        color: #fff;
+        padding: 3px 10px;
+        font-size: 11px;
+        @include border-bottom-radius(2px);
+        li:first-child {
+            margin-top: 0;
+        }
+    }
+}

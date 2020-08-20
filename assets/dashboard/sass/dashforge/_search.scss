@@ -1,0 +1,106 @@
+.search-form {
+    display: flex;
+    align-items: stretch;
+    .form-control {
+        @include border-right-radius(0);
+        border-right-width: 0;
+        &:focus,
+        &:active {
+            border-color: $color-brand-01;
+            box-shadow: none !important;
+            +button {
+                border-color: $color-brand-01;
+            }
+        }
+    }
+    button {
+        display: flex;
+        align-items: center;
+        padding: 0 .5rem;
+        border: 1px solid $input-border-color;
+        border-left-width: 0;
+        @include border-left-radius(0);
+        color: $color-text-03;
+        svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.5px;
+        }
+    }
+    .twitter-typeahead,
+    .tt-hint,
+    .tt-input,
+    .tt-menu {
+        width: 100%;
+    }
+    .tt-hint,
+    .tt-input {
+        border-right-width: 1px;
+        @include border-radius;
+    }
+    .tt-hint {
+        color: $color-text-04;
+    }
+    .tt-input {
+        color: $color-text-02;
+    }
+    .tt-dataset {
+        margin-bottom: 5px;
+        h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            padding-left: 5px;
+        }
+    }
+    .tt-suggestion {
+        padding: 2px 5px;
+        @include border-radius;
+        strong {
+            font-weight: $font-weight-medium;
+        }
+    }
+}
+
+.search-form-expanding {
+    width: 0%;
+    min-width: $height-base + 1px;
+    height: $height-base;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    @include transition(all 0.3s);
+    .form-control {
+        @include border-radius;
+    }
+    button {
+        padding: 0;
+        background-color: #fff;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: $height-base;
+        height: $height-base;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include border-left-radius($border-radius);
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    &.expand {
+        width: 100%;
+        button {
+            border-left-width: 0;
+            @include border-left-radius(0);
+        }
+    }
+}
+
+.search-suggestion-fixed {
+    .tt-menu {
+        height: 120px;
+        overflow-y: auto;
+    }
+}

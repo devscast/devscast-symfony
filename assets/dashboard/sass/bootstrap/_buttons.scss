@@ -1,0 +1,162 @@
+.btn {
+    font-size: inherit;
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+    svg {
+        width: 14px;
+        height: 14px;
+        stroke-width: 2.5px;
+        margin-top: -2px;
+    }
+    &.active-primary {
+        &,
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            border-color: $blue;
+            color: $blue;
+        }
+    }
+}
+
+.btn-sm {
+    font-size: 13px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btn-xs {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include border-radius;
+}
+
+.btn-lg {
+    font-size: $font-size-base;
+    @include border-radius;
+}
+
+.btn-light {
+    background-color: $color-ui-02;
+    border-color: darken($color-ui-02, 7%);
+    color: $color-text-03;
+    @include hover-focus {
+        background-color: $color-ui-02;
+        border-color: darken($color-ui-02, 7%);
+    }
+}
+
+.btn-outline-light {
+    border-color: $gray-400;
+    color: $gray-600;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $gray-400;
+        border-color: $gray-400;
+    }
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):active,
+.btn-outline-light:not(:disabled):not(.disabled).active,
+.show>.btn-outline-light.dropdown-toggle {
+    background-color: $gray-300;
+    border-color: $gray-400;
+}
+
+// White button variant
+.btn-white {
+    background-color: #fff;
+    border-color: $color-ui-03;
+    color: rgba($color-text-02, 0.7);
+    @include hover-focus {
+        border-color: $color-ui-04;
+        color: $color-text-02;
+    }
+    &:active,
+    &.active {
+        background-color: $color-ui-01;
+    }
+}
+
+// Icon only button variant
+.btn-icon {
+    padding-left: 10px;
+    padding-right: 10px;
+    &.btn-sm {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    &.btn-xs {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    svg {
+        margin: 0;
+    }
+}
+
+// Brand buttons
+.btn-brand-01 {
+    background-color: darken($color-brand-01, 5%);
+    border-color: darken($color-brand-01, 5%);
+    color: #fff;
+    @include hover-focus {
+        background-color: darken($color-brand-01, 10%);
+        border-color: darken($color-brand-01, 10%);
+        color: #fff;
+    }
+}
+
+.btn-brand-02 {
+    background-color: $color-brand-02;
+    border-color: $color-brand-02;
+    color: #fff;
+    @include hover-focus {
+        background-color: lighten($color-brand-02, 15%);
+        border-color: lighten($color-brand-02, 15%);
+        color: #fff;
+    }
+}
+
+.btn-outline-facebook {
+    background-color: transparent;
+    border-color: #4064ac;
+    color: #4064ac;
+    @include hover-focus {
+        background-color: #4064ac;
+        border-color: #4064ac;
+        color: #fff;
+    }
+}
+
+.btn-outline-twitter {
+    background-color: transparent;
+    border-color: #00a7e6;
+    color: #00a7e6;
+    @include hover-focus {
+        background-color: #00a7e6;
+        border-color: #00a7e6;
+        color: #fff;
+    }
+}
+
+// Uppercase button variant
+.btn-uppercase {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    letter-spacing: .5px;
+    line-height: 1.75;
+    &.btn-sm {
+        font-size: 11px;
+        line-height: 1.773;
+    }
+    &.btn-xs {
+        font-size: 10px;
+        line-height: 1.8;
+    }
+}

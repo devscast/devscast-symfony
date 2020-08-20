@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
         {% block stylesheets %}{% endblock %}
-        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('frontend/app') }}
         {% block meta %}{% endblock %}
         {% block analytics %}
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110487894-2"></script>
@@ -56,7 +56,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     {% block javascripts %}{% endblock %}
-    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('frontend/app') }}
     </body>
     </html>
 {%  endapply %}

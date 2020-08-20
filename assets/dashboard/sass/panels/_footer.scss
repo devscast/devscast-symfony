@@ -1,0 +1,32 @@
+.footer {
+    font-size: 10px;
+    font-family: $font-family-system;
+    letter-spacing: .3px;
+    padding: 15px 25px;
+    background-color: $gray-50;
+    color: darken($color-text-03, 12%);
+    border-top: 1px solid $border-color;
+    text-transform: uppercase;
+    display: none;
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    a {
+        padding: 0;
+        color: $color-text-02;
+        @include hover-focus {
+            color: $color-brand-01;
+        }
+        +.nav-link {
+            margin-left: 25px;
+        }
+    }
+    >div:last-child {
+        margin-top: 15px;
+        @include media-breakpoint-up(sm) {
+            margin-top: 0;
+        }
+    }
+}

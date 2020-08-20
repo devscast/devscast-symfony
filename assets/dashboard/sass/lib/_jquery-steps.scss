@@ -1,0 +1,376 @@
+/* ###### 4.3 jQuery Steps ###### */
+
+.wizard {
+    border: 1px solid $border-color;
+    background-color: #fff;
+    @include border-radius;
+    >.steps {
+        padding: 10px 15px;
+        @include media-breakpoint-up(md) {
+            padding: 15px 20px;
+        }
+        >ul {
+            padding: 0;
+            margin-bottom: 0;
+            display: flex;
+            li {
+                float: none;
+                display: block;
+                width: auto;
+                .current-info {
+                    display: none;
+                }
+                .title {
+                    margin-left: 5px;
+                    white-space: nowrap;
+                    @include transition($transition-base);
+                    @include media-breakpoint-up(sm) {
+                        display: none;
+                        margin-left: 10px;
+                    }
+                    @include media-breakpoint-up(md) {
+                        display: inline-block;
+                    }
+                }
+                +li {
+                    margin-left: 10px;
+                    position: relative;
+                    @include media-breakpoint-up(sm) {
+                        margin-left: 20px;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        margin-left: 40px;
+                    }
+                    &::before {
+                        content: '\f287';
+                        font-family: 'Ionicons';
+                        font-size: 16px;
+                        font-weight: $font-weight-base;
+                        color: $gray-400;
+                        position: absolute;
+                        top: 50%;
+                        left: -26px;
+                        line-height: 0;
+                        display: none;
+                        @include media-breakpoint-up(md) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        a,
+        a:hover,
+        a:active {
+            color: $gray-900;
+            font-weight: $font-weight-medium;
+            font-size: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            @include media-breakpoint-up(xl) {
+                justify-content: flex-start;
+            }
+            .number {
+                width: 25px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                font-family: $font-family-system;
+                border: 2px solid $gray-600;
+                @include border-radius(100%);
+                @include media-breakpoint-up(md) {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+        .disabled {
+            a,
+            a:hover,
+            a:active {
+                color: $gray-500;
+                .number {
+                    color: $gray-500;
+                    border-color: $gray-400;
+                }
+            }
+            .title {
+                display: none;
+                @include media-breakpoint-up(md) {
+                    display: inline-block;
+                }
+            }
+        }
+        .current a {
+            &,
+            &:hover,
+            &:active {
+                color: $color-brand-01;
+                .title {
+                    display: inline-block;
+                }
+                .number {
+                    border-color: $color-brand-01;
+                    background-color: $color-brand-01;
+                    color: #fff;
+                }
+            }
+        }
+        .done a {
+            &,
+            &:hover,
+            &:active {
+                color: $green;
+                .title {
+                    display: none;
+                    @include media-breakpoint-up(md) {
+                        display: inline-block;
+                    }
+                }
+                .number {
+                    border-color: $green;
+                    background-color: $green;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    >.content {
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        min-height: 150px;
+        padding: 20px;
+        font-size: inherit;
+        @include media-breakpoint-up(md) {
+            padding: 20px;
+        }
+        >.title {
+            font-size: 18px;
+            color: $gray-900;
+            font-weight: $font-weight-semibold;
+            margin-bottom: 5px;
+            display: none;
+            &.current {
+                display: block;
+            }
+        }
+        >.body {
+            float: none;
+            position: static;
+            width: auto;
+            height: auto;
+            input.parsley-error {
+                border-color: theme-color("danger");
+                +ul {
+                    list-style: none !important;
+                }
+            }
+        }
+        input,
+        textarea,
+        select {
+            font-size: inherit;
+        }
+    }
+    >.actions {
+        padding: 10px 15px;
+        @include media-breakpoint-up(md) {
+            padding: 15px 20px;
+        }
+        >ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            >li:last-child a {
+                background-color: $green;
+            }
+        }
+        a,
+        a:hover,
+        a:active {
+            display: block;
+            background-color: $color-brand-01;
+            padding: 9px 20px;
+            line-height: 1.539;
+            color: #fff;
+            @include border-radius;
+        }
+        .disabled {
+            a,
+            a:hover,
+            a:active {
+                background-color: $gray-500;
+            }
+        }
+    }
+    &.vertical {
+        >.steps {
+            padding: 15px 20px;
+            @include media-breakpoint-up(sm) {
+                float: left;
+                width: 20%;
+            }
+            @include media-breakpoint-up(md) {
+                width: 15%;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 30%;
+            }
+            ul {
+                @include media-breakpoint-up(sm) {
+                    flex-direction: column;
+                }
+                li {
+                    +li {
+                        margin-left: 10px;
+                        @include media-breakpoint-up(sm) {
+                            margin-top: 10px;
+                            margin-left: 0;
+                        }
+                        @include media-breakpoint-up(md) {
+                            margin-top: 20px;
+                        }
+                        &::before {
+                            content: '';
+                            border-left: 1px solid $border-color;
+                            position: absolute;
+                            top: -15px;
+                            left: 15px;
+                            height: 10px;
+                        }
+                    }
+                    .title {
+                        display: none;
+                        @include media-breakpoint-up(lg) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            a {
+                @include media-breakpoint-up(lg) {
+                    justify-content: flex-start;
+                }
+            }
+            .current a {
+                .title {
+                    display: inline-block;
+                    @include media-breakpoint-up(sm) {
+                        display: none;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        >.content {
+            margin: 0;
+            padding: 20px;
+            @include media-breakpoint-up(sm) {
+                border-top-width: 0;
+                border-bottom-width: 0;
+                width: 80%;
+                float: right;
+                border-left: 1px solid $border-color;
+            }
+            @include media-breakpoint-up(md) {
+                width: 85%;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 70%;
+            }
+        }
+        >.actions {
+            padding: 10px 15px;
+            @include media-breakpoint-up(sm) {
+                width: 80%;
+                float: right;
+                border-left: 1px solid $border-color;
+                padding: 15px 20px;
+            }
+            @include media-breakpoint-up(md) {
+                width: 85%;
+                border-top: 1px solid $border-color;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 70%;
+            }
+            ul {
+                float: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.wizard-tab {
+    border-width: 0;
+    >.steps {
+        padding: 0;
+        border-bottom-width: 0;
+        margin-bottom: 20px;
+        >ul {
+            width: 100%;
+            >li {
+                flex: 1;
+                width: auto;
+                float: none;
+                +li {
+                    margin-left: 1px;
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+        a {
+            padding: 7px 10px;
+            @include media-breakpoint-up(md) {
+                padding: 10px 20px;
+            }
+        }
+        .current a,
+        .done a {
+            &,
+            &:hover,
+            &:focus {
+                color: #fff;
+                .number {
+                    border-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+        .current a {
+            background-color: $blue;
+        }
+        .done a {
+            background-color: $green;
+        }
+        .disabled a {
+            background-color: $color-ui-03;
+        }
+        .first a {
+            @include border-left-radius($border-radius);
+        }
+        .last a {
+            @include border-right-radius($border-radius);
+        }
+    }
+    >.content {
+        padding: 0;
+        border: 0;
+    }
+    >.actions {
+        border-top: 1px solid $border-color;
+        padding: 15px 0 0;
+    }
+}
