@@ -3,8 +3,6 @@
     "frontend/app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors~dashboard/app~frontend/app.js",
-        "/build/vendors~frontend/app.js",
         "/build/frontend/app.js"
       ],
       "css": [
@@ -14,12 +12,10 @@
     "dashboard/app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors~dashboard/app~frontend/app.js",
         "/build/vendors~dashboard/app.js",
         "/build/dashboard/app.js"
       ],
       "css": [
-        "/build/vendors~dashboard/app.css",
         "/build/dashboard/app.css"
       ]
     },

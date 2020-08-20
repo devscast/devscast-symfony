@@ -1,37 +1,25 @@
-<footer class="footer-area">
-    <div class="container">
-        <div class="footer-content">
-            <div class="logo">
-                <a href="#">
-                    <img src="{{ asset('/assets/img/logo-white.png') }}" width="20%" alt="logo image">
-                </a>
-                <span style="color: #04c37f; font-size: 19px; font-weight: 600; margin-top: 8px;margin-bottom: 15px;">
-                   Bâtisseurs Numériques
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="br-line"></div>
-    <div class="footer-shape1"><img src="{{ asset('/assets/img/shape3.png') }}" alt="image"></div>
-    <div class="footer-shape2"><img src="{{ asset('/assets/img/shape4.png') }}" alt="image"></div>
-</footer>
-<div class="copyright-area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6">
-                <p>
-                    <i class="far fa-copyright"></i>
-                    Devscast. CC-BY-NC-SA-4.0, {{ 'now' | date('Y') }}
-                </p>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <ul>
-                    <li><a href="{{ path('conduct') }}">Code de Conduite</a></li>
-                    <li><a href="{{ path('contributing') }}">Contribuer</a></li>
-                    <li><a href="https://github.com/devscast/devs-cast.com" target="_blank">Code Source</a></li>
-                </ul>
-            </div>
+<div class="z-0">
+    <div class="absolute lg:-mt-40 ">
+        <svg class="absolute bg-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#15db95" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        </svg>
+        <div class="relative">
+            <svg class="-mt-1 lg:mr-0 md:mr-0 -mr-4  w-screen fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path  fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+            </svg>
         </div>
     </div>
 </div>
+<footer class="md:relative z-20 pb-16 lg:mt-16  md:mt-40 md:pt-10 sm:mt-10 lg:pt-0 pt-32 bg-blue-900">
+    <div class="text-center text-gray-200">
+        <div class="flex justify-center">
+            <img src="../public/images/icon.png" alt="">
+        </div>
+        <div class="my-8">
+            <a href="{{ path('conduct') }}" class="sm:mr-8 mr-3 font-semibold text-white">Code de conduite</a>
+            <a href="{{ path('contributing') }}" class="sm:mr-8 mr-3 font-semibold text-white">Contribuer</a>
+            <a href="https://github.com/devscast/devs-cast.com" target="_blank" class="font-semibold text-white">Code Source</a>
+        </div>
+        <span class="text-xl text-gray-200"><span class="text-green-500 font-semibold">DEVSCAST</span> CC-BY-NC-SA-4.0.2020</span>
+    </div>
+</footer>

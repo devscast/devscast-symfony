@@ -9,8 +9,5 @@
   "build/frontend/app.css": "/build/frontend/app.css",
   "build/frontend/app.js": "/build/frontend/app.js",
   "build/runtime.js": "/build/runtime.js",
-  "build/vendors~dashboard/app.css": "/build/vendors~dashboard/app.css",
-  "build/vendors~dashboard/app.js": "/build/vendors~dashboard/app.js",
-  "build/vendors~dashboard/app~frontend/app.js": "/build/vendors~dashboard/app~frontend/app.js",
-  "build/vendors~frontend/app.js": "/build/vendors~frontend/app.js"
+  "build/vendors~dashboard/app.js": "/build/vendors~dashboard/app.js"
 }

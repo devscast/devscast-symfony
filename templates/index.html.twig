@@ -8,35 +8,38 @@
 {% endblock %}
 
 {% block body %}
-    <div class="main-banner bg-black-secondary">
-        <div class="container" style="z-index: 1000">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12">
-                    <div class="banner-content">
-                        <h1>Bâtisseurs Numériques</h1>
-                        <span>Nous développons des solutions web.</span>
-                        <p>
-                            Nous sommes des développeurs freelance basés en RDC et RSA,
-                            spécialisés dans la création (et parfois la modélisation)
-                            de sites Web et d'applications de qualité exceptionnelle.
-                        </p>
-                    </div>
+    <div class="md:pl-20 pb-10 bg-gray-100">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="sm:pt-40 pt-32 px-5 md:text-left sm:text-center">>
+                <div>
+                    <h1 class="main-title">Bâtisseurs numérique.</h1>
+                    <h5 class="text-green-600 font-semibold mt-6">Nous développons des solutions web.</h5>
+                    <p class="mt-6">Nous sommes des développeurs freelance basés en RDC et RSA, spécialisés dans la création (et parfois la modélisation) de sites Web et d'applications de qualité exceptionnelle.</p>
                 </div>
-
-                <div class="col-lg-6 col-md-12">
-                    <div class="banner-image animated fadeIn">
-                        <img src="{{ asset('/assets/img/hero.svg') }}" alt="image">
-                    </div>
+                <div class="mt-8">
+                    <a href="contact.html" class="btn btn-green sm:mr-3 sm:mb-0 mb-0">Prendre contact</a>
+                    <a href="projets.html" class="btn btn-white text-green-500">Portfolio</a>
                 </div>
+            </div>
+            <div class="md:block hidden">
+                <img src="../public/images/svg/undraw_creation_rd0e (1).svg" alt="">
             </div>
         </div>
     </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7fafc" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+    <div class="lg:-mt-32 md:-mt-48 -mt-16">
+        <div class="absolute lg:-mt-40 ">
+            <svg class="absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#15db95" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            <div class="relative">
+                <svg class="-mt-1 -mr-5 w-screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7fafc" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            </div>
+        </div>
+    </div>
+
+
     {% include 'app/sections/_featured.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_services.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_about.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
     {% include 'app/sections/_team.html.twig' %}
-    {% include 'app/includes/_divider.html.twig' %}
 {% endblock %}

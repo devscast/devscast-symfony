@@ -28,7 +28,7 @@
         {% endblock %}
     </head>
 
-    <body data-route="{{ app.request.get("_route") }}">
+    <body class="overflow-x-hidden" data-route="{{ app.request.get("_route") }}">
 
     {{ global_message() }}
     {% include "app/includes/_nav.html.twig" %}
