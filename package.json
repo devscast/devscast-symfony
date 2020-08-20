@@ -6,7 +6,8 @@
     "regenerator-runtime": "^0.13.7",
     "sass-loader": "^8.0.0",
     "url-loader": "^2.0.1",
-    "webpack-notifier": "^1.6.0"
+    "webpack-notifier": "^1.6.0",
+    "tailwindcss": "^1.7.1"
   },
   "license": "CC-BY-NC-SA-4.0",
   "private": false,
