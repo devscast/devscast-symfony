@@ -62,13 +62,13 @@
                                  <a href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" title="{{ post.name }}">
                                     <div class="view">
                                         <div class="view-head">
-                                            <img src="{{ asset('assets/img/tutos/1.jpg') }}" class="view-poster" alt="{{ post.title }}">
+                                            <img src="{{ asset('assets/img/tutos/1.jpg') }}" class="view-poster" alt="{{ post.name }}">
                                         </div>
                                         <div class="mask">
                                             <div class="tutorial-mask items-center">
                                                 <div class="pt-5">
                                                     <h4 class="text-white font-semibold">{{ post.name }}</h4>
-                                                    <h4 class="text-white">{{ post.description }}/h4>
+                                                    <h4 class="text-white">{{ post.description }}</h4>
                                                 </div>
                                                 <a href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" title="{{ post.name }}" class="hover:opacity-75 mt-5">
                                                     <div class="btn-play">

@@ -78,6 +78,7 @@ class PostController extends AbstractController
         }
         return $this->render('app/posts/show.html.twig', [
             'post' => $post,
+            'posts' => $this->postRepository->findForSidebar(),
             'data_type' => 'post'
         ]);
     }
