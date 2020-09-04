@@ -2,15 +2,19 @@
     <div>
         <h4 class="text-xl mb-4">Tags</h4>
         {% for tag in tags %}
-            <a  title="{{ tag.name }}" href="{{ path("app_tag_show", {name: tag.name}) }}" class="tag tag-red">
-                { tag.name }}
+            <a 
+                title="{{ tag.name }}" 
+                href="{{ path("app_tag_show", {name: tag.name}) }}" 
+                class="tag tag-red mb-3"
+            >
+                {{ tag.name }}
             </a>
         {% endfor %}
     </div>
     <div class="mt-10">
         <h4 class="text-xl mb-4">Articles similaires</h4>
         <div class="grid lg:grid-cols-1 lg:gap-0 gap-4 sm:grid-cols-2">
-            {% if post %}
+            {% if posts %}
                 {% for post in posts %}
                         <div class="blog-similar sm:mt-3">
                         <div class="blog-similar-head">
@@ -18,8 +22,8 @@
                         </div>
                         <div class="blog-similar-body">
                             <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" >
-                                <h3 class="blog-similar-title">{{ blog.description }}</h3>
-                                <span class="sm:text-md text-sm">Par : <span class="text-green-600">{{ blog.user.name }}</span></span>
+                                <h3 class="blog-similar-title">{{ post.description }}</h3>
+                                <span class="sm:text-md text-sm">Par : <span class="text-green-600">{{ post.user.name }}</span></span>
                             </a>
                         </div>
                     </div>

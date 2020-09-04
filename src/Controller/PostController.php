@@ -71,12 +71,12 @@ class PostController extends AbstractController
     public function show(Post $post, string $slug): Response
     {
         if ($post->getSlug() !== $slug) {
-            return $this->redirectToRoute("app_blog_show", [
+            return $this->redirectToRoute("app_post_show", [
                 'id' => $post->getId(),
                 'slug' => $post->getSlug()
             ], Response::HTTP_MOVED_PERMANENTLY);
         }
-        return $this->render('app/blog/show.html.twig', [
+        return $this->render('app/posts/show.html.twig', [
             'post' => $post,
             'data_type' => 'post'
         ]);
