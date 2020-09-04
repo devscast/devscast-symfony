@@ -1,53 +1,30 @@
-<aside class="widget-area" id="sidebar">
-    {% if posts %}
-        <section class="widget widget_axton_posts_thumb">
-            <h3 class="widget-title">Autres contenu</h3>
-            {% for post in posts %}
-                <article class="item">
-                    <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}"
-                       class="thumb">
-                        <span class="fullimage cover bg1"
-                              role="img"
-                              style="background-image: url({{ vich_uploader_asset(post, 'thumb_file') }})"></span>
-                    </a>
-                    <div class="info">
-                        <time datetime="{{ post.createdAt | date("Y-m-d") }}">
-                            {{ post.createdAt | date("M, d-Y") }}
-                        </time>
-                        <h4 class="title usmall">
-                            <a title="{{ post.name }}"
-                               href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}">
-                                {{ post.name }}
+<div class="sticky top-0 mt-10" id="sidebar">
+    <div>
+        <h4 class="text-xl mb-4">Tags</h4>
+        {% for tag in tags %}
+            <a  title="{{ tag.name }}" href="{{ path("app_tag_show", {name: tag.name}) }}" class="tag tag-red">
+                { tag.name }}
+            </a>
+        {% endfor %}
+    </div>
+    <div class="mt-10">
+        <h4 class="text-xl mb-4">Articles similaires</h4>
+        <div class="grid lg:grid-cols-1 lg:gap-0 gap-4 sm:grid-cols-2">
+            {% if post %}
+                {% for post in posts %}
+                        <div class="blog-similar sm:mt-3">
+                        <div class="blog-similar-head">
+                            <img src="{{ vich_uploader_asset(post, 'thumb_file') }})" class="blog-similar-img" alt="{{ post.name }}">
+                        </div>
+                        <div class="blog-similar-body">
+                            <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" >
+                                <h3 class="blog-similar-title">{{ blog.description }}</h3>
+                                <span class="sm:text-md text-sm">Par : <span class="text-green-600">{{ blog.user.name }}</span></span>
                             </a>
-                        </h4>
+                        </div>
                     </div>
-                    <div class="clear"></div>
-                </article>
-            {% endfor %}
-        </section>
-    {% endif %}
-
-    <section class="widget widget_categories">
-        <h3 class="widget-title">Catégories</h3>
-        <ul>
-            {% for category in categories %}
-                <li>
-                    <a title="{{ category.name }}" href="{{ path("app_category_show", {slug: category.slug}) }}">
-                        {{ category.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-
-    <section class="widget widget_tag_cloud">
-        <h3 class="widget-title">Tags</h3>
-        <div class="tagcloud">
-            {% for tag in tags %}
-                <a title="{{ tag.name }}" href="{{ path("app_tag_show", {name: tag.name}) }}">
-                    {{ tag.name }}
-                </a>
-            {% endfor %}
+                {% endfor %}
+            {% endif %}
         </div>
-    </section>
-</aside>
+    </div>
+</div>

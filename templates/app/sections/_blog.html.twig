@@ -1,24 +1,21 @@
-<section id="{{ data_type }}" class="blog-area ptb-80 bg-black">
-    <div class="container">
-        <div class="section-title">
-            <span>Notre Blog</span>
-            <h1>Articles récents</h1>
-            <div class="bar"></div>
-        </div>
-
-        <div class="row">
+<main id="{{ data_type }}" class="md:py-40 sm:py-32 py-20 lg:px-40 md:px-20 sm:px-5 bg-gray-100">
+    <div class="sm:px-0 px-5">
+        <h1 class="text-5xl font-bold text-blue-900 leading-tight">Blog</h1>
+        <p>Nos derniers articles</p>
+    </div>
+    <div class="mt-8 mb-10">
+        {% if blogs|length > 0 %}
             {% if blogs is defined %}
                 {% for blog in blogs %}
-                    <div class="col-lg-4 col-md-4">
-                        {% include 'app/blog/_card.html.twig' %}
+                    <div class="blog-card2 sm:mt-10 mt-3">
+                        {% include "app/blog/_card.html.twig" %}
                     </div>
                 {% endfor %}
             {% endif %}
-        </div>
+        {% else %}
+            <div class="mt-8 text-center">
+                <h1>Pas d'articles disponible</h1>
+            </div>
+        {% endif %}
     </div>
-    <div class="row mt-5">
-        <div class="m-auto">
-            {{ knp_pagination_render(blogs) }}
-        </div>
-    </div>
-</section>
+</main>
