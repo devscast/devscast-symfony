@@ -17,8 +17,8 @@
                     <p class="mt-6">Nous sommes des développeurs freelance basés en RDC et RSA, spécialisés dans la création (et parfois la modélisation) de sites Web et d'applications de qualité exceptionnelle.</p>
                 </div>
                 <div class="mt-8">
-                    <a href="contact.html" class="btn btn-green sm:mr-3 sm:mb-0 mb-0">Prendre contact</a>
-                    <a href="projets.html" class="btn btn-white text-green-500">Portfolio</a>
+                    <a href="{{ path('contact') }}" class="btn btn-green sm:mr-3 sm:mb-0 mb-0">Prendre contact</a>
+                    <a href="{{ path('app_project_index') }}" class="btn btn-white text-green-500">Portfolio</a>
                 </div>
             </div>
             <div class="md:block hidden">
@@ -38,8 +38,11 @@
     </div>
 
 
+    {% include 'app/sections/_clients.html.twig' %}
     {% include 'app/sections/_featured.html.twig' %}
+    {% include "app/sections/_expertise.html.twig" %}
     {% include 'app/sections/_services.html.twig' %}
-    {% include 'app/sections/_about.html.twig' %}
     {% include 'app/sections/_team.html.twig' %}
+    {% include 'app/sections/_incitation.html.twig' %}
+    {% include 'app/sections/_bloging.html.twig' %}
 {% endblock %}

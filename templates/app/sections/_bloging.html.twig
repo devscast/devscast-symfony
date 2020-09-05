@@ -1,0 +1,36 @@
+
+<div class="md:p-16 md:pb-40 p-5 z-30">
+    <div class="text-center">
+        <span class="badge badge-teal">Blog</span>
+        <h2 class="zone-title mt-3">Lisez nos derniers articles</h2>
+    </div>
+
+    <div id="blog" class="splide">
+        <div class="splide__track py-10 px-4">
+            <div class="splide__list">
+                {% if blogs is defined %}
+                    {% for blog in blogs %}
+                        <div class="splide__slide">
+                            <div class="blog-card">
+                                <a href="">
+                                    <div class="blog-card-head">
+                                        <span>21 Avril 2020</span>
+                                        <h3 class="blog-title mt-2">{{ blog.description }}</h3>
+                                    </div>
+                                </a>
+                                <div class="my-3">
+                                    <p>{{ blog.content }}</p>
+                                    <hr class="w-2/4 my-3 bg-teal-400">
+                                    <span class="text-teal-400">Par : {{ blog.user.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-6">
+        <a href="{{ path('app_blog_index') }}" class="text-lg text-gray-600 hover:text-teal-500">Voir plus d'article</a>
+    </div>
+</div>
