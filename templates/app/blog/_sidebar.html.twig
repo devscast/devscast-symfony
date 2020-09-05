@@ -16,11 +16,11 @@
         <div class="grid lg:grid-cols-1 lg:gap-0 gap-4 sm:grid-cols-2">
             {% if posts %}
                 {% for post in posts %}
-                    <div class="blog-similar sm:mt-3">
+                    <div class="pb-4">
                         <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}">
                             <div class="view">
                                 <div class="view-head">
-                                    <img src="{{ asset('assets/imgtutos/1.jpg') }}" class="view-poster" alt="{{ post.thumb_file }}">
+                                    <img src="{{ asset('assets/img/tutos/1.jpg') }}" class="view-poster" alt="">
                                 </div>
                                 <div class="mask">
                                     <div class="tutorial-mask items-center">
