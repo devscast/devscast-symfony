@@ -53,7 +53,12 @@
             <div class="lg:w-5/12 lg:order-last order-first">
                 <div class="grid lg:block pt-20">
                     <div>
-                        <h1>{{ project.description }}</h1>
+                        <div class="flex items-center mt-4">
+                            <img src="{{ asset(project.client.logo) }}" alt="" class="h-16 w-16 rounded-full">
+                            <div class="ml-5">
+                                <h3 class="text-purple-600 font-semibold">{{ project.description }}</h3>
+                            </div>
+                        </div>
                         <p class="mt-6">
                             {{ project.challenge | markdown_to_html }}
                         </p>
