@@ -8,57 +8,80 @@
 {% endblock %}
 
 {% block body %}
-    <div class="page-title-area bg-black">
-        <div class="container">
-            <h1>Projet : {{ project.name }}</h1>
-        </div>
-        <div class="br-line"></div>
-    </div>
-
-    <section class="projects-details-area ptb-80 bg-black">
-        <div class="container">
-            <div class="projects-details">
-                <div class="projects-image-slides owl-carousel owl-theme">
-                    {% for screenshot in project.screenshots %}
-                        <div class="single-image">
-                            <img src="{{ asset(screenshot) }}"
-                                 title="{{ project.name }} screenshot"
-                                 alt="{{ project.name }}">
-                        </div>
-                    {% endfor %}
+    <main class="md:px-20 px-5 py-12 lg:pb-56">
+        <div class="lg:flex grid items-start">
+            <div class="lg:w-7/12 lg:pr-16">
+                <div class="lg:pt-20">
+                    <img src="{{ asset(project.screenshots[2]) }}" class="rounded-md" alt="">
                 </div>
+                <div class="mt-8">
+                    <div class="flex items-center">
+                        <div class="sm:w-3/12 w-4/12 ">
+                            <h5 class="font-semibold text-gray-700">Client</h5>
+                        </div>
+                        <p>{{ project.client.name }}</p>
+                    </div>
 
-                <div class="projects-details-desc">
-                    <h3>{{ project.description }}</h3>
-                    {{ project.challenge | markdown_to_html }}
+                    <div class="flex items-center mt-4">
+                        <div class="sm:w-3/12 w-4/12">
+                            <h5 class="font-semibold text-gray-700">Site web</h5>
+                        </div>
+                        <p><a href="">https://www.ngpictures.com/</a></p>
+                    </div>
 
-                    <div class="project-details-info">
-                        <div class="single-info-box">
-                            <h4>Client</h4>
-                            <span>{{ project.client.name }}</span>
+                    <div class="flex items-center mt-4">
+                        <div class="sm:w-3/12 w-4/12 ">
+                            <h5 class="font-semibold text-gray-700">Dev</h5>
+                        </div>
+                        <p>{{ project.status | default("Terminé") }}</p>
+                    </div>
+
+                    <div class="sm:flex mt-4">
+                        <div class="sm:w-3/12 w-4/12 ">
+                            <h5 class="font-semibold text-gray-700">Technos</h5>
                         </div>
 
-                        <div class="single-info-box">
-                            <h4>Technologies</h4>
-                            <span>{{ project.role }}</span>
-                        </div>
+                        <ul class="list-disc flex gap-6 sm:mt-0 mt-2">
+                            <li class="list-none">{{ project.role }}</li>
+                        </ul>
+                    </div>
 
-                        <div class="single-info-box">
-                            <h4>Type</h4>
-                            <span>
-                                {{ project.type }}
-                            </span>
-                        </div>
-                        <div class="single-info-box">
-                            <h4>Développement</h4>
-                            <span>
-                                {{ project.status | default("Terminé") }}
-                            </span>
+                    <hr class="my-12">
+                </div>
+            </div>
+
+            <div class="lg:w-5/12 lg:order-last order-first">
+                <div class="grid lg:block pt-20">
+                    <div>
+                        <h1>{{ project.description }}</h1>
+                        <p class="mt-6">
+                            {{ project.challenge | markdown_to_html }}
+                        </p>
+                        <hr class="my-12">
+                    </div>
+                    <div class="mb-8">
+                        <figure class="lg:w-20 w-16">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;" xml:space="preserve">
+                            <path class="fill-current text-green-400" opacity=".40" d="M3,1.3C2,1.7,1.2,2.7,1.2,3.6c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5
+                            C1.4,6.9,1,6.6,0.7,6.1C0.4,5.6,0.3,4.9,0.3,4.5c0-1.6,0.8-2.9,2.5-3.7L3,1.3z M7.1,1.3c-1,0.4-1.8,1.4-1.8,2.3
+                            c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5c-0.7,0-1.1-0.3-1.4-0.8
+                            C4.4,5.6,4.4,4.9,4.4,4.5c0-1.6,0.8-2.9,2.5-3.7L7.1,1.3z"/>
+                            </svg>
+                        </figure>
+                        <p class="text-lg mt-3">Avec plus de 5 ans d'expériences et après avoir travailler sur plusieurs projets personnels, en entreprise et en freelance, nos compétences ont été estimée comme suit par nos clients.</p>
+
+                        <div class="flex items-center mt-4">
+                            <img src="{{ asset('assets/img/team/méschac.jpg') }}" alt="" class="h-16 w-16 rounded-full">
+                            <div class="ml-5">
+                                <h5 class="text-purple-600 font-semibold">{{ project.client.name }}</h5>
+                                <span>Fondateur NgPictures</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 {% endblock %}
 
