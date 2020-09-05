@@ -8,9 +8,37 @@
 {% endblock %}
 
 {% block body %}
-    <section class="blog-area ptb-80 bg-black">
-        <div class="container">
-            {{ include('app/documents/conduct.md.twig') | markdown_to_html }}
+
+    <main class="pt-12 lg:pb-56 pb-10">
+        <div class="pt-24 pb-40 bg-blue-900 lg:px-40 px-5">
+            <h1 class="text-center md:text-5xl text-white">Code de conduite du Pacte des contributeurs</h1>
         </div>
-    </section>
+        {# {{ include('app/documents/conduct.md.twig') | markdown_to_html }} #}
+        <div class="lg:mx-32 mx-4 -mt-20">
+            <div class="bg-white shadow-2xl rounded-lg md:p-16 p-5">
+                <div>
+                    <h2>Notre engagement</h2>
+    
+                    <p class="mt-5"> Dans le but de favoriser un environnement ouvert et accueillant, nous, en tant que les contributeurs et les mainteneurs s'engagent à participer à notre projet et notre communauté une expérience sans harcèlement pour tous, peu importe l'âge, le corps taille, handicap, ethnicité, caractéristiques sexuelles, identité et expression du genre, niveau d'expérience, d'éducation, de statut socio-économique, de nationalité, de l'apparence, la race, la religion ou l'identité et l'orientation sexuelles.</p>
+                </div>
+    
+                <div class="mt-5">
+                    <h2>Nos normes</h2>
+                    
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Utilikllllll</li>
+                        <li>Utilikllllll</li>
+                        <li>Utilikllllll</li>
+                        <li>Utilikllllll</li>
+                    </ul>
+                </div>
+    
+                <div class="mt-5">
+                    <h2>Mise en production</h2>
+                    
+                    <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, commodi exercitationem. Voluptatibus eius illum et culpa minima earum fugiat quas alias vitae excepturi quia consectetur esse corrupti ducimus, assumenda voluptates? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi sed rerum asperiores obcaecati quas accusantium ea nulla minus ratione vitae. Animi soluta distinctio reiciendis dolor voluptatum nisi dicta eum? Iure. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta eveniet quos sed vero qui nesciunt labore iure enim perspiciatis veniam harum sunt, magnam, a velit incidunt, ex consequatur officia nemo.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}
