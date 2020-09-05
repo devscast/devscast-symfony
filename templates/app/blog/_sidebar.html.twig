@@ -5,7 +5,7 @@
             <a 
                 title="{{ tag.name }}" 
                 href="{{ path("app_tag_show", {name: tag.name}) }}" 
-                class="tag tag-red mb-3"
+                class="tag tag-red"
             >
                 {{ tag.name }}
             </a>
@@ -16,16 +16,28 @@
         <div class="grid lg:grid-cols-1 lg:gap-0 gap-4 sm:grid-cols-2">
             {% if posts %}
                 {% for post in posts %}
-                        <div class="blog-similar sm:mt-3">
-                        <div class="blog-similar-head">
-                            <img src="{{ vich_uploader_asset(post, 'thumb_file') }})" class="blog-similar-img" alt="{{ post.name }}">
-                        </div>
-                        <div class="blog-similar-body">
-                            <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" >
-                                <h3 class="blog-similar-title">{{ post.description }}</h3>
-                                <span class="sm:text-md text-sm">Par : <span class="text-green-600">{{ post.user.name }}</span></span>
-                            </a>
-                        </div>
+                    <div class="blog-similar sm:mt-3">
+                        <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}">
+                            <div class="view">
+                                <div class="view-head">
+                                    <img src="{{ asset('assets/imgtutos/1.jpg') }}" class="view-poster" alt="{{ post.thumb_file }}">
+                                </div>
+                                <div class="mask">
+                                    <div class="tutorial-mask items-center">
+                                        <div class="pt-5">
+                                            <h4 class="text-white font-semibold">{{ post.name }}<span class="text-green-500">Slim</span> : </h4>
+                                        </div>
+                                        <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" class="hover:opacity-75 mt-5">
+                                            <div class="btn-play">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="fill-curent text-green-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 {% endfor %}
             {% endif %}
