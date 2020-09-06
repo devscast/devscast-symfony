@@ -13,6 +13,7 @@ namespace App\Controller;
 
 use App\Data\ContactData;
 use App\Form\ContactType;
+use App\Repository\BlogRepository;
 use App\Notification\ContactNotification;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,15 +29,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PageController extends AbstractController
 {
     /**
+     * @param BlogRepository $blogRepository
+     */
+    private BlogRepository $blogRepository;
+
+    public function __construct(BlogRepository $blogRepository)
+    {
+        $this->blogRepository = $blogRepository;
+    }
+    
+    /**
      * @Route("/", name="home", methods={"GET"})
      */
     public function index(): Response
     {
+        $blogs = $this->blogRepository->findAll();
         $projectDir = $this->getParameter('kernel.project_dir');
         $services = json_decode(file_get_contents($projectDir . "/resources/services.json"));
         $team = json_decode(file_get_contents($projectDir . "/resources/team.json"));
         $projects = json_decode(file_get_contents($projectDir . "/resources/projects.json"));
-        return $this->render('index.html.twig', compact("services", "team", "projects"));
+        return $this->render('index.html.twig', compact("services", "team", "projects", "blogs"));
     }
 
     /**

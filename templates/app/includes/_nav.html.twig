@@ -36,9 +36,9 @@
             </div>
 
             <div class="lg:ml-5 mt-4 lg:mt-0 lg:mb-0 mb-4">
-                <form id="sForm" action="" method="get" class="lg:hidden">
+                <form id="sForm" action="{{ path("app_post_search") }}" method="get" class="lg:hidden">
                     <div class="flex my-2 lg:w-auto">
-                        <input type="search" name="search" id="search" placeholder="Rechercher un tuto ou un article"
+                        <input type="search" name="q" id="q" placeholder="Rechercher un tuto ou un article"
                                class="search-input">
                         <button type="submit" class="btn-search">
                             <svg class="fill-current pointer-events-none  w-4 h-4 " xmlns="http://www.w3.org/2000/svg"
