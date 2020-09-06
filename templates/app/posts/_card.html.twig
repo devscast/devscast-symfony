@@ -1,5 +1,5 @@
 <div class="view-head">
-    <img src="{{ vich_uploader_asset(post, 'thumb_file') }}" class="view-poster" alt="{{ post.description }}">
+    <img src="{{ vich_uploader_asset(post, 'thumb_file') }}" class="view-poster" alt="{{ post.name }}">
 </div>
 <div class="mask">
     <figure class="w-full">
@@ -9,7 +9,7 @@
     <div class="tutorial-mask">
          <div>
             <h4 class="text-white font-semibold">{{ post.name }} </h4>
-            <h4 class="text-white">{{ post.description }}</h4>
+            <h5 class="text-white">{{ post.description }}</h5>
         </div>
         <a href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" title="{{ post.name }}" class="hover:opacity-75">
             <div class="-mt-16 btn-play">

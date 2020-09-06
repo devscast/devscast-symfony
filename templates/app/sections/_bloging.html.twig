@@ -12,14 +12,14 @@
                     {% for blog in blogs %}
                         <div class="splide__slide">
                             <div class="blog-card">
-                                <a href="">
+                                <a href="{{ path('app_blog_show', {id: blog.id, slug: blog.slug}) }}">
                                     <div class="blog-card-head">
                                         <span>21 Avril 2020</span>
-                                        <h3 class="blog-title mt-2">{{ blog.description }}</h3>
+                                        <h3 class="blog-title mt-2">{{ blog.description|slice(0, 40) }}...</h3>
                                     </div>
                                 </a>
                                 <div class="my-3">
-                                    <p>{{ blog.content }}</p>
+                                    <p>{{ blog.content|slice(0, 60) }}...</p>
                                     <hr class="w-2/4 my-3 bg-teal-400">
                                     <span class="text-teal-400">Par : {{ blog.user.name }}</span>
                                 </div>
