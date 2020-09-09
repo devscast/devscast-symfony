@@ -1,34 +1,64 @@
 {% if team is defined %}
-    <section id="team" class="team-area ptb-80 bg-black">
-        <div class="container">
-            <div class="section-title">
-                <span>Rencontrez nos experts</span>
-                <h2>Notre Équipe</h2>
-                <div class="bar"></div>
+<div class="py-20 mb-0">
+    <div class="text-center">
+        <span class="badge badge-purple">Notre équipe</span>
+        <h2 class="zone-title mt-3">Rencontrez nos experts</h2>
+    </div>
+    <div class="mt-12">
+        <div id="team" class="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+                    {% for user in team.data %}
+                        <div class="splide__slide">
+                            <div class="dev-view dev-view-active">
+                                <div class="z-0 absolute">
+                                    <img src="{{ user.avatar }}" class="dev-avatar dev-avatar-active"
+                                        title="{{ user.name }}" alt="{{ user.name }}">
+                                </div>
+                                <div class="dev-mask dev-mask-active">
+                                    <div class="text-center p-5 text-white">
+                                        <div class="pointer-events-none">
+                                            <h4 class="text-2xl font-semibold">{{ user.name }}</h4>
+                                            <span>{{ user.role }}</span>
+                                        </div>
+                                        <div class="flex justify-center text-center mt-6">
+                                            {% for social in user.social %}
+                                                <a href="{{ social.link }}" title="{{ social.name }}" target="_blank"
+                                                    class="cursor-pointer mr-2">
+                                                    <i class="{{ social.icon }} text-white"></i>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
-            <div class="team-slides owl-carousel owl-theme">
-                {% for user in team.data %}
-                    <div class="single-team-box">
-                        <div class="team-member-image">
-                            <img src="{{ user.avatar }}" title="{{ user.name }}" alt="{{ user.name }}">
-                        </div>
-                        <div class="team-member-content">
-                            <h3>{{ user.name }}</h3>
-                            <span>{{ user.role }}</span>
-                            <ul class="social">
-                                {% for social in user.social %}
-                                    <li>
-                                        <a href="{{ social.link }}" title="{{ social.name }}" target="_blank">
-                                            <i class="{{ social.icon }}"></i>
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                {% endfor %}
+            <div class="splide__arrows flex justify-between">
+                <div class="splide__arrow splide__arrow--prev -ml-3">
+                    <button class="arrow arrow-left">
+                        <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M7.854 4.646a.5.5 0 0 1 0 .708L5.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd"
+                                d="M4.5 8a.5.5 0 0 1 .5-.5h6.5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="splide__arrow splide__arrow--next lg:-mr-3 -mr-2">
+                    <button class="arrow">
+                        <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z" />
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 {% endif %}

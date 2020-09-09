@@ -1,0 +1,111 @@
+//typography default style
+a{
+    @apply font-medium text-blue-500 no-underline ;
+} 
+
+p, article, span, div {
+    @apply font-normal text-gray-600;
+}
+
+h1{
+    @apply text-4xl font-bold text-blue-900 ;
+}
+
+h2{
+    @extend h1 ;
+    @apply text-3xl ;
+}
+
+h3{
+    @extend h1 ;
+    @apply text-2xl ;
+};
+
+h4{
+    @extend h1 ;
+    @apply text-xl ;
+}
+
+h5{
+    @extend h1 ;
+    @apply text-lg ;
+}
+
+
+//typography classes
+
+//home page main title
+.main-title{
+    @apply  text-5xl font-black leading-tight ;
+}
+
+//home page main title
+.zone-title{
+    @apply text-2xl text-blue-900 font-bold ;
+}
+
+//blog & tutorials pages main title
+.bt-title{
+    @extend .main-title ;
+    @apply font-bold ;
+}
+
+//skill card title 
+.skill-title{
+    @apply text-lg text-gray-800 font-semibold ;
+}
+
+//home page blog zone article's title
+.blog-title{
+    @extend .skill-title ;
+
+    @apply text-xl ;
+}
+
+//blog's latest article title
+.blog-latest-title{
+    @apply text-2xl text-blue-900 font-semibold ;
+
+    &:hover{
+        @apply text-blue-500 ;
+    }
+}
+
+//blog's article title
+.blog-2-title{
+    @extend .blog-latest-title ;
+    @apply text-lg ;
+}
+
+//similar blog's article title
+.blog-similar-title{
+    @extend .blog-latest-title ;
+    @apply text-lg ;
+}
+
+//service's title
+.service-title{
+    @apply text-xl text-gray-800 font-semibold ;
+}
+
+//progress bar percentage
+.progress-percent-title{
+    @apply font-bold text-xl text-gray-800 ml-auto ;
+}
+
+@screen sm {
+
+    .zone-title{
+        @apply text-3xl ;
+    }
+
+    .blog-2-title{
+        @apply my-3 text-2xl ;
+    } 
+}
+
+@screen md {
+    .main-title{
+        @apply  text-6xl ;
+    }
+}

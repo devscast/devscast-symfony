@@ -1,12 +1,9 @@
-// Style
-import "../sass/app.scss";
+import '../sass/app.scss';
 
-// Bootstrap modules
-import 'bootstrap/js/dist/collapse'
-import 'bootstrap/js/dist/alert'
-import 'bootstrap/js/dist/modal'
+import  './carousel';
+import './main';
 
-// App modules
-import './modules/application'
-import './modules/progress'
-import './modules/sliders'
+import '@splidejs/splide/dist/css/splide.min.css';
+import '@splidejs/splide/dist/css/splide-core.min.css';
+
+import '@splidejs/splide/dist/js/splide';

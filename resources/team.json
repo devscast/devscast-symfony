@@ -32,6 +32,11 @@
           "name": "github",
           "link": "https://github.com/Scott-Tresor",
           "icon": "fab fa-github-square"
+        },
+        {
+          "name": "instagram",
+          "link": "https://instagram.com/scotttresor",
+          "icon": "fab fa-instagram"
         }
       ]
     },
@@ -77,6 +82,23 @@
         {
           "name": "twitter",
           "link": "https://twitter.com/KankolaElvis",
+          "icon": "fab fa-twitter"
+        }
+      ]
+    },
+    {
+      "name": "Meshac Irung",
+      "role": "Developer",
+      "avatar": "https://avatars3.githubusercontent.com/u/47919550?s=460&u=3144c28b1c12d7b94223b58075bcb18e14547947&v=4",
+      "social": [
+        {
+          "name": "github",
+          "link": "https://github.com/Meschacirung",
+          "icon": "fab fa-github-square"
+        },
+        {
+          "name": "twitter",
+          "link": "https://twitter.com/MeschacIrung",
           "icon": "fab fa-twitter"
         }
       ]

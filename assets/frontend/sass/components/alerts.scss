@@ -1,0 +1,16 @@
+.alert{
+    @apply rounded-lg border-l-4 p-4 ;
+}
+
+.alert-dismiss {
+    @apply h-8 w-8 flex items-center justify-center rounded-full bg-white ;
+}
+
+@each $color in $colors {
+
+     @if (($color == 'orange') or ($color == 'green') or ($color == 'red')) {
+         .alert-#{$color} {
+            @apply bg-#{$color}-100 border-#{$color}-500 ;
+         }
+     }    
+}

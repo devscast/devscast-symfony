@@ -1,53 +1,46 @@
-<aside class="widget-area" id="sidebar">
-    {% if posts %}
-        <section class="widget widget_axton_posts_thumb">
-            <h3 class="widget-title">Autres contenu</h3>
-            {% for post in posts %}
-                <article class="item">
-                    <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}"
-                       class="thumb">
-                        <span class="fullimage cover bg1"
-                              role="img"
-                              style="background-image: url({{ vich_uploader_asset(post, 'thumb_file') }})"></span>
-                    </a>
-                    <div class="info">
-                        <time datetime="{{ post.createdAt | date("Y-m-d") }}">
-                            {{ post.createdAt | date("M, d-Y") }}
-                        </time>
-                        <h4 class="title usmall">
-                            <a title="{{ post.name }}"
-                               href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}">
-                                {{ post.name }}
-                            </a>
-                        </h4>
+<div class="sticky top-0 mt-10" id="sidebar">
+    <div>
+        <h4 class="text-xl mb-4">Tags</h4>
+        {% for tag in tags %}
+            <a 
+                title="{{ tag.name }}" 
+                href="{{ path("app_tag_show", {name: tag.name}) }}" 
+                class="tag tag-red"
+            >
+                {{ tag.name }}
+            </a>
+        {% endfor %}
+    </div>
+    <div class="mt-10">
+        <h4 class="text-xl mb-4">Articles similaires</h4>
+        <div class="grid lg:grid-cols-1 lg:gap-0 gap-4 sm:grid-cols-2">
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="pb-4">
+                        <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}">
+                            <div class="view">
+                                <div class="view-head">
+                                    <img src="{{ asset('assets/img/tutos/1.jpg') }}" class="view-poster" alt="">
+                                </div>
+                                <div class="mask">
+                                    <div class="tutorial-mask items-center">
+                                        <div class="pt-5">
+                                            <h4 class="text-white font-semibold">{{ post.name }}<span class="text-green-500">Slim</span> : </h4>
+                                        </div>
+                                        <a title="{{ post.name }}" href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" class="hover:opacity-75 mt-5">
+                                            <div class="btn-play">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="fill-curent text-green-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="clear"></div>
-                </article>
-            {% endfor %}
-        </section>
-    {% endif %}
-
-    <section class="widget widget_categories">
-        <h3 class="widget-title">Catégories</h3>
-        <ul>
-            {% for category in categories %}
-                <li>
-                    <a title="{{ category.name }}" href="{{ path("app_category_show", {slug: category.slug}) }}">
-                        {{ category.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-
-    <section class="widget widget_tag_cloud">
-        <h3 class="widget-title">Tags</h3>
-        <div class="tagcloud">
-            {% for tag in tags %}
-                <a title="{{ tag.name }}" href="{{ path("app_tag_show", {name: tag.name}) }}">
-                    {{ tag.name }}
-                </a>
-            {% endfor %}
+                {% endfor %}
+            {% endif %}
         </div>
-    </section>
-</aside>
+    </div>
+</div>

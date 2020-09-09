@@ -1,30 +1,20 @@
 {% set _showUrl = data_type == 'blog' ? 'app_blog_show' : 'app_post_show' %}
 {% set _data = blog ?? post %}
 
-<article class="single-blog-post">
-    <header class="post-image">
-        <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="{{ _data.name }}">
-            <img src="{{ vich_uploader_asset(_data, 'thumb_file') }}" alt="{{ _data.name }}">
-        </a>
-    </header>
-    <main class="post-content">
-        <time class="date" data-time="{{ _data.createdAt | date('Y-m-d H:i:s') }}">
-            {% if data_type == "post" %}
-                <i class="far fa-clock"></i>
-                {{ _data.duration ~ " mins" }}
-            {% else %}
-                <i class="far fa-calendar-alt"></i>
-                {{ _data.createdAt | date('d M Y') }}
-            {% endif %}
-        </time>
-        <h3>
-            <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="{{ _data.name }}">
-                {{ _data.name }}
-            </a>
-        </h3>
-        <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="voir plus" class="read-more-btn">
-            Voir Plus
-            <i class="flaticon-right-arrow"></i>
-        </a>
-    </main>
-</article>
+<div class="blog-card2-head">
+    <a href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="{{ _data.name }}">
+        <img 
+            src="{{ vich_uploader_asset(_data, 'thumb_file') }}" class="blog-img" alt="{{ _data.name }}"
+        >
+    </a>
+</div>
+<div class="blog-card2-body">
+    <time class="date" data-time="{{ _data.createdAt | date('Y-m-d H:i:s') }}">
+        <span class="sm:block hidden"><i class="far fa-calendar-alt"></i> {{ _data.createdAt | date('d M Y') }}</span>
+    </time>
+    <h3 class="blog-2-title">
+        <a class="text-green-800" href="{{ path(_showUrl, {id: _data.id, slug: _data.slug}) }}" title="{{ _data.name }}" >{{ _data.name }}</a>
+    </h3>
+    <p class="mb-4 sm:block hidden">{{ _data.content }}</p>
+    <span class="sm:text-md text-sm">Par : <span class="text-green-600">{{ _data.user.name }}</span></span>
+</div>

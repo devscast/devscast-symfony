@@ -1,68 +1,69 @@
 {% set _route = app.request.get('_route') %}
-
-<nav class="navbar navbar-expand-lg navbar-light bg-black">
-    <div class="container">
-        <a class="navbar-brand text-white font-weight-bold" href="{{ path('home') }}">
-            DEVSCAST
-        </a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a title="contact"
-                       class="nav-link {{ _route == "home" ? 'active' : '' }}"
-                       href="{{ path('home') }}">
-                        Accueil
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a title="projects"
-                       class="nav-link {{ _route == "app_project_index" or _route == "app_project_show" ? "active" : "" }}"
-                       href="{{ path("app_project_index") }}">
-                        Projets
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a title="Videos"
-                       href="{{ path('app_post_index') }}"
-                       class="nav-link {{ _route == "app_post_index" or _route == "app_post_show" ? "active" : "" }}">
-                        Vidéos
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a title="blog"
-                       class="nav-link {{ _route == "app_blog_index" or _route == "app_blog_show" ? 'active' : '' }}"
-                       href="{{ path('app_blog_index') }}">
-                        Blog
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a title="contact"
-                       class="nav-link {{ _route == "contact" ? 'active' : '' }}"
-                       href="{{ path('contact') }}">
-                        Contact
-                    </a>
-                </li>
-                <li class="nav-item ml-lg-5">
-                    <div class="navbar-search">
-                        <form action="{{ path("app_post_search") }}" method="get" class="search-form">
-                            <label for="q" class="screen-reader-text">Rechercher :</label>
-                            <input type="search" id="q" name="q" class="search-field" placeholder="search...">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                </li>
-            </ul>
+<header>
+    <nav class="navbar w-full">
+        <div class="flex-shrink-0">
+            <a href="{{ path('home') }}" class="sidebar-logo lg:flex mt-0">
+                <img src="{{ asset('assets/img/icon.png') }}" class="w-12" alt="">
+                <span class="font-semibold text-gray-800">Devs<span class="font-normal text-gray-700">cast</span> </span>
+            </a>
         </div>
-    </div>
-</nav>
+
+        <div class="block lg:hidden -mr-6">
+            <button id="sbOpen" type="button" id="navbar-open" class="hamburger-open flex lg:hidden">
+                <svg class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+            <button id="sbDismiss" type="button" id="navbar-close" class="hamburger-close flex hidden">
+                <svg class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="links" class="nav-links sidebar -ml-all">
+            <a href="{{ path('home') }}" class="sidebar-logo mb-10">
+                <img src="{{ asset('assets/img/icon.png') }}" class="w-12" alt="">
+                <span>Devs<span class="font-normal text-gray-700">cast</span> </span>
+            </a>
+
+            <div class="text-md lg:flex-grow">
+                <a href="{{ path('home') }}" class="nav-link  {{ _route == "home" ? 'active' : '' }}">Accueil</a>
+                <a href="{{ path('app_project_index') }}" class="nav-link {{ _route == "app_project_index" or _route == "app_project_show" ? "active" : "" }}">Projets</a>
+                <a href="{{ path('app_post_index') }}" class="nav-link {{ _route == "app_post_index" or _route == "app_post_show" ? "active" : "" }}">Tutoriels</a>
+                <a href="{{ path('app_blog_index') }}" class="nav-link  {{ _route == "app_blog_index" or _route == "app_blog_show" ? 'active' : '' }}">Blog</a>
+                <a href="{{ path('contact') }}" class="nav-link {{ _route == "contact" ? 'active' : '' }}">Contact</a>
+            </div>
+
+            <div class="lg:ml-5 mt-4 lg:mt-0 lg:mb-0 mb-4">
+                <form id="sForm" action="{{ path("app_post_search") }}" method="get" class="lg:hidden">
+                    <div class="flex my-2 lg:w-auto">
+                        <input type="search" name="q" id="q" placeholder="Rechercher un tuto ou un article"
+                               class="search-input">
+                        <button type="submit" class="btn-search">
+                            <svg class="fill-current pointer-events-none  w-4 h-4 " xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20">
+                                <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <button id="sfLauncher" class="lg:block hidden btn-sfLauncher">
+                    <svg class="fill-current pointer-events-none w-4 h-4 " xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20">
+                        <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <svg class="-mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#2c5282" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+                </svg>
+                <div class="bg-blue-800 p-3 pb-8">
+                    <span class="text-white"><span class="text-green-500 font-semibold">DEVSCAST</span> CC-BY-NC-SA-4.0.2020</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

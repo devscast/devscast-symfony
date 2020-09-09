@@ -1,27 +1,44 @@
 {% if services is defined %}
-    <section id="services" class="services-area ptb-80 bg-black">
-        <div class="container">
-            <div class="section-title">
-                <span>Ce que nous faisons</span>
-                <h2>Nos Compétences</h2>
-                <div class="bar"></div>
-            </div>
+<div class="md:p-20 p-4 pt-20 bg-gray-100">
+    <div class="text-center lg:w-5/12 md:w-7/12 m-auto">
+        <span class="badge badge-pink">Compétences</span>
+        <h2 class="zone-title mt-3">A la pointe du développement créatif du web.</h2>
+    </div>
+    <div class="gap-16 lg:flex items-center md:mt-10">
+        <div class="lg:w-5/12 md:w-8/12 lg:ml-auto m-auto lg:order-last order-first md:mb-16 mb-8">
 
-            <div class="row">
-                {% for service in services.data %}
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-services-box">
-                            <div class="icon">
-                                <i class="{{ service.icon }}"></i>
-                            </div>
-                            <h3>{{ service.name }}</h3>
-                            <p>
-                                {{ service.description | nl2br }}
-                            </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+            <figure class="lg:w-20 md:w-16 w-12 md:-ml-8">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;" xml:space="preserve">
+                    <path class="fill-current text-pink-200" opacity=".40" d="M3,1.3C2,1.7,1.2,2.7,1.2,3.6c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5
+                    C1.4,6.9,1,6.6,0.7,6.1C0.4,5.6,0.3,4.9,0.3,4.5c0-1.6,0.8-2.9,2.5-3.7L3,1.3z M7.1,1.3c-1,0.4-1.8,1.4-1.8,2.3
+                    c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5c-0.7,0-1.1-0.3-1.4-0.8
+                    C4.4,5.6,4.4,4.9,4.4,4.5c0-1.6,0.8-2.9,2.5-3.7L7.1,1.3z" />
+                </svg>
+            </figure>
+            <p class="text-gray-600 lg:text-xl text-center lg:text-left">Avec plus de 5 ans d'expériences et après avoir
+                travailler sur plusieurs projets personnels, en entreprise et en freelance, nos compétences ont été
+                estimée comme suit par nos clients.</p>
+
         </div>
-    </section>
+
+        <div class="lg:w-7/12 md:w-11/12 lg:mr-auto lg:order-first order-last md:m-auto grid sm:grid-cols-2 gap-5">
+            {% for service in services.data %}
+                <div class="skill-card">
+                    <h3 class="skill-title mb-3">{{ service.name }}</h3>
+                    <span>Progression</span>
+                    <div class="progress mt-2">
+                        <div class="bar {{ service.color }}">
+                            <div class="bar-percent {{ service.percent }}" style="width:{{ service.progression}}%;"></div>
+                        </div>
+                        <h4 class="progress-percent-title">{{ service.progression}}%</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% endif %}
+
+

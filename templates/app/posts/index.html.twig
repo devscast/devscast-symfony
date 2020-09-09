@@ -8,28 +8,28 @@
 {% endblock %}
 
 {% block body %}
-    <section id="{{ data_type }}" class="blog-area ptb-80 bg-black">
-        <div class="container">
-            <div class="section-title">
-                <span>Nos Vidéos</span>
-                <h1>Vidéos récentes</h1>
-                <div class="bar"></div>
-            </div>
+    <main id="{{ data_type }}" class="pt-32 pb-56 md:px-20 px-5 bg-white z-10">
+        <div>
+            <h1 class="bt-title">Tutoriels</h1>
+            <p>Formez vous avec devscast</p>
+        </div>
 
-            <div class="row">
-                {% if posts is defined %}
-                    {% for post in posts %}
-                        <div class="col-lg-4 col-md-4">
-                            {% include 'app/blog/_card.html.twig' %}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+        <div class="mt-10">
+            {% if posts|length > 0 %}
+                <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-6">
+                    {% if posts is defined %}
+                        {% for post in posts %}
+                            <div class="view">
+                                {% include 'app/posts/_card.html.twig' %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="mt-8 text-center">
+                    <h1>Pas des Tutoriels disponible</h1>
+                </div>
+            {% endif %}
         </div>
-        <div class="row mt-5">
-            <div class="m-auto">
-                {{ knp_pagination_render(posts) }}
-            </div>
-        </div>
-    </section>
+    </main>
 {% endblock %}

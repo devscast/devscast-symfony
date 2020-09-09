@@ -1,76 +1,124 @@
-<section id="contact" class="contact-area ptb-80 bg-black">
-    <div class="container">
-        <div class="section-title">
-            <span>Bavardons</span>
-            <h1>Contactez-nous</h1>
-            <div class="bar"></div>
-        </div>
+<main>
+    <div class="lg:flex">
+        <div class="lg:w-5/12">
+            <div class="md:px-20 md:pt-32 pb-10 py-16 md:bg-gray-100 lg:h-screen">
+                <div class="bg-white p-5 rounded-md md:shadow-lg lg:-mt-5">
+                    <div class="grid lg:grid-cols-1 sm:grid-cols-2">
 
-        <div class="row align-items-center">
-            <div class="col-lg-5 col-md-12 animated slideInLeft">
-                <div class="contact-image">
-                    <img src="{{ asset('assets/img/contact.svg') }}" alt="image">
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-900">Nos coordonnées</h2>
+                            <div class="flex items-center mt-6">
+                                <div class="w-2/12">
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="fill-current text-blue-800" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    </svg>
+                                </div>
+                                <div class="w-10/12">
+                                    <h5 class="font-semibold">Adresse</h5>
+                                    <p>Lubumbashi, RDC</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-6">
+                                <div class="w-2/12">
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="fill-current text-blue-800" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M3.925 1.745a.636.636 0 0 0-.951-.059l-.97.97c-.453.453-.62 1.095-.421 1.658A16.47 16.47 0 0 0 5.49 10.51a16.471 16.471 0 0 0 6.196 3.907c.563.198 1.205.032 1.658-.421l.97-.97a.636.636 0 0 0-.06-.951l-2.162-1.682a.636.636 0 0 0-.544-.115l-2.052.513a1.636 1.636 0 0 1-1.554-.43L5.64 8.058a1.636 1.636 0 0 1-.43-1.554l.513-2.052a.636.636 0 0 0-.115-.544L3.925 1.745zM2.267.98a1.636 1.636 0 0 1 2.448.153l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                                    </svg>
+                                </div>
+                                <div class="w-10/12">
+                                    <h5 class="font-semibold">Téléphone</h5>
+                                    <a href="tel:+243000000000" title="Appelez nous" class="underline">+243 000 000 000</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-6">
+                                <div class="w-2/12">
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="fill-current text-blue-800" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                    </svg>
+                                </div>
+                                <div class="w-10/12">
+                                    <h5 class="font-semibold">Email</h5>
+                                    <a href="mailto:contact@devscast.com" title="Envoyez un mail" class="underline">contact@devscast.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <hr class="my-8">
+                            <img src="{{ asset('/assets/img/undraw_contact_us_15o2.svg') }}" alt="">
+                        </div>
+
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-lg-7 col-md-12 animated slideInRight">
-                <div class="contact-form">
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <p>
-                                Ce formulaire utilise
-                                <a title="recaptcha" href="https://www.google.com/recaptcha/intro/android.html">
-                                    reCAPTCHA
-                                </a>
-                                afin de lutter contre le SPAM.
-                                L'utilisation de cette fonctionnalité est soumise aux
-                                <a href="https://www.google.com/intl/fr/policies/privacy/">
-                                    Règles de confidentialité
-                                </a> et aux
-                                <a href="https://www.google.com/intl/fr/policies/terms/"
-                                   title="Conditions d'utilisation">
-                                    Conditions d'utilisation
-                                </a> de Google.
-                            </p>
-                        </div>
-                    </div>
+        <div class="lg:w-7/12">
+            <div class="lg:pl-20 md:px-20 px-5 lg:pr-32 lg:py-32 py-20">
+                <div>
+                    <h1 class="text-3xl font-bold text-blue-900">Laissez-nous un message 🙂</h1>
+                    <p class="mt-5">Que vous ayez des questions ou que vous souhaitiez simplement nous dire bonjour, nous nous ferions un plaisir de discuter avec vous. </p>
+                </div>
 
+                <div class="m-10">
                     {{ form_start(contactForm) }}
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            {{ form_row(contactForm.name, {attr: {
-                                placeholder: "votre nom..."
-                            }}) }}
+                        <div class="sm:flex sm:items-center mb-6">
+                            <div class="sm:w-3/12">
+                                <label class="label mb-1 md:mb-0 pr-4" for="fullname">Nom complet</label>
+                            </div>
+                            <div class="sm:w-9/12">
+                                {{ form_row(contactForm.name, {attr: {
+                                    placeholder: "votre nom...", 'class': 'contact-input'
+                                }}) }}
+                            </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6">
-                            {{ form_row(contactForm.email, {attr: {
-                                placeholder: "votre email..."
-                            }}) }}
+                        <div class="sm:flex sm:items-center mb-6">
+                            <div class="sm:w-3/12">
+                                <label class="label mb-1 md:mb-0 pr-4" for="fullname">Nom complet</label>
+                            </div>
+                            <div class="sm:w-9/12">
+                                {{ form_row(contactForm.email, {attr: {
+                                    placeholder: "votre email...", 'class': 'contact-input'
+                                }}) }}
+                            </div>
                         </div>
 
-                        <div class="col-lg-12 col-md-12">
-                            {{ form_row(contactForm.subject, {attr: {
-                                placeholder: "votre sujet..."
-                            }}) }}
+                        <div class="sm:flex sm:items-center mb-6">
+                            <div class="sm:w-3/12">
+                                <label class="label mb-1 md:mb-0 pr-4" for="fullname">Sujet</label>
+                            </div>
+                            <div class="sm:w-9/12">
+                                {{ form_row(contactForm.subject, {attr: {
+                                    placeholder: "votre sujet...", 'class': 'contact-input'
+                                }}) }}
+                            </div>
                         </div>
 
-                        <div class="col-lg-12 col-md-12">
-                            {{ form_row(contactForm.message, {attr: {
-                                placeholder: "votre message...",
-                                cols: "30",
-                                rows: "6"
-                            }}) }}
+                        <div class="sm:flex mb-6">
+                            <div class="sm:w-3/12">
+                                <label class="label mb-1 md:mb-0 pr-4" for="subject">Votre message</label>
+                            </div>
+                            <div class="sm:w-9/12">
+                                {{ form_row(contactForm.message, {attr: {
+                                    placeholder: "votre message...",
+                                    cols: "20",
+                                    rows: "3", 
+                                    'class': 'contact-input'
+                                }}) }}
+                            </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12">
                             {{ form_row(contactForm.captcha) }}
                             <div class="clearfix"></div>
+                        </div>  
+                        <div>
+                            <p class="mb-6">Ce formulaire utilise <a href="" class="text-blue-500"> reCAPTCHA </a> afin de lutter contre le SPAM. L'utilisation de cette fonctionnalité est soumise aux <a href="" class="text-blue-500">Règles de confidentialité</a>  et aux <a href="" class="text-blue-500">Conditions d'utilisation</a>  de Google.</p>
+                            <button type="submit" class="btn-lg btn-green">Envoyer le message</button>
                         </div>
-                    </div>
                     {{ form_end(contactForm) }}
                 </div>
             </div>
         </div>
     </div>
-</section>
+</main>

@@ -1,54 +1,57 @@
-<section class="featured-services-area bg-black">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-featured-services-box">
-                    <div class="icon">
-                        <i class="flaticon-creative-idea"></i>
-                    </div>
-                    <h3>Développement Web</h3>
-                    <div class="bar"></div>
-                    <p>
-                        Nous construisons nos solutions principalement avec les frameworks : Symfony, Laravel, ReactJs
-                    </p>
-                    <div class="shape-img">
-                        <img src="assets/img/shape1.png" alt="shape">
-                    </div>
+<div class="lg:px-32 md:px-20 py-10 p-4">
+    <div class="text-center">
+        <span class="badge badge-green">Nos services</span>
+        <h2 class="zone-title mt-3">Ce que nous faisons</h2>
+    </div>
+    <div class="mt-10 grid lg:grid-cols-3 sm:grid-cols-2 sm:gap-6 gap-4 items-center bg-no-repeat bg-center"
+        style="background-image: url('{{asset('assets/img/services-bg.png') }}');">
+        <div>
+            <div class="service-card">
+                <div class="flex justify-center">
+                    <img src="{{ asset('assets/img/service-icon.png') }}" alt="">
+                </div>
+                <div class="text-center mt-2">
+                    <h3 class="service-title">Devéloppement web</h3>
+                    <p class="mt-3">Cuae nemo? Quo, qui aspernatur. Fuga deleniti in odio voluptatum repellendus
+                        expedita architecto quidem debitis ratione perspiciatis!</p>
                 </div>
             </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-featured-services-box">
-                    <div class="icon">
-                        <i class="flaticon-targeting"></i>
-                    </div>
-                    <h3>Tutoriel Vidéo</h3>
-                    <div class="bar"></div>
-                    <p>
-                        Nous enregistrons des tutoriels pour partager nos connaissances et astuces dans le
-                        développement.
-                    </p>
-                    <div class="shape-img">
-                        <img src="{{ asset('/assets/img/shape1.png') }}" alt="shape">
-                    </div>
+        <div>
+            <div class="service-card">
+                <div class="flex justify-center">
+                    <img src="{{ asset('assets/img/service-icon.png') }}" alt="">
+                </div>
+                <div class="text-center mt-2">
+                    <h3 class="service-title">Tutoriels vidéo</h3>
+                    <p class="mt-3">Cuae nemo? Quo, qui aspernatur. Fuga deleniti in odio voluptatum repellendus
+                        expedita architecto quidem debitis ratione perspiciatis!</p>
                 </div>
             </div>
+            <div class="service-card mt-6">
+                <div class="flex justify-center">
+                    <img src="{{ asset('assets/img/service-icon.png') }}" alt="">
+                </div>
+                <div class="text-center mt-2">
+                    <h3 class="service-title">Devéloppement web</h3>
+                    <p class="mt-3">Cuae nemo? Quo, qui aspernatur. Fuga deleniti in odio voluptatum repellendus
+                        expedita architecto quidem debitis ratione perspiciatis!</p>
+                </div>
+            </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
-                <div class="single-featured-services-box">
-                    <div class="icon">
-                        <i class="flaticon-research"></i>
-                    </div>
-                    <h3>Recherche et Blogging</h3>
-                    <div class="bar"></div>
-                    <p>
-                        Nous rédigeons des articles en rapport avec nos recherches et l'évolution de la technologie
-                    </p>
-                    <div class="shape-img">
-                        <img src="{{ asset('/assets/img/shape1.png') }}" alt="shape">
-                    </div>
+        <div class="lg:mt-0 sm:-mt-24">
+            <div class="service-card">
+                <div class="flex justify-center">
+                    <img src="{{ asset('assets/img/service-icon.png') }}" alt="">
+                </div>
+                <div class="text-center mt-2">
+                    <h3 class="service-title">Recherche & Bloging</h3>
+                    <p class="mt-3">Cuae nemo? Quo, qui aspernatur. Fuga deleniti in odio voluptatum repellendus
+                        expedita architecto quidem debitis ratione perspiciatis!</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>

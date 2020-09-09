@@ -1,0 +1,26 @@
+.progress{
+    @apply flex items-center gap-2 ; 
+}
+
+//progress bar
+.bar{
+    @apply rounded-full h-3 w-9/12 ;
+}
+
+//progress bar percentage
+.bar-percent{
+    @apply pt-3 rounded-full ;
+}
+
+@each $color in $colors {
+
+    //progress bar colors
+    @if (($color != 'black') and ($color != 'white')){
+        .bar-#{$color}{
+            @apply bg-#{$color}-200 ; 
+        }
+        .bar-percent-#{$color}{
+            @apply bg-#{$color}-400 ;
+        }
+    }
+}

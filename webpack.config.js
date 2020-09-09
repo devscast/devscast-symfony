@@ -54,6 +54,11 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+    .enablePostCssLoader((options) => {
+        options.config = {
+            path: './postcss.config.js'
+        };
+    })
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
