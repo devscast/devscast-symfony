@@ -10,19 +10,12 @@
     <meta property="og:image" content="{{ vich_uploader_asset(_data, 'thumb_file') }}">
     <meta property="og:image:secure_url" content="{{ vich_uploader_asset(_data, 'thumb_file') }}"/>
 
-    {# {% if data_type == 'blog' %}  #}
-        <meta property="og:type" content="article"/>
-        <meta property="og:article:published_time" content="{{ _data.createdAt | date("Y-m-d") }}"/>
-        <meta property="og:article:modified_time" content="{{ _data.updatedAt | date("Y-m-d") }}"/>
-        <meta property="og:article:author" content="{{ _data.user.name }}"/>
-        <meta property="og:article:section" content="Technology"/>
-    {# {% else %}
-        <meta property="og:type" content="video.other"/>
-        <meta property="og:video:actor" content="{{ _data.user.name }}"/>
-        <meta property="og:video:writer" content="{{ _data.user.name }}"/>
-        <meta property="og:video:duration" content="{{ _data.duration * 60 }}"/>
-        <meta property="og:video:release_date" content="{{ _data.createdAt | date("Y-m-d") }}"/> 
-    {% endif %}  #}
+    <meta property="og:type" content="article"/>
+    <meta property="og:article:published_time" content="{{ _data.createdAt | date("Y-m-d") }}"/>
+    <meta property="og:article:modified_time" content="{{ _data.updatedAt | date("Y-m-d") }}"/>
+    <meta property="og:article:author" content="{{ _data.user.name }}"/>
+    <meta property="og:article:section" content="Technology"/>
+
 {% endblock %}
 
 {% block stylesheets %}

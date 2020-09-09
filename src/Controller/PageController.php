@@ -43,7 +43,7 @@ class PageController extends AbstractController
      */
     public function index(): Response
     {
-        $blogs = $this->blogRepository->findAll();
+        $blogs = $this->blogRepository->findBy([], null, 5);
         $projectDir = $this->getParameter('kernel.project_dir');
         $services = json_decode(file_get_contents($projectDir . "/resources/services.json"));
         $team = json_decode(file_get_contents($projectDir . "/resources/team.json"));

@@ -12,10 +12,15 @@
                     </div>
                 {% endfor %}
             {% endif %}
+            <div class="m-auto">
+                {{ knp_pagination_render(blogs) }}
+            </div>
         {% else %}
             <div class="mt-8 text-center">
                 <h1>Pas d'articles disponible</h1>
             </div>
         {% endif %}
+
+        
     </div>
 </main>
