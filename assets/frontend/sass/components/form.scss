@@ -1,0 +1,27 @@
+.label{
+    @apply block text-gray-500 font-bold ;
+}
+
+.contact-input{
+    @apply bg-gray-200 border-2 border-gray-200 rounded w-full ; 
+    @apply py-2 px-4 text-gray-700 leading-tight ;
+
+    &:focus {
+        @apply outline-none bg-white border-green-500 ;
+    }
+}
+
+.search-input{
+    @apply w-full outline-none border border-gray-200  ;
+    @apply bg-gray-200 px-3 py-2 rounded-l-md ;    
+
+    &:focus{
+        @apply bg-white shadow-md border-green-300 ;
+    }
+}
+
+@screen lg {
+    .search-input {
+        @apply w-64 ;
+    }
+}

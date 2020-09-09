@@ -1,0 +1,79 @@
+.navbar{
+    @apply fixed z-50 flex items-center justify-between flex-wrap  ;
+    @apply px-4 py-2 bg-white  shadow-navbar  ;
+}
+
+//navbar links parent element
+.nav-links{
+    @apply  items-center flex-grow ; 
+}
+
+.sidebar{
+    @apply block fixed top-0 left-0 p-4 w-10/12 h-screen bg-white  ;
+    @apply shadow-2xl transition-all duration-300 ease-linear ;
+}
+
+.sidebar-logo{
+    @apply  font-semibold text-2xl text-gray-800 flex items-center ;
+}
+
+.sidebar-footer{
+    @apply  absolute bottom-0 left-0 right-0 ;
+}
+
+//nav & sidebar link
+.nav-link{
+    @apply block border-white mt-4 text-gray-600 font-semibold  ;
+
+    &:hover{
+        @apply text-gray-700 border-green-500 ;
+    }
+}
+
+//nav & sidebar active link
+.active{
+    @apply text-gray-700 font-bold border-green-500 ;
+}
+
+@screen sm {
+    .sidebar {
+        @apply w-6/12 ;
+    }
+}
+
+@screen md {
+
+    .sidebar {
+        @apply w-5/12 ;
+    }
+
+    .navbar {
+        @apply px-20 ;
+    }
+}
+
+@screen lg {
+    .navbar {
+        @apply py-0 ;
+    }
+
+    .nav-links {
+        @apply flex ;
+    }
+
+    .sidebar {
+        @apply relative p-0 ml-0 shadow-none bg-transparent w-auto text-right h-auto ;
+    }
+
+    .sidebar-logo{
+        @apply hidden ;
+    }
+
+    .sidebar-footer {
+        @apply hidden ;
+    }
+
+    .nav-link {
+        @apply inline-block border-b-2 mr-4 mt-0 py-4 ;
+    }
+}

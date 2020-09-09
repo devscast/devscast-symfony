@@ -10,19 +10,12 @@
     <meta property="og:image" content="{{ vich_uploader_asset(_data, 'thumb_file') }}">
     <meta property="og:image:secure_url" content="{{ vich_uploader_asset(_data, 'thumb_file') }}"/>
 
-    {% if data_type == 'blog' %}
-        <meta property="og:type" content="article"/>
-        <meta property="og:article:published_time" content="{{ _data.createdAt | date("Y-m-d") }}"/>
-        <meta property="og:article:modified_time" content="{{ _data.updatedAt | date("Y-m-d") }}"/>
-        <meta property="og:article:author" content="{{ _data.user.name }}"/>
-        <meta property="og:article:section" content="Technology"/>
-    {% else %}
-        <meta property="og:type" content="video.other"/>
-        <meta property="og:video:actor" content="{{ _data.user.name }}"/>
-        <meta property="og:video:writer" content="{{ _data.user.name }}"/>
-        <meta property="og:video:duration" content="{{ _data.duration * 60 }}"/>
-        <meta property="og:video:release_date" content="{{ _data.createdAt | date("Y-m-d") }}"/>
-    {% endif %}
+    <meta property="og:type" content="article"/>
+    <meta property="og:article:published_time" content="{{ _data.createdAt | date("Y-m-d") }}"/>
+    <meta property="og:article:modified_time" content="{{ _data.updatedAt | date("Y-m-d") }}"/>
+    <meta property="og:article:author" content="{{ _data.user.name }}"/>
+    <meta property="og:article:section" content="Technology"/>
+
 {% endblock %}
 
 {% block stylesheets %}
@@ -31,81 +24,60 @@
 {% endblock %}
 
 {% block body %}
-    <div class="page-title-area bg-black">
-        <div class="container">
-            <h1>{{ _data.name }}</h1>
-        </div>
-        <div class="br-line"></div>
-    </div>
-
-    <section class="blog-details-area ptb-80 bg-black">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <article class="blog-details">
-                        <header class="article-image">
-                            {% if data_type == "post" %}
-                                <iframe
-                                        width="100%"
-                                        height="500px"
-                                        src="https://www.youtube-nocookie.com/embed/{{ _data.videoUrl }}"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                </iframe>
-                            {% else %}
-                                <img src="{{ vich_uploader_asset(_data, 'thumb_file') }}" alt="{{ _data.name }}">
-                            {% endif %}
-                        </header>
-
-                        <main class="article-content">
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>
-                                        <span>Posted On:</span>
-                                        <time>{{ _data.createdAt | date('M, d Y') }}</time>
-                                    </li>
-                                    <li>
-                                        <span>Posted By: Bernard Ngandu</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            {{ _data.content | markdown_to_html }}
-                        </main>
-
-                        <footer class="article-footer">
-                            {% if _data.category %}
-                                <div class="article-tags">
-                                    <a href="{{ path("app_category_show", {slug: _data.category.slug}) }}"
-                                       title="{{ _data.category.name }}">
-                                        {{ _data.category.name }}
-                                    </a>
-                                </div>
-                            {% endif %}
-
-                            <div class="article-share">
-                                <ul class="social">
-                                    <li>
-                                        <a id="share"
-                                           data-title="{{ _data.name }}"
-                                           data-url="{{ url('app_blog_show', {id: _data.id, slug: _data.slug}) }}"
-                                           href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </footer>
-                    </article>
-                    {#{% include "app/sections/_comments.html.twig" %}#}
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    {{ sidebar() }}
+    <main class="lg:pb-56 sm:pb-10 pb-20">
+        <div class="grid lg:grid-cols-2 items-center lg:bg-blue-800">
+            <div class="lg:py-32 pt-20 md:px-20 px-5">
+                <div class="mt-10">
+                    <span class="text-gray-500 mr-5">{{ _data.createdAt | date('M, d Y') }}</span>
+                    <h1 class="sm:text-4xl text-3xl lg:text-white text-blue-900 font-bold mt-4">{{ _data.name }}</h1>
+                    <p class="sm:text-xl font-medium lg:text-gray-200  mt-6 mb-6">{{ _data.content }}</p>
                 </div>
             </div>
+            <div>
+                <img src="{{ vich_uploader_asset(_data, 'thumb_file') }}" class="lg:h-screen object-cover" alt="{{ _data.name }}">
+            </div>
         </div>
-    </section>
+
+        <div class="relative">
+            <figure class="absolute bottom-0 w-full">
+                <svg class="fill-current text-white" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="100%" height="140px" viewBox="20 -20 300 100" style="margin-bottom: -8px;" xml:space="preserve">
+                    <path class="fill-current" opacity="0.4" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+                    c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" />
+                    <path class="fill-current" opacity="0.4" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+                    c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" />
+                    <path class="fill-current" opacity="0" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+                    H42.401L43.415,98.342z" />
+                    <path class="fill-current" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+                    c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" />
+                </svg>
+            </figure>
+        </div>
+        <div class="md:px-20 px-5 lg:flex gap-8">
+            <div class="lg:w-7/12">
+                <h3 class="text-3xl font-semibold text-gray-800">{{ _data.description }}</h3>
+                <div class="mt-8">
+                    <p class="mt-5">
+                        {{ _data.content | markdown_to_html }}
+                    </p>
+                    <hr class="my-5">
+                    <span>Par : <span class="text-green-500">{{ _data.user.name }}</span></span>
+                    <div class="card mt-5">
+                        <h5 class="text-center">Partager l'article</h5>
+                        <div class="mt-6 flex justify-center gap-3">
+                            <a href="" class="btn-circle btn-blue">f</a>
+                            <a href="" class="btn-circle btn-green">w</a>
+                            <a href="" class="btn-circle btn-teal">in</a>
+                            <a href="" class="btn-circle btn-blue">t</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-4/12 ml-auto">
+                {{ sidebar() }}
+            </div>
+        </div>
+    </main>
 {% endblock %}
 
 {% block javascripts %}

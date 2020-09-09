@@ -1,42 +1,16 @@
-// App variables
-$font-family: 'Poppins', sans-serif;
-$font-size: 14px;
-$transition: .5s;
-$main-color: #04c37f;
-$main-color-hover: #047B4B;
-$white-color: #ffffff;
-$white-color-two: #808080;
-$black-color: #212529; //#000000;
-$black-color-two: #212529;
-$paragraph-color: #dfdfdf;
-$paragraph-color-two: #808080;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// vendor
-@import "~bootstrap/scss/bootstrap";
-@import "animations";
+$colors: 'green' 'white' 'black' 'blue' 'pink' 'indigo' 'purple' 'orange' 'yellow' 'teal' 'red';
 
-// owl carousel
-@import "~owl.carousel/src/scss/core";
-@import '~owl.carousel/src/scss/animate';
-@import "~owl.carousel/src/scss/autoheight";
-@import "~owl.carousel/src/scss/lazyload";
-
-// app components
-@import "components/default";
-@import "components/preloader";
-@import "components/banner";
-@import "components/navbar";
-@import "components/service";
-@import "components/about";
-@import "components/project";
-@import "components/testimonials";
-@import "components/partner";
-@import "components/newsletter";
-@import "components/blog";
-@import "components/team";
-@import "components/contact";
-@import "components/page";
-@import "components/sidebar";
-@import "components/footer";
-@import "responsive";
-@import "overrides";
+@import "components/typography.scss";
+@import "components/navbar.scss";
+@import "components/buttons.scss";
+@import "components/cards.scss";
+@import "components/form.scss";
+@import "components/alerts.scss";
+@import "components/badges_tags.scss";
+@import "components/progress_bars.scss";
+@import "components/carousel.scss";
+@import "components/masks.scss";

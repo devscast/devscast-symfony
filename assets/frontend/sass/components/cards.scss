@@ -1,0 +1,149 @@
+//ordinar card
+.card{
+    @apply p-4 bg-white rounded-md shadow-md ;
+
+    &:hover{
+        @apply shadow-lg ;
+    }
+}
+
+.service-card{
+    @apply bg-white rounded-lg shadow-service px-5 py-6 ;
+
+    &:hover{
+        @apply shadow-lg ;
+    }
+}
+
+.skill-card{
+    @apply p-4 shadow-skill rounded-md bg-white ;
+
+    &:hover {
+        @apply shadow-lg ;
+    }
+}
+
+
+//blog cards
+
+//home page blog zone card
+.blog-card{
+    @apply bg-white shadow-blog border-b-2 border-white rounded-md p-2 ;
+
+    .blog-card-head{
+        @apply p-3 border rounded-md ;
+    }
+
+    &:hover {
+        @apply shadow-lg border-teal-500 ;
+    }
+}
+
+//blog ordinary card
+.blog-card2{
+    @apply   mx-3  p-2 rounded-lg shadow-blog flex bg-white ;
+}
+
+.blog-card2-body{
+    @apply w-8/12 pl-3 ;
+}
+
+.blog-card2-head{
+    @apply w-4/12;
+}
+
+//blog article image
+.blog-img{
+    @apply rounded-md object-cover h-auto;
+}
+
+//latest blog article card
+.blog-latest{
+    @apply rounded-lg  shadow-blog;
+}
+
+.blog-latest-body{
+    @apply z-20 relative mx-3 p-4 -mt-16 bg-white shadow-blog rounded-md ;
+}
+
+.blog-latest-head{
+    @apply z-0 ;
+}
+
+//similar blog article card
+.blog-similar{
+    @apply p-2 rounded-lg shadow-blog flex bg-white ;
+}
+
+.blog-similar-head{
+    @apply w-4/12 ;
+}
+
+.blog-similar-body {
+    @apply w-8/12 p-2 ;
+}
+
+//similar blog article image
+.blog-similar-img{
+    @apply rounded-md object-cover h-auto ;
+}
+
+@screen sm {
+    .blog-card2 {
+        @apply  mx-0 p-0 ;
+    }
+
+    .blog-card2-body{
+        @apply w-7/12 p-6 ;
+    }
+
+    .blog-card2-head{
+        @apply w-5/12;
+    }
+
+    .blog-img{
+        @apply rounded-none rounded-l-lg ;
+    }
+
+    .blog-latest{
+        @apply shadow-navbar flex bg-white p-0 ;
+    }
+
+    .blog-latest-body {
+        @apply w-7/12 p-6 mx-0 mt-0 shadow-none ;
+    }
+
+    .blog-latest-head{
+        @apply w-5/12 mx-0 ;
+    }
+    
+    .blog-similar{
+        @apply mt-4 ;
+    }
+
+    .blog-similar-head{
+        @apply w-5/12 ;
+    }
+
+    .blog-similar-body {
+        @apply w-7/12 ;
+    }
+}
+//blog cards 
+
+
+.project{
+    @apply text-blue-900 ;
+
+    &:hover{
+        @apply text-green-500 ;
+    }
+}
+
+.project-card{
+    @apply p-3 shadow rounded-b-md border-b-2 bg-white ;
+
+    &:hover{
+        @apply border-green-500 ;
+    }
+}

@@ -8,9 +8,14 @@
 {% endblock %}
 
 {% block body %}
-    <section class="blog-area ptb-80 bg-black">
-        <div class="container">
-            {{ include('app/documents/contributing.md.twig') | markdown_to_html }}
+     <main class="pt-12 lg:pb-56 pb-10">
+        <div class="pt-24 pb-40 bg-blue-900 lg:px-40 px-5">
+            <h1 class="text-center md:text-5xl text-white">Code de conduite du Pacte des contributeurs</h1>
         </div>
-    </section>
+        <div class="lg:mx-32 mx-4 -mt-20">
+            <div class="bg-white shadow-2xl rounded-lg md:p-16 p-5">
+                {{ include('app/documents/contributing.md.twig') | markdown_to_html }}
+            </div>
+        </div>
+    </main>
 {% endblock %}

@@ -1,0 +1,28 @@
+.blog-control{
+    @apply flex items-center justify-center ;
+}
+
+.dot{
+    @apply cursor-pointer h-3 w-3 bg-teal-300 rounded-full mx-1;
+
+    &:hover{
+        @apply bg-teal-400 ;
+    }
+}
+
+.dot-active {
+    @extend .dot ;
+
+    @apply h-4 w-4 bg-transparent border-2 border-teal-300 ;
+}
+
+.arrow{
+    @apply shadow-xl text-gray-900 text-2xl py-4 px-2 bg-gray-500 rounded-l-full ;
+    &:hover{
+        @apply bg-gray-300 text-purple-700 ;
+    }
+}
+
+.arrow-left{
+    @apply transform rotate-180 ;
+}

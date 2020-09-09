@@ -13,17 +13,22 @@
 {% endblock %}
 
 {% block body %}
-    <section id="github-calendar" class="about-area ptb-80 bg-black">
-        <div class="container">
-            <div class="section-title">
-                <span>Open source</span>
-                <h1>Notre activité sur Github</h1>
-                <div class="bar"></div>
-            </div>
-            <div class="calendar animated fadeIn" style="text-align: center">Chargement de l'activité...</div>
+    <div class="pt-40 pb-5 md:px-20 px-5 bg-gray-100">
+        <div class="text-center lg:w-7/12 m-auto">
+            <h1 class="sm:text-5xl"><span class="text-green-500 font-extrabold">Portfolio</span> : nos dernières réalisations</h1>
+            <p class=" md:text-xl text-lg mt-5">Nous croyons en des moyens simples et efficaces pour développer une entreprise intelligement.</p>
         </div>
-    </section>
-    {% include 'app/includes/_divider.html.twig' %}
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7fafc" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+        
+    <div class="lg:-mt-32 md:-mt-48 -mt-16">
+        <div class="absolute lg:-mt-40 ">
+            <svg class="absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#15db95" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            <div class="relative">
+                <svg class="-mt-1 -mr-5 w-screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7fafc" fill-opacity="1" d="M0,224L80,197.3C160,171,320,117,480,112C640,107,800,149,960,170.7C1120,192,1280,192,1360,192L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+            </div>
+        </div>
+    </div>
     {% include 'app/sections/_projects.html.twig' %}
 {% endblock %}
 

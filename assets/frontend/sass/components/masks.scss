@@ -1,0 +1,72 @@
+//tutorials masks
+.view{
+    @apply relative flex items-end;
+}
+
+.view-head{
+    @apply relative w-full ;
+}
+
+.view-poster {
+    @apply rounded-lg object-cover w-full h-64 ;
+}
+
+.mask{
+    @apply absolute w-full ;
+}
+
+.tutorial-mask{
+    @apply flex justify-between p-5 pt-0 bg-gray-900 bg-opacity-75 rounded-b-lg ;
+}
+
+
+//devs team masks
+.dev-view {
+    @apply relative flex justify-center items-center ;
+
+    &:hover{
+        @apply opacity-100 ;
+    }
+}
+
+.dev-view-active {
+    @apply opacity-100 ;
+}
+
+// dev image
+.dev-avatar{
+    @apply rounded-full  object-cover w-64 h-64 border-8 border-teal-100 ;
+}
+
+// dev informations mask
+.dev-mask{
+
+    @extend .dev-avatar ;
+
+    @apply z-10 flex items-center justify-center border-green-300 ;
+    @apply bg-green-500 opacity-0 ;
+
+    &:hover{
+        @apply bg-opacity-75 opacity-100 ;
+    }
+}
+
+@screen md {
+    .dev-avatar{
+        @apply w-56 h-56;
+    }
+
+    .dev-avatar-active, .dev-mask-active{
+        @apply w-64 h-64;
+    }
+}
+
+@screen lg {
+    .dev-view {
+        @apply opacity-25 ;
+    }
+
+    .dev-view-active {
+        @apply opacity-100 ;
+    }
+}
