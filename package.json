@@ -24,7 +24,7 @@
   "dependencies": {
     "@splidejs/splide": "^2.4.11",
     "animate-sass": "^0.8.2",
-    "axios": "^0.19",
+    "axios": "^0.20",
     "bootstrap": "^4.5.0",
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
