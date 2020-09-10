@@ -2,32 +2,43 @@
   "entrypoints": {
     "frontend/app": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~frontend/app.js",
-        "/build/frontend/app.js"
+        "/build/runtime.c3286811.js",
+        "/build/1.69482d8e.js",
+        "/build/frontend/app.f5cf75c3.js"
       ],
       "css": [
-        "/build/vendors~frontend/app.css",
-        "/build/frontend/app.css"
+        "/build/1.d2b4c0f4.css",
+        "/build/frontend/app.93d7ae23.css"
       ]
     },
     "dashboard/app": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~dashboard/app.js",
-        "/build/dashboard/app.js"
+        "/build/runtime.c3286811.js",
+        "/build/0.b62019ad.js",
+        "/build/dashboard/app.cce38d8f.js"
       ],
       "css": [
-        "/build/dashboard/app.css"
+        "/build/dashboard/app.84b5f2d1.css"
       ]
     },
     "dashboard/pages/filesystem": {
       "js": [
-        "/build/runtime.js"
+        "/build/runtime.c3286811.js"
       ],
       "css": [
-        "/build/dashboard/pages/filesystem.css"
+        "/build/dashboard/pages/filesystem.ced8a2e6.css"
       ]
     }
+  },
+  "integrity": {
+    "/build/runtime.c3286811.js": "sha384-3dXAuZyllNwSlkYiq2f9+fOLUQQwkKRM8qJFAmhojI1W/jblOtHnBqEm05RMJfB7",
+    "/build/1.69482d8e.js": "sha384-f2OcDlDQsYPUlIjJgAoBzauQsXABOBuDDFihAjQlcfcK8YXXX/Kgf/0EMd7dll59",
+    "/build/frontend/app.f5cf75c3.js": "sha384-ArfbYPdjjLJpFHAsdnDP4ooE+/mdqbvOr35ne3WeSrsgzy5OUsrQysxtov6e0b2A",
+    "/build/1.d2b4c0f4.css": "sha384-QZLp6mniMgi7/ibfIvck115thd1DvrbvfDYu/BEkbnoAwNFqisWlMWMHPM9bB63N",
+    "/build/frontend/app.93d7ae23.css": "sha384-nR1TbyfAApZLq2JTiM1oGi9nadBKt3ubDBw2qjEIpJq1KFGo01qTBcz3rO+cyfjz",
+    "/build/0.b62019ad.js": "sha384-75M6OhZav5yLe3ksM/UrgZicCbmmFAGFzPShv+FBV8d5b0A7337zZzPja92CF9NY",
+    "/build/dashboard/app.cce38d8f.js": "sha384-Rr8qsWob9fh0qCGGfusP9ODGRQYQL2UAFn2CRSFByb5YmMjSJZVyqBW5aaMNW4qK",
+    "/build/dashboard/app.84b5f2d1.css": "sha384-5hPFTZ8svQ+HWRtrFio6AzRT77J1rbjWcHMyBYT5kafO//POcYZhBS/z1qUOGPwL",
+    "/build/dashboard/pages/filesystem.ced8a2e6.css": "sha384-yWEZ6ywwO0+IiA0m9vNcvFRF3rMos4ubqMkfH2K4Obxf25sTdcR96tnI1atSN6Yg"
   }
 }
