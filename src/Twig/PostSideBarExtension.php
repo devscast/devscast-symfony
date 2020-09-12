@@ -70,16 +70,16 @@ class PostSideBarExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('sidebar', [$this, 'sidebar'], ['is_safe' => ['html']]),
+            new TwigFunction('blogSideBar', [$this, 'blogSideBar'], ['is_safe' => ['html']]),
         ];
     }
 
     /**
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function sidebar(): string
+    public function blogSideBar(): string
     {
-        return $this->cache->get('sidebar', function (ItemInterface $item) {
+        return $this->cache->get('blogSideBar', function (ItemInterface $item) {
             $item->tag(['tags', 'categories', 'posts']);
             return $this->renderSidebar();
         });
