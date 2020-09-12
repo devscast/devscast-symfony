@@ -9,7 +9,7 @@ use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class TutoSideBarExtension extends AbstractExtension
+class TutoSideBarExtensions extends AbstractExtension
 {
     private Environment $twig;
 
@@ -64,7 +64,7 @@ class TutoSideBarExtension extends AbstractExtension
      */
     public function renderSiderbar():string
     {
-        return $this->twig->render('app/blog/_sidebar.html.twig', [
+        return $this->twig->render('app/posts/_sidebar.html.twig', [
             'posts' => $this->postRepository->findForSidebar()
         ]);
     }
