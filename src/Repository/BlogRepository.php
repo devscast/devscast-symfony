@@ -18,6 +18,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class BlogRepository
@@ -32,16 +33,23 @@ class BlogRepository extends ServiceEntityRepository
 {
 
     private PaginatorInterface $paginator;
+    private LoggerInterface $logger;
 
     /**
      * BlogRepository constructor.
+     * @param LoggerInterface $logger
      * @param ManagerRegistry $registry
      * @param PaginatorInterface $paginator
      */
-    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
+    public function __construct(
+        LoggerInterface $logger,
+        ManagerRegistry $registry,
+        PaginatorInterface $paginator
+    )
     {
         parent::__construct($registry, Blog::class);
         $this->paginator = $paginator;
+        $this->logger = $logger;
     }
 
     /**
@@ -103,5 +111,26 @@ class BlogRepository extends ServiceEntityRepository
             ->leftJoin('b.tags', 't')
             ->where('b.is_archived = 0')
             ->orderBy('b.created_at', 'DESC');
+    }
+
+    /**
+     * @return mixed
+     * @author scotttresor <scotttresor@gmail.com>
+     */
+    public function findForSidebar()
+    {
+        try {
+            return $this->createQueryBuilder('p')
+                ->where('p.created_at <= :now')
+                ->andWhere('p.is_archived = 0')
+                ->orderBy('p.created_at', 'DESC')
+                ->setMaxResults(3)
+                ->setParameter('now', new \DateTime('now'))
+                ->getQuery()
+                ->getResult();
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage(), $e->getTrace());
+            return null;
+        }
     }
 }

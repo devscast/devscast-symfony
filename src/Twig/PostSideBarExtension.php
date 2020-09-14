@@ -11,6 +11,7 @@
 
 namespace App\Twig;
 
+use App\Repository\BlogRepository;
 use Twig\Environment;
 use Twig\TwigFunction;
 use Twig\Error\LoaderError;
@@ -41,6 +42,8 @@ class PostSideBarExtension extends AbstractExtension
 
     private Environment $twig;
 
+    private BlogRepository $blogRepository;
+
     /**
      * PostSideBarExtension constructor.
      * @param Environment $twig
@@ -48,19 +51,22 @@ class PostSideBarExtension extends AbstractExtension
      * @param TagRepository $tagRepository
      * @param CategoryRepository $categoryRepository
      * @param PostRepository $postRepository
+     * @param BlogRepository $blogRepository
      */
     public function __construct(
         Environment $twig,
         TagAwareAdapterInterface $cache,
         TagRepository $tagRepository,
         CategoryRepository $categoryRepository,
-        PostRepository $postRepository
+        PostRepository $postRepository,
+        BlogRepository $blogRepository
     ) {
         $this->tagRepository = $tagRepository;
         $this->categoryRepository = $categoryRepository;
         $this->postRepository = $postRepository;
         $this->cache = $cache;
         $this->twig = $twig;
+        $this->blogRepository = $blogRepository;
     }
 
     /**
@@ -71,6 +77,7 @@ class PostSideBarExtension extends AbstractExtension
     {
         return [
             new TwigFunction('blogSideBar', [$this, 'blogSideBar'], ['is_safe' => ['html']]),
+            new TwigFunction('postSideBar', [$this, 'postSideBar'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -82,6 +89,17 @@ class PostSideBarExtension extends AbstractExtension
         return $this->cache->get('blogSideBar', function (ItemInterface $item) {
             $item->tag(['tags', 'categories', 'posts']);
             return $this->renderSidebar();
+        });
+    }
+
+    /**
+     * @author scotttresor <scotttresor@gmail.com>
+     */
+    public function postSideBar(): string
+    {
+        return  $this->cache->get('postSideBar', function (ItemInterface $item){
+           $item->tag(['posts']);
+           return $this->renderPostSideBar();
         });
     }
 
@@ -98,6 +116,20 @@ class PostSideBarExtension extends AbstractExtension
             'tags' => $this->tagRepository->findAll(),
             'categories' => $this->categoryRepository->findAll(),
             'posts' => $this->postRepository->findForSidebar()
+        ]);
+    }
+
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @author scotttresor <scotttresor@gmail.com>
+     */
+    private function renderPostSideBar(): string
+    {
+        return $this->twig->render('app/posts/_sidebar.html.twig', [
+            'posts' =>$this->postRepository->findForSidebar()
         ]);
     }
 }
