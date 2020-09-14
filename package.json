@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@symfony/webpack-encore": "^0.30.0",
+    "@symfony/webpack-encore": "^0.31.0",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "node-sass": "^4.14.1",
@@ -9,7 +9,7 @@
     "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.7",
     "sass-loader": "^8.0.0",
-    "tailwindcss": "^1.7.1",
+    "tailwindcss": "^1.8.9",
     "url-loader": "^2.0.1",
     "webpack-notifier": "^1.6.0"
   },

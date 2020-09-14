@@ -53,27 +53,6 @@ class PostRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return mixed
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function findForSidebar()
-    {
-        try {
-            return $this->createQueryBuilder('p')
-                ->where('p.created_at <= :now')
-                ->andWhere('p.is_archived = 0')
-                ->orderBy('p.created_at', 'DESC')
-                ->setMaxResults(3)
-                ->setParameter('now', new \DateTime('now'))
-                ->getQuery()
-                ->getResult();
-        } catch (\Exception $e) {
-            $this->logger->error($e->getMessage(), $e->getTrace());
-            return null;
-        }
-    }
-
-    /**
      * @param SearchData $searchData
      * @return PaginationInterface
      * @author bernard-ng <ngandubernard@gmail.com>
@@ -102,6 +81,27 @@ class PostRepository extends ServiceEntityRepository
             $page,
             12
         );
+    }
+
+    /**
+     * @return mixed
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    public function findForSidebar()
+    {
+        try {
+            return $this->createQueryBuilder('p')
+                ->where('p.created_at <= :now')
+                ->andWhere('p.is_archived = 0')
+                ->orderBy('p.created_at', 'DESC')
+                ->setMaxResults(4)
+                ->setParameter('now', new \DateTime('now'))
+                ->getQuery()
+                ->getResult();
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage(), $e->getTrace());
+            return null;
+        }
     }
 
     /**
