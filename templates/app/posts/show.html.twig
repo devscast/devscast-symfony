@@ -41,42 +41,7 @@
         </div>
 
         <div class="lg:w-4/12">
-            <div class="lg:pt-20 pt-10">
-                <h2 class="text-2xl font-semibold text-blue-900">Vidéos similaires</h2>
-                <div class="grid lg:grid-cols-1 sm:grid-cols-2 mt-4 gap-6">
-                    {% if posts is defined %}
-                        {% for post in posts %}
-                        <a href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}" title="{{ post.name }}">
-                            <div class="view">
-                                <div class="view-head">
-                                    <img src="{{ asset('assets/img/tutos/1.jpg') }}" class="view-poster"
-                                        alt="{{ post.name }}">
-                                </div>
-                                <div class="mask">
-                                    <div class="tutorial-mask items-center">
-                                        <div class="pt-5">
-                                            <h4 class="text-white font-semibold">{{ post.name }}</h4>
-                                            <h4 class="text-white">{{ post.description }}</h4>
-                                        </div>
-                                        <a href="{{ path('app_post_show', {id: post.id, slug: post.slug}) }}"
-                                            title="{{ post.name }}" class="hover:opacity-75 mt-5">
-                                            <div class="btn-play">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16"
-                                                    class="fill-curent text-green-500" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                                </svg>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
+            {{ post_sidebar() }}
         </div>
     </div>
 </main>

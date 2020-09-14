@@ -1,6 +1,6 @@
 {% extends 'layout/base.html.twig' %}
 {% set _data = blog ?? post %}
-{% set _prefix = (data_type == 'blog') ? "Article " : "Vidéo " %}
+{% set _prefix = (data_type == 'blog') ? "Article " : "Vidéo" %}
 
 {% block meta %}
     <title>{{ _prefix }}{{ _data.name }} | devs-cast.com</title>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="lg:w-4/12 ml-auto">
-                {{ sidebar() }}
+                {{ blog_sidebar() }}
             </div>
         </div>
     </main>
