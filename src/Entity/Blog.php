@@ -25,7 +25,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class Blog
- * @ApiResource()
  * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
  * @UniqueEntity("name")

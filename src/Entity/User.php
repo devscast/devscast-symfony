@@ -25,7 +25,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ApiResource()
  * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -98,12 +97,12 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="user")
      */
-    private $blogs;
+    private Collection $blogs;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
      */
-    private $posts;
+    private Collection $posts;
 
     /**
      * @ORM\Column(type="boolean")

@@ -42,13 +42,13 @@ class Tag
      * @ORM\ManyToMany(targetEntity="App\Entity\Blog", mappedBy="tags")
      * @OrderBy({"created_at" = "DESC"})
      */
-    private $blogs;
+    private Collection $blogs;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Post", mappedBy="tags")
      * @OrderBy({"created_at" = "DESC"})
      */
-    private $posts;
+    private Collection $posts;
 
     /**
      * @ORM\Column(type="boolean")

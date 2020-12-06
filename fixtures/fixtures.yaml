@@ -1,0 +1,50 @@
+include:
+    - templates.yaml
+
+App\Entity\User:
+    app_user_{1..10} (extends user):
+        email: user_<current()>\@user.com
+
+    app_user_admin (extends user):
+        email: admin\@admin.com
+        roles:
+            - ROLE_SUPER_ADMIN
+
+App\Entity\Category:
+    app_category_{1..50}:
+        name: <name()>
+        description: <text()>
+        icon_url: <url()>
+        slug: <slug()>
+        is_archived: 0
+
+App\Entity\Tag:
+    app_tag_{1..10}:
+        name: <name()>
+        is_archived: 0
+
+App\Entity\Blog:
+    app_blog_{1..500}:
+        name: <name()>
+        thumb_url: https://bit.ly/3qA5Idy
+        is_online: 1
+        slug: <slug()>
+        is_archived: 0
+        content: <text()>
+        description: <text()>
+        category: '@app_category_*'
+        user: '@app_user_admin'
+
+App\Entity\Post:
+    app_post_{1..500}:
+        name: <name()>
+        description: <text()>
+        content: <text()>
+        thumb_url: "https://bit.ly/3qA5Idy"
+        video_url: "Jbce3empZRg"
+        is_online: 1
+        is_archived: 0
+        slug: <slug()>
+        duration: 50
+        category: '@app_category_*'
+        user: '@app_user_admin'

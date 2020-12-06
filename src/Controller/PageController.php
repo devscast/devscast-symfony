@@ -13,12 +13,12 @@ namespace App\Controller;
 
 use App\Data\ContactData;
 use App\Form\ContactType;
-use App\Repository\BlogRepository;
 use App\Notification\ContactNotification;
+use App\Repository\BlogRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class PageController
@@ -37,7 +37,7 @@ class PageController extends AbstractController
     {
         $this->blogRepository = $blogRepository;
     }
-    
+
     /**
      * @Route("/", name="home", methods={"GET"})
      */
@@ -65,7 +65,10 @@ class PageController extends AbstractController
         $contactForm->handleRequest($request);
 
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
-            $this->addFlash('success', 'Nous avons réçu votre mail :)');
+            $this->addFlash(
+                'success',
+                'Nous avons bien reçu votre mail, nous tâcherons de vous répondre dans le plus bref délais  😉 😌'
+            );
             $contactNotification->notify($contact);
             return $this->redirectToRoute('home');
         }

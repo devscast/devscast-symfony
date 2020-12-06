@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "data": [
     {
       "name": "Bernard Ng",
@@ -37,52 +37,6 @@
           "name": "instagram",
           "link": "https://instagram.com/scotttresor",
           "icon": "fab fa-instagram"
-        }
-      ]
-    },
-    {
-      "name": "Divine Beloti",
-      "role": "Developer",
-      "avatar": "https://avatars2.githubusercontent.com/u/36290995?s=460&v=4",
-      "social": [
-        {
-          "name": "github",
-          "link": "https://github.com/belotiKZ",
-          "icon": "fab fa-github-square"
-        }
-      ]
-    },
-    {
-      "name": "Jonathan Yombo",
-      "role": "Developer",
-      "avatar": "https://avatars1.githubusercontent.com/u/17916412?s=460&v=4",
-      "social": [
-        {
-          "name": "github",
-          "link": "https://github.com/ljoboy",
-          "icon": "fab fa-github-square"
-        },
-        {
-          "name": "twitter",
-          "link": "https://twitter.com/ljoboy1322",
-          "icon": "fab fa-twitter"
-        }
-      ]
-    },
-    {
-      "name": "Elvis Kankola",
-      "role": "Developer",
-      "avatar": "https://avatars3.githubusercontent.com/u/36431029?s=460&v=4",
-      "social": [
-        {
-          "name": "github",
-          "link": "https://github.com/elviskankola1",
-          "icon": "fab fa-github-square"
-        },
-        {
-          "name": "twitter",
-          "link": "https://twitter.com/KankolaElvis",
-          "icon": "fab fa-twitter"
         }
       ]
     },

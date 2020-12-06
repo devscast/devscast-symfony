@@ -1,0 +1,11 @@
+App\Entity\User:
+    user (template):
+        password: \$2y\$13\$PzaAzoYYBl1VyuAU9M/3GuFQaOgO2vyHct1iN0b4vULoIXtcBICuu # 000000
+        is_archived: 0
+        roles:
+            - ROLE_USER
+        name: <name()>
+        email: <email()>
+        last_login_at: <dateTimeBetween("first day of this year", "last day of this year")>
+        last_login_ip: <ipv4()>
+        avatar: https://bit.ly/3mPKGFv

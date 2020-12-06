@@ -25,7 +25,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Class Post
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity("name")
  * @Vich\Uploadable()
