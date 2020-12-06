@@ -9,25 +9,26 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
 use App\Entity\User;
-use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Class RegistrationFormType
+ * Class UserForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class RegistrationFormType extends AbstractType
+class UserForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -37,23 +38,14 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('email')
-            ->add('agree', CheckboxType::class, [
-                'mapped' => false,
-                'label' => "D'accord",
-                'constraints' => [new IsTrue(['message' => 'You should agree to our terms.'])],
+            ->add('name', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('password', PasswordType::class)
+            ->add('roles', ChoiceType::class, [
+                'multiple' => true,
+                'choices' => $this->getRolesChoices(),
             ])
-            ->add('password', PasswordType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank(),
-                    new Length(['min' => 6, 'max' => 4096]),
-                ],
-            ])
-            ->add('captcha', RecaptchaSubmitType::class, [
-                'label' => 'Envoyer'
-            ]);
+            ->add('avatar_file', FileType::class, ['required' => false]);
     }
 
     /**
@@ -65,5 +57,18 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
         ]);
+    }
+
+    /**
+     * @return array
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
+    private function getRolesChoices(): array
+    {
+        return [
+            "ROLE_ADMIN" => "ROLE_ADMIN",
+            "ROLE_BLOG_MANAGER" => "ROLE_BLOG_MANAGER",
+            "ROLE_SHOP_MANAGER" => "ROLE_SHOP_MANAGER"
+        ];
     }
 }

@@ -11,7 +11,7 @@
 
 namespace App\Notification;
 
-use App\Data\ContactData;
+use App\Data\ContactRequestData;
 use Psr\Log\LoggerInterface;
 use Swift_Mailer;
 use Twig\Environment;
@@ -44,11 +44,11 @@ class ContactNotification
     }
 
     /**
-     * @param ContactData $contact
+     * @param ContactRequestData $contact
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function notify(ContactData $contact): bool
+    public function notify(ContactRequestData $contact): bool
     {
         try {
             $message = (new \Swift_Message())

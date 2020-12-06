@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\Blog;
-use App\Form\BlogType;
+use App\Form\BlogForm;
 use App\Repository\BlogRepository;
 use DateTime;
 use Exception;
@@ -51,7 +53,7 @@ class BlogController extends AbstractController
     {
         $blog = new Blog();
         $blog->setUser($this->getUser());
-        $form = $this->createForm(BlogType::class, $blog);
+        $form = $this->createForm(BlogForm::class, $blog);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -88,7 +90,7 @@ class BlogController extends AbstractController
      */
     public function edit(Request $request, Blog $blog): Response
     {
-        $form = $this->createForm(BlogType::class, $blog);
+        $form = $this->createForm(BlogForm::class, $blog);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -113,7 +115,7 @@ class BlogController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $blog->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $blog->setIsArchived(1);
+            $blog->setIsArchived(true);
             $entityManager->persist($blog);
             $entityManager->flush();
         }

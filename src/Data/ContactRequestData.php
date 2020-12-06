@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Data;
 
 use Symfony\Component\Validator\Constraints as Assert;
@@ -18,7 +20,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package App\Data
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class ContactData
+class ContactRequestData
 {
 
     /**

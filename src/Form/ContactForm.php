@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
-use App\Data\ContactData;
-use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType;
+use App\Data\ContactRequestData;
 use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaType;
 use Beelab\Recaptcha2Bundle\Validator\Constraints\Recaptcha2;
 use Symfony\Component\Form\AbstractType;
@@ -23,11 +24,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class ContactType
+ * Class ContactForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class ContactType extends AbstractType
+class ContactForm extends AbstractType
 {
 
     /**
@@ -38,18 +39,10 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => false
-            ])
-            ->add('email', EmailType::class, [
-                'label' => false
-            ])
-            ->add('subject', TextType::class, [
-                'label' => false
-            ])
-            ->add('message', TextareaType::class, [
-                'label' => false
-            ])
+            ->add('name', TextType::class, ['label' => false])
+            ->add('email', EmailType::class, ['label' => false])
+            ->add('subject', TextType::class, ['label' => false])
+            ->add('message', TextareaType::class, ['label' => false])
             ->add("captcha", RecaptchaType::class, [
                 'mapped' => false,
                 'constraints' => new Recaptcha2()
@@ -63,7 +56,7 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ContactData::class,
+            'data_class' => ContactRequestData::class,
         ]);
     }
 }

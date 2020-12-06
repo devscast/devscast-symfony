@@ -9,24 +9,25 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
+use stdClass;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class ProjectController
- * @Route("/projects", schemes={"HTTP", "HTTPS"})
+ * @Route("/projects", name="app_project_")
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class ProjectController extends AbstractController
 {
-
-    /** @var mixed */
-    private $projects;
+    private stdClass $projects;
 
     /**
      * @return mixed
@@ -42,7 +43,7 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route(path="", name="app_project_index", methods={"GET"})
+     * @Route(path="", name="index", methods={"GET"})
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
@@ -56,7 +57,7 @@ class ProjectController extends AbstractController
     /**
      * @Route(
      *     path="/{name}",
-     *     name="app_project_show",
+     *     name="show",
      *     methods={"GET"},
      *     requirements={"name":"[\w]+"}
      * )

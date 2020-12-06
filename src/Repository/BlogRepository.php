@@ -9,15 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
+use App\Data\SearchRequestData;
 use App\Entity\Blog;
-use App\Data\SearchData;
-use Doctrine\ORM\QueryBuilder;
-use Knp\Component\Pager\PaginatorInterface;
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\Persistence\ManagerRegistry;
+use Exception;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -52,11 +55,11 @@ class BlogRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param SearchData $searchData
+     * @param SearchRequestData $searchData
      * @return PaginationInterface
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function findSearch(SearchData $searchData)
+    public function findSearch(SearchRequestData $searchData)
     {
         $query = $this->joinTablesQuery();
         $query = $this->applyFilters($query, $searchData);
@@ -84,11 +87,11 @@ class BlogRepository extends ServiceEntityRepository
 
     /**
      * @param QueryBuilder $query
-     * @param SearchData $searchData
+     * @param SearchRequestData $searchData
      * @return QueryBuilder
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    private function applyFilters(QueryBuilder $query, SearchData $searchData)
+    private function applyFilters(QueryBuilder $query, SearchRequestData $searchData)
     {
         if (!empty($searchData->q)) {
             $query = $query
@@ -127,7 +130,7 @@ class BlogRepository extends ServiceEntityRepository
                 ->setParameter('now', new \DateTime('now'))
                 ->getQuery()
                 ->getResult();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->logger->error($e->getMessage(), $e->getTrace());
             return null;
         }

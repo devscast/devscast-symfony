@@ -9,11 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\GlobalMessage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 
 /**
  * Class GlobalMessageRepository
@@ -45,11 +48,11 @@ class GlobalMessageRepository extends ServiceEntityRepository
             return $this->createQueryBuilder('g')
                 ->where("g.state = :state")
                 ->orderBy("g.created_at", "DESC")
-                ->setParameter("state", "1")
+                ->setParameter("state", true)
                 ->setMaxResults(1)
                 ->getQuery()
                 ->getOneOrNullResult();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return null;
         }
     }

@@ -1,11 +1,22 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace App\Twig;
 
 use stdClass;
-use Twig\TwigFunction;
-use Twig\Extension\AbstractExtension;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class MetaDataExtension

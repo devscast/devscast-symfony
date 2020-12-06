@@ -9,30 +9,31 @@
  * file that was distributed with this source code.
  */
 
-namespace App\EventSubscriber;
+declare(strict_types=1);
 
+namespace App\Subscriber;
+
+use App\Entity\Category;
+use App\Entity\GlobalMessage;
+use App\Entity\Post;
+use App\Entity\Tag;
+use Doctrine\Common\EventSubscriber;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Exception;
-use App\Entity\Tag;
-use App\Entity\Post;
-use App\Entity\Category;
-use Psr\Log\LoggerInterface;
-use App\Entity\GlobalMessage;
-use Doctrine\Common\EventSubscriber;
 use Psr\Cache\InvalidArgumentException;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
 
 /**
  * Class ContentCacheSubscriber
- * @package App\EventSubscriber
+ * @package App\Subscriber
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class ContentCacheSubscriber implements EventSubscriber
 {
 
     private TagAwareAdapterInterface $cache;
-
     private LoggerInterface $logger;
 
     /**

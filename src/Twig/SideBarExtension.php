@@ -9,17 +9,19 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Twig;
 
 use App\Repository\BlogRepository;
-use Twig\Environment;
-use Twig\TwigFunction;
-use App\Repository\TagRepository;
-use App\Repository\PostRepository;
-use Twig\Extension\AbstractExtension;
 use App\Repository\CategoryRepository;
-use Symfony\Contracts\Cache\ItemInterface;
+use App\Repository\PostRepository;
+use App\Repository\TagRepository;
 use Symfony\Component\Cache\Adapter\TagAwareAdapterInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class SideBarExtension
@@ -30,15 +32,10 @@ class SideBarExtension extends AbstractExtension
 {
 
     private TagRepository $tagRepository;
-
     private CategoryRepository $categoryRepository;
-
     private PostRepository $postRepository;
-
     private TagAwareAdapterInterface $cache;
-
     private Environment $twig;
-
     private BlogRepository $blogRepository;
 
     /**
@@ -98,10 +95,10 @@ class SideBarExtension extends AbstractExtension
      */
     public function postSideBar(): string
     {
-        return  $this->cache->get('postSideBar', function (ItemInterface $item) {
+        return $this->cache->get('postSideBar', function (ItemInterface $item) {
             $item->tag(['posts']);
             return $this->twig->render('app/posts/_sidebar.html.twig', [
-               'posts' =>$this->postRepository->findForSidebar()
+                'posts' => $this->postRepository->findForSidebar()
             ]);
         });
     }

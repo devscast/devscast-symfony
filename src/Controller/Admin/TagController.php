@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\Tag;
-use App\Form\TagType;
+use App\Form\TagForm;
 use App\Repository\TagRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,7 +52,7 @@ class TagController extends AbstractController
     public function new(Request $request): Response
     {
         $tag = new Tag();
-        $form = $this->createForm(TagType::class, $tag);
+        $form = $this->createForm(TagForm::class, $tag);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -75,7 +77,7 @@ class TagController extends AbstractController
      */
     public function edit(Request $request, Tag $tag): Response
     {
-        $form = $this->createForm(TagType::class, $tag);
+        $form = $this->createForm(TagForm::class, $tag);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -100,7 +102,7 @@ class TagController extends AbstractController
     {
         if ($this->isCsrfTokenValid("delete" . $tag->getId(), $request->request->get("_token"))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $tag->setIsArchived(1);
+            $tag->setIsArchived(true);
             $entityManager->persist($tag);
             $entityManager->flush();
         }

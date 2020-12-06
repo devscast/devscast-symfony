@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping\OrderBy;
@@ -51,9 +53,9 @@ class Tag
     private Collection $posts;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_archived = 0;
+    private bool $is_archived = false;
 
     /**
      * Tag constructor.

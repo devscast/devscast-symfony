@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
-use App\Entity\Blog;
 use App\Entity\Category;
+use App\Entity\Post;
 use App\Entity\Tag;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -23,11 +25,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class BlogType
+ * Class PostForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class BlogType extends AbstractType
+class PostForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -43,6 +45,11 @@ class BlogType extends AbstractType
                 'required' => false,
                 'label' => 'thumb'
             ])
+            ->add('video_url')
+            ->add('is_online', CheckboxType::class, [
+                'required' => false
+            ])
+            ->add('duration')
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'required' => true,
@@ -55,13 +62,8 @@ class BlogType extends AbstractType
                 'multiple' => true,
                 'choice_label' => 'name'
             ])
-            ->add('description', TextareaType::class, [
-                'required' => false
-            ])
-            ->add('content', TextareaType::class)
-            ->add('is_online', CheckboxType::class, [
-                'required' => false
-            ]);
+            ->add('description', TextareaType::class, ['required' => false])
+            ->add('content', TextareaType::class);
     }
 
     /**
@@ -71,7 +73,7 @@ class BlogType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Blog::class,
+            'data_class' => Post::class,
         ]);
     }
 }

@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -27,7 +27,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * Class Blog
  * @Vich\Uploadable()
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
- * @UniqueEntity("name")
  * @package App\Entity
  * @author bernard-ng <ngandubernard@gmail.com>
  */
@@ -84,9 +83,9 @@ class Blog
     private ?DateTimeInterface $updated_at = null;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_online = 0;
+    private bool $is_online = false;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -96,12 +95,12 @@ class Blog
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="blogs")
      */
-    private $tags;
+    private Collection $tags;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_archived = 0;
+    private bool $is_archived = false;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -110,11 +109,11 @@ class Blog
 
     /**
      * Blog constructor.
-     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function __construct()
     {
-        $this->created_at = new DateTime();
+        $this->created_at = new DateTimeImmutable();
         $this->tags = new ArrayCollection();
     }
 
@@ -221,11 +220,11 @@ class Blog
     }
 
     /**
-     * @param User|null $user
+     * @param User $user
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
@@ -364,23 +363,31 @@ class Blog
     /**
      * @param File|null $thumb_file
      * @return Blog
-     * @throws \Exception
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function setThumbFile(?File $thumb_file): Blog
     {
         $this->thumb_file = $thumb_file;
         if ($thumb_file instanceof UploadedFile) {
-            $this->setCreatedAt(new DateTime());
+            $this->setCreatedAt(new DateTimeImmutable());
         }
         return $this;
     }
 
+    /**
+     * @return bool|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getIsArchived(): ?bool
     {
         return $this->is_archived;
     }
 
+    /**
+     * @param bool $is_archived
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setIsArchived(bool $is_archived): self
     {
         $this->is_archived = $is_archived;
@@ -388,11 +395,20 @@ class Blog
         return $this;
     }
 
+    /**
+     * @return string|null
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @param string $description
+     * @return $this
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;

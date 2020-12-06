@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -42,7 +43,7 @@ class Category
     private ?int $id = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Length(min="3", max="255")
      */
     private ?string $name = null;
@@ -78,13 +79,13 @@ class Category
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
      * @OrderBy({"created_at" = "DESC"})
      */
-    private $posts;
+    private Collection $posts;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="category")
      * @OrderBy({"created_at" = "DESC"})
      */
-    private $blogs;
+    private Collection $blogs;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -94,17 +95,17 @@ class Category
     /**
      * @ORM\Column(type="boolean")
      */
-    private int $is_archived = 0;
+    private bool $is_archived = false;
 
     /**
      * Category constructor.
-     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->blogs = new ArrayCollection();
-        $this->created_at = new \DateTime();
+        $this->created_at = new DateTimeImmutable();
     }
 
     /**
@@ -336,20 +337,19 @@ class Category
     /**
      * @param File|null $icon_file
      * @return Category
-     * @throws \Exception
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function setIconFile(?File $icon_file): Category
     {
         $this->icon_file = $icon_file;
         if ($icon_file instanceof UploadedFile) {
-            $this->setCreatedAt(new DateTime());
+            $this->setCreatedAt(new DateTimeImmutable());
         }
         return $this;
     }
 
     /**
-     * @return bool|null
+     * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function getIsArchived(): ?bool

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Repository\BlogRepository;
@@ -20,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class AdminController
- * @Route(path="/admin", schemes={"HTTP", "HTTPS"})
+ * @Route(path="/admin")
  * @package App\Controller\Admin
  * @author bernard-ng <ngandubernard@gmail.com>
  */

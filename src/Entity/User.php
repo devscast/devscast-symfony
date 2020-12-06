@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -45,13 +46,13 @@ class User implements UserInterface
     private ?string $email = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json", length=255)
      * @Assert\NotNull()
      */
-    private ?string $roles = 'ROLE_USER';
+    private ?array $roles = ['ROLE_USER'];
 
     /**
-     * @var string The hashed password
+     * The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      * @Assert\Length(min="6", max="4096")
@@ -77,7 +78,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private ?DateTimeInterface $created_at = null;
+    private DateTimeInterface $created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -105,19 +106,19 @@ class User implements UserInterface
     private Collection $posts;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_archived = 0;
+    private bool $is_archived = false;
 
     /**
      * User constructor.
-     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
         $this->posts = new ArrayCollection();
-        $this->created_at = new \DateTime();
+        $this->created_at = new DateTimeImmutable();
     }
 
     /**
@@ -165,19 +166,8 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        $roles = explode('|', $roles);
-        $roles[] = 'ROLE_USER';
-        return array_unique($roles);
-    }
-
-    /**
-     * @return string
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function getRolesAsString(): string
-    {
-        return $this->roles;
+        $this->roles[] = 'ROLE_USER';
+        return array_unique($this->roles);
     }
 
     /**
@@ -187,7 +177,7 @@ class User implements UserInterface
      */
     public function setRoles(array $roles): self
     {
-        $this->roles = implode('|', $roles);
+        $this->roles[] = $roles;
         return $this;
     }
 
@@ -448,14 +438,13 @@ class User implements UserInterface
     /**
      * @param File|null $avatar_file
      * @return User
-     * @throws \Exception
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function setAvatarFile(?File $avatar_file): User
     {
         $this->avatar_file = $avatar_file;
         if ($avatar_file instanceof UploadedFile) {
-            $this->setCreatedAt(new DateTime());
+            $this->setCreatedAt(new DateTimeImmutable());
         }
         return $this;
     }

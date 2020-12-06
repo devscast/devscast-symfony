@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
 use App\Entity\GlobalMessage;
@@ -19,11 +21,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class GlobalMessageType
+ * Class GlobalMessageForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class GlobalMessageType extends AbstractType
+class GlobalMessageForm extends AbstractType
 {
 
     /**

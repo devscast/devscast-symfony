@@ -16,10 +16,11 @@ namespace App\Data;
  * @package App\Data
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class SearchData
+class SearchRequestData
 {
-
     public string $q = '';
+
+    public string $category = 'blog';
 
     public ?int $page = 1;
 }

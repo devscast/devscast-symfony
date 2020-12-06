@@ -9,24 +9,25 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Blog;
 use App\Repository\BlogRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class BlogController
- * @Route("/blog", schemes={"HTTP","HTTPS"})
+ * @Route("/blog", name="app_blog_")
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class BlogController extends AbstractController
 {
-
     private BlogRepository $repository;
 
     /**
@@ -39,7 +40,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route(path="", name="app_blog_index", methods={"GET"})
+     * @Route(path="", name="index", methods={"GET"})
      * @param Request $request
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
@@ -57,7 +58,7 @@ class BlogController extends AbstractController
     /**
      * @Route(
      *     path="/{slug}-{id}",
-     *     name="app_blog_show",
+     *     name="show",
      *     methods={"GET"},
      *     requirements={"slug":"[a-z0-9-]+", "id":"[\d]+"}
      * )

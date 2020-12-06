@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Data\ResetPasswordData;
-use App\Form\Security\ResetPasswordType;
-use Exception;
 use App\Entity\User;
-use App\Form\RegistrationFormType;
+use App\Form\RegistrationForm;
+use Exception;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * Class SecurityController
- * @Route("/auth", schemes={"HTTP", "HTTPS"})
+ * @Route("/auth")
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
@@ -39,37 +39,34 @@ class SecurityController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param Security $security
      * @return Response
-     * @throws Exception (datetime)
      */
     public function register(
         Request $request,
         UserPasswordEncoderInterface $passwordEncoder,
         Security $security
     ): Response {
-        if (is_null($security->getUser())) {
-            $user = new User();
-            $form = $this->createForm(RegistrationFormType::class, $user);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $user
-                    ->setPassword($passwordEncoder->encodePassword($user, $form->get('password')->getData()))
-                    ->setRoles(['ROLE_USER']);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
-
-                // do anything else you need here, like send an email
-
-                return $this->redirectToRoute('home');
-            }
-
-            return $this->render('security/register.html.twig', [
-                'registrationForm' => $form->createView(),
-            ]);
+        if ($security->getUser()) {
+            return $this->redirectToRoute('home');
         }
-        return $this->redirectToRoute('home');
+
+        $user = new User();
+        $form = $this->createForm(RegistrationForm::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user
+                ->setPassword($passwordEncoder->encodePassword($user, $form->get('password')->getData()))
+                ->setRoles(['ROLE_USER']);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('security/register.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
     }
 
     /**
@@ -81,35 +78,13 @@ class SecurityController extends AbstractController
      */
     public function login(Security $security, AuthenticationUtils $authenticationUtils): Response
     {
-        if ($security->isGranted('ROLE_ADMIN')) {
+        if ($security->isGranted('ROLE_SUPER_ADMIN')) {
             return $this->redirectToRoute('admin_index');
         }
 
         return $this->render('security/login.html.twig', [
             'username' => $authenticationUtils->getLastUsername(),
             'error' => $authenticationUtils->getLastAuthenticationError()
-        ]);
-    }
-
-    /**
-     * @Route(path="/reset", name="reset", methods={"GET", "POST"})
-     * @param Request $request
-     * @return Response
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    public function reset(Request $request): Response
-    {
-        $data = new ResetPasswordData();
-        $resetForm = $this->createForm(ResetPasswordType::class, $data);
-        $resetForm->handleRequest($request);
-
-        if ($resetForm->isSubmitted() && $resetForm->isValid()) {
-            // Todo: Send Reset Email With Token
-            return $this->redirectToRoute('login');
-        }
-
-        return $this->render('security/reset.html.twig', [
-            'resetForm' => $resetForm->createView()
         ]);
     }
 

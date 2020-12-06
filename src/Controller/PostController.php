@@ -12,8 +12,8 @@
 namespace App\Controller;
 
 use App\Entity\Post;
-use App\Data\SearchData;
-use App\Form\SearchType;
+use App\Data\SearchRequestData;
+use App\Form\SearchForm;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -91,8 +91,8 @@ class PostController extends AbstractController
      */
     public function search(Request $request): Response
     {
-        $data = new SearchData();
-        $searchForm = $this->createForm(SearchType::class, $data);
+        $data = new SearchRequestData();
+        $searchForm = $this->createForm(SearchForm::class, $data);
         $searchForm->handleRequest($request);
 
         if (!is_null($data->q)) {

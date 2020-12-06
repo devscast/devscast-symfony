@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * This file is part of the DevsCast project
+ *
+ * (c) bernard-ng <ngandubernard@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace App\Twig;
 
 use App\Entity\GlobalMessage;
@@ -10,8 +21,8 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class GlobalMessageExtension
@@ -22,9 +33,7 @@ class GlobalMessageExtension extends AbstractExtension
 {
 
     private GlobalMessageRepository $messageRepository;
-
     private Environment $twig;
-
     private TagAwareAdapterInterface $cache;
 
     /**
@@ -56,6 +65,11 @@ class GlobalMessageExtension extends AbstractExtension
 
     /**
      * @return mixed
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws \Psr\Cache\CacheException
+     * @throws \Psr\Cache\InvalidArgumentException
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function message()
@@ -69,7 +83,7 @@ class GlobalMessageExtension extends AbstractExtension
 
 
     /**
-     * @param GlobalMessage $message
+     * @param GlobalMessage|null $message
      * @return string
      * @throws LoaderError
      * @throws RuntimeError

@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
-use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -51,16 +53,15 @@ class GlobalMessage
     /**
      * @ORM\Column(type="boolean")
      */
-    private int $state = 0;
+    private bool $state = false;
 
 
     /**
      * GlobalMessage constructor.
-     * @throws \Exception
      */
     public function __construct()
     {
-        $this->created_at = new DateTime("now");
+        $this->created_at = new DateTimeImmutable();
     }
 
     /**

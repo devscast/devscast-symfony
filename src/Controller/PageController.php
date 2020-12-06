@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Data\ContactData;
-use App\Form\ContactType;
+use App\Data\ContactRequestData;
+use App\Form\ContactForm;
 use App\Notification\ContactNotification;
 use App\Repository\BlogRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,17 +24,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class PageController
- * @Route(schemes={"HTTP", "HTTPS"})
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class PageController extends AbstractController
 {
-    /**
-     * @param BlogRepository $blogRepository
-     */
     private BlogRepository $blogRepository;
 
+    /**
+     * PageController constructor.
+     * @param BlogRepository $blogRepository
+     * @author bernard-ng <ngandubernard@gmail.com>
+     */
     public function __construct(BlogRepository $blogRepository)
     {
         $this->blogRepository = $blogRepository;
@@ -60,8 +63,8 @@ class PageController extends AbstractController
      */
     public function contact(Request $request, ContactNotification $contactNotification): Response
     {
-        $contact = new ContactData();
-        $contactForm = $this->createForm(ContactType::class, $contact);
+        $contact = new ContactRequestData();
+        $contactForm = $this->createForm(ContactForm::class, $contact);
         $contactForm->handleRequest($request);
 
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {

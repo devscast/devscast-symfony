@@ -9,20 +9,22 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
-use App\Data\SearchData;
+use App\Data\SearchRequestData;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
- * Class SearchType
+ * Class SearchForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class SearchType extends AbstractType
+class SearchForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -52,7 +54,7 @@ class SearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SearchData::class,
+            'data_class' => SearchRequestData::class,
             'method' => 'GET',
             'csrf_protection' => false,
         ]);

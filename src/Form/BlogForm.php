@@ -9,22 +9,27 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Blog;
+use App\Entity\Category;
+use App\Entity\Tag;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class UserType
+ * Class BlogForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class UserType extends AbstractType
+class BlogForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -35,13 +40,28 @@ class UserType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('email')
-            ->add('password', PasswordType::class)
-            ->add('roles', ChoiceType::class, [
-                'multiple' => true,
-                'choices' => $this->getRolesChoices(),
+            ->add('slug')
+            ->add('thumb_file', FileType::class, [
+                'required' => false,
+                'label' => 'thumb'
             ])
-            ->add('avatar_file', FileType::class, [
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'required' => true,
+                'multiple' => false,
+                'choice_label' => 'name'
+            ])
+            ->add('tags', EntityType::class, [
+                'class' => Tag::class,
+                'required' => false,
+                'multiple' => true,
+                'choice_label' => 'name'
+            ])
+            ->add('description', TextareaType::class, [
+                'required' => false
+            ])
+            ->add('content', TextareaType::class)
+            ->add('is_online', CheckboxType::class, [
                 'required' => false
             ]);
     }
@@ -53,19 +73,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Blog::class,
         ]);
-    }
-
-    /**
-     * @return array
-     * @author bernard-ng <ngandubernard@gmail.com>
-     */
-    private function getRolesChoices(): array
-    {
-        return [
-            "ROLE_ADMIN" => "ROLE_ADMIN",
-            "ROLE_USER" => "ROLE_USER",
-        ];
     }
 }

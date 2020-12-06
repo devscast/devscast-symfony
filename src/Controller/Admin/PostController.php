@@ -9,12 +9,15 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
-use App\Form\PostType;
+use App\Form\PostForm;
 use App\Repository\PostRepository;
 use DateTime;
+use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,7 +25,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class PostController
- * @Route("/admin/post", schemes={"HTTP", "HTTPS"})
+ * @Route("/admin/post")
  * @package App\Controller\Admin
  * @author bernard-ng <ngandubernard@gmail.com>
  */
@@ -50,7 +53,7 @@ class PostController extends AbstractController
     {
         $post = new Post();
         $post->setUser($this->getUser());
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(PostForm::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -87,11 +90,11 @@ class PostController extends AbstractController
      */
     public function edit(Request $request, Post $post): Response
     {
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(PostForm::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $post->setUpdatedAt(new DateTime());
+            $post->setUpdatedAt(new DateTimeImmutable());
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin_post_index');
         }
@@ -112,7 +115,7 @@ class PostController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $post->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $post->setIsArchived(1);
+            $post->setIsArchived(true);
             $entityManager->persist($post);
             $entityManager->flush();
         }

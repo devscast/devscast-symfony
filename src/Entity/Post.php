@@ -9,19 +9,20 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
-use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class Post
@@ -85,9 +86,9 @@ class Post
     private ?DateTimeInterface $updated_at = null;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_online = 0;
+    private bool $is_online = false;
 
     /**
      * @ORM\Column(type="integer")
@@ -113,20 +114,20 @@ class Post
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="posts")
      */
-    private $tags;
+    private Collection $tags;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    private int $is_archived = 0;
+    private bool $is_archived = false;
 
     /**
      * Post constructor.
-     * @throws \Exception
+     * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function __construct()
     {
-        $this->created_at = new DateTime();
+        $this->created_at = new DateTimeImmutable();
         $this->tags = new ArrayCollection();
     }
 
@@ -359,11 +360,11 @@ class Post
     }
 
     /**
-     * @param User|null $user
+     * @param User $user
      * @return $this
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
@@ -439,14 +440,13 @@ class Post
     /**
      * @param File|null $thumb_file
      * @return Post
-     * @throws \Exception
      * @author bernard-ng <ngandubernard@gmail.com>
      */
     public function setThumbFile(?File $thumb_file): Post
     {
         $this->thumb_file = $thumb_file;
         if ($thumb_file instanceof UploadedFile) {
-            $this->setCreatedAt(new DateTime());
+            $this->setCreatedAt(new DateTimeImmutable());
         }
         return $this;
     }

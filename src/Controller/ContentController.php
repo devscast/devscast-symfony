@@ -9,24 +9,23 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Entity\Tag;
 use App\Entity\Category;
+use App\Entity\Tag;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ContentController
- * @Route(schemes={"HTTP", "HTTPS"})
  * @package App\Controller
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class ContentController extends AbstractController
 {
-
     /**
      * @Route(
      *     path="/categories/{slug}",
@@ -40,14 +39,11 @@ class ContentController extends AbstractController
      */
     public function category(Category $category): Response
     {
-        if ($category) {
-            return $this->render('app/content/category.html.twig', [
-                'category' => $category,
-                'posts' => $category->getPosts(),
-                'data_type' => 'post'
-            ]);
-        }
-        throw new NotFoundHttpException();
+        return $this->render('app/content/category.html.twig', [
+            'category' => $category,
+            'posts' => $category->getPosts(),
+            'data_type' => 'post'
+        ]);
     }
 
     /**
@@ -63,13 +59,10 @@ class ContentController extends AbstractController
      */
     public function tag(Tag $tag): Response
     {
-        if ($tag) {
-            return $this->render('app/content/tag.html.twig', [
-                'tag' => $tag,
-                'posts' => $tag->getPosts(),
-                'data_type' => 'post'
-            ]);
-        }
-        throw new NotFoundHttpException();
+        return $this->render('app/content/tag.html.twig', [
+            'tag' => $tag,
+            'posts' => $tag->getPosts(),
+            'data_type' => 'post'
+        ]);
     }
 }

@@ -9,25 +9,27 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
-use SplFileInfo;
 use DirectoryIterator;
+use SplFileInfo;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class FilesystemController
- * @Route("/admin/filesystem", schemes={"HTTP", "HTTPS"})
+ * @Route("/admin/filesystem", name="admin_files_")
  * @package App\Controller\Admin
  * @author bernard-ng <ngandubernard@gmail.com>
  */
 class FilesystemController extends AbstractController
 {
     /**
-     * @Route(path="", name="admin_files_index", methods={"GET"})
+     * @Route(path="", name="index", methods={"GET"})
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
      */
@@ -44,7 +46,7 @@ class FilesystemController extends AbstractController
     }
 
     /**
-     * @Route(path="/show", name="admin_files_show", methods={"GET"})
+     * @Route(path="/show", name="show", methods={"GET"})
      * @param Request $request
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>
@@ -65,7 +67,7 @@ class FilesystemController extends AbstractController
     }
 
     /**
-     * @Route(path="/delete", name="admin_files_delete", methods={"DELETE"})
+     * @Route(path="/delete", name="delete", methods={"DELETE"})
      * @param Request $request
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>

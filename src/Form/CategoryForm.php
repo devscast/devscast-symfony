@@ -9,19 +9,23 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form;
 
-use App\Entity\Tag;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class TagType
+ * Class CategoryForm
  * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class TagType extends AbstractType
+class CategoryForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -31,7 +35,13 @@ class TagType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name');
+            ->add('name')
+            ->add('slug')
+            ->add('icon_file', FileType::class, [
+                'required' => false,
+                'label' => 'icon',
+            ])
+            ->add('description', TextareaType::class);
     }
 
     /**
@@ -41,7 +51,7 @@ class TagType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Tag::class,
+            'data_class' => Category::class,
         ]);
     }
 }

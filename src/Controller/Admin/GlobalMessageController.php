@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the DevsCast project
  *
@@ -8,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Controller\Admin;
 
 use App\Entity\GlobalMessage;
-use App\Form\GlobalMessageType;
+use App\Form\GlobalMessageForm;
 use App\Repository\GlobalMessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,7 +49,7 @@ class GlobalMessageController extends AbstractController
     public function new(Request $request): Response
     {
         $globalMessage = new GlobalMessage();
-        $form = $this->createForm(GlobalMessageType::class, $globalMessage);
+        $form = $this->createForm(GlobalMessageForm::class, $globalMessage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,7 +73,7 @@ class GlobalMessageController extends AbstractController
      */
     public function edit(Request $request, GlobalMessage $globalMessage): Response
     {
-        $form = $this->createForm(GlobalMessageType::class, $globalMessage);
+        $form = $this->createForm(GlobalMessageForm::class, $globalMessage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

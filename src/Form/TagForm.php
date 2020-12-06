@@ -9,20 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Form\Security;
+declare(strict_types=1);
 
-use App\Data\ResetPasswordData;
+namespace App\Form;
+
+use App\Entity\Tag;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class ResetPasswordType
- * @package App\Form\Security
+ * Class TagForm
+ * @package App\Form
  * @author bernard-ng <ngandubernard@gmail.com>
  */
-class ResetPasswordType extends AbstractType
+class TagForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -32,7 +34,7 @@ class ResetPasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class);
+            ->add('name', TextType::class);
     }
 
     /**
@@ -42,7 +44,7 @@ class ResetPasswordType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ResetPasswordData::class
+            'data_class' => Tag::class,
         ]);
     }
 }
