@@ -10,8 +10,8 @@
             <p class="tx-bolder mg-b-5">{{ app.user.email }}</p>
             <hr>
             <ul class="list-unstyled">
-                <li class="tx-12 tx-color-03">{{ app.user.lastConnexionAt | date }}</li>
-                <li class="tx-12 tx-color-03">{{ app.user.lastConnexionIp }}</li>
+                <li class="tx-12 tx-color-03">{{ app.user.lastLoginAt | date }}</li>
+                <li class="tx-12 tx-color-03">{{ app.user.lastLoginIp }}</li>
             </ul>
             <hr>
             <ul class="list-unstyled">
@@ -20,7 +20,7 @@
                 {% endfor %}
             </ul>
             <div class="dropdown-divider"></div>
-            <form action="{{ path('auth_logout') }}" method="post" class="form-inline nav-link">
+            <form action="{{ path('logout') }}" method="post" class="form-inline nav-link">
                 <button class="btn btn-danger btn-block text-white mt-2">
                     <i data-feather="log-out" class="text-white"></i>
                     <span>Déconnexion</span>

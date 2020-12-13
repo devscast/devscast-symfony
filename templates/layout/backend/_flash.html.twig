@@ -1,0 +1,22 @@
+<div class="alert-container">
+    {% for flash in app.flashes('success') %}
+        <div class="alert alert-success mb-0">
+            <div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                {{ flash | trans | raw | nl2br }}
+            </div>
+        </div>
+    {% endfor %}
+    {% for flash in app.flashes('error') %}
+        <div class="alert alert-danger mb-0">
+            <div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                {{ flash | trans | raw | nl2br }}
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,68 +1,56 @@
 <aside class="aside aside-fixed">
     <div class="aside-header">
-        <a href="{{ path('front_index') }}" class="aside-logo">
-            <img src="{{ asset('/images/logo_10.svg') }}" alt="logo" width="80">
+        <a href="{{ path('app_home') }}" class="aside-logo">
+            DEVSCAST
         </a>
         <a href="" class="aside-menu-link">
             <i data-feather="menu"></i>
             <i data-feather="x"></i>
         </a>
     </div>
+
     <div class="aside-body">
-        <ul class="nav nav-aside">
-            <li class="nav-item {{ active_link('front_index') }}">
-                <a href="{{ path('front_index') }}" class="nav-link">
-                    <i data-feather="home"></i> <span>Accueil</span>
+        <ul class="nav nav-aside mt-5">
+            <li class="nav-label">Dashboard</li>
+            <li class="nav-item  {{ active_link('backend_index') }}">
+                <a href="{{ path('backend_index') }}" class="nav-link">
+                    <i data-feather="home"></i> <span>Dashboard</span>
                 </a>
             </li>
-            {% if is_granted('ROLE_SUPER_ADMIN') %}
-                <li class="nav-item {{ active_link('app_statistic_index') }}">
-                    <a href="{{ path('app_statistic_index') }}" class="nav-link">
-                        <i data-feather="home"></i> <span>Tableau de bord</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_user_index') }}">
-                    <a href="{{ path('app_user_index') }}" class="nav-link">
-                        <i data-feather="folder"></i> <span>Utilisateurs</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_company_index') }}">
-                    <a href="{{ path('app_company_index') }}" class="nav-link">
-                        <i data-feather="folder"></i> <span>Entreprises</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_institution_index') }}">
-                    <a href="{{ path('app_institution_index') }}" class="nav-link">
-                        <i data-feather="folder"></i> <span>Institutions</span>
-                    </a>
-                </li>
-            {% endif %}
-            {% if is_granted('ROLE_INSTITUTION') %}
-                <li class="nav-item {{ active_link('app_institution.statistic_index') }}">
-                    <a href="{{ path('app_institution.statistic_index') }}" class="nav-link">
-                        <i data-feather="home"></i> <span>Tableau de bord</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_institution.training_index') }}">
-                    <a href="{{ path('app_institution.training_index') }}" class="nav-link">
-                        <i data-feather="folder"></i> <span>Formations</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_institution.student_index') }}">
-                    <a href="{{ path('app_institution.student_index') }}" class="nav-link">
-                        <i data-feather="folder"></i> <span>Apprenants</span>
-                    </a>
-                </li>
-                <li class="nav-item {{ active_link('app_institution.staging_index') }}">
-                    <a href="{{ path('app_institution.staging_index') }}" class="nav-link" disabled="true">
-                        <i data-feather="folder"></i> <span>Placements</span>
-                    </a>
-                </li>
-            {% endif %}
-
-            <li class="nav-item {{ active_link('app_profile_index') }}">
-                <a href="{{ path('app_profile_index') }}" class="nav-link">
-                    <i data-feather="folder"></i> <span>Profil</span>
+            <li class="nav-item {{ active_link('backend_user_index') }}">
+                <a href="{{ path('backend_user_index') }}" class="nav-link">
+                    <i data-feather="user"></i><span>User</span>
+                </a>
+            </li>
+            <li class="nav-item {{ active_link('backend_post_index') }}">
+                <a href="{{ path('backend_post_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Post</span>
+                </a>
+            </li>
+            <li class="nav-item {{ active_link('backend_blog_index') }}">
+                <a href="{{ path('backend_blog_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Blog</span>
+                </a>
+            </li>
+            <li class="nav-item  {{ active_link('backend_category_index') }}">
+                <a href="{{ path('backend_category_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Category</span>
+                </a>
+            </li>
+            <li class="nav-item {{ active_link('backend_tag_index') }}">
+                <a href="{{ path('backend_tag_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Tags</span>
+                </a>
+            </li>
+            <li class="nav-item  {{ active_link('backend_message_index') }}">
+                <a href="{{ path('backend_message_index') }}" class="nav-link">
+                    <i data-feather="layers"></i><span>Global Message</span>
+                </a>
+            </li>
+            <li class="nav-item {{ active_link('backend_files_index') }}">
+                <a href="{{ path('backend_files_index') }}" class="nav-link">
+                    <i data-feather="layers"></i>
+                    <span>Filesystem</span>
                 </a>
             </li>
         </ul>

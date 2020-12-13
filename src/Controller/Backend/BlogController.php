@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @IsGranted("ROLE_BLOG_MANAGER")
+ * @IsGranted("ROLE_CONTENT_MANAGER")
  * Class BlogController
  * @Route("/backend/blog", name="backend_blog_")
  * @package App\Controller\Backend

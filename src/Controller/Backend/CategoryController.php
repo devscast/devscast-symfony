@@ -26,7 +26,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @IsGranted("ROLE_CATEGORY_MANAGER")
  * Class Category Controller
- * @Route("/backend/blog", name="backend_blog_")
+ * @Route("/backend/category", name="backend_category_")
  * @package App\Controller\Backend
  * @author bernard-ng <ngandubernard@gmail.com>
  */

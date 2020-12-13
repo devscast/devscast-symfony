@@ -58,23 +58,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('/assets/backend/lib/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-dt/js/dataTables.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js') }}"></script>
-    <script>
-        $(function () {
-            $('#datatable-category').DataTable({
-                responsive: true,
-                autoWidth: true,
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
-        });
-    </script>
-{% endblock %}

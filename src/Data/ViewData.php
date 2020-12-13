@@ -52,7 +52,7 @@ class ViewData
      * @param array $options
      * @param string $prefix
      */
-    public function __construct(string $name, $data = null, array $options = [], $prefix = 'app')
+    public function __construct(string $name, $data = null, array $options = [], $prefix = 'backend')
     {
         $this->name = $name;
         $this->data = $data;

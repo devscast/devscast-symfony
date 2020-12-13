@@ -1,10 +1,10 @@
-{% extends '@backend/base.html.twig' %}
+{% extends '@layout/backend/base.html.twig' %}
 
 {% block breadcrumb %}
     <div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item"><a href="{{ path('front_index') }}">Tableau de bord</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('app_home') }}">Tableau de bord</a></li>
                 <li class="breadcrumb-item"><a href="{{ path(vm.routes.index) }}">{{ vm.formattedName | capitalize | trans }}</a></li>
             </ol>
         </nav>
