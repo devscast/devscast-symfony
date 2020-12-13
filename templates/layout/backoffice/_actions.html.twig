@@ -1,0 +1,27 @@
+{% if vm.options.show %}
+    {% if is_granted(vm.voters.show, item) %}
+        <a class="btn btn-primary" href="{{ path(vm.routes.show, {'id': item.id}) }}">
+            <i data-feather="eye"></i>
+        </a>
+    {% endif %}
+{% endif %}
+{% if vm.options.edit %}
+    {% if is_granted(vm.voters.edit, item) %}
+        {% set _modal = 'edit-content-modal-' ~ item.id %}
+        {% set _modal_title = 'Éditer ' ~ vm.name | trans %}
+
+        <button class="btn btn-secondary"
+                data-toggle="modal"
+                data-target="#{{ _modal }}"
+                data-edit-content="true"
+                data-url="{{ path(vm.routes.edit, {'id': item.id}) }}">
+            <i data-feather="edit"></i>
+        </button>
+        {{ include('@backend/layout/_modal.html.twig', {id: _modal, title: _modal_title }) }}
+    {% endif %}
+{% endif %}
+{% if vm.options.delete %}
+    {% if is_granted(vm.voters.delete, item) %}
+        {{ include('@backend/layout/_delete.html.twig') }}
+    {% endif %}
+{% endif %}

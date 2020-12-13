@@ -1,0 +1,21 @@
+<div class="col-12 col-md-4 mg-b-10 mg-t-10 mg-sm-t-0">
+    <div class="card card-body">
+        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-bold mg-b-10">
+            {{ name }}
+        </h6>
+        <div class="d-flex d-lg-block d-xl-flex align-items-end">
+            <h3 class="tx-bold tx-rubik mg-b-10 mg-r-5 lh-1">{{ count }} </h3>
+        </div>
+        {% if options is defined and options %}
+            <div class="chart-tree">
+                <p class="tx-color-03 tx-semibold mg-b-0">
+                    {{ active_stats(options.format, options.values, options.type ?? 'COUNT') }}
+                </p>
+            </div>
+        {% else %}
+            <div class="chart-tree">
+                <p class="tx-color-03 tx-semibold mg-b-0">aujourd'hui {{ 'now' | date }}</p>
+            </div>
+        {% endif %}
+    </div>
+</div>

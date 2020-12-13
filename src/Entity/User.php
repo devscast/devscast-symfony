@@ -49,7 +49,7 @@ class User implements UserInterface
      * @ORM\Column(type="json", length=255)
      * @Assert\NotNull()
      */
-    private ?array $roles = ['ROLE_USER'];
+    private array $roles = [];
 
     /**
      * The hashed password
@@ -166,8 +166,9 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        $this->roles[] = 'ROLE_USER';
-        return array_unique($this->roles);
+        $roles = $this->roles;
+        $roles[] = "ROLE_USER";
+         return array_unique($roles);
     }
 
     /**
@@ -177,7 +178,7 @@ class User implements UserInterface
      */
     public function setRoles(array $roles): self
     {
-        $this->roles[] = $roles;
+        $this->roles = $roles;
         return $this;
     }
 

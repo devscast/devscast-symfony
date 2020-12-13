@@ -31,7 +31,7 @@ services:
         class: Symfony\Component\Cache\Adapter\TagAwareAdapter
         arguments: ['@cache.app']
 
-    App\EventSubscriber\ContentCacheSubscriber:
+    App\Subscriber\ContentCacheSubscriber:
         tags: ['doctrine.event_subscriber']
 
     Beelab\Recaptcha2Bundle\Form\Type\RecaptchaSubmitType:

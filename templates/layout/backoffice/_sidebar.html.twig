@@ -1,0 +1,70 @@
+<aside class="aside aside-fixed">
+    <div class="aside-header">
+        <a href="{{ path('front_index') }}" class="aside-logo">
+            <img src="{{ asset('/images/logo_10.svg') }}" alt="logo" width="80">
+        </a>
+        <a href="" class="aside-menu-link">
+            <i data-feather="menu"></i>
+            <i data-feather="x"></i>
+        </a>
+    </div>
+    <div class="aside-body">
+        <ul class="nav nav-aside">
+            <li class="nav-item {{ active_link('front_index') }}">
+                <a href="{{ path('front_index') }}" class="nav-link">
+                    <i data-feather="home"></i> <span>Accueil</span>
+                </a>
+            </li>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li class="nav-item {{ active_link('app_statistic_index') }}">
+                    <a href="{{ path('app_statistic_index') }}" class="nav-link">
+                        <i data-feather="home"></i> <span>Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_user_index') }}">
+                    <a href="{{ path('app_user_index') }}" class="nav-link">
+                        <i data-feather="folder"></i> <span>Utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_company_index') }}">
+                    <a href="{{ path('app_company_index') }}" class="nav-link">
+                        <i data-feather="folder"></i> <span>Entreprises</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_institution_index') }}">
+                    <a href="{{ path('app_institution_index') }}" class="nav-link">
+                        <i data-feather="folder"></i> <span>Institutions</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_INSTITUTION') %}
+                <li class="nav-item {{ active_link('app_institution.statistic_index') }}">
+                    <a href="{{ path('app_institution.statistic_index') }}" class="nav-link">
+                        <i data-feather="home"></i> <span>Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_institution.training_index') }}">
+                    <a href="{{ path('app_institution.training_index') }}" class="nav-link">
+                        <i data-feather="folder"></i> <span>Formations</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_institution.student_index') }}">
+                    <a href="{{ path('app_institution.student_index') }}" class="nav-link">
+                        <i data-feather="folder"></i> <span>Apprenants</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ active_link('app_institution.staging_index') }}">
+                    <a href="{{ path('app_institution.staging_index') }}" class="nav-link" disabled="true">
+                        <i data-feather="folder"></i> <span>Placements</span>
+                    </a>
+                </li>
+            {% endif %}
+
+            <li class="nav-item {{ active_link('app_profile_index') }}">
+                <a href="{{ path('app_profile_index') }}" class="nav-link">
+                    <i data-feather="folder"></i> <span>Profil</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>

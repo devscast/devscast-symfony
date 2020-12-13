@@ -1,0 +1,19 @@
+{% if vm is defined and vm.forms %}
+    {% for form in vm.forms %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-block btn-primary" type="submit" aria-label="{{ button_label|default('Enregistrer') }}">
+            {{ button_label|default('Enregistrer') | trans }}
+        </button>
+        {{ form_end(form) }}
+    {% endfor %}
+{% endif %}
+
+{% if vm is defined and vm.form %}
+    {{ form_start(vm.form) }}
+        {{ form_widget(vm.form) }}
+        <button class="btn btn-block btn-primary" type="submit" aria-label="{{ button_label|default('Enregistrer') }}">
+            {{ button_label|default('Enregistrer') | trans }}
+        </button>
+{{ form_end(vm.form) }}
+{% endif %}

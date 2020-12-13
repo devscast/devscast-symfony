@@ -1,0 +1,7 @@
+<button class="btn btn-danger"
+        title="supprimer"
+        data-delete-content="true"
+        data-url="{{ path(vm.routes.delete, {'id': item.id}) }}"
+        data-token="{{ csrf_token('delete' ~ item.id) }}">
+    <i data-feather="trash"></i>
+</button>

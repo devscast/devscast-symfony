@@ -1,0 +1,76 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('backend_index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('admin_message_index') }}">Message</a></li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1">Global Message</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="mb-3 col-12">
+        <a class="btn btn-primary" href="{{ path('admin_message_new') }}">
+            New Message
+        </a>
+    </div>
+    <div class="card col-12">
+        <div class="card-body align-content-center">
+            <div data-label="message">
+                <table class="table" id="datatable-message" class="table" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>Content</th>
+                        <th>Type</th>
+                        <th>State</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for global_message in global_messages %}
+                        <tr>
+                            <td>{{ global_message.content }}</td>
+                            <td>{{ global_message.type }}</td>
+                            <td>{{ global_message.state ?
+                                '<i class="fa fa-check text-success"></i>' :
+                                '<i class="fa fa-times text-danger"></i>' }}
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-primary"
+                                   href="{{ path('admin_message_edit', {'id': global_message.id}) }}">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                {{ include('admin/message/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('/assets/backend/lib/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/assets/backend/lib/datatables.net-dt/js/dataTables.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js') }}"></script>
+    <script>
+        $(function () {
+            $('#datatable-message').DataTable({
+                responsive: true,
+                autoWidth: true,
+                language: {
+                    searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+        });
+    </script>
+{% endblock %}

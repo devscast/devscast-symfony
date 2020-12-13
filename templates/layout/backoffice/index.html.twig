@@ -1,0 +1,55 @@
+{% extends '@backend/base.html.twig' %}
+
+{% block breadcrumb %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                <li class="breadcrumb-item"><a href="{{ path('front_index') }}">Tableau de bord</a></li>
+                <li class="breadcrumb-item"><a href="{{ path(vm.routes.index) }}">{{ vm.formattedName | trans }}</a>
+                </li>
+            </ol>
+        </nav>
+        <h1 class="mg-b-0 tx-spacing--1 tx-bolder">
+            Gestion {{ vm.formattedName | capitalize  | trans }}
+        </h1>
+        {% if vm.options.pagination %}
+            <p class="lead tx-16">
+                {{ vm.data.getTotalItemCount }} élément(s),
+                page {{ vm.data.getCurrentPageNumber }} sur {{ vm.data.getPageCount }}
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block body %}
+    {% if vm.options.create %}
+        {% set _modal = 'create-content-modal' %}
+        {% set _modal_title = 'Créer ' ~ vm.formattedName | capitalize | trans %}
+        <div class="mb-3 col-12">
+            <button
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#{{ _modal }}"
+                    data-create-content="true"
+                    data-url="{{ path(vm.routes.new) }}"
+            >
+                {{ _modal_title }}
+            </button>
+            {{ include('@backend/layout/_modal.html.twig', {id: _modal, title: _modal_title}) }}
+            {% block actions %}{% endblock %}
+        </div>
+    {% endif %}
+
+    <div class="card col-12">
+        <div class="card-body align-content-center">
+            <div data-label="{{ vm.name }}">
+                <table id="datatable" class="table" style="width: 100%" data-datatable="data-datatable">
+                    {% block content %}{% endblock %}
+                </table>
+            </div>
+            {% if vm.options.pagination %}
+                {{ knp_pagination_render(vm.data) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

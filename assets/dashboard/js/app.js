@@ -1,50 +1,72 @@
-import '../sass/app.scss';
+import '../sass/app.scss'
 
-// Dashforge utils
-import Dashforge from './modules/Dashforge';
-import DashforgeAside from './modules/DashforgeAside';
+// Layout utils
+import Layout from './modules/Layout'
+import Aside from './modules/Aside'
 
 // Bootstrap utils
 import 'bootstrap/js/dist/alert'
 import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/modal'
 
 // Frontend Dashboard
 document.addEventListener('DOMContentLoaded', function () {
-    new Dashforge();
-    new DashforgeAside();
+    new Layout()
+    new Aside()
 
-    const datepicker = document.querySelectorAll("input.datepicker");
+    const datepicker = document.querySelectorAll("input.datepicker")
     if (datepicker.length > 0) {
-        import('flatpickr')
-            .then(m => {
-                m.default(datepicker, {
-                    minDate: 'today',
-                    weekNumbers: true,
-                    enableTime: true,
-                    dateFormat: "Y-m-d H:i" +
-                        "",
-                })
-            })
-            .catch(e => console.error({e}));
-    }
-
-    const selects = document.querySelectorAll('select.select2');
-    if (selects.length > 0) {
-        import('select2')
-            .then(() => {
-                $(selects).select2({
-                    placeholder: 'choisir',
-                    allowClear: true,
-                    searchInputPlaceholder: 'recherche...'
-                })
-            })
+        import('./modules/Datepicker')
+            .then(module => new module.default(datepicker))
             .catch(e => console.error({e}))
     }
 
-    const tables = document.querySelectorAll('table[data-datatable]');
+    const selects = document.querySelectorAll('select.select2')
+    if (selects.length > 0) {
+        import('./modules/Select')
+            .then(module => new module.default(selects))
+            .catch(e => console.error({e}))
+    }
+
+    const tables = document.querySelectorAll('table[data-datatable]')
     if (tables.length > 0) {
-        import('./modules/DashforgeDatatable')
-            .then(module => new module.default())
+        import('./modules/Datatable')
+            .then(module => new module.default(tables))
+            .catch(e => console.error({e}))
+    }
+
+    const create = document.querySelectorAll('button[data-create-content]')
+    if (create.length > 0) {
+        import('./modules/Content')
+            .then(module => (new module.default()).init(create))
+            .catch(e => console.error({e}))
+    }
+
+    const edit = document.querySelectorAll('button[data-edit-content]')
+    if (edit.length > 0) {
+        import('./modules/Content')
+            .then(module => (new module.default()).init(edit))
+            .catch(e => console.error({e}))
+    }
+
+    const deletes = document.querySelectorAll('button[data-delete-content]')
+    if (deletes.length > 0) {
+        import('./modules/Content')
+            .then(module => (new module.default()).delete(deletes))
+            .catch(e => console.error({e}))
+    }
+
+    const searchInputs = document.querySelectorAll('input[data-autocomplete]')
+    if (searchInputs.length > 0) {
+        import('./modules/Autocomplete')
+            .then(module => (new module.default(searchInputs)))
+            .catch(e => console.error({e}))
+    }
+
+    const charts = document.querySelectorAll('div[data-statistic]')
+    if (charts.length > 0) {
+        import('./modules/StatisticChart')
+            .then(module => (new module.default(charts)))
             .catch(e => console.error({e}))
     }
 });

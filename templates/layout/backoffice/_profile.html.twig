@@ -1,0 +1,31 @@
+{% if app.user %}
+    <div class="dropdown dropdown-profile">
+        <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
+            <div class="avatar avatar-sm bg-dark text-center d-flex justify-content-center align-items-center"
+                 style="border-radius: 50%">
+                <i data-feather="user"></i>
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right tx-13">
+            <p class="tx-bolder mg-b-5">{{ app.user.email }}</p>
+            <hr>
+            <ul class="list-unstyled">
+                <li class="tx-12 tx-color-03">{{ app.user.lastConnexionAt | date }}</li>
+                <li class="tx-12 tx-color-03">{{ app.user.lastConnexionIp }}</li>
+            </ul>
+            <hr>
+            <ul class="list-unstyled">
+                {% for r in app.user.roles %}
+                    <li class="tx-12 tx-color-03">{{ r }}</li>
+                {% endfor %}
+            </ul>
+            <div class="dropdown-divider"></div>
+            <form action="{{ path('auth_logout') }}" method="post" class="form-inline nav-link">
+                <button class="btn btn-danger btn-block text-white mt-2">
+                    <i data-feather="log-out" class="text-white"></i>
+                    <span>Déconnexion</span>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endif %}

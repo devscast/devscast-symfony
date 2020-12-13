@@ -36,7 +36,7 @@ seed: vendor/autoload.php ## remplie la base de données avec des données de te
 
 .PHONY: serve
 serve: vendor/autoload.php ## lance le projet en local
-	php -S 0.0.0.0:9000 -t public router.php
+	php -S 0.0.0.0:9000 -t public server.php
 
 .PHONY: mailer
 mailer: vendor/autoload.php ## Lance le serveur mail (maildev est requis)

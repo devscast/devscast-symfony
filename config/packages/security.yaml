@@ -30,13 +30,16 @@ security:
                     - App\Security\LoginFormAuthenticator
 
     role_hierarchy:
+        ROLE_CONTENT_MANAGER:
+            - ROLE_USER
+            - ROLE_CATEGORY_MANAGER
         ROLE_ADMIN:
             - ROLE_USER
         ROLE_SUPER_ADMIN:
             - ROLE_ADMIN
             - ROLE_USER
-            - ROLE_BLOG_MANAGER
+            - ROLE_CONTENT_MANAGER
             - ROLE_SHOP_MANAGER
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
+    # - { path: ^/admin, roles: ROLE_ADMIN }
