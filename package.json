@@ -11,7 +11,7 @@
     "regenerator-runtime": "^0.13.7",
     "sass-loader": "^9.0.0",
     "tailwindcss": "^1.8.9",
-    "url-loader": "^2.0.1",
+    "url-loader": "^4.1.1",
     "webpack-notifier": "^1.6.0"
   },
   "license": "CC-BY-NC-SA-4.0",
