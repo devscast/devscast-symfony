@@ -43,8 +43,6 @@ class UserController extends CrudController
     protected array $views = [
         'index' => '@backend/user/index.html.twig',
         'show' => '@backend/user/show.html.twig',
-        'edit' => '@backend/user/forms.html.twig',
-        'new' => '@backend/user/forms.html.twig',
     ];
     protected array $events = [
         'created' => null,

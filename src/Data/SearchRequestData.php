@@ -20,7 +20,7 @@ namespace App\Data;
  */
 class SearchRequestData
 {
-    public string $q = '';
+    public ?string $q = '';
 
     public string $category = 'blog';
 

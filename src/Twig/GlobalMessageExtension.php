@@ -93,7 +93,7 @@ class GlobalMessageExtension extends AbstractExtension
     private function renderMessage(?GlobalMessage $message): string
     {
         if (!is_null($message)) {
-            return $this->twig->render("app/includes/_message.html.twig", compact("message"));
+            return $this->twig->render("@frontend/includes/_message.html.twig", compact("message"));
         }
         return "";
     }

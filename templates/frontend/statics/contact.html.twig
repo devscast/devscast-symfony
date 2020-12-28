@@ -1,4 +1,4 @@
-{% extends "layout/base.html.twig" %}
+{% extends "@layout/base.html.twig" %}
 
 {% block meta %}
     <title>Contact | devs-cast.com</title>
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    {% include 'app/sections/_contact.html.twig' %}
+    {% include '@frontend/sections/_contact.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}

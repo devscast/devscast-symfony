@@ -1,4 +1,4 @@
-{% extends "layout/base.html.twig" %}
+{% extends "@layout/base.html.twig" %}
 
 {% block meta %}
     <title>Devscast Bâtisseurs Numériques | devs-cast.com</title>
@@ -17,7 +17,7 @@
                     <p class="mt-6">Nous sommes des développeurs freelance basés en RDC et RSA, spécialisés dans la création (et parfois la modélisation) de sites Web et d'applications de qualité exceptionnelle.</p>
                 </div>
                 <div class="mt-8">
-                    <a href="{{ path('contact') }}" class="btn btn-green sm:mr-3 sm:mb-0 mb-0">Prendre contact</a>
+                    <a href="{{ path('app_contact') }}" class="btn btn-green sm:mr-3 sm:mb-0 mb-0">Prendre contact</a>
                     <a href="{{ path('app_project_index') }}" class="btn btn-white text-green-500">Portfolio</a>
                 </div>
             </div>
@@ -38,19 +38,19 @@
     </div>
 
 
-    {% include 'app/sections/_clients.html.twig' %}
-    {% include 'app/sections/_featured.html.twig' %}
-    {% include "app/sections/_expertise.html.twig" %}
-    {% include 'app/sections/_services.html.twig' %}
-    {% include 'app/sections/_team.html.twig' %}
+    {% include '@frontend/sections/_clients.html.twig' %}
+    {% include '@frontend/sections/_featured.html.twig' %}
+    {% include "@frontend/sections/_expertise.html.twig" %}
+    {% include '@frontend/sections/_services.html.twig' %}
+    {% include '@frontend/sections/_team.html.twig' %}
     <div class="md:p-20  py-10 p-5 bg-gray-100">
         <div class="shadow-lg py-10 px-2 bg-white">
             <div class="mx-auto text-center">
                 <h1 class="lg:w-2/4 md:w-3/4  mx-auto text-4xl font-bold text-blue-900">Besoin d'un site ou application web moderne ?</h1>
                 <p class="text-lg mb-8 mt-4">Notre équipe est prête à vous aider, contactez nous maintenant et obtenez un dévis gratuit.</p>
-                <a href="{{ path('contact') }}" class="btn-lg btn-green">Prendre contact</a>
+                <a href="{{ path('app_contact') }}" class="btn-lg btn-green">Prendre contact</a>
             </div> 
         </div>
     </div>
-    {% include 'app/sections/_bloging.html.twig' %}
+    {% include '@frontend/sections/_bloging.html.twig' %}
 {% endblock %}

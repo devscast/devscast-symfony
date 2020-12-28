@@ -1,103 +1,79 @@
-{% extends 'layout/admin.html.twig' %}
-
-{% block breadcrumb %}
-    <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ path('admin_post_index') }}">Post</a></li>
-            </ol>
-        </nav>
-        <h1 class="mg-b-0 tx-spacing--1">{{ post.name }}</h1>
-    </div>
-{% endblock %}
+{% extends '@layout/backend/show.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid">
-        <div class="mb-3">
-            <a class="btn btn-sm btn-primary" href="{{ path('admin_post_edit', {id: post.id}) }}">
-                <i class="fa fa-edit"></i>
-            </a>
-            {{ include('admin/post/_delete_form.html.twig') }}
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <th>thumb</th>
-                        <td class="text-center">
-                            <img width="100%" height="auto" src="{{ vich_uploader_asset(post, 'thumb_file') }}"
-                                 alt="{{ post.name }}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Thumb_url</th>
-                        <td>{{ post.thumbUrl }}</td>
-                    </tr>
-                    <tr>
-                        <th>video_url</th>
-                        <td>{{ post.videoUrl }}</td>
-                    </tr>
-                    <tr>
-                        <th>Video</th>
-                        <td>
-                            <iframe
-                                    width="100%"
-                                    height="500px"
-                                    src="https://www.youtube-nocookie.com/embed/{{ post.videoUrl }}"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                            </iframe>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ post.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ post.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Description</th>
-                        <td>{{ post.description }}</td>
-                    </tr>
-                    <tr>
-                        <th>Content</th>
-                        <td>{{ post.content | markdown_to_html }}</td>
-                    </tr>
-                    <tr>
-                        <th>Created_at</th>
-                        <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Updated_at</th>
-                        <td>{{ post.updatedAt ? post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Is_online</th>
-                        <td>{{ post.isOnline ? 'Yes' : 'No' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Is_archived</th>
-                        <td>{{ post.isArchived ?
-                            '<i class="fa fa-check text-success"></i>' :
-                            '<i class="fa fa-times text-danger"></i>' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Duration</th>
-                        <td>{{ post.duration }}</td>
-                    </tr>
-                    <tr>
-                        <th>Slug</th>
-                        <td>{{ post.slug }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>thumb</th>
+                    <td class="text-center">
+                        <img width="100%" height="auto" src="{{ vich_uploader_asset(post, 'thumb_file') }}" alt="{{ vm.data.name }}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Thumb_url</th>
+                    <td>{{ vm.data.thumbUrl }}</td>
+                </tr>
+                <tr>
+                    <th>video_url</th>
+                    <td>{{ vm.data.videoUrl }}</td>
+                </tr>
+                <tr>
+                    <th>Video</th>
+                    <td>
+                        <iframe
+                                width="100%"
+                                height="500px"
+                                src="https://www.youtube-nocookie.com/embed/{{ vm.data.videoUrl }}"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ vm.data.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ vm.data.name }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ vm.data.description }}</td>
+                </tr>
+                <tr>
+                    <th>Content</th>
+                    <td>{{ vm.data.content | markdown_to_html }}</td>
+                </tr>
+                <tr>
+                    <th>Created_at</th>
+                    <td>{{ vm.data.createdAt ? vm.data.createdAt | date : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Updated_at</th>
+                    <td>{{ vm.data.updatedAt ? vm.data.updatedAt | date : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Is_online</th>
+                    <td>{{ vm.data.isOnline ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr>
+                    <th>Is_archived</th>
+                    <td>{{ active_status(vm.data.isArchived) }}</td>
+                </tr>
+                <tr>
+                    <th>Duration</th>
+                    <td>{{ vm.data.duration }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ vm.data.slug }}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

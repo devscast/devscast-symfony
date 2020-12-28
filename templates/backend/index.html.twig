@@ -1,4 +1,4 @@
-{% extends 'layout/admin.html.twig' %}
+{% extends '@layout/backend/base.html.twig' %}
 
 {% block body %}
     <div class="col-4 mg-t-10 mg-sm-t-0">
@@ -10,7 +10,7 @@
                 <h3 class="tx-normal tx-rubik mg-b-10 mg-r-5 lh-1">{{ user_count }}</h3>
             </div>
             <div class="chart-three">
-                <a href="{{ path('admin_user_index') }}" class="small-box-footer">
+                <a href="{{ path('backend_user_index') }}" class="small-box-footer">
                     View More
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
@@ -26,7 +26,7 @@
                 <h3 class="tx-normal tx-rubik mg-b-10 mg-r-5 lh-1">{{ post_count }}</h3>
             </div>
             <div class="chart-three">
-                <a href="{{ path('admin_post_index') }}" class="small-box-footer">
+                <a href="{{ path('backend_post_index') }}" class="small-box-footer">
                     View More
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
@@ -44,31 +44,11 @@
                 </h3>
             </div>
             <div class="chart-three">
-                <a href="{{ path('admin_blog_index') }}" class="small-box-footer">
+                <a href="{{ path('backend_blog_index') }}" class="small-box-footer">
                     View More
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('/assets/backend/lib/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-dt/js/dataTables.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js') }}"></script>
-    <script>
-        $(function () {
-            $('#datatable-challenge').DataTable({
-                responsive: true,
-                autoWidth: true,
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
-        });
-    </script>
 {% endblock %}

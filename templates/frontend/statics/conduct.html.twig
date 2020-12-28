@@ -1,4 +1,4 @@
-{% extends "layout/base.html.twig" %}
+{% extends "@layout/base.html.twig" %}
 
 {% block meta %}
     <title>Code de Conduite | devs-cast.com</title>
@@ -15,7 +15,7 @@
         </div>
         <div class="lg:mx-32 mx-4 -mt-20">
             <div class="bg-white shadow-2xl rounded-lg md:p-16 p-5">
-                {{ include('app/documents/conduct.md.twig') | markdown_to_html }}
+                {{ include('@frontend/documents/conduct.md.twig') | markdown_to_html }}
             </div>
         </div>
     </main>

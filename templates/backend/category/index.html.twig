@@ -1,60 +1,24 @@
-{% extends 'layout/admin.html.twig' %}
+{% extends '@layout/backend/show.html.twig' %}
 
-{% block breadcrumb %}
-    <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ path('admin_category_index') }}">Category</a></li>
-            </ol>
-        </nav>
-        <h1 class="mg-b-0 tx-spacing--1">Category</h1>
-    </div>
-{% endblock %}
-
-{% block body %}
-    <div class="mb-3 col-12">
-        <a class="btn btn-primary" href="{{ path('admin_category_new') }}">
-            New Category
-        </a>
-    </div>
-    <div class="card col-12">
-        <div class="card-body align-content-center">
-            <div data-label="blog">
-                <table id="datatable-category" class="table" style="width: 100%">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Created_at</th>
-                        <th>Archived</th>
-                        <th>actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for category in categories %}
-                    <tr>
-                        <td>{{ category.id }}</td>
-                        <td>{{ category.name }}</td>
-                        <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ category.isArchived ?
-                            '<i class="fa fa-check text-success"></i>' :
-                            '<i class="fa fa-times text-danger"></i>' }}
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-primary" href="{{ path('admin_category_show', {'id': category.id}) }}">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                            <a class="btn btn-sm btn-primary" href="{{ path('admin_category_edit', {'id': category.id}) }}">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            {{ include('admin/category/_delete_form.html.twig') }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+{% block content %}
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Created_at</th>
+        <th>Archived</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in vm.data %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.createdAt ? item.createdAt | date : '' }}</td>
+            <td>{{ active_status(item.isArchived) }}</td>
+            <td>{{ include('@layout/backend/_actions.html.twig') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
 {% endblock %}

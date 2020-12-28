@@ -82,7 +82,7 @@ class SideBarExtension extends AbstractExtension
     {
         return $this->cache->get('blogSideBar', function (ItemInterface $item) {
             $item->tag(['tags', 'categories', 'posts']);
-            return $this->twig->render("app/blog/_sidebar.html.twig", [
+            return $this->twig->render("@frontend/blog/_sidebar.html.twig", [
                 'tags' => $this->tagRepository->findAll(),
                 'categories' => $this->categoryRepository->findAll(),
                 'posts' => $this->blogRepository->findForSidebar()
@@ -97,7 +97,7 @@ class SideBarExtension extends AbstractExtension
     {
         return $this->cache->get('postSideBar', function (ItemInterface $item) {
             $item->tag(['posts']);
-            return $this->twig->render('app/posts/_sidebar.html.twig', [
+            return $this->twig->render('@frontend/posts/_sidebar.html.twig', [
                 'posts' => $this->postRepository->findForSidebar()
             ]);
         });

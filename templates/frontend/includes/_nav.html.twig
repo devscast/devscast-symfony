@@ -2,7 +2,7 @@
 <header>
     <nav class="navbar w-full">
         <div class="flex-shrink-0">
-            <a href="{{ path('home') }}" class="sidebar-logo lg:flex mt-0">
+            <a href="{{ path('app_home') }}" class="sidebar-logo lg:flex mt-0">
                 <img src="{{ asset('assets/img/icon.png') }}" class="w-12" alt="">
                 <span class="font-semibold text-gray-800">Devs<span class="font-normal text-gray-700">cast</span> </span>
             </a>
@@ -22,24 +22,23 @@
         </div>
 
         <div id="links" class="nav-links sidebar -ml-all">
-            <a href="{{ path('home') }}" class="sidebar-logo mb-10">
+            <a href="{{ path('app_home') }}" class="sidebar-logo mb-10">
                 <img src="{{ asset('assets/img/icon.png') }}" class="w-12" alt="">
                 <span>Devs<span class="font-normal text-gray-700">cast</span> </span>
             </a>
 
             <div class="text-md lg:flex-grow">
-                <a href="{{ path('home') }}" class="nav-link  {{ _route == "home" ? 'active' : '' }}">Accueil</a>
-                <a href="{{ path('app_project_index') }}" class="nav-link {{ _route == "app_project_index" or _route == "app_project_show" ? "active" : "" }}">Projets</a>
-                <a href="{{ path('app_post_index') }}" class="nav-link {{ _route == "app_post_index" or _route == "app_post_show" ? "active" : "" }}">Tutoriels</a>
-                <a href="{{ path('app_blog_index') }}" class="nav-link  {{ _route == "app_blog_index" or _route == "app_blog_show" ? 'active' : '' }}">Blog</a>
-                <a href="{{ path('contact') }}" class="nav-link {{ _route == "contact" ? 'active' : '' }}">Contact</a>
+                <a href="{{ path('app_home') }}" class="nav-link  {{ active_link('home') }}">Accueil</a>
+                <a href="{{ path('app_project_index') }}" class="nav-link {{ active_link('app_project_index') }}">Projets</a>
+                <a href="{{ path('app_post_index') }}" class="nav-link {{ active_link('app_post_index') }}">Tutoriels</a>
+                <a href="{{ path('app_blog_index') }}" class="nav-link  {{ active_link('app_blog_index') }}">Blog</a>
+                <a href="{{ path('app_contact') }}" class="nav-link {{ active_link('app_contact') }}">Contact</a>
             </div>
 
             <div class="lg:ml-5 mt-4 lg:mt-0 lg:mb-0 mb-4">
                 <form id="sForm" action="{{ path("app_post_search") }}" method="get" class="lg:hidden">
                     <div class="flex my-2 lg:w-auto">
-                        <input type="search" name="q" id="q" placeholder="Rechercher un tuto ou un article"
-                               class="search-input">
+                        <input type="search" name="q" id="q" placeholder="Rechercher un tuto ou un article" class="search-input">
                         <button type="submit" class="btn-search">
                             <svg class="fill-current pointer-events-none  w-4 h-4 " xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 20 20">

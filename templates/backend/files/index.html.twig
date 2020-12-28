@@ -7,8 +7,8 @@
 {% block breadcrumb %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-            <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ path('admin_files_index') }}">files</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('backend_index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('backend_files_index') }}">files</a></li>
         </ol>
     </nav>
     <h4 class="mg-b-15 mg-lg-b-25">All Files</h4>
@@ -24,7 +24,7 @@
                 <div class="col-4 col-lg-3 mt-3">
                     <div class="card card-file">
                         <div class="card-file-thumb tx-primary">
-                            <a href="{{ path('admin_files_show') }}?file={{ file.realpath }}">
+                            <a href="{{ path('backend_files_show') }}?file={{ file.realpath }}">
                                 {% if not file.isDir %}
                                     <i class="fa fa-file-{{ file.extension == 'jpg' ? 'image' : 'alt' }}"></i>
                                 {% else %}
@@ -39,7 +39,7 @@
                         <div class="card-footer">
                             <div class="mb-2">Last accessed: {{ file.aTime | date('d M Y H:i') }}</div>
                             {% if file.isFile %}
-                                <form method="post" action="{{ path('admin_files_delete') }}"
+                                <form method="post" action="{{ path('backend_files_delete') }}"
                                       onsubmit="return confirm('Are you sure you want to delete this item?');">
                                     <input type="hidden" name="_file" value="{{ file.realpath }}">
                                     <input type="hidden" name="_key" value="{{ file.key }}">

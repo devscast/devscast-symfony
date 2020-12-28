@@ -42,8 +42,6 @@ class PostController extends CrudController
     protected array $views = [
         'index' => '@backend/post/index.html.twig',
         'show' => '@backend/post/show.html.twig',
-        'edit' => '@backend/post/forms.html.twig',
-        'new' => '@backend/post/forms.html.twig',
     ];
     protected array $events = [
         'created' => null,

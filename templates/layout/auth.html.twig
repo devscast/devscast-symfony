@@ -1,9 +1,9 @@
 {% apply spaceless %}
     <!doctype html>
-    {% include "app/includes/_copyright.html.twig" %}
+    {% include "@frontend/includes/_copyright.html.twig" %}
     <html lang="{{ meta().lang | default('fr') }}">
     <head>
-        {% include "app/includes/_meta.html.twig" %}
+        {% include "@frontend/includes/_meta.html.twig" %}
         {% block stylesheets %}{% endblock %}
         {{ encore_entry_link_tags('frontend/app') }}
         {% block meta %}{% endblock %}
@@ -30,10 +30,10 @@
             </div>
         </div>
     {% endif %}
-    {% include "app/includes/_nav.html.twig" %}
+    {% include "@frontend/includes/_nav.html.twig" %}
     <div id="js-particles"></div>
     {% block body %}{% endblock %}
-    {% include "app/includes/_footer.html.twig" %}
+    {% include "@frontend/includes/_footer.html.twig" %}
 
     <script type="application/ld+json">
         {

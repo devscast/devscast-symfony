@@ -27,7 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProjectController extends AbstractController
 {
-    private stdClass $projects;
+    private ?stdClass $projects = null;
 
     /**
      * @return mixed

@@ -40,14 +40,14 @@ class TagController extends CrudController
     ];
     protected array $views = [
         'index' => '@backend/tag/index.html.twig',
-        'show' => null,
-        'edit' => '@backend/tag/forms.html.twig',
-        'new' => '@backend/tag/forms.html.twig',
     ];
     protected array $events = [
         'created' => null,
         'edited' => null,
         'deleted' => null
+    ];
+    protected array $options = [
+        'show' => false
     ];
 
     /**

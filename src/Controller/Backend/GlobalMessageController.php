@@ -37,14 +37,14 @@ class GlobalMessageController extends CrudController
     protected const FILTERABLE_FIELDS = [];
     protected array $views = [
         'index' => '@backend/message/index.html.twig',
-        'show' => null,
-        'edit' => null,
-        'new' => null,
     ];
     protected array $events = [
         'created' => null,
         'edited' => null,
         'deleted' => null
+    ];
+    protected array $options = [
+        'show' => false
     ];
 
     /**

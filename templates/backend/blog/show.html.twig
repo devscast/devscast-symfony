@@ -12,45 +12,45 @@
                 <tr>
                     <th>thumb</th>
                     <td class="text-center">
-                        <img width="80%" height="auto" src="{{ vich_uploader_asset(blog, 'thumb_file') }}"
-                             alt="{{ blog.name }}"/>
+                        <img width="80%" height="auto" src="{{ vich_uploader_asset(vm.data, 'thumb_file') }}"
+                             alt="{{ vm.data.name }}"/>
                     </td>
                 </tr>
                 <tr>
                     <th>Id</th>
-                    <td>{{ blog.id }}</td>
+                    <td>{{ vm.data.id }}</td>
                 </tr>
                 <tr>
                     <th>Name</th>
-                    <td>{{ blog.name }}</td>
+                    <td>{{ vm.data.name }}</td>
                 </tr>
                 <tr>
                     <th>Content</th>
-                    <td>{{ blog.content | markdown_to_html }}</td>
+                    <td>{{ vm.data.content | markdown_to_html }}</td>
                 </tr>
                 <tr>
                     <th>Thumb_url</th>
-                    <td>{{ blog.thumbUrl }}</td>
+                    <td>{{ vm.data.thumbUrl }}</td>
                 </tr>
                 <tr>
                     <th>Created_at</th>
-                    <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ vm.data.createdAt ? vm.data.createdAt| date : '' }}</td>
                 </tr>
                 <tr>
                     <th>Updated_at</th>
-                    <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ vm.data.updatedAt ? vm.data.updatedAt| date : '' }}</td>
                 </tr>
                 <tr>
                     <th>Is_online</th>
-                    <td>{{ blog.isOnline ? 'Yes' : 'No' }}</td>
+                    <td>{{ active_status(vm.data.isOnline) }}</td>
                 </tr>
                 <tr>
                     <th>Is_archived</th>
-                    <td>{{ blog.isArchived ? 'Yes' : 'No' }}</td>
+                    <td>{{ active_status(vm.data.isArchived) }}</td>
                 </tr>
                 <tr>
                     <th>Slug</th>
-                    <td>{{ blog.slug }}</td>
+                    <td>{{ vm.data.slug }}</td>
                 </tr>
                 </tbody>
             </table>

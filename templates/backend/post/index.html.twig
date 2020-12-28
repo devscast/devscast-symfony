@@ -1,87 +1,28 @@
-{% extends 'layout/admin.html.twig' %}
+{% extends '@layout/backend/base.html.twig' %}
 
-{% block breadcrumb %}
-    <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ path('admin_post_index') }}">Post</a></li>
-            </ol>
-        </nav>
-        <h1 class="mg-b-0 tx-spacing--1">Post</h1>
-    </div>
-{% endblock %}
-
-{% block body %}
-    <div class="mb-3 col-12">
-        <a class="btn btn-primary" href="{{ path('admin_post_new') }}">
-            New Post
-        </a>
-    </div>
-    <div class="card col-12">
-        <div class="card-body align-content-center">
-            <div data-label="blog">
-                <table id="datatable-blog" class="table" style="width: 100%">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Created_at</th>
-                        <th>Online</th>
-                        <th>Archived</th>
-                        <th>Duration</th>
-                        <th>actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for post in posts %}
-                        <tr>
-                            <td>{{ post.id }}</td>
-                            <td>{{ post.name }}</td>
-                            <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                            <td>{{ post.isOnline ?
-                                '<i class="fa fa-check text-success"></i>' :
-                                '<i class="fa fa-times text-danger"></i>' }}
-                            </td>
-                            <td>{{ post.isArchived ?
-                                '<i class="fa fa-check text-success"></i>' :
-                                '<i class="fa fa-times text-danger"></i>' }}
-                            </td>
-                            <td>{{ post.duration }}</td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="{{ path('admin_post_show', {'id': post.id}) }}">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a class="btn btn-sm btn-primary" href="{{ path('admin_post_edit', {'id': post.id}) }}">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                {{ include('admin/post/_delete_form.html.twig') }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('/assets/backend/lib/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-dt/js/dataTables.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('/assets/backend/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js') }}"></script>
-    <script>
-        $(function () {
-            $('#datatable-blog').DataTable({
-                responsive: true,
-                autoWidth: true,
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
-        });
-    </script>
+{% block content %}
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Created_at</th>
+        <th>Online</th>
+        <th>Archived</th>
+        <th>Duration</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for post in vm.data %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            <td>{{ active_status(item.isOnline)  }}</td>
+            <td>{{ active_status(item.isArchived)  }}</td>
+            <td>{{ item.duration }}</td>
+            <td>{{ include('@layout/backend/_actions.html.twig') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
 {% endblock %}

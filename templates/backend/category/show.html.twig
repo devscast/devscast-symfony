@@ -1,59 +1,30 @@
-{% extends 'layout/admin.html.twig' %}
-
-{% block breadcrumb %}
-    <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                <li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ path('admin_blog_index') }}">Blog</a></li>
-            </ol>
-        </nav>
-        <h1 class="mg-b-0 tx-spacing--1">{{ blog.name }}</h1>
-    </div>
-{% endblock %}
+{% extends '@layout/backend/show.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid">
-        <div class="mb-3">
-            <a class="btn btn-sm btn-primary" href="{{ path('admin_blog_edit', {id: blog.id}) }}">
-                <i class="fa fa-edit"></i>
-            </a>
-            {{ include('admin/blog/_delete_form.html.twig') }}
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ category.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ category.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Description</th>
-                        <td>{{ category.description | markdown_to_html }}</td>
-                    </tr>
-                    <tr>
-                        <th>Created_at</th>
-                        <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Is_archived</th>
-                        <td>{{ category.isArchived ?
-                            '<i class="fa fa-check text-success"></i>' :
-                            '<i class="fa fa-times text-danger"></i>' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Slug</th>
-                        <td>{{ category.slug }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <td>{{ vm.data.id }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ vm.data.name }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ vm.data.description | markdown_to_html }}</td>
+    </tr>
+    <tr>
+        <th>Created_at</th>
+        <td>{{ vm.data.createdAt ? vm.data.createdAt| date : '' }}</td>
+    </tr>
+    <tr>
+        <th>Is_archived</th>
+        <td>{{ active_status(vm.data.isArchived) }}</td>
+    </tr>
+    <tr>
+        <th>Slug</th>
+        <td>{{ vm.data.slug }}</td>
+    </tr>
+    </tbody>
 {% endblock %}

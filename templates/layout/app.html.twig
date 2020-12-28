@@ -19,7 +19,7 @@
     </div>
 {% endblock %}
 <div class="">
-    {{ include('admin/_sidebar.html.twig') }}
+    {{ include('@layout/backend/_sidebar.html.twig') }}
     <div class="content ht-100v pd-0">
         <div class="content-body">
             <div class="container">
@@ -37,7 +37,7 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
 <script src="/assets/jquery.min.js"></script>
-{{ encore_entry_script_tags('dashboard/app  ') }}
+{{ encore_entry_script_tags('dashboard/app') }}
 {% block javascripts %}{% endblock %}
 </body>
 </html>

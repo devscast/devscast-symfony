@@ -36,15 +36,22 @@ abstract class CrudController extends AbstractController
     protected string $form = '';
     protected const FILTERABLE_FIELDS = [];
     protected array $views = [
-        'index' => '@backend/post/index.html.twig',
+        'index' => null,
         'show' => null,
-        'edit' => null,
-        'new' => null,
+        'edit' => '@layout/backend/_form.html.twig',
+        'new' => '@layout/backend/_form.html.twig',
     ];
     protected array $events = [
         'created' => null,
         'edited' => null,
         'deleted' => null
+    ];
+    protected array $options = [
+        'stats' => false,
+        'show' => true,
+        'create' => true,
+        'delete' => true,
+        'edit' => true
     ];
 
     protected EntityManagerInterface $em;
@@ -90,7 +97,7 @@ abstract class CrudController extends AbstractController
         }
 
         $items = $this->paginator->paginate($qb->orderBy("item.id", "DESC"), $page, 50);
-        $vm = new ViewData($this->domain, $items, ['search_filters' => static::FILTERABLE_FIELDS]);
+        $vm = new ViewData($this->domain, $items, [...$this->options, ['search_filters' => static::FILTERABLE_FIELDS]]);
         return $this->render($this->views['index'], compact('vm'));
     }
 }

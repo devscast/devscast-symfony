@@ -86,7 +86,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route(path="/search", name="app_post_search", methods={"GET"})
+     * @Route(path="/search", name="search", methods={"GET"})
      * @param Request $request
      * @return Response
      * @author bernard-ng <ngandubernard@gmail.com>

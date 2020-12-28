@@ -8,7 +8,7 @@
             {% if blogs is defined %}
                 {% for blog in blogs %}
                     <div class="blog-card2 sm:mt-10 mt-3">
-                        {% include "app/blog/_card.html.twig" %}
+                        {% include "@frontend/blog/_card.html.twig" %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -20,7 +20,5 @@
                 <h1>Pas d'articles disponible</h1>
             </div>
         {% endif %}
-
-        
     </div>
 </main>

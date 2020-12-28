@@ -42,8 +42,6 @@ class BlogController extends CrudController
     protected array $views = [
         'index' => '@backend/blog/index.html.twig',
         'show' => '@backend/blog/show.html.twig',
-        'edit' => '@backend/blog/forms.html.twig',
-        'new' => '@backend/blog/forms.html.twig',
     ];
     protected array $events = [
         'created' => null,

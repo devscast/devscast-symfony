@@ -42,8 +42,6 @@ class CategoryController extends CrudController
     protected array $views = [
         'index' => '@backend/category/index.html.twig',
         'show' => '@backend/category/show.html.twig',
-        'edit' => '@backend/category/forms.html.twig',
-        'new' => '@backend/category/forms.html.twig',
     ];
     protected array $events = [
         'created' => null,

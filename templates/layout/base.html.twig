@@ -1,15 +1,13 @@
 {% apply spaceless %}
     <!doctype html>
-    {% include "app/includes/_copyright.html.twig" %}
+    {% include "@frontend/includes/_copyright.html.twig" %}
     <html lang="{{ meta().lang | default('fr') }}">
     <head>
-        {% include "app/includes/_meta.html.twig" %}
-        <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/flaticon.css') }}">
+        {% include "@frontend/includes/_meta.html.twig" %}
         {% block stylesheets %}{% endblock %}
         {{ encore_entry_link_tags('frontend/app') }}
         {% block meta %}
-            <title>Numberic Builders | devs-cast.com</title>
+            <title>Numeric Builders | devs-cast.com</title>
             <meta property="og:title" content="Numeric Builders | devs-cast.com"/>
             <meta property="og:description" content="{{ meta().description }}"/>
             <meta name="description" content="{{ meta().description }}"/>
@@ -31,10 +29,9 @@
     <body class="overflow-x-hidden" data-route="{{ app.request.get("_route") }}">
 
     {{ global_message() }}
-    {% include "app/includes/_nav.html.twig" %}
-    <div id="js-particles"></div>
+    {% include "@frontend/includes/_nav.html.twig" %}
     {% block body %}{% endblock %}
-    {% include "app/includes/_footer.html.twig" %}
+    {% include "@frontend/includes/_footer.html.twig" %}
 
     <script type="application/ld+json">
         {
@@ -53,7 +50,6 @@
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
-    <script src="/assets/jquery.min.js"></script>
     {% block javascripts %}{% endblock %}
     {{ encore_entry_script_tags('frontend/app') }}
     </body>
