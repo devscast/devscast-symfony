@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Security\Voter;
 
-use App\Entity\Blog;
+use App\Entity\Post;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -44,18 +44,18 @@ class PostVoter extends Voter
 
     /**
      * @param string $attribute
-     * @param Blog $subject
+     * @param Post $subject
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    protected function supports(string $attribute, $subject)
+    protected function supports(string $attribute, $subject): bool
     {
-        return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE]) && $subject instanceof Blog;
+        return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE]) && $subject instanceof Post;
     }
 
     /**
      * @param string $attribute
-     * @param Blog $subject
+     * @param Post $subject
      * @param TokenInterface $token
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
