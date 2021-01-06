@@ -1,23 +1,23 @@
-{% extends '@layout/backend/base.html.twig' %}
+{% extends '@layout/backend/index.html.twig' %}
 
 {% block content %}
     <thead>
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Created_at</th>
+        <th>Created At</th>
         <th>Online</th>
         <th>Archived</th>
         <th>Duration</th>
-        <th>actions</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    {% for post in vm.data %}
+    {% for item in vm.data %}
         <tr>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
-            <td>{{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            <td>{{ item.createdAt ? item.createdAt| date }}</td>
             <td>{{ active_status(item.isOnline)  }}</td>
             <td>{{ active_status(item.isArchived)  }}</td>
             <td>{{ item.duration }}</td>

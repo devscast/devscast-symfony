@@ -97,7 +97,11 @@ abstract class CrudController extends AbstractController
         }
 
         $items = $this->paginator->paginate($qb->orderBy("item.id", "DESC"), $page, 50);
-        $vm = new ViewData($this->domain, $items, [...$this->options, ['search_filters' => static::FILTERABLE_FIELDS]]);
+        $vm = new ViewData(
+            $this->domain,
+            $items,
+            array_merge($this->options, ['search_filters' => static::FILTERABLE_FIELDS])
+        );
         return $this->render($this->views['index'], compact('vm'));
     }
 }

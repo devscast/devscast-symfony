@@ -15,11 +15,11 @@
         <td>{{ vm.data.description | markdown_to_html }}</td>
     </tr>
     <tr>
-        <th>Created_at</th>
+        <th>Created At</th>
         <td>{{ vm.data.createdAt ? vm.data.createdAt| date : '' }}</td>
     </tr>
     <tr>
-        <th>Is_archived</th>
+        <th>Is Archived</th>
         <td>{{ active_status(vm.data.isArchived) }}</td>
     </tr>
     <tr>

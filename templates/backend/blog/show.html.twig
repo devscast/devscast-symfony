@@ -29,23 +29,23 @@
                     <td>{{ vm.data.content | markdown_to_html }}</td>
                 </tr>
                 <tr>
-                    <th>Thumb_url</th>
+                    <th>Thumb Url</th>
                     <td>{{ vm.data.thumbUrl }}</td>
                 </tr>
                 <tr>
-                    <th>Created_at</th>
+                    <th>Created At</th>
                     <td>{{ vm.data.createdAt ? vm.data.createdAt| date : '' }}</td>
                 </tr>
                 <tr>
-                    <th>Updated_at</th>
+                    <th>Updated At</th>
                     <td>{{ vm.data.updatedAt ? vm.data.updatedAt| date : '' }}</td>
                 </tr>
                 <tr>
-                    <th>Is_online</th>
+                    <th>Is Online</th>
                     <td>{{ active_status(vm.data.isOnline) }}</td>
                 </tr>
                 <tr>
-                    <th>Is_archived</th>
+                    <th>Is Archived</th>
                     <td>{{ active_status(vm.data.isArchived) }}</td>
                 </tr>
                 <tr>

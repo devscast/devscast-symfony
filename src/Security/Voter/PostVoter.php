@@ -60,7 +60,7 @@ class PostVoter extends Voter
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token)
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
         /** @var User $user */
         $user = $token->getUser();

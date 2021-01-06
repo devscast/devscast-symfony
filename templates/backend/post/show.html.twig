@@ -6,17 +6,18 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th>thumb</th>
+                    <th>Thumb</th>
                     <td class="text-center">
-                        <img width="100%" height="auto" src="{{ vich_uploader_asset(post, 'thumb_file') }}" alt="{{ vm.data.name }}"/>
+                        <img width="100%" height="auto" src="{{ vich_uploader_asset(post, 'thumb_file') }}"
+                             alt="{{ vm.data.name }}"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>Thumb_url</th>
+                    <th>Thumb Url</th>
                     <td>{{ vm.data.thumbUrl }}</td>
                 </tr>
                 <tr>
-                    <th>video_url</th>
+                    <th>Video Url</th>
                     <td>{{ vm.data.videoUrl }}</td>
                 </tr>
                 <tr>
@@ -49,19 +50,19 @@
                     <td>{{ vm.data.content | markdown_to_html }}</td>
                 </tr>
                 <tr>
-                    <th>Created_at</th>
-                    <td>{{ vm.data.createdAt ? vm.data.createdAt | date : '' }}</td>
+                    <th>Created At</th>
+                    <td>{{ vm.data.createdAt ? vm.data.createdAt | date : '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Updated_at</th>
-                    <td>{{ vm.data.updatedAt ? vm.data.updatedAt | date : '' }}</td>
+                    <th>Updated At</th>
+                    <td>{{ vm.data.updatedAt ? vm.data.updatedAt | date : '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Is_online</th>
-                    <td>{{ vm.data.isOnline ? 'Yes' : 'No' }}</td>
+                    <th>Is Online</th>
+                    <td>{{ active_status(vm.data.isOnline) }}</td>
                 </tr>
                 <tr>
-                    <th>Is_archived</th>
+                    <th>Is Archived</th>
                     <td>{{ active_status(vm.data.isArchived) }}</td>
                 </tr>
                 <tr>

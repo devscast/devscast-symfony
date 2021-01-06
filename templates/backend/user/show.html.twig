@@ -22,19 +22,19 @@
                     <td>{{ vm.data.name }}</td>
                 </tr>
                 <tr>
-                    <th>Last_login_at</th>
+                    <th>Last Login At</th>
                     <td>{{ vm.data.lastLoginAt ? vm.data.lastLoginAt| date : '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Last_login_ip</th>
+                    <th>Last Login Ip</th>
                     <td>{{ vm.data.lastLoginIp }}</td>
                 </tr>
                 <tr>
-                    <th>Created_at</th>
+                    <th>Created At</th>
                     <td>{{ vm.data.createdAt ? vm.data.createdAt| date : '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Updated_at</th>
+                    <th>Updated At</th>
                     <td>{{ vm.data.updatedAt ? vm.data.updatedAt| date : '-' }}</td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                     <td>{{ vm.data.avatar }}</td>
                 </tr>
                 <tr>
-                    <th>Is_archived</th>
+                    <th>Is Archived</th>
                     <td>{{ active_status(vm.data.isArchived) }}
                     </td>
                 </tr>
@@ -51,4 +51,3 @@
         </div>
     </div>
 {% endblock %}
-

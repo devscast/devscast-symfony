@@ -43,6 +43,8 @@ class UserController extends CrudController
     protected array $views = [
         'index' => '@backend/user/index.html.twig',
         'show' => '@backend/user/show.html.twig',
+        'edit' => '@layout/backend/_form.html.twig',
+        'new' => '@layout/backend/_form.html.twig',
     ];
     protected array $events = [
         'created' => null,
@@ -53,10 +55,10 @@ class UserController extends CrudController
     /**
      * @Route("", name="index", methods={"GET"})
      * @param Request $request
-     * @param QueryBuilder|null $builder
+     * @param QueryBuilder|null $qb
      * @return Response
      */
-    public function index(Request $request, ?QueryBuilder $builder = null): Response
+    public function index(Request $request, ?QueryBuilder $qb = null): Response
     {
         return parent::index($request);
     }

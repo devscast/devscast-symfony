@@ -47,7 +47,7 @@ class UserVoter extends Voter
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    protected function supports(string $attribute, $subject)
+    protected function supports(string $attribute, $subject): bool
     {
         return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE]) && $subject instanceof User;
     }
@@ -59,7 +59,7 @@ class UserVoter extends Voter
      * @return bool
      * @author bernard-ng <ngandubernard@gmail.com>
      */
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token)
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
         /** @var User $user */
         $user = $token->getUser();
