@@ -61,14 +61,8 @@
                     </p>
                     <hr class="my-5">
                     <span>Par : <span class="text-green-500">{{ _data.user.name }}</span></span>
-                    <div class="card mt-5">
-                        <h5 class="text-center">Partager l'article</h5>
-                        <div class="mt-6 flex justify-center gap-3">
-                            <a href="" class="btn-circle btn-blue">f</a>
-                            <a href="" class="btn-circle btn-green">w</a>
-                            <a href="" class="btn-circle btn-teal">in</a>
-                            <a href="" class="btn-circle btn-blue">t</a>
-                        </div>
+                    <div class="card mt-5 text-center">
+                        {{ include('@frontend/includes/_share.html.twig' , {url: url('app_blog_show', {slug:  _data.slug, id:  _data.id}), name:  _data.name}) }}
                     </div>
                 </div>
             </div>
