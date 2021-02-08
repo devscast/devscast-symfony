@@ -2,7 +2,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
-    "@symfony/webpack-encore": "^0.31.0",
+    "@symfony/webpack-encore": "^1.0.5",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "node-sass": "^4.14.1",
