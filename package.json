@@ -9,7 +9,7 @@
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.7",
-    "sass-loader": "^9.0.0",
+    "sass-loader": "^11.0.0",
     "tailwindcss": "^1.8.9",
     "url-loader": "^2.0.1",
     "webpack-notifier": "^1.6.0"
