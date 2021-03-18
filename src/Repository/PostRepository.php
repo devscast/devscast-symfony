@@ -49,8 +49,7 @@ class PostRepository extends ServiceEntityRepository
         ManagerRegistry $registry,
         PaginatorInterface $pagination,
         LoggerInterface $logger
-    )
-    {
+    ) {
         parent::__construct($registry, Post::class);
         $this->paginator = $pagination;
         $this->logger = $logger;
