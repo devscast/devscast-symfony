@@ -55,8 +55,8 @@ clear: vendor/autoload.php ## efface le cache de l'application
 	php bin/console cache:clear -v
 
 vendor/autoload.php: composer.lock # installe les dépendances PHP
-	composer install
-	touch vendor/autoload.php
+	composer update
+	composer dump-autoload
 
 node_modules/time: yarn.lock # installe les dépendances javascript
 	yarn
