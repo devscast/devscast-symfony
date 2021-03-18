@@ -5,6 +5,10 @@ jobs:
     name: PHP Lint
     runs-on: ubuntu-latest
     steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
       - uses: actions/checkout@master
       - name: lint
         run: make lint && php bin/console lint:yaml config && php bin/console lint:twig templates
