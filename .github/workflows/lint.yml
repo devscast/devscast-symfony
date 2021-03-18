@@ -1,0 +1,10 @@
+name: Lint
+on: [push]
+jobs:
+  lint:
+    name: PHP Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: lint
+        run: make lint && php bin/console lint:yaml config && php bin/console lint:twig templates
